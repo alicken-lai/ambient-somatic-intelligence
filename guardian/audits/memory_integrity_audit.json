@@ -2,7 +2,7 @@
   "checks": [
     {
       "check": "dmn_schema",
-      "detail": "59 records valid",
+      "detail": "62 records valid",
       "status": "ok"
     },
     {
@@ -31,6 +31,11 @@
       "status": "ok"
     },
     {
+      "check": "orphan_generated_artifacts",
+      "detail": "screenshots_without_analysis=none; analysis_missing_screenshots=none; preprocessed_without_parent_analysis=none",
+      "status": "ok"
+    },
+    {
       "check": "health_history_consistency",
       "detail": "{\"health_score\":true,\"path\":true,\"timestamp\":true}",
       "status": "ok"
@@ -47,20 +52,20 @@
     },
     {
       "check": "daily_digest_values_match_source",
-      "detail": "dmn_append_count: digest=57 dashboard=58; dmn_append_count: digest=57 current=59",
+      "detail": "dmn_append_count: digest=57 dashboard=58; dmn_append_count: digest=57 current=62",
       "status": "warning"
     }
   ],
   "corrective_actions": "none",
-  "generated_at": "2026-05-11T23:07:29.891403+00:00",
+  "generated_at": "2026-05-11T23:11:58.254145+00:00",
   "recommendations_only": true,
   "status_counts": {
-    "ok": 9,
+    "ok": 10,
     "warning": 1
   },
   "summary": {
     "dashboard": {
-      "current_dmn_count": 59,
+      "current_dmn_count": 62,
       "digest_dmn_count": 57
     },
     "health": {
@@ -73,6 +78,11 @@
       "incident_count": 2,
       "missing_refs": [],
       "orphan_notes": []
+    },
+    "orphan_files": {
+      "analysis_missing_screenshots": [],
+      "preprocessed_without_parent_analysis": [],
+      "screenshots_without_analysis": []
     }
   }
 }

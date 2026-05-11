@@ -27,6 +27,8 @@ HEALTH_JSON = ROOT / "guardian" / "health" / "health_scores.json"
 DASHBOARD_HTML = ROOT / "dashboard" / "index.html"
 DAILY_DIGEST = ROOT / "dashboard" / "daily_digest.md"
 DMN_FILE = ROOT / "memory" / "dmn.jsonl"
+CUA_ANALYSIS_DIR = ROOT / "tools" / "cua" / "analysis"
+CUA_SCREENSHOT_DIR = ROOT / "tools" / "cua" / "screenshots"
 
 
 def utc_now() -> str:
@@ -132,6 +134,63 @@ def audit_incidents(results: list[dict[str, str]]) -> dict[str, Any]:
     results.append(issue("ok" if not duplicates else "error", "duplicated_incident_ids", f"duplicates={duplicates or 'none'}"))
     results.append(issue("ok" if not missing_refs else "error", "incident_references", f"missing_refs={missing_refs or 'none'}"))
     return {"incident_count": len(indexed), "orphan_notes": orphan_notes, "duplicates": duplicates, "missing_refs": missing_refs}
+
+
+def audit_orphan_files(results: list[dict[str, str]]) -> dict[str, Any]:
+    analysis_files = sorted(path for path in CUA_ANALYSIS_DIR.glob("*.json"))
+    screenshot_files = sorted(CUA_SCREENSHOT_DIR.glob("*.png"))
+    preprocessed_files = sorted((CUA_ANALYSIS_DIR / "preprocessed").glob("*.png"))
+
+    analysis_names = {path.name for path in analysis_files}
+    screenshot_names = {path.name for path in screenshot_files}
+    referenced_preprocessed: set[str] = set()
+    screenshot_orphans = [
+        str(path.relative_to(ROOT))
+        for path in screenshot_files
+        if path.with_suffix(".json").name not in analysis_names
+    ]
+
+    def collect_preprocessed_paths(value: Any) -> None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key == "preprocessed_path" and isinstance(child, str):
+                    referenced_preprocessed.add(child)
+                else:
+                    collect_preprocessed_paths(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect_preprocessed_paths(child)
+
+    analysis_missing_screenshots: list[str] = []
+    for path in analysis_files:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            analysis_missing_screenshots.append(f"{path.relative_to(ROOT)}: invalid json")
+            continue
+        collect_preprocessed_paths(data)
+        screenshot = data.get("metadata", {}).get("path")
+        if isinstance(screenshot, str) and Path(screenshot).name not in screenshot_names:
+            analysis_missing_screenshots.append(f"{path.relative_to(ROOT)} -> {screenshot}")
+
+    preprocessed_orphans = [
+        str(path.relative_to(ROOT))
+        for path in preprocessed_files
+        if str(path.relative_to(ROOT)) not in referenced_preprocessed
+    ]
+
+    orphan_count = len(screenshot_orphans) + len(analysis_missing_screenshots) + len(preprocessed_orphans)
+    detail = (
+        f"screenshots_without_analysis={screenshot_orphans or 'none'}; "
+        f"analysis_missing_screenshots={analysis_missing_screenshots or 'none'}; "
+        f"preprocessed_without_parent_analysis={preprocessed_orphans or 'none'}"
+    )
+    results.append(issue("ok" if orphan_count == 0 else "warning", "orphan_generated_artifacts", detail))
+    return {
+        "screenshots_without_analysis": screenshot_orphans,
+        "analysis_missing_screenshots": analysis_missing_screenshots,
+        "preprocessed_without_parent_analysis": preprocessed_orphans,
+    }
 
 
 def audit_health(results: list[dict[str, str]]) -> dict[str, Any]:
@@ -262,11 +321,13 @@ def run_audit() -> dict[str, Any]:
     results: list[dict[str, str]] = []
     audit_dmn_and_logs(results)
     incident_summary = audit_incidents(results)
+    orphan_summary = audit_orphan_files(results)
     health_summary = audit_health(results)
     audit_baseline(results)
     dashboard_summary = audit_dashboard_and_digest(results)
     summary = {
         "incidents": incident_summary,
+        "orphan_files": orphan_summary,
         "health": health_summary,
         "dashboard": dashboard_summary,
     }
