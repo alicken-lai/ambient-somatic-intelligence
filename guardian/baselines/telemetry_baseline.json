@@ -1,0 +1,197 @@
+{
+  "current_path": "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json",
+  "current_source": "snapshot",
+  "current_timestamp": "2026-05-11T21:49:00.299316+00:00",
+  "generated_at": "2026-05-11T21:55:23.009180+00:00",
+  "metrics": {
+    "cpu_usage_percent": {
+      "baseline": {
+        "count": 4,
+        "max": 17.56,
+        "mean": 9.2,
+        "min": 2.12,
+        "stddev": 5.4963
+      },
+      "current": 17.56,
+      "deviation": {
+        "current": 17.56,
+        "delta_from_mean": 8.36,
+        "severity": "elevated",
+        "z_score": 1.521
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 17.56,
+        "mean": 11.56,
+        "min": 8.56,
+        "stddev": 4.2426
+      },
+      "rolling_window": 3
+    },
+    "disk_used_percent": {
+      "baseline": {
+        "count": 4,
+        "max": 54.52,
+        "mean": 53.965,
+        "min": 53.78,
+        "stddev": 0.3204
+      },
+      "current": 54.52,
+      "deviation": {
+        "current": 54.52,
+        "delta_from_mean": 0.555,
+        "severity": "elevated",
+        "z_score": 1.7322
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 54.52,
+        "mean": 54.0267,
+        "min": 53.78,
+        "stddev": 0.3488
+      },
+      "rolling_window": 3
+    },
+    "load_average_15m": {
+      "baseline": {
+        "count": 4,
+        "max": 1.8,
+        "mean": 1.745,
+        "min": 1.6,
+        "stddev": 0.0838
+      },
+      "current": 1.6,
+      "deviation": {
+        "current": 1.6,
+        "delta_from_mean": -0.145,
+        "severity": "elevated",
+        "z_score": -1.7303
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 1.79,
+        "mean": 1.7267,
+        "min": 1.6,
+        "stddev": 0.0896
+      },
+      "rolling_window": 3
+    },
+    "load_average_1m": {
+      "baseline": {
+        "count": 4,
+        "max": 2.8,
+        "mean": 1.68,
+        "min": 1.29,
+        "stddev": 0.647
+      },
+      "current": 2.8,
+      "deviation": {
+        "current": 2.8,
+        "delta_from_mean": 1.12,
+        "severity": "elevated",
+        "z_score": 1.7311
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 2.8,
+        "mean": 1.7933,
+        "min": 1.29,
+        "stddev": 0.7118
+      },
+      "rolling_window": 3
+    },
+    "load_average_5m": {
+      "baseline": {
+        "count": 4,
+        "max": 1.83,
+        "mean": 1.745,
+        "min": 1.71,
+        "stddev": 0.0497
+      },
+      "current": 1.83,
+      "deviation": {
+        "current": 1.83,
+        "delta_from_mean": 0.085,
+        "severity": "elevated",
+        "z_score": 1.7103
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 1.83,
+        "mean": 1.75,
+        "min": 1.71,
+        "stddev": 0.0566
+      },
+      "rolling_window": 3
+    },
+    "memory_used_percent": {
+      "baseline": {
+        "count": 4,
+        "max": 99.61,
+        "mean": 99.4625,
+        "min": 99.28,
+        "stddev": 0.1413
+      },
+      "current": 99.28,
+      "deviation": {
+        "current": 99.28,
+        "delta_from_mean": -0.1825,
+        "severity": "elevated",
+        "z_score": -1.2916
+      },
+      "incident_links": [
+        {
+          "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+          "recommendation": "Review memory pressure and avoid launching additional heavy local tasks.",
+          "rule": "high_memory_usage",
+          "severity": "warning",
+          "timestamp": "2026-05-11T21:49:02.703942+00:00"
+        }
+      ],
+      "rolling": {
+        "count": 3,
+        "max": 99.61,
+        "mean": 99.4933,
+        "min": 99.28,
+        "stddev": 0.1511
+      },
+      "rolling_window": 3
+    },
+    "process_count": {
+      "baseline": {
+        "count": 4,
+        "max": 667.0,
+        "mean": 632.0,
+        "min": 617.0,
+        "stddev": 20.3224
+      },
+      "current": 667.0,
+      "deviation": {
+        "current": 667.0,
+        "delta_from_mean": 35.0,
+        "severity": "elevated",
+        "z_score": 1.7222
+      },
+      "incident_links": [],
+      "rolling": {
+        "count": 3,
+        "max": 667.0,
+        "mean": 637.0,
+        "min": 621.0,
+        "stddev": 21.2289
+      },
+      "rolling_window": 3
+    }
+  },
+  "overall_deviation_severity": "elevated",
+  "recommendations": [
+    "Continue observing memory_used_percent; it is linked to prior incident memory."
+  ],
+  "recommendations_only": true,
+  "telemetry_count": 4
+}
