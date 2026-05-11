@@ -53,16 +53,35 @@ ROUTES = {
     "somatic-dashboard-build": [sys.executable, "scripts/build_somatic_dashboard.py", "--build"],
     "daily-digest-build": [sys.executable, "scripts/daily_digest.py", "--build"],
     "memory-integrity-audit": [sys.executable, "scripts/memory_integrity_audit.py", "--build"],
+    "state-query": [sys.executable, "scripts/query_state.py"],
+}
+
+ROUTE_EXTRA_ARGS = {
+    "state-query": {"health", "incidents", "memory", "reflex", "dashboard", "digest", "summary", "--json"},
 }
 
 
-def route_command(name: str) -> dict[str, object]:
+def route_command(name: str, extra_args: list[str] | None = None) -> dict[str, object]:
     if name not in ROUTES:
         result = {"route": name, "status": "unknown_route"}
         log_action(f"route:{name}", "blocked", "BLOCK", result)
         return result
 
-    command = ROUTES[name]
+    extra_args = extra_args or []
+    if name == "state-query" and not extra_args:
+        extra_args = ["summary"]
+    allowed_extra = ROUTE_EXTRA_ARGS.get(name)
+    if extra_args and allowed_extra is None:
+        result = {"route": name, "status": "unsupported_args", "args": extra_args}
+        log_action(f"route:{name}", "blocked", "BLOCK", result)
+        return result
+    invalid_args = [arg for arg in extra_args if allowed_extra is not None and arg not in allowed_extra]
+    if invalid_args:
+        result = {"route": name, "status": "invalid_args", "args": invalid_args}
+        log_action(f"route:{name}", "blocked", "BLOCK", result)
+        return result
+
+    command = ROUTES[name] + extra_args
     action = " ".join(command)
     guardian = classify_action(action)
     if guardian["risk"] == "BLOCK":
@@ -90,8 +109,9 @@ def route_command(name: str) -> dict[str, object]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Route local actions through Guardian.")
     parser.add_argument("route", choices=sorted(ROUTES))
+    parser.add_argument("args", nargs=argparse.REMAINDER)
     args = parser.parse_args()
-    result = route_command(args.route)
+    result = route_command(args.route, args.args)
     print(stable_json(result))
     return 0 if result["status"] == "completed" else 1
 
