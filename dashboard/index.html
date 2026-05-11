@@ -120,7 +120,7 @@
         <div class="small">Local body state, reflex confidence, incident memory, and memory pressure.</div>
       </div>
       <div class="stamp">
-        Generated 2026-05-11T22:21:12.492240+00:00<br>No corrective actions. Recommendations only.
+        Generated 2026-05-11T23:18:17.337821+00:00<br>No corrective actions. Recommendations only.
         <label class="refresh-control">
           <input id="auto-refresh" type="checkbox" aria-label="Auto refresh dashboard">
           Auto-refresh 60s
@@ -196,19 +196,20 @@
         <table>
           <tbody>
             <tr><th>Latest Telemetry</th><td><code>observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json</code></td></tr>
-            <tr><th>DMN Append Count</th><td>58</td></tr>
+            <tr><th>DMN Append Count</th><td>63</td></tr>
+            <tr><th>Baseline Deviation</th><td>elevated</td></tr>
           </tbody>
         </table>
       </section>
 
       <section class="span-6">
         <h2>Recommendations</h2>
-        <ul><li>Review memory pressure and avoid launching additional heavy local tasks.</li></ul>
+        <ul><li>Continue observing memory_used_percent; it is linked to prior incident memory.</li><li>Review memory pressure and avoid launching additional heavy local tasks.</li></ul>
       </section>
 
       <section class="span-12">
         <h2>Sources</h2>
-        <ul><li>health: <code>guardian/health/health_scores.json</code></li><li>calibration: <code>guardian/incidents/reflex_confidence_calibration.json</code></li><li>incidents: <code>guardian/incidents/index.json</code></li><li>memory_pressure: <code>guardian/health/memory_pressure_report.json</code></li><li>dmn: <code>memory/dmn.jsonl</code></li></ul>
+        <ul><li>baseline_deviation: <code>guardian/baselines/telemetry_baseline.json</code></li><li>dmn_append_count: <code>memory/dmn.jsonl</code></li><li>health_score: <code>guardian/health/health_scores.json</code></li><li>incident_count: <code>guardian/incidents/index.json</code></li><li>reflex_confidence: <code>guardian/incidents/reflex_confidence_calibration.json</code></li><li>repeated_anomalies: <code>guardian/incidents/index.json</code></li></ul>
       </section>
     </div>
   </main>

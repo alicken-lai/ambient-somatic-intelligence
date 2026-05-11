@@ -11,18 +11,12 @@ from pathlib import Path
 from typing import Any
 
 from action_log import log_action, record_checksum, stable_json
-from remember import append_memory
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DASHBOARD_DIR = ROOT / "dashboard"
 DASHBOARD_HTML = DASHBOARD_DIR / "index.html"
-HEALTH_JSON = ROOT / "guardian" / "health" / "health_scores.json"
-CALIBRATION_JSON = ROOT / "guardian" / "incidents" / "reflex_confidence_calibration.json"
-INCIDENT_INDEX = ROOT / "guardian" / "incidents" / "index.json"
-MEMORY_PRESSURE_JSON = ROOT / "guardian" / "health" / "memory_pressure_report.json"
-DMN_FILE = ROOT / "memory" / "dmn.jsonl"
-TELEMETRY_DIR = ROOT / "observability" / "snapshots"
+STATE_JSON = ROOT / "state" / "system_state.json"
 
 
 def utc_now() -> str:
@@ -35,38 +29,6 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def dmn_append_count() -> int:
-    if not DMN_FILE.exists():
-        return 0
-    with DMN_FILE.open("r", encoding="utf-8") as handle:
-        return sum(1 for line in handle if line.strip())
-
-
-def latest_telemetry_snapshot() -> str:
-    snapshots = sorted(TELEMETRY_DIR.glob("telemetry-*.json"))
-    if not snapshots:
-        return "unknown"
-    return str(snapshots[-1].relative_to(ROOT))
-
-
-def risk_label(score: float) -> str:
-    if score >= 80:
-        return "steady"
-    if score >= 60:
-        return "watch"
-    if score >= 40:
-        return "review"
-    return "incident"
-
-
-def class_from_confidence(confidence_class: str) -> str:
-    if confidence_class == "high_confidence_incident":
-        return "incident"
-    if confidence_class == "medium_confidence_review":
-        return "review"
-    return "watch"
-
-
 def pct(value: Any) -> str:
     try:
         return f"{float(value):.2f}"
@@ -75,67 +37,15 @@ def pct(value: Any) -> str:
 
 
 def build_model() -> dict[str, Any]:
-    health = load_json(HEALTH_JSON)
-    calibration = load_json(CALIBRATION_JSON)
-    incident_index = load_json(INCIDENT_INDEX)
-    memory_pressure = load_json(MEMORY_PRESSURE_JSON)
-
-    current = health.get("current", {})
-    subsystems = current.get("subsystems", {})
-    latest_anomaly = (calibration.get("anomalies") or [{}])[-1]
-    latest_confidence = float(latest_anomaly.get("confidence") or 0.0)
-    confidence_class = str(latest_anomaly.get("confidence_class") or "low_confidence_watch")
-    patterns = incident_index.get("patterns", {})
-    repeated = patterns.get("repeated_anomaly_types", {})
-    docker_context = calibration.get("context", {})
-    memory_fields = memory_pressure.get("memory_fields", {})
-    memory_risk = memory_pressure.get("risk_assessment", {})
-
-    return {
-        "generated_at": utc_now(),
-        "health_score": float(current.get("health_score") or 0.0),
-        "health_risk": risk_label(float(current.get("health_score") or 0.0)),
-        "trend": health.get("trend", "unknown"),
-        "subsystems": {
-            name: {
-                "score": data.get("score"),
-                "raw_score": data.get("raw_score"),
-                "incident_penalty": data.get("incident_penalty"),
-            }
-            for name, data in sorted(subsystems.items())
-        },
-        "latest_reflex_confidence": latest_confidence,
-        "current_risk_class": confidence_class,
-        "display_risk": class_from_confidence(confidence_class),
-        "incident_count": int(incident_index.get("incident_count") or 0),
-        "repeated_anomaly_count": sum(int(value) for value in repeated.values()),
-        "repeated_anomalies": repeated,
-        "latest_telemetry_snapshot": latest_telemetry_snapshot(),
-        "docker_context": {
-            "vm": docker_context.get("docker_vm", {}),
-            "containers": docker_context.get("docker_stats", []),
-        },
-        "dmn_append_count": dmn_append_count() + 1,
-        "memory_status": {
-            "used_percent": memory_fields.get("used_percent"),
-            "free_bytes": memory_fields.get("free_bytes"),
-            "true_risk": memory_risk.get("true_risk"),
-            "scoring_artifact": memory_risk.get("scoring_artifact"),
-            "swap": (memory_pressure.get("swap") or {}).get("raw") or (docker_context.get("swap") or {}).get("raw"),
-        },
-        "recommendations": sorted({
-            item.get("recommendation", "")
-            for item in calibration.get("anomalies", [])
-            if item.get("recommendation")
-        }) or ["No corrective action recommended; continue observation."],
-        "sources": {
-            "health": str(HEALTH_JSON.relative_to(ROOT)),
-            "calibration": str(CALIBRATION_JSON.relative_to(ROOT)),
-            "incidents": str(INCIDENT_INDEX.relative_to(ROOT)),
-            "memory_pressure": str(MEMORY_PRESSURE_JSON.relative_to(ROOT)),
-            "dmn": str(DMN_FILE.relative_to(ROOT)),
-        },
+    model = load_json(STATE_JSON)
+    if not model:
+        raise RuntimeError("state/system_state.json is missing; run system-state-build first")
+    model["sources"] = {
+        key: value.get("path", "")
+        for key, value in model.get("authoritative_sources", {}).items()
     }
+    model["dashboard_generated_at"] = utc_now()
+    return model
 
 
 def bar(score: Any) -> str:
@@ -377,6 +287,7 @@ def render_html(model: dict[str, Any]) -> str:
           <tbody>
             <tr><th>Latest Telemetry</th><td><code>{html.escape(str(model['latest_telemetry_snapshot']))}</code></td></tr>
             <tr><th>DMN Append Count</th><td>{model['dmn_append_count']}</td></tr>
+            <tr><th>Baseline Deviation</th><td>{html.escape(str(model['baseline_deviation']['overall_severity']))}</td></tr>
           </tbody>
         </table>
       </section>
@@ -425,16 +336,16 @@ def build_dashboard() -> dict[str, Any]:
     DASHBOARD_DIR.mkdir(parents=True, exist_ok=True)
     model = build_model()
     DASHBOARD_HTML.write_text(render_html(model), encoding="utf-8")
-    record_checksum(DASHBOARD_HTML, "somatic_dashboard_build", {"source": "local_artifacts"})
+    record_checksum(DASHBOARD_HTML, "somatic_dashboard_build", {"source": str(STATE_JSON.relative_to(ROOT))})
     memory = {
         "dashboard": str(DASHBOARD_HTML.relative_to(ROOT)),
         "health_score": model["health_score"],
         "current_risk_class": model["current_risk_class"],
         "incident_count": model["incident_count"],
         "dmn_append_count": model["dmn_append_count"],
+        "baseline_deviation": model["baseline_deviation"]["overall_severity"],
         "recommendations_only": True,
     }
-    append_memory(stable_json(memory), ["dashboard", "somatic", "night12"], "somatic_dashboard")
     log_action("dashboard:somatic-build", "completed", "ALLOW", memory)
     return memory
 

@@ -1,0 +1,162 @@
+{
+  "authoritative_sources": {
+    "baseline_deviation": {
+      "field": "/overall_deviation_severity and /metrics/*/deviation",
+      "path": "guardian/baselines/telemetry_baseline.json"
+    },
+    "dmn_append_count": {
+      "method": "count non-empty JSONL records",
+      "path": "memory/dmn.jsonl"
+    },
+    "health_score": {
+      "field": "/current/health_score",
+      "path": "guardian/health/health_scores.json"
+    },
+    "incident_count": {
+      "field": "/incident_count",
+      "path": "guardian/incidents/index.json"
+    },
+    "reflex_confidence": {
+      "field": "/anomalies/-1/confidence",
+      "path": "guardian/incidents/reflex_confidence_calibration.json"
+    },
+    "repeated_anomalies": {
+      "field": "/patterns/repeated_anomaly_types",
+      "path": "guardian/incidents/index.json"
+    }
+  },
+  "baseline_deviation": {
+    "current_timestamp": "2026-05-11T21:49:00.299316+00:00",
+    "metrics": {
+      "cpu_usage_percent": {
+        "current": 17.56,
+        "delta_from_mean": 8.36,
+        "severity": "elevated",
+        "z_score": 1.521
+      },
+      "disk_used_percent": {
+        "current": 54.52,
+        "delta_from_mean": 0.555,
+        "severity": "elevated",
+        "z_score": 1.7322
+      },
+      "load_average_15m": {
+        "current": 1.6,
+        "delta_from_mean": -0.145,
+        "severity": "elevated",
+        "z_score": -1.7303
+      },
+      "load_average_1m": {
+        "current": 2.8,
+        "delta_from_mean": 1.12,
+        "severity": "elevated",
+        "z_score": 1.7311
+      },
+      "load_average_5m": {
+        "current": 1.83,
+        "delta_from_mean": 0.085,
+        "severity": "elevated",
+        "z_score": 1.7103
+      },
+      "memory_used_percent": {
+        "current": 99.28,
+        "delta_from_mean": -0.1825,
+        "severity": "elevated",
+        "z_score": -1.2916
+      },
+      "process_count": {
+        "current": 667.0,
+        "delta_from_mean": 35.0,
+        "severity": "elevated",
+        "z_score": 1.7222
+      }
+    },
+    "overall_severity": "elevated"
+  },
+  "corrective_actions": "none",
+  "current_risk_class": "low_confidence_watch",
+  "display_risk": "watch",
+  "dmn_append_count": 63,
+  "docker_context": {
+    "containers": [
+      {
+        "cpu_percent": "0.05%",
+        "memory_percent": "0.97%",
+        "memory_usage": "77.04MiB / 7.75GiB",
+        "name": "ambient-grafana"
+      },
+      {
+        "cpu_percent": "0.00%",
+        "memory_percent": "0.62%",
+        "memory_usage": "48.9MiB / 7.75GiB",
+        "name": "ambient-prometheus"
+      }
+    ],
+    "vm": {
+      "cpus": 10,
+      "detected": true,
+      "memory_mib": 8192,
+      "memory_percent": 0.2,
+      "pid": 12894,
+      "rss_mb": 32.8
+    }
+  },
+  "generated_at": "2026-05-11T23:18:17.337821+00:00",
+  "health_risk": "watch",
+  "health_score": 76.53,
+  "incident_count": 2,
+  "latest_reflex_confidence": 0.1,
+  "latest_telemetry_snapshot": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
+  "memory_status": {
+    "free_bytes": 380993536,
+    "scoring_artifact": true,
+    "swap": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)",
+    "true_risk": "watch",
+    "used_percent": 97.69
+  },
+  "recommendations": [
+    "Continue observing memory_used_percent; it is linked to prior incident memory.",
+    "Review memory pressure and avoid launching additional heavy local tasks."
+  ],
+  "recommendations_only": true,
+  "repeated_anomalies": {
+    "high_memory_usage": 2
+  },
+  "repeated_anomaly_count": 2,
+  "state_version": 1,
+  "subsystems": {
+    "cpu_health": {
+      "incident_penalty": 0.0,
+      "raw_score": 100.0,
+      "score": 100.0
+    },
+    "disk_health": {
+      "incident_penalty": 0.0,
+      "raw_score": 68.82,
+      "score": 68.82
+    },
+    "load_health": {
+      "incident_penalty": 0.0,
+      "raw_score": 100.0,
+      "score": 100.0
+    },
+    "memory_health": {
+      "incident_penalty": 3.0,
+      "raw_score": 46.93,
+      "score": 43.93
+    },
+    "process_health": {
+      "incident_penalty": 0.0,
+      "raw_score": 69.89,
+      "score": 69.89
+    }
+  },
+  "trend": "stable",
+  "validation": {
+    "stale_state_detection": {
+      "mismatches": [],
+      "newer_sources": [],
+      "status": "ok"
+    }
+  }
+}
