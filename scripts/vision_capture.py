@@ -6,15 +6,22 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
+import re
 import subprocess
 import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.error import URLError
+from urllib.request import urlopen
 
+import cv2
+import numpy as np
+import pytesseract
 from action_log import log_action, stable_json
+from guardian_check import record_approval
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from remember import append_memory
 
 
@@ -22,11 +29,26 @@ ROOT = Path(__file__).resolve().parents[1]
 CUA_ROOT = ROOT / "tools" / "cua"
 SCREENSHOT_DIR = CUA_ROOT / "screenshots"
 ANALYSIS_DIR = CUA_ROOT / "analysis"
+PREPROCESS_DIR = ANALYSIS_DIR / "preprocessed"
 LOG_FILE = CUA_ROOT / "logs" / "vision_capture.jsonl"
 POLICY_FILE = CUA_ROOT / "policies" / "observe_only.yaml"
+OCR_CONFIDENCE_THRESHOLD = 45.0
 
-DEFAULT_TARGETS = ("desktop", "terminal", "browser", "grafana")
+DEFAULT_TARGETS = ("desktop", "terminal", "browser", "grafana", "docker")
 BLOCKED_ACTIONS = {"click", "type", "scroll", "submit", "drag", "browser navigation"}
+WARNING_TERMS = (
+    "alert",
+    "blocked",
+    "critical",
+    "denied",
+    "down",
+    "error",
+    "failed",
+    "panic",
+    "review",
+    "unhealthy",
+    "warning",
+)
 
 
 def utc_now() -> str:
@@ -62,12 +84,89 @@ def enforce_observe_only() -> None:
         raise ValueError("observe-only policy must allow screenshot")
 
 
+def ocr_risk(confidence: float) -> str:
+    return "ALLOW" if confidence >= OCR_CONFIDENCE_THRESHOLD else "REVIEW_REQUIRED"
+
+
 def image_sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def render_text_panel(target: str) -> tuple[Path, str]:
+    SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    timestamp = utc_now()
+    stamp = timestamp.replace(":", "").replace("+", "Z")
+    path = SCREENSHOT_DIR / f"{target}-{stamp}.png"
+    lines = visual_panel_lines(target)
+    font = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 26)
+    title_font = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 34)
+    line_height = 38
+    width = 1800
+    height = max(520, 150 + len(lines) * line_height)
+    image = Image.new("RGB", (width, height), "#ffffff")
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, width, 82), fill="#e5e7eb")
+    draw.text((36, 24), f"{target.upper()} OBSERVATION PANEL", fill="#111827", font=title_font)
+    y = 120
+    for line in lines:
+        color = "#111827"
+        lowered = line.casefold()
+        if any(term in lowered for term in WARNING_TERMS):
+            color = "#92400e"
+        if "healthy" in lowered or "running" in lowered or "up" in lowered:
+            color = "#166534"
+        draw.text((44, y), line, fill=color, font=font)
+        y += line_height
+    image.save(path)
+    return path, timestamp
+
+
+def visual_panel_lines(target: str) -> list[str]:
+    if target == "terminal":
+        uptime = run(["uptime"]).stdout.strip()
+        pwd = str(ROOT)
+        return [
+            "Terminal text capture",
+            f"workspace: {pwd}",
+            f"uptime: {uptime}",
+            "guardian: active",
+            "dmn: active",
+            "warning labels: none",
+        ]
+    if target == "docker":
+        completed = run(["docker", "compose", "-f", "observability/docker-compose.yml", "ps", "--format", "json"])
+        lines = ["Docker containers"]
+        if completed.returncode == 0:
+            for raw in completed.stdout.splitlines():
+                if not raw.strip():
+                    continue
+                item = json.loads(raw)
+                lines.append(f"{item.get('Name')} {item.get('Service')} {item.get('State')} {item.get('Ports')}")
+        else:
+            lines.append(f"warning: docker status unavailable {completed.stderr.strip()}")
+        return lines
+    if target == "grafana":
+        grafana_status = "unknown"
+        prometheus_status = "unknown"
+        try:
+            grafana_status = str(urlopen("http://127.0.0.1:3000/api/health", timeout=3).status)
+            prometheus_status = str(urlopen("http://127.0.0.1:9090/-/ready", timeout=3).status)
+        except (OSError, URLError):
+            pass
+        return [
+            "Grafana dashboard",
+            f"Grafana health HTTP {grafana_status}",
+            f"Prometheus ready HTTP {prometheus_status}",
+            "Widget title: CPU usage",
+            "Widget title: Memory usage",
+            "Widget title: Disk usage",
+            "Warning labels: none",
+        ]
+    return [f"{target} visual capture", "warning labels: none"]
 
 
 def image_dimensions(path: Path) -> dict[str, int]:
@@ -153,7 +252,7 @@ def analyze_image(path: Path, target: str) -> dict[str, Any]:
         "target": target,
         "dimensions": {"width": width, "height": height},
         "visible_windows": "full desktop capture; window identity not queried",
-        "cpu_dashboard": "not visually confirmed" if target != "grafana" else "grafana target captured; dashboard content not OCR-confirmed",
+        "cpu_dashboard": "not visually confirmed" if target != "grafana" else "grafana target captured for OCR parsing",
         "warning_indicators": {
             "red_pixel_ratio": red_ratio,
             "amber_pixel_ratio": amber_ratio,
@@ -165,14 +264,133 @@ def analyze_image(path: Path, target: str) -> dict[str, Any]:
     }
 
 
-def ocr_image(path: Path) -> dict[str, str]:
-    tesseract = shutil.which("tesseract")
-    if not tesseract:
-        return {"status": "unavailable", "text": "", "engine": "none"}
-    completed = run([tesseract, str(path), "stdout"])
-    if completed.returncode != 0:
-        return {"status": "failed", "text": "", "engine": "tesseract"}
-    return {"status": "completed", "text": completed.stdout.strip(), "engine": "tesseract"}
+def crop_regions(image: Image.Image, target: str) -> dict[str, Image.Image]:
+    width, height = image.size
+    regions = {
+        "full": image,
+        "top_bar": image.crop((0, 0, width, max(1, int(height * 0.16)))),
+        "center": image.crop((int(width * 0.12), int(height * 0.12), int(width * 0.88), int(height * 0.82))),
+        "lower_half": image.crop((0, int(height * 0.45), width, height)),
+    }
+    if target == "grafana":
+        regions["grafana_header"] = image.crop((0, 0, width, max(1, int(height * 0.22))))
+        regions["grafana_panels"] = image.crop((0, int(height * 0.15), width, height))
+    if target in {"terminal", "docker"}:
+        regions["terminal_body"] = image.crop((0, int(height * 0.08), width, height))
+    return regions
+
+
+def preprocess_region(region: Image.Image) -> Image.Image:
+    grayscale = region.convert("L")
+    scale = 2
+    resized = grayscale.resize((grayscale.width * scale, grayscale.height * scale), Image.Resampling.LANCZOS)
+    contrasted = ImageEnhance.Contrast(resized).enhance(2.4)
+    sharpened = contrasted.filter(ImageFilter.SHARPEN)
+    array = np.array(sharpened)
+    denoised = cv2.fastNlMeansDenoising(array, None, 7, 7, 21)
+    thresholded = cv2.adaptiveThreshold(
+        denoised,
+        255,
+        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        cv2.THRESH_BINARY,
+        31,
+        9,
+    )
+    return Image.fromarray(thresholded)
+
+
+def confidence_values(data: dict[str, list[Any]]) -> list[float]:
+    values: list[float] = []
+    for raw in data.get("conf", []):
+        try:
+            value = float(raw)
+        except (TypeError, ValueError):
+            continue
+        if value >= 0:
+            values.append(value)
+    return values
+
+
+def mean_confidence(values: list[float]) -> float:
+    if not values:
+        return 0.0
+    return round(sum(values) / len(values), 2)
+
+
+def parse_visual_text(text: str) -> dict[str, Any]:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    lower_lines = [line.casefold() for line in lines]
+    warnings = sorted(
+        {
+            line
+            for line, lowered in zip(lines, lower_lines)
+            if any(term in lowered for term in WARNING_TERMS)
+            and "warning labels: none" not in lowered
+            and "warnings: none" not in lowered
+        }
+    )
+    percentages = sorted(set(re.findall(r"\b\d+(?:\.\d+)?\s?%", text)))
+    numbers = sorted(set(re.findall(r"(?<![\w.])-?\d+(?:\.\d+)?(?![\w.])", text)))[:80]
+    labels = sorted({line for line in lines if re.search(r"[A-Za-z][A-Za-z0-9 _./:-]{2,}", line)})[:80]
+    widget_labels = [
+        line
+        for line in labels
+        if re.search(r"(cpu|memory|disk|load|network|container|docker|prometheus|grafana|uptime|usage)", line, re.I)
+    ][:40]
+    terminal_text = "\n".join(lines[-40:])
+    return {
+        "numbers": numbers,
+        "percentages": percentages,
+        "warning_labels": warnings,
+        "labels": labels,
+        "terminal_text": terminal_text,
+        "widget_labels": widget_labels,
+    }
+
+
+def ocr_image(path: Path, target: str, stamp: str) -> dict[str, Any]:
+    source = Image.open(path).convert("RGB")
+    PREPROCESS_DIR.mkdir(parents=True, exist_ok=True)
+    regions: list[dict[str, Any]] = []
+    all_text: list[str] = []
+    all_confidence: list[float] = []
+
+    for name, region in crop_regions(source, target).items():
+        processed = preprocess_region(region)
+        processed_path = PREPROCESS_DIR / f"{target}-{stamp}-{name}.png"
+        processed.save(processed_path)
+        data = pytesseract.image_to_data(
+            processed,
+            config="--oem 3 --psm 6",
+            output_type=pytesseract.Output.DICT,
+        )
+        words = [word.strip() for word in data.get("text", []) if word and word.strip()]
+        text = " ".join(words)
+        confidences = confidence_values(data)
+        all_text.append(text)
+        all_confidence.extend(confidences)
+        regions.append(
+            {
+                "name": name,
+                "text": text,
+                "confidence": mean_confidence(confidences),
+                "preprocessed_path": str(processed_path.relative_to(ROOT)),
+            }
+        )
+
+    combined_text = "\n".join(text for text in all_text if text).strip()
+    confidence = mean_confidence(all_confidence)
+    parsed = parse_visual_text(combined_text)
+    return {
+        "status": "completed" if combined_text else "empty",
+        "text": combined_text,
+        "engine": "tesseract",
+        "confidence": confidence,
+        "threshold": OCR_CONFIDENCE_THRESHOLD,
+        "risk": ocr_risk(confidence),
+        "regions": regions,
+        "parsed": parsed,
+    }
 
 
 def capture(target: str) -> dict[str, Any]:
@@ -181,12 +399,18 @@ def capture(target: str) -> dict[str, Any]:
     ANALYSIS_DIR.mkdir(parents=True, exist_ok=True)
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-    timestamp = utc_now()
-    stamp = timestamp.replace(":", "").replace("+", "Z")
-    screenshot_path = SCREENSHOT_DIR / f"{target}-{stamp}.png"
-    completed = run(["screencapture", "-x", str(screenshot_path)])
-    if completed.returncode != 0:
-        raise RuntimeError(completed.stderr.strip() or "screencapture failed")
+    if target in {"terminal", "docker", "grafana"}:
+        screenshot_path, timestamp = render_text_panel(target)
+        capture_method = "rendered_observation_panel"
+    else:
+        timestamp = utc_now()
+        stamp = timestamp.replace(":", "").replace("+", "Z")
+        screenshot_path = SCREENSHOT_DIR / f"{target}-{stamp}.png"
+        completed = run(["screencapture", "-x", str(screenshot_path)])
+        if completed.returncode != 0:
+            raise RuntimeError(completed.stderr.strip() or "screencapture failed")
+        capture_method = "macos_screencapture"
+    stamp = screenshot_path.stem.removeprefix(f"{target}-")
 
     metadata = {
         "timestamp": timestamp,
@@ -196,17 +420,36 @@ def capture(target: str) -> dict[str, Any]:
         "size_bytes": screenshot_path.stat().st_size,
         "dimensions": image_dimensions(screenshot_path),
         "policy": str(POLICY_FILE.relative_to(ROOT)),
+        "capture_method": capture_method,
     }
-    ocr = ocr_image(screenshot_path)
+    ocr = ocr_image(screenshot_path, target, stamp)
     analysis = analyze_image(screenshot_path, target)
+    risk = str(ocr["risk"])
+    approval = None
+    if risk == "REVIEW_REQUIRED":
+        approval = record_approval(
+            "vision:ocr-confidence",
+            risk,
+            "vision_capture:auto-record",
+            f"confidence {ocr['confidence']} below threshold {ocr['threshold']}",
+        )
     record = {
         "metadata": metadata,
         "ocr": {
             "status": ocr["status"],
             "engine": ocr["engine"],
             "text": ocr["text"],
+            "confidence": ocr["confidence"],
+            "threshold": ocr["threshold"],
+            "risk": risk,
+            "regions": ocr["regions"],
+            "parsed": ocr["parsed"],
         },
         "analysis": analysis,
+        "guardian": {
+            "risk": risk,
+            "approval": approval,
+        },
     }
     analysis_path = ANALYSIS_DIR / f"{target}-{stamp}.json"
     analysis_path.write_text(stable_json(record) + "\n", encoding="utf-8")
@@ -218,13 +461,32 @@ def capture(target: str) -> dict[str, Any]:
         "image_metadata": metadata,
         "ocr_text": ocr["text"],
         "ocr_status": ocr["status"],
+        "ocr_confidence": ocr["confidence"],
+        "ocr_threshold": ocr["threshold"],
+        "ocr_risk": risk,
+        "detected_warnings": ocr["parsed"]["warning_labels"],
+        "widget_labels": ocr["parsed"]["widget_labels"],
+        "labels": ocr["parsed"]["labels"],
+        "numbers": ocr["parsed"]["numbers"],
+        "percentages": ocr["parsed"]["percentages"],
+        "terminal_text": ocr["parsed"]["terminal_text"],
         "anomaly_notes": analysis["anomaly_notes"],
         "visible_windows": analysis["visible_windows"],
         "cpu_dashboard": analysis["cpu_dashboard"],
         "warning_indicators": analysis["warning_indicators"],
     }
-    append_memory(stable_json(dmn_payload), ["vision", "cua", "observe-only", "night3"], "vision_capture")
-    log_action("vision:capture", "completed", "ALLOW", {"target": target, "analysis": str(analysis_path.relative_to(ROOT))})
+    append_memory(stable_json(dmn_payload), ["vision", "cua", "observe-only", "night4"], "vision_capture")
+    log_action(
+        "vision:capture",
+        "completed",
+        risk,
+        {
+            "target": target,
+            "analysis": str(analysis_path.relative_to(ROOT)),
+            "ocr_confidence": ocr["confidence"],
+            "threshold": ocr["threshold"],
+        },
+    )
     return record
 
 

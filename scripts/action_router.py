@@ -33,6 +33,16 @@ ROUTES = {
         "--target",
         "grafana",
     ],
+    "vision-capture-ocr-smoke": [
+        sys.executable,
+        "scripts/vision_capture.py",
+        "--target",
+        "terminal",
+        "--target",
+        "grafana",
+        "--target",
+        "docker",
+    ],
 }
 
 

@@ -1,3 +1,12 @@
 {"analysis":"tools/cua/analysis/desktop-2026-05-11T134212.641087Z0000.json","event":"capture","timestamp":"2026-05-11T13:42:14.777155+00:00"}
 {"analysis":"tools/cua/analysis/terminal-2026-05-11T134214.778963Z0000.json","event":"capture","timestamp":"2026-05-11T13:42:16.980865+00:00"}
 {"analysis":"tools/cua/analysis/grafana-2026-05-11T134216.981781Z0000.json","event":"capture","timestamp":"2026-05-11T13:42:19.154384+00:00"}
+{"analysis":"tools/cua/analysis/terminal-2026-05-11T134729.423353Z0000.json","event":"capture","timestamp":"2026-05-11T13:47:49.311269+00:00"}
+{"analysis":"tools/cua/analysis/grafana-2026-05-11T134749.312908Z0000.json","event":"capture","timestamp":"2026-05-11T13:48:10.829803+00:00"}
+{"analysis":"tools/cua/analysis/docker-2026-05-11T134810.830999Z0000.json","event":"capture","timestamp":"2026-05-11T13:48:30.800081+00:00"}
+{"analysis":"tools/cua/analysis/terminal-2026-05-11T135307.944549Z0000.json","event":"capture","timestamp":"2026-05-11T13:53:10.071217+00:00"}
+{"analysis":"tools/cua/analysis/grafana-2026-05-11T135310.073092Z0000.json","event":"capture","timestamp":"2026-05-11T13:53:12.330487+00:00"}
+{"analysis":"tools/cua/analysis/docker-2026-05-11T135312.332406Z0000.json","event":"capture","timestamp":"2026-05-11T13:53:14.545501+00:00"}
+{"analysis":"tools/cua/analysis/terminal-2026-05-11T135355.011739Z0000.json","event":"capture","timestamp":"2026-05-11T13:53:57.119531+00:00"}
+{"analysis":"tools/cua/analysis/grafana-2026-05-11T135357.121196Z0000.json","event":"capture","timestamp":"2026-05-11T13:53:59.387769+00:00"}
+{"analysis":"tools/cua/analysis/docker-2026-05-11T135359.389507Z0000.json","event":"capture","timestamp":"2026-05-11T13:54:01.523239+00:00"}
