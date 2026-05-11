@@ -1,0 +1,141 @@
+{
+  "adjusted_scoring": {
+    "absolute_pressure_score": 46.93,
+    "deviation_score": 100.0,
+    "incident_penalty": 3.0,
+    "metric_score": 46.93,
+    "raw_score": 46.93,
+    "score": 43.93,
+    "z_score": 0.0
+  },
+  "baseline": {
+    "delta_from_mean": -1.7725,
+    "max": 99.61,
+    "mean": 99.4625,
+    "min": 99.28,
+    "stddev": 0.1413
+  },
+  "corrective_actions": "none",
+  "docker_desktop": {
+    "containers": [
+      {
+        "cpu_percent": "0.03%",
+        "memory_percent": "0.97%",
+        "memory_usage": "76.89MiB / 7.75GiB",
+        "name": "ambient-grafana"
+      },
+      {
+        "cpu_percent": "0.00%",
+        "memory_percent": "0.63%",
+        "memory_usage": "49.62MiB / 7.75GiB",
+        "name": "ambient-prometheus"
+      }
+    ],
+    "vm_memory_gib": 8.0,
+    "vm_memory_mib": 8192,
+    "vm_reservation_detected": true
+  },
+  "generated_at": "2026-05-11T22:04:33.278382+00:00",
+  "latest_snapshot": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
+  "legacy_scoring_artifact": {
+    "detected": true,
+    "legacy_score": 0.0,
+    "legacy_z_score": 12.5442,
+    "reason": "absolute z-score penalized memory usage below the baseline mean when baseline variance was tiny"
+  },
+  "memory_fields": {
+    "free_bytes": 380993536,
+    "total_bytes": 16528687104,
+    "used_bytes": 16147693568,
+    "used_percent": 97.69
+  },
+  "recommendations": [
+    "Continue observation; do not restart Docker or kill processes automatically.",
+    "Treat Docker Desktop's VM reservation as a major host-memory context factor.",
+    "Avoid adding heavier local workloads while host memory remains above 95%.",
+    "Manually review Docker Desktop memory allocation later if sustained pressure continues.",
+    "Manually close unused browser or remote desktop sessions only if interactive performance degrades."
+  ],
+  "risk_assessment": {
+    "scoring_artifact": true,
+    "summary": "memory_health was zero from formula shape, while host memory still deserves watch-level pressure monitoring",
+    "true_risk": "watch"
+  },
+  "swap": {
+    "raw": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)",
+    "total": "0.00M",
+    "used": "0.00M"
+  },
+  "top_memory_consumers": [
+    {
+      "command": "/System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine",
+      "memory_percent": 19.5,
+      "pid": 12898,
+      "rss_kb": 3278400,
+      "rss_mb": 3201.6
+    },
+    {
+      "command": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+      "memory_percent": 2.0,
+      "pid": 688,
+      "rss_kb": 334112,
+      "rss_mb": 326.3
+    },
+    {
+      "command": "/Applications/AnyDesk.app/Contents/MacOS/AnyDesk --backend",
+      "memory_percent": 1.5,
+      "pid": 27271,
+      "rss_kb": 249440,
+      "rss_mb": 243.6
+    },
+    {
+      "command": "/Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/145.1.87.192/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer) --type=renderer --metrics-client-id=bc0ece35-78f3-4e86-b2de-45e8c6af78b3 --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --start-stack-profiler --lang=zh-TW --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=34 --time-ticks-at-unix-epoch=-1778467225796670 --launch-time-ticks=35923204094 --shared-files --metrics-shmem-handle=1752395122,r,7188812599254209989,7813112266550488570,2097152 --field-trial-handle=1718379636,r,8155877374393103702,18080454736384624421,262144 --variations-seed-version=main@b82f6d3297310111549074a7d03a6f154213de66 --trace-process-track-uuid=3190709018171294360 --seatbelt-client=144",
+      "memory_percent": 1.4,
+      "pid": 3719,
+      "rss_kb": 228592,
+      "rss_mb": 223.2
+    },
+    {
+      "command": "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
+      "memory_percent": 1.4,
+      "pid": 630,
+      "rss_kb": 227424,
+      "rss_mb": 222.1
+    },
+    {
+      "command": "/Applications/Docker.app/Contents/MacOS/com.docker.backend services",
+      "memory_percent": 1.3,
+      "pid": 12819,
+      "rss_kb": 218368,
+      "rss_mb": 213.2
+    },
+    {
+      "command": "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/Safari",
+      "memory_percent": 1.2,
+      "pid": 1217,
+      "rss_kb": 209536,
+      "rss_mb": 204.6
+    },
+    {
+      "command": "codex",
+      "memory_percent": 1.2,
+      "pid": 13136,
+      "rss_kb": 209120,
+      "rss_mb": 204.2
+    },
+    {
+      "command": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/MacOS/Docker Desktop --analytics-enabled=true --name=login",
+      "memory_percent": 1.1,
+      "pid": 13040,
+      "rss_kb": 190784,
+      "rss_mb": 186.3
+    },
+    {
+      "command": "/Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/145.1.87.192/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer) --type=renderer --metrics-client-id=bc0ece35-78f3-4e86-b2de-45e8c6af78b3 --enable-distillability-service --origin-trial-public-key=bYUKPJoPnCxeNvu72j4EmPuK7tr1PAC7SHh8ld9Mw3E=,fMS4mpO6buLQ/QMd+zJmxzty/VQ6B1EUZqoCU04zoRU= --lang=zh-TW --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=53 --time-ticks-at-unix-epoch=-1778467225796670 --launch-time-ticks=41029236417 --shared-files --metrics-shmem-handle=1752395122,r,12427464014339369262,4845237896235112284,2097152 --field-trial-handle=1718379636,r,8155877374393103702,18080454736384624421,262144 --variations-seed-version=main@b82f6d3297310111549074a7d03a6f154213de66 --trace-process-track-uuid=3190709035975089491 --seatbelt-client=62",
+      "memory_percent": 1.1,
+      "pid": 19872,
+      "rss_kb": 178288,
+      "rss_mb": 174.1
+    }
+  ]
+}

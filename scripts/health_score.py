@@ -60,19 +60,33 @@ def clamp(value: float, low: float = 0.0, high: float = 100.0) -> float:
     return max(low, min(high, value))
 
 
-def metric_score(value: float, baseline: dict[str, Any]) -> dict[str, Any]:
+def pressure_score(metric: str, value: float) -> float:
+    if metric == "memory_used_percent":
+        return clamp(100.0 - max(0.0, value - 80.0) * 3.0)
+    if metric == "disk_used_percent":
+        return clamp(100.0 - max(0.0, value - 80.0) * 5.0)
+    if metric == "cpu_usage_percent":
+        return clamp(100.0 - max(0.0, value - 70.0) * 3.0)
+    return 100.0
+
+
+def metric_score(metric: str, value: float, baseline: dict[str, Any]) -> dict[str, Any]:
     mean = float(baseline["mean"])
     stddev = float(baseline["stddev"])
     if stddev <= 0:
-        z_score = 0.0 if abs(value - mean) < 0.0001 else 3.0
+        z_score = 0.0 if value <= mean or abs(value - mean) < 0.0001 else 3.0
     else:
-        z_score = abs((value - mean) / stddev)
-    score = clamp(100.0 - z_score * 18.0)
+        z_score = max(0.0, (value - mean) / stddev)
+    deviation_score = clamp(100.0 - z_score * 18.0)
+    absolute_score = pressure_score(metric, value)
+    score = min(deviation_score, absolute_score)
     return {
         "value": round(value, 4),
         "baseline_mean": round(mean, 4),
         "baseline_stddev": round(stddev, 4),
         "z_score": round(z_score, 4),
+        "deviation_score": round(deviation_score, 2),
+        "absolute_pressure_score": round(absolute_score, 2),
         "score": round(score, 2),
     }
 
@@ -110,7 +124,7 @@ def compute_score_for_record(record: dict[str, Any], baseline: dict[str, Any], l
         metric_scores = []
         for metric in metrics:
             value = nested_get(record, METRIC_PATHS[metric])
-            metric_scores.append({metric: metric_score(value, baseline["metrics"][metric]["baseline"])})
+            metric_scores.append({metric: metric_score(metric, value, baseline["metrics"][metric]["baseline"])})
         score = sum(next(iter(item.values()))["score"] for item in metric_scores) / len(metric_scores)
         incident_penalty = min(10.0, 3.0 * len(links.get(subsystem, [])))
         subsystem_scores[subsystem] = {
