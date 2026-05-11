@@ -1,0 +1,23 @@
+risk_classes:
+  - ALLOW
+  - REVIEW_REQUIRED
+  - BLOCK
+
+blocked_keywords:
+  - rm -rf
+  - sudo shutdown
+  - delete
+  - drop database
+  - payment
+  - bank
+  - wire transfer
+
+review_keywords:
+  - curl
+  - wget
+  - brew install
+  - pip install
+  - git push
+  - docker run
+  - open
+

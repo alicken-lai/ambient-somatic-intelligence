@@ -1,0 +1,46 @@
+AMBIENT SOMATIC INTELLIGENCE Night 0 Smoke Test
+Timestamp: 2026-05-11T12:54:03Z
+
+## system info
+Guardian: {"action": "uname -a", "matched": [], "risk": "ALLOW"}
+Command: uname -a
+Darwin 52-0A40237-H2.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:43 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8132 arm64
+
+## uptime
+Guardian: {"action": "uptime", "matched": [], "risk": "ALLOW"}
+Command: uptime
+20:54  2 users, load averages: 1.48 1.35 1.32
+
+## disk usage
+Guardian: {"action": "df -h /", "matched": [], "risk": "ALLOW"}
+Command: df -h /
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   228Gi    10Gi   109Gi     9%    426k  1.1G    0%   /
+
+## memory usage
+Guardian: {"action": "vm_stat", "matched": [], "risk": "ALLOW"}
+Command: vm_stat
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                               48149.
+Pages active:                            424163.
+Pages inactive:                          423244.
+Pages speculative:                          925.
+Pages throttled:                              0.
+Pages wired down:                        100749.
+Pages purgeable:                          12400.
+"Translation faults":                  28227721.
+Pages copy-on-write:                    1016215.
+Pages zero filled:                     14612941.
+Pages reactivated:                       102390.
+Pages purged:                            135131.
+File-backed pages:                       357818.
+Anonymous pages:                         490514.
+Pages stored in compressor:               49086.
+Pages occupied by compressor:             11850.
+Decompressions:                            4612.
+Compressions:                             53725.
+Pageins:                                 548704.
+Pageouts:                                   730.
+Swapins:                                      0.
+Swapouts:                                     0.
+
