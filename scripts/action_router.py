@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 from action_log import log_action, stable_json
@@ -20,6 +21,7 @@ ROUTES = {
     "uptime": ["uptime"],
     "disk-usage": ["df", "-h", "/"],
     "memory-usage": ["vm_stat"],
+    "telemetry-local": [sys.executable, "scripts/sense_local.py", "--append-dmn", "--write-snapshot"],
 }
 
 
@@ -65,4 +67,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
