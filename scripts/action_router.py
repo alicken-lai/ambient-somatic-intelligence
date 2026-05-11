@@ -22,6 +22,17 @@ ROUTES = {
     "disk-usage": ["df", "-h", "/"],
     "memory-usage": ["vm_stat"],
     "telemetry-local": [sys.executable, "scripts/sense_local.py", "--append-dmn", "--write-snapshot"],
+    "vision-capture": [sys.executable, "scripts/vision_capture.py"],
+    "vision-capture-smoke": [
+        sys.executable,
+        "scripts/vision_capture.py",
+        "--target",
+        "desktop",
+        "--target",
+        "terminal",
+        "--target",
+        "grafana",
+    ],
 }
 
 

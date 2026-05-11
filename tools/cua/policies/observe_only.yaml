@@ -1,0 +1,15 @@
+mode: observe_only
+
+allow:
+  - screenshot
+  - OCR
+  - image analysis
+  - anomaly detection
+
+block:
+  - click
+  - type
+  - scroll
+  - submit
+  - drag
+  - browser navigation
