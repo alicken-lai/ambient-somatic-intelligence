@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "check": "dmn_schema",
+      "detail": "59 records valid",
+      "status": "ok"
+    },
+    {
+      "check": "action_log_checksum_chain",
+      "detail": "checksum chain valid",
+      "status": "ok"
+    },
+    {
+      "check": "incident_index_links",
+      "detail": "missing_notes=none",
+      "status": "ok"
+    },
+    {
+      "check": "orphan_incident_notes",
+      "detail": "orphans=none",
+      "status": "ok"
+    },
+    {
+      "check": "duplicated_incident_ids",
+      "detail": "duplicates=none",
+      "status": "ok"
+    },
+    {
+      "check": "incident_references",
+      "detail": "missing_refs=none",
+      "status": "ok"
+    },
+    {
+      "check": "health_history_consistency",
+      "detail": "{\"health_score\":true,\"path\":true,\"timestamp\":true}",
+      "status": "ok"
+    },
+    {
+      "check": "baseline_report_matches_json",
+      "detail": "matched",
+      "status": "ok"
+    },
+    {
+      "check": "dashboard_values_match_source",
+      "detail": "matched",
+      "status": "ok"
+    },
+    {
+      "check": "daily_digest_values_match_source",
+      "detail": "dmn_append_count: digest=57 dashboard=58; dmn_append_count: digest=57 current=59",
+      "status": "warning"
+    }
+  ],
+  "corrective_actions": "none",
+  "generated_at": "2026-05-11T23:07:29.891403+00:00",
+  "recommendations_only": true,
+  "status_counts": {
+    "ok": 9,
+    "warning": 1
+  },
+  "summary": {
+    "dashboard": {
+      "current_dmn_count": 59,
+      "digest_dmn_count": 57
+    },
+    "health": {
+      "health_score": 76.53,
+      "history_count": 20,
+      "trend": "stable"
+    },
+    "incidents": {
+      "duplicates": [],
+      "incident_count": 2,
+      "missing_refs": [],
+      "orphan_notes": []
+    }
+  }
+}
