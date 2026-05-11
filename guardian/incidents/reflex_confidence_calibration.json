@@ -1,0 +1,89 @@
+{
+  "anomalies": [
+    {
+      "confidence": 0.1,
+      "confidence_class": "low_confidence_watch",
+      "context": {
+        "baseline": {
+          "delta": -1.7725,
+          "direction": "below_baseline",
+          "mean": 99.4625,
+          "stddev": 0.1413,
+          "z_score": -12.5442
+        },
+        "containers": [
+          {
+            "cpu_percent": "0.05%",
+            "memory_percent": "0.97%",
+            "memory_usage": "77.04MiB / 7.75GiB",
+            "name": "ambient-grafana"
+          },
+          {
+            "cpu_percent": "0.00%",
+            "memory_percent": "0.62%",
+            "memory_usage": "48.9MiB / 7.75GiB",
+            "name": "ambient-prometheus"
+          }
+        ],
+        "docker_vm": {
+          "cpus": 10,
+          "detected": true,
+          "memory_mib": 8192,
+          "memory_percent": 0.2,
+          "pid": 12894,
+          "rss_mb": 32.8
+        },
+        "max_container_memory_percent": 0.97,
+        "swap": {
+          "raw": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)",
+          "used": "0.00M",
+          "used_mb": 0.0
+        }
+      },
+      "evidence": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
+      "recommendation": "Review memory pressure and avoid launching additional heavy local tasks.",
+      "rule": "high_memory_usage",
+      "scoring_artifact": true,
+      "severity": "warning",
+      "true_anomaly": false,
+      "value": 97.69
+    }
+  ],
+  "anomaly_count": 1,
+  "confidence_classes": {
+    "low_confidence_watch": 1
+  },
+  "context": {
+    "docker_stats": [
+      {
+        "cpu_percent": "0.05%",
+        "memory_percent": "0.97%",
+        "memory_usage": "77.04MiB / 7.75GiB",
+        "name": "ambient-grafana"
+      },
+      {
+        "cpu_percent": "0.00%",
+        "memory_percent": "0.62%",
+        "memory_usage": "48.9MiB / 7.75GiB",
+        "name": "ambient-prometheus"
+      }
+    ],
+    "docker_vm": {
+      "cpus": 10,
+      "detected": true,
+      "memory_mib": 8192,
+      "memory_percent": 0.2,
+      "pid": 12894,
+      "rss_mb": 32.8
+    },
+    "latest_telemetry": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
+    "swap": {
+      "raw": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)",
+      "used": "0.00M",
+      "used_mb": 0.0
+    }
+  },
+  "corrective_actions": "none",
+  "generated_at": "2026-05-11T22:14:35.447810+00:00",
+  "recommendations_only": true
+}

@@ -73,11 +73,33 @@ def parse_anomaly_sections(text: str) -> list[dict[str, Any]]:
             {
                 "rule": match.group(1).strip(),
                 "severity": first_matching(r"^- severity: (.+)$", body) or "info",
+                "confidence": parse_float(first_matching(r"^- confidence: (.+)$", body)),
+                "confidence_class": first_matching(r"^- confidence_class: (.+)$", body),
+                "true_anomaly": parse_bool(first_matching(r"^- true_anomaly: (.+)$", body)),
+                "scoring_artifact": parse_bool(first_matching(r"^- scoring_artifact: (.+)$", body)),
                 "recommendation": first_matching(r"^- recommendation: (.+)$", body),
                 "evidence": evidence,
             }
         )
     return anomalies
+
+
+def parse_float(value: str) -> float | None:
+    if not value:
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
+def parse_bool(value: str) -> bool | None:
+    lowered = value.casefold()
+    if lowered == "true":
+        return True
+    if lowered == "false":
+        return False
+    return None
 
 
 def telemetry_paths_from_record(record: dict[str, Any]) -> list[str]:
@@ -158,11 +180,15 @@ def severity_for_incident(incident: dict[str, Any]) -> str:
 def build_patterns(incidents: list[dict[str, Any]]) -> dict[str, Any]:
     rule_counts: Counter[str] = Counter()
     severity_by_rule: dict[str, list[str]] = defaultdict(list)
+    confidence_classes: Counter[str] = Counter()
     for incident in incidents:
         for anomaly in incident.get("anomalies", []):
             rule = str(anomaly.get("rule", "unknown"))
             rule_counts[rule] += 1
             severity_by_rule[rule].append(str(anomaly.get("severity", "info")))
+            confidence_class = anomaly.get("confidence_class")
+            if confidence_class:
+                confidence_classes[str(confidence_class)] += 1
 
     latest = incidents[-1] if incidents else None
     latest_severity = severity_for_incident(latest) if latest else "info"
@@ -187,6 +213,7 @@ def build_patterns(incidents: list[dict[str, Any]]) -> dict[str, Any]:
         "rule_counts": dict(sorted(rule_counts.items())),
         "repeated_anomaly_types": repeated,
         "severity_by_rule": dict(sorted(severity_by_rule.items())),
+        "confidence_classes": dict(sorted(confidence_classes.items())),
         "latest_incident": latest.get("incident") if latest else None,
         "latest_severity": latest_severity,
         "previous_max_severity": previous_max,
@@ -222,6 +249,7 @@ def write_timeline(incidents: list[dict[str, Any]], patterns: dict[str, Any]) ->
         f"- latest_severity: {patterns['latest_severity']}",
         f"- severity_comparison: {patterns['severity_comparison']}",
         f"- repeated_anomaly_types: {stable_json(patterns['repeated_anomaly_types'])}",
+        f"- confidence_classes: {stable_json(patterns.get('confidence_classes', {}))}",
         "- corrective_actions: none",
         "- response_mode: recommendations only",
         "",
@@ -239,6 +267,7 @@ def write_timeline(incidents: list[dict[str, Any]], patterns: dict[str, Any]) ->
                 f"- incident: {incident['incident']}",
                 f"- severity: {severity_for_incident(incident)}",
                 f"- anomaly_rules: {rules}",
+                f"- confidence_classes: {stable_json(Counter(str(item.get('confidence_class')) for item in incident.get('anomalies', []) if item.get('confidence_class')))}",
                 f"- telemetry_snapshots: {', '.join(incident['telemetry_snapshots']) or 'none'}",
                 f"- screenshot: {incident.get('screenshot') or 'none'}",
                 "- recommendations:",

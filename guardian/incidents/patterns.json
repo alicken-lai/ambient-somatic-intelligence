@@ -1,18 +1,24 @@
 {
-  "generated_at": "2026-05-11T21:52:20.857132+00:00",
-  "incident_count": 1,
-  "latest_incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+  "confidence_classes": {
+    "low_confidence_watch": 1
+  },
+  "generated_at": "2026-05-11T22:15:25.671960+00:00",
+  "incident_count": 2,
+  "latest_incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
   "latest_severity": "warning",
-  "previous_max_severity": "none",
+  "previous_max_severity": "warning",
   "recommendations_only": true,
-  "repeated_anomaly_types": {},
+  "repeated_anomaly_types": {
+    "high_memory_usage": 2
+  },
   "rule_counts": {
-    "high_memory_usage": 1
+    "high_memory_usage": 2
   },
   "severity_by_rule": {
     "high_memory_usage": [
+      "warning",
       "warning"
     ]
   },
-  "severity_comparison": "no previous incidents"
+  "severity_comparison": "latest incident severity matches previous maximum"
 }
