@@ -4,3 +4,5 @@
 {"action":"vision:ocr-confidence","approver":"vision_capture:auto-record","reason":"confidence 27.16 below threshold 45.0","risk":"REVIEW_REQUIRED","timestamp":"2026-05-11T13:47:49.308806+00:00"}
 {"action":"vision:ocr-confidence","approver":"vision_capture:auto-record","reason":"confidence 27.02 below threshold 45.0","risk":"REVIEW_REQUIRED","timestamp":"2026-05-11T13:48:10.828162+00:00"}
 {"action":"vision:ocr-confidence","approver":"vision_capture:auto-record","reason":"confidence 27.16 below threshold 45.0","risk":"REVIEW_REQUIRED","timestamp":"2026-05-11T13:48:30.798787+00:00"}
+{"action":"cua open_local_url http://localhost:9090","approver":"cua_guarded_action:auto-record","reason":"low-risk local CUA action","risk":"REVIEW_REQUIRED","timestamp":"2026-05-11T13:59:08.077935+00:00"}
+{"action":"cua open_local_url http://localhost:9090","approver":"cua_guarded_action:auto-record","reason":"low-risk local CUA action","risk":"REVIEW_REQUIRED","timestamp":"2026-05-11T14:02:40.967735+00:00"}

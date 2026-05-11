@@ -1,0 +1,26 @@
+mode: guarded_low_risk
+
+allowed_urls:
+  - http://localhost:3000
+  - http://localhost:9090
+
+allow:
+  - scroll
+  - focus window
+  - open local URLs
+  - copy visible non-sensitive text
+  - navigate local dashboards only
+
+block:
+  - submit
+  - delete
+  - payment
+  - login
+  - password input
+  - send email
+  - system settings
+  - external websites
+  - file deletion
+
+ocr:
+  minimum_confidence: 45.0

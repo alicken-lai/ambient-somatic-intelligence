@@ -43,6 +43,7 @@ ROUTES = {
         "--target",
         "docker",
     ],
+    "cua-guarded-smoke": [sys.executable, "scripts/cua_guarded_action.py", "--smoke"],
 }
 
 
