@@ -224,6 +224,19 @@ def render_html(model: dict[str, Any]) -> str:
     h1 {{ font-size: 30px; letter-spacing: 0; }}
     h2 {{ font-size: 17px; margin-bottom: 12px; }}
     .stamp {{ color: var(--muted); font-size: 13px; text-align: right; }}
+    .refresh-control {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }}
+    .refresh-control input {{
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -286,7 +299,13 @@ def render_html(model: dict[str, Any]) -> str:
         <h1>Somatic Dashboard</h1>
         <div class="small">Local body state, reflex confidence, incident memory, and memory pressure.</div>
       </div>
-      <div class="stamp">Generated {html.escape(model['generated_at'])}<br>No corrective actions. Recommendations only.</div>
+      <div class="stamp">
+        Generated {html.escape(model['generated_at'])}<br>No corrective actions. Recommendations only.
+        <label class="refresh-control">
+          <input id="auto-refresh" type="checkbox" aria-label="Auto refresh dashboard">
+          Auto-refresh 60s
+        </label>
+      </div>
     </header>
 
     <div class="grid">
@@ -373,6 +392,30 @@ def render_html(model: dict[str, Any]) -> str:
       </section>
     </div>
   </main>
+  <script>
+    (function () {{
+      var checkbox = document.getElementById("auto-refresh");
+      var key = "somaticDashboardAutoRefresh";
+      var timer = null;
+      function applyRefresh(enabled) {{
+        window.localStorage.setItem(key, enabled ? "1" : "0");
+        if (timer) {{
+          window.clearInterval(timer);
+          timer = null;
+        }}
+        if (enabled) {{
+          timer = window.setInterval(function () {{
+            window.location.reload();
+          }}, 60000);
+        }}
+      }}
+      checkbox.checked = window.localStorage.getItem(key) === "1";
+      applyRefresh(checkbox.checked);
+      checkbox.addEventListener("change", function () {{
+        applyRefresh(checkbox.checked);
+      }});
+    }})();
+  </script>
 </body>
 </html>
 """

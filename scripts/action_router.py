@@ -50,6 +50,7 @@ ROUTES = {
     "health-score-build": [sys.executable, "scripts/health_score.py", "--build"],
     "memory-pressure-diagnose": [sys.executable, "scripts/memory_pressure_diagnosis.py", "--build"],
     "somatic-dashboard-build": [sys.executable, "scripts/build_somatic_dashboard.py", "--build"],
+    "daily-digest-build": [sys.executable, "scripts/daily_digest.py", "--build"],
 }
 
 

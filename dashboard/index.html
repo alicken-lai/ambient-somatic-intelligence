@@ -44,6 +44,19 @@
     h1 { font-size: 30px; letter-spacing: 0; }
     h2 { font-size: 17px; margin-bottom: 12px; }
     .stamp { color: var(--muted); font-size: 13px; text-align: right; }
+    .refresh-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .refresh-control input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -106,7 +119,13 @@
         <h1>Somatic Dashboard</h1>
         <div class="small">Local body state, reflex confidence, incident memory, and memory pressure.</div>
       </div>
-      <div class="stamp">Generated 2026-05-11T22:18:55.381413+00:00<br>No corrective actions. Recommendations only.</div>
+      <div class="stamp">
+        Generated 2026-05-11T22:21:12.492240+00:00<br>No corrective actions. Recommendations only.
+        <label class="refresh-control">
+          <input id="auto-refresh" type="checkbox" aria-label="Auto refresh dashboard">
+          Auto-refresh 60s
+        </label>
+      </div>
     </header>
 
     <div class="grid">
@@ -177,7 +196,7 @@
         <table>
           <tbody>
             <tr><th>Latest Telemetry</th><td><code>observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json</code></td></tr>
-            <tr><th>DMN Append Count</th><td>56</td></tr>
+            <tr><th>DMN Append Count</th><td>58</td></tr>
           </tbody>
         </table>
       </section>
@@ -193,5 +212,29 @@
       </section>
     </div>
   </main>
+  <script>
+    (function () {
+      var checkbox = document.getElementById("auto-refresh");
+      var key = "somaticDashboardAutoRefresh";
+      var timer = null;
+      function applyRefresh(enabled) {
+        window.localStorage.setItem(key, enabled ? "1" : "0");
+        if (timer) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+        if (enabled) {
+          timer = window.setInterval(function () {
+            window.location.reload();
+          }, 60000);
+        }
+      }
+      checkbox.checked = window.localStorage.getItem(key) === "1";
+      applyRefresh(checkbox.checked);
+      checkbox.addEventListener("change", function () {
+        applyRefresh(checkbox.checked);
+      });
+    })();
+  </script>
 </body>
 </html>
