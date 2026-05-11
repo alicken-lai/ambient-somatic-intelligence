@@ -44,6 +44,7 @@ ROUTES = {
         "docker",
     ],
     "cua-guarded-smoke": [sys.executable, "scripts/cua_guarded_action.py", "--smoke"],
+    "guardian-reflex-once": [sys.executable, "scripts/guardian_reflex.py", "--once"],
 }
 
 

@@ -1,0 +1,42 @@
+mode: guardian_reflex
+
+inputs:
+  - telemetry snapshots
+  - Prometheus health
+  - Grafana health
+  - Docker container status
+  - OCR dashboard readings
+
+rules:
+  high_cpu_sustained:
+    threshold_percent: 85.0
+    consecutive_snapshots: 3
+  high_memory_usage:
+    threshold_percent: 90.0
+  disk_usage_growth:
+    threshold_percent: 2.0
+  container_down:
+    expected:
+      - ambient-prometheus
+      - ambient-grafana
+  prometheus_unreachable:
+    url: http://127.0.0.1:9090/-/ready
+  grafana_unreachable:
+    url: http://127.0.0.1:3000/api/health
+  ocr_warning_detected:
+    enabled: true
+
+allowed_responses:
+  - log incident
+  - append DMN memory
+  - create incident markdown note
+  - collect extra telemetry snapshot
+  - capture screenshot
+  - recommend action
+
+blocked_responses:
+  - restart services
+  - kill processes
+  - delete files
+  - modify system settings
+  - send external notifications
