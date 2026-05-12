@@ -59,6 +59,7 @@ ROUTES = {
     "state-query": [sys.executable, "scripts/query_state.py"],
     "self-reflect-build": [sys.executable, "scripts/self_reflect.py", "--build"],
     "operator-briefing-build": [sys.executable, "scripts/operator_briefing.py", "--build"],
+    "approval-packet-build": [sys.executable, "scripts/build_approval_packet.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {

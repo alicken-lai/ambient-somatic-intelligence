@@ -56,6 +56,7 @@ Ambient Somatic Intelligence uses four boundary levels to describe what the syst
 | `state-query` | `OBSERVE_ONLY` |
 | `self-reflect-build` | `RECOMMEND_ONLY` |
 | `operator-briefing-build` | `RECOMMEND_ONLY` |
+| `approval-packet-build` | `RECOMMEND_ONLY` |
 
 ## Operating Rules
 
