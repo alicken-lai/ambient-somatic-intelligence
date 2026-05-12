@@ -4,6 +4,10 @@
       "field": "/overall_deviation_severity and /metrics/*/deviation",
       "path": "guardian/baselines/telemetry_baseline.json"
     },
+    "circadian_deviation": {
+      "field": "/overall_deviation_severity and /metrics/*/deviation",
+      "path": "guardian/baselines/circadian_baseline.json"
+    },
     "dmn_append_count": {
       "method": "count non-empty JSONL records",
       "path": "memory/dmn.jsonl"
@@ -23,8 +27,13 @@
     "repeated_anomalies": {
       "field": "/patterns/repeated_anomaly_types",
       "path": "guardian/incidents/index.json"
+    },
+    "time_context": {
+      "field": "/time_context",
+      "path": "guardian/baselines/circadian_baseline.json"
     }
   },
+  "base_reflex_confidence": 0.1,
   "baseline_deviation": {
     "current_timestamp": "2026-05-11T21:49:00.299316+00:00",
     "metrics": {
@@ -73,10 +82,70 @@
     },
     "overall_severity": "elevated"
   },
+  "circadian_deviation": {
+    "comparison_basis": "weekday",
+    "current_timestamp": "2026-05-11T22:14:35.452488+00:00",
+    "group_counts": {
+      "matching_day_type": 21,
+      "matching_hour": 1,
+      "matching_weekday": 21
+    },
+    "metrics": {
+      "cpu_usage_percent": {
+        "current": 5.44,
+        "delta_from_mean": -0.9862,
+        "severity": "normal",
+        "z_score": -0.3036
+      },
+      "disk_used_percent": {
+        "current": 54.86,
+        "delta_from_mean": 0.4295,
+        "severity": "elevated",
+        "z_score": 1.5607
+      },
+      "load_average_15m": {
+        "current": 1.4,
+        "delta_from_mean": -0.1481,
+        "severity": "elevated",
+        "z_score": -1.4118
+      },
+      "load_average_1m": {
+        "current": 1.75,
+        "delta_from_mean": 0.269,
+        "severity": "normal",
+        "z_score": 0.8765
+      },
+      "load_average_5m": {
+        "current": 1.43,
+        "delta_from_mean": -0.1195,
+        "severity": "elevated",
+        "z_score": -1.2107
+      },
+      "memory_used_percent": {
+        "current": 96.21,
+        "delta_from_mean": -1.7229,
+        "severity": "warning",
+        "z_score": -2.1355
+      },
+      "process_count": {
+        "current": 667.0,
+        "delta_from_mean": 7.5714,
+        "severity": "normal",
+        "z_score": 0.4731
+      }
+    },
+    "overall_severity": "warning",
+    "time_adjusted_reflex_confidence": {
+      "adjusted_confidence": 0.05,
+      "adjustment": -0.05,
+      "base_confidence": 0.1,
+      "reason": "time-aware severity=warning; comparison bucket count=21"
+    }
+  },
   "corrective_actions": "none",
   "current_risk_class": "low_confidence_watch",
   "display_risk": "watch",
-  "dmn_append_count": 63,
+  "dmn_append_count": 68,
   "docker_context": {
     "containers": [
       {
@@ -101,11 +170,11 @@
       "rss_mb": 32.8
     }
   },
-  "generated_at": "2026-05-11T23:18:17.337821+00:00",
+  "generated_at": "2026-05-12T00:29:41.271285+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
   "incident_count": 2,
-  "latest_reflex_confidence": 0.1,
+  "latest_reflex_confidence": 0.05,
   "latest_telemetry_snapshot": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
   "memory_status": {
     "free_bytes": 380993536,
@@ -150,6 +219,12 @@
       "raw_score": 69.89,
       "score": 69.89
     }
+  },
+  "time_context": {
+    "day_type": "weekday",
+    "hour_of_day": 22,
+    "timestamp": "2026-05-11T22:14:35.452488+00:00",
+    "weekday": "monday"
   },
   "trend": "stable",
   "validation": {

@@ -49,6 +49,7 @@ ROUTES = {
     "baseline-learn-build": [sys.executable, "scripts/baseline_learn.py", "--build"],
     "health-score-build": [sys.executable, "scripts/health_score.py", "--build"],
     "memory-pressure-diagnose": [sys.executable, "scripts/memory_pressure_diagnosis.py", "--build"],
+    "circadian-baseline-build": [sys.executable, "scripts/circadian_baseline.py", "--build"],
     "system-state-build": [sys.executable, "scripts/build_system_state.py", "--build"],
     "somatic-dashboard-build": [sys.executable, "scripts/build_somatic_dashboard.py", "--build"],
     "daily-digest-build": [sys.executable, "scripts/daily_digest.py", "--build"],

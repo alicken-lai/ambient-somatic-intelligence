@@ -1,0 +1,408 @@
+{
+  "baselines": {
+    "day_type": {
+      "weekday": {
+        "cpu_usage_percent": {
+          "count": 21,
+          "max": 17.56,
+          "mean": 6.4262,
+          "min": 2.12,
+          "stddev": 3.248
+        },
+        "disk_used_percent": {
+          "count": 21,
+          "max": 54.86,
+          "mean": 54.4305,
+          "min": 53.78,
+          "stddev": 0.2752
+        },
+        "load_average_15m": {
+          "count": 21,
+          "max": 1.8,
+          "mean": 1.5481,
+          "min": 1.4,
+          "stddev": 0.1049
+        },
+        "load_average_1m": {
+          "count": 21,
+          "max": 2.8,
+          "mean": 1.481,
+          "min": 1.29,
+          "stddev": 0.3069
+        },
+        "load_average_5m": {
+          "count": 21,
+          "max": 1.83,
+          "mean": 1.5495,
+          "min": 1.43,
+          "stddev": 0.0987
+        },
+        "memory_used_percent": {
+          "count": 21,
+          "max": 99.61,
+          "mean": 97.9329,
+          "min": 96.21,
+          "stddev": 0.8068
+        },
+        "process_count": {
+          "count": 21,
+          "max": 668.0,
+          "mean": 659.4286,
+          "min": 617.0,
+          "stddev": 16.0047
+        }
+      }
+    },
+    "hour_of_day": {
+      "13": {
+        "cpu_usage_percent": {
+          "count": 3,
+          "max": 8.56,
+          "mean": 6.4133,
+          "min": 2.12,
+          "stddev": 3.0358
+        },
+        "disk_used_percent": {
+          "count": 3,
+          "max": 53.78,
+          "mean": 53.78,
+          "min": 53.78,
+          "stddev": 0.0
+        },
+        "load_average_15m": {
+          "count": 3,
+          "max": 1.8,
+          "mean": 1.7933,
+          "min": 1.79,
+          "stddev": 0.0047
+        },
+        "load_average_1m": {
+          "count": 3,
+          "max": 1.34,
+          "mean": 1.3067,
+          "min": 1.29,
+          "stddev": 0.0236
+        },
+        "load_average_5m": {
+          "count": 3,
+          "max": 1.73,
+          "mean": 1.7167,
+          "min": 1.71,
+          "stddev": 0.0094
+        },
+        "memory_used_percent": {
+          "count": 3,
+          "max": 99.61,
+          "mean": 99.5233,
+          "min": 99.37,
+          "stddev": 0.1087
+        },
+        "process_count": {
+          "count": 3,
+          "max": 623.0,
+          "mean": 620.3333,
+          "min": 617.0,
+          "stddev": 2.4944
+        }
+      },
+      "21": {
+        "cpu_usage_percent": {
+          "count": 17,
+          "max": 17.56,
+          "mean": 6.4865,
+          "min": 2.37,
+          "stddev": 3.3681
+        },
+        "disk_used_percent": {
+          "count": 17,
+          "max": 54.52,
+          "mean": 54.52,
+          "min": 54.52,
+          "stddev": 0.0
+        },
+        "load_average_15m": {
+          "count": 17,
+          "max": 1.6,
+          "mean": 1.5135,
+          "min": 1.5,
+          "stddev": 0.0219
+        },
+        "load_average_1m": {
+          "count": 17,
+          "max": 2.8,
+          "mean": 1.4959,
+          "min": 1.39,
+          "stddev": 0.3262
+        },
+        "load_average_5m": {
+          "count": 17,
+          "max": 1.83,
+          "mean": 1.5271,
+          "min": 1.5,
+          "stddev": 0.0758
+        },
+        "memory_used_percent": {
+          "count": 17,
+          "max": 99.28,
+          "mean": 97.7535,
+          "min": 97.6,
+          "stddev": 0.3859
+        },
+        "process_count": {
+          "count": 17,
+          "max": 668.0,
+          "mean": 665.8824,
+          "min": 665.0,
+          "stddev": 0.7579
+        }
+      },
+      "22": {
+        "cpu_usage_percent": {
+          "count": 1,
+          "max": 5.44,
+          "mean": 5.44,
+          "min": 5.44,
+          "stddev": 0.0
+        },
+        "disk_used_percent": {
+          "count": 1,
+          "max": 54.86,
+          "mean": 54.86,
+          "min": 54.86,
+          "stddev": 0.0
+        },
+        "load_average_15m": {
+          "count": 1,
+          "max": 1.4,
+          "mean": 1.4,
+          "min": 1.4,
+          "stddev": 0.0
+        },
+        "load_average_1m": {
+          "count": 1,
+          "max": 1.75,
+          "mean": 1.75,
+          "min": 1.75,
+          "stddev": 0.0
+        },
+        "load_average_5m": {
+          "count": 1,
+          "max": 1.43,
+          "mean": 1.43,
+          "min": 1.43,
+          "stddev": 0.0
+        },
+        "memory_used_percent": {
+          "count": 1,
+          "max": 96.21,
+          "mean": 96.21,
+          "min": 96.21,
+          "stddev": 0.0
+        },
+        "process_count": {
+          "count": 1,
+          "max": 667.0,
+          "mean": 667.0,
+          "min": 667.0,
+          "stddev": 0.0
+        }
+      }
+    },
+    "weekday": {
+      "monday": {
+        "cpu_usage_percent": {
+          "count": 21,
+          "max": 17.56,
+          "mean": 6.4262,
+          "min": 2.12,
+          "stddev": 3.248
+        },
+        "disk_used_percent": {
+          "count": 21,
+          "max": 54.86,
+          "mean": 54.4305,
+          "min": 53.78,
+          "stddev": 0.2752
+        },
+        "load_average_15m": {
+          "count": 21,
+          "max": 1.8,
+          "mean": 1.5481,
+          "min": 1.4,
+          "stddev": 0.1049
+        },
+        "load_average_1m": {
+          "count": 21,
+          "max": 2.8,
+          "mean": 1.481,
+          "min": 1.29,
+          "stddev": 0.3069
+        },
+        "load_average_5m": {
+          "count": 21,
+          "max": 1.83,
+          "mean": 1.5495,
+          "min": 1.43,
+          "stddev": 0.0987
+        },
+        "memory_used_percent": {
+          "count": 21,
+          "max": 99.61,
+          "mean": 97.9329,
+          "min": 96.21,
+          "stddev": 0.8068
+        },
+        "process_count": {
+          "count": 21,
+          "max": 668.0,
+          "mean": 659.4286,
+          "min": 617.0,
+          "stddev": 16.0047
+        }
+      }
+    }
+  },
+  "comparison_basis": "weekday",
+  "corrective_actions": "none",
+  "current_path": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
+  "current_source": "snapshot",
+  "current_timestamp": "2026-05-11T22:14:35.452488+00:00",
+  "generated_at": "2026-05-12T00:29:38.738351+00:00",
+  "group_counts": {
+    "matching_day_type": 21,
+    "matching_hour": 1,
+    "matching_weekday": 21
+  },
+  "metrics": {
+    "cpu_usage_percent": {
+      "baseline": {
+        "count": 21,
+        "max": 17.56,
+        "mean": 6.4262,
+        "min": 2.12,
+        "stddev": 3.248
+      },
+      "current": 5.44,
+      "deviation": {
+        "current": 5.44,
+        "delta_from_mean": -0.9862,
+        "severity": "normal",
+        "z_score": -0.3036
+      }
+    },
+    "disk_used_percent": {
+      "baseline": {
+        "count": 21,
+        "max": 54.86,
+        "mean": 54.4305,
+        "min": 53.78,
+        "stddev": 0.2752
+      },
+      "current": 54.86,
+      "deviation": {
+        "current": 54.86,
+        "delta_from_mean": 0.4295,
+        "severity": "elevated",
+        "z_score": 1.5607
+      }
+    },
+    "load_average_15m": {
+      "baseline": {
+        "count": 21,
+        "max": 1.8,
+        "mean": 1.5481,
+        "min": 1.4,
+        "stddev": 0.1049
+      },
+      "current": 1.4,
+      "deviation": {
+        "current": 1.4,
+        "delta_from_mean": -0.1481,
+        "severity": "elevated",
+        "z_score": -1.4118
+      }
+    },
+    "load_average_1m": {
+      "baseline": {
+        "count": 21,
+        "max": 2.8,
+        "mean": 1.481,
+        "min": 1.29,
+        "stddev": 0.3069
+      },
+      "current": 1.75,
+      "deviation": {
+        "current": 1.75,
+        "delta_from_mean": 0.269,
+        "severity": "normal",
+        "z_score": 0.8765
+      }
+    },
+    "load_average_5m": {
+      "baseline": {
+        "count": 21,
+        "max": 1.83,
+        "mean": 1.5495,
+        "min": 1.43,
+        "stddev": 0.0987
+      },
+      "current": 1.43,
+      "deviation": {
+        "current": 1.43,
+        "delta_from_mean": -0.1195,
+        "severity": "elevated",
+        "z_score": -1.2107
+      }
+    },
+    "memory_used_percent": {
+      "baseline": {
+        "count": 21,
+        "max": 99.61,
+        "mean": 97.9329,
+        "min": 96.21,
+        "stddev": 0.8068
+      },
+      "current": 96.21,
+      "deviation": {
+        "current": 96.21,
+        "delta_from_mean": -1.7229,
+        "severity": "warning",
+        "z_score": -2.1355
+      }
+    },
+    "process_count": {
+      "baseline": {
+        "count": 21,
+        "max": 668.0,
+        "mean": 659.4286,
+        "min": 617.0,
+        "stddev": 16.0047
+      },
+      "current": 667.0,
+      "deviation": {
+        "current": 667.0,
+        "delta_from_mean": 7.5714,
+        "severity": "normal",
+        "z_score": 0.4731
+      }
+    }
+  },
+  "overall_deviation_severity": "warning",
+  "recommendations": [
+    "Continue observing current telemetry against the selected time-aware baseline."
+  ],
+  "recommendations_only": true,
+  "telemetry_count": 21,
+  "time_adjusted_reflex_confidence": {
+    "adjusted_confidence": 0.05,
+    "adjustment": -0.05,
+    "base_confidence": 0.1,
+    "reason": "time-aware severity=warning; comparison bucket count=21"
+  },
+  "time_context": {
+    "day_type": "weekday",
+    "hour_of_day": 22,
+    "timestamp": "2026-05-11T22:14:35.452488+00:00",
+    "weekday": "monday"
+  }
+}

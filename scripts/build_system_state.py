@@ -21,6 +21,7 @@ HEALTH_JSON = ROOT / "guardian" / "health" / "health_scores.json"
 INCIDENT_INDEX = ROOT / "guardian" / "incidents" / "index.json"
 CALIBRATION_JSON = ROOT / "guardian" / "incidents" / "reflex_confidence_calibration.json"
 BASELINE_JSON = ROOT / "guardian" / "baselines" / "telemetry_baseline.json"
+CIRCADIAN_JSON = ROOT / "guardian" / "baselines" / "circadian_baseline.json"
 MEMORY_PRESSURE_JSON = ROOT / "guardian" / "health" / "memory_pressure_report.json"
 TELEMETRY_DIR = ROOT / "observability" / "snapshots"
 
@@ -103,6 +104,14 @@ def authoritative_sources() -> dict[str, dict[str, str]]:
             "path": str(BASELINE_JSON.relative_to(ROOT)),
             "field": "/overall_deviation_severity and /metrics/*/deviation",
         },
+        "time_context": {
+            "path": str(CIRCADIAN_JSON.relative_to(ROOT)),
+            "field": "/time_context",
+        },
+        "circadian_deviation": {
+            "path": str(CIRCADIAN_JSON.relative_to(ROOT)),
+            "field": "/overall_deviation_severity and /metrics/*/deviation",
+        },
     }
 
 
@@ -111,12 +120,15 @@ def source_values() -> dict[str, Any]:
     incidents = load_json(INCIDENT_INDEX)
     calibration = load_json(CALIBRATION_JSON)
     baseline = load_json(BASELINE_JSON)
+    circadian = load_json(CIRCADIAN_JSON)
     memory_pressure = load_json(MEMORY_PRESSURE_JSON)
 
     current = health.get("current", {})
     subsystems = current.get("subsystems", {})
     latest_anomaly = (calibration.get("anomalies") or [{}])[-1]
     confidence = float(latest_anomaly.get("confidence") or 0.0)
+    time_adjusted = circadian.get("time_adjusted_reflex_confidence", {})
+    adjusted_confidence = float(time_adjusted.get("adjusted_confidence", confidence))
     confidence_class = str(latest_anomaly.get("confidence_class") or "low_confidence_watch")
     repeated = incidents.get("patterns", {}).get("repeated_anomaly_types", {})
     docker_context = calibration.get("context", {})
@@ -140,7 +152,8 @@ def source_values() -> dict[str, Any]:
         "incident_count": int(incidents.get("incident_count") or 0),
         "repeated_anomalies": repeated,
         "repeated_anomaly_count": sum(int(value) for value in repeated.values()),
-        "latest_reflex_confidence": confidence,
+        "base_reflex_confidence": confidence,
+        "latest_reflex_confidence": adjusted_confidence,
         "current_risk_class": confidence_class,
         "display_risk": class_from_confidence(confidence_class),
         "baseline_deviation": {
@@ -155,6 +168,23 @@ def source_values() -> dict[str, Any]:
                 }
                 for name, data in sorted(baseline.get("metrics", {}).items())
             },
+        },
+        "time_context": circadian.get("time_context", {}),
+        "circadian_deviation": {
+            "overall_severity": circadian.get("overall_deviation_severity", "unknown"),
+            "current_timestamp": circadian.get("current_timestamp"),
+            "comparison_basis": circadian.get("comparison_basis"),
+            "group_counts": circadian.get("group_counts", {}),
+            "metrics": {
+                name: {
+                    "current": data.get("current"),
+                    "severity": data.get("deviation", {}).get("severity"),
+                    "z_score": data.get("deviation", {}).get("z_score"),
+                    "delta_from_mean": data.get("deviation", {}).get("delta_from_mean"),
+                }
+                for name, data in sorted(circadian.get("metrics", {}).items())
+            },
+            "time_adjusted_reflex_confidence": time_adjusted,
         },
         "latest_telemetry_snapshot": latest_telemetry_snapshot(),
         "docker_context": {
@@ -182,7 +212,7 @@ def stale_state_detection(state: dict[str, Any]) -> dict[str, Any]:
     newer_sources = []
     if STATE_JSON.exists():
         state_mtime = STATE_JSON.stat().st_mtime
-        for path in [DMN_FILE, HEALTH_JSON, INCIDENT_INDEX, CALIBRATION_JSON, BASELINE_JSON, MEMORY_PRESSURE_JSON]:
+        for path in [DMN_FILE, HEALTH_JSON, INCIDENT_INDEX, CALIBRATION_JSON, BASELINE_JSON, CIRCADIAN_JSON, MEMORY_PRESSURE_JSON]:
             if path.exists() and path.stat().st_mtime > state_mtime:
                 newer_sources.append(str(path.relative_to(ROOT)))
 
@@ -238,8 +268,11 @@ def write_report(state: dict[str, Any]) -> None:
             f"- repeated_anomaly_count: {state['repeated_anomaly_count']}",
             f"- repeated_anomalies: {stable_json(state['repeated_anomalies']) if state['repeated_anomalies'] else 'none'}",
             f"- reflex_confidence: {state['latest_reflex_confidence']}",
+            f"- base_reflex_confidence: {state.get('base_reflex_confidence')}",
             f"- risk_class: {state['current_risk_class']}",
             f"- baseline_deviation: {state['baseline_deviation']['overall_severity']}",
+            f"- time_context: {stable_json(state['time_context']) if state['time_context'] else 'unknown'}",
+            f"- circadian_deviation: {state['circadian_deviation']['overall_severity']}",
             "",
             "## Validation",
             "",
