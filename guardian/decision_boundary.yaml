@@ -31,3 +31,4 @@ routes:
   simulation-build: RECOMMEND_ONLY
   dream-build: RECOMMEND_ONLY
   recalibration-queue-build: RECOMMEND_ONLY
+  mem-palace-build: RECOMMEND_ONLY

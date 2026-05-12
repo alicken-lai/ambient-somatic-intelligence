@@ -26,6 +26,7 @@ MEMORY_PRESSURE_JSON = ROOT / "guardian" / "health" / "memory_pressure_report.js
 SIMULATION_JSON = ROOT / "guardian" / "simulations" / "latest_simulation.json"
 DREAM_JSON = ROOT / "guardian" / "dreams" / "latest_dream.json"
 QUEUE_JSON = ROOT / "guardian" / "recalibration" / "queue.json"
+PALACE_JSON = ROOT / "tools" / "mempalace" / "palace.json"
 TELEMETRY_DIR = ROOT / "observability" / "snapshots"
 
 
@@ -135,6 +136,14 @@ def authoritative_sources() -> dict[str, dict[str, str]]:
             "path": str(QUEUE_JSON.relative_to(ROOT)),
             "field": "/queue_count",
         },
+        "palace_nodes": {
+            "path": str(PALACE_JSON.relative_to(ROOT)),
+            "field": "/palace_nodes",
+        },
+        "palace_links": {
+            "path": str(PALACE_JSON.relative_to(ROOT)),
+            "field": "/palace_links",
+        },
     }
 
 
@@ -148,6 +157,7 @@ def source_values() -> dict[str, Any]:
     simulation = load_json(SIMULATION_JSON)
     dream = load_json(DREAM_JSON)
     recalibration = load_json(QUEUE_JSON)
+    palace = load_json(PALACE_JSON)
 
     current = health.get("current", {})
     subsystems = current.get("subsystems", {})
@@ -236,6 +246,8 @@ def source_values() -> dict[str, Any]:
         ),
         "recalibration_candidates": dream.get("recalibration_candidates", []),
         "recalibration_queue_count": int(recalibration.get("queue_count") or 0),
+        "palace_nodes": palace.get("palace_nodes", {}),
+        "palace_links": palace.get("palace_links", []),
         "docker_context": {
             "vm": docker_context.get("docker_vm", {}),
             "containers": docker_context.get("docker_stats", []),
@@ -272,6 +284,7 @@ def stale_state_detection(state: dict[str, Any]) -> dict[str, Any]:
             SIMULATION_JSON,
             DREAM_JSON,
             QUEUE_JSON,
+            PALACE_JSON,
         ]:
             if path.exists() and path.stat().st_mtime > state_mtime:
                 newer_sources.append(str(path.relative_to(ROOT)))
@@ -338,6 +351,8 @@ def write_report(state: dict[str, Any]) -> None:
             f"- dream_cycle: {stable_json(state['dream_cycle']) if state['dream_cycle'] else 'none'}",
             f"- recalibration_candidates: {stable_json(state['recalibration_candidates']) if state['recalibration_candidates'] else '[]'}",
             f"- recalibration_queue_count: {state['recalibration_queue_count']}",
+            f"- palace_nodes: {len(state['palace_nodes']) if state['palace_nodes'] else 0}",
+            f"- palace_links: {len(state['palace_links']) if state['palace_links'] else 0}",
             "",
             "## Validation",
             "",
