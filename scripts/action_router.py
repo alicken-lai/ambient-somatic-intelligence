@@ -62,6 +62,7 @@ ROUTES = {
     "approval-packet-build": [sys.executable, "scripts/build_approval_packet.py", "--build"],
     "simulation-build": [sys.executable, "scripts/simulate_incident.py", "--build"],
     "dream-build": [sys.executable, "scripts/guardian_dream.py", "--build"],
+    "recalibration-queue-build": [sys.executable, "scripts/build_recalibration_queue.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {

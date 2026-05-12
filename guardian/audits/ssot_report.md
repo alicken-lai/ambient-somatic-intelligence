@@ -1,6 +1,6 @@
 # Single Source of Truth Report
 
-- generated_at: 2026-05-12T08:47:35.570555+00:00
+- generated_at: 2026-05-12T08:50:15.012495+00:00
 - state_file: state/system_state.json
 - corrective_actions: none
 - response_mode: recommendations only
@@ -22,10 +22,11 @@
 | predicted_risk | guardian/simulations/latest_simulation.json | /predicted_risk |
 | dream_cycle | guardian/dreams/latest_dream.json | /dream_cycle |
 | recalibration_candidates | guardian/dreams/latest_dream.json | /recalibration_candidates |
+| recalibration_queue_count | guardian/recalibration/queue.json | /queue_count |
 
 ## Current Values
 
-- dmn_append_count: 78
+- dmn_append_count: 79
 - health_score: 76.53
 - incident_count: 2
 - repeated_anomaly_count: 2
@@ -40,6 +41,7 @@
 - predicted_risk: {"confidence":0.6,"false_positive_likelihood":"low","horizon_summary":{"2h":"review","30m":"review","5m":"watch"},"incident_similarity":"memory_used_percent","level":"review","primary_driver":"memory_used_percent"}
 - dream_cycle: {"dominant_theme":"repeated memory pressure with watch-level reflex suppression","generated_at":"2026-05-12T08:47:35.570143+00:00","incident_window":5,"replayed_incident_count":2,"source_context":{"anomaly_explanation":"guardian/explanations/latest_anomaly.md","operator_briefing":"docs/briefings/latest_operator_briefing.md","self_reflection":"docs/reflections/latest.md","simulation":"guardian/simulations/latest_simulation.md"}}
 - recalibration_candidates: [{"incident":"guardian/incidents/incident-2026-05-11T214902.702883Z0000.md","recalibration_suggestion":"Keep reflex confidence conservative, but escalate repeated memory warnings to review.","rule":"high_memory_usage","suggested_confidence":0.15},{"incident":"guardian/incidents/incident-2026-05-11T221437.780998Z0000.md","recalibration_suggestion":"Lower confidence for this rule family and treat the warning as artifact-prone.","rule":"high_memory_usage","suggested_confidence":0.2}]
+- recalibration_queue_count: 2
 
 ## Validation
 

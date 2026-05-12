@@ -32,6 +32,10 @@
       "field": "/recalibration_candidates",
       "path": "guardian/dreams/latest_dream.json"
     },
+    "recalibration_queue_count": {
+      "field": "/queue_count",
+      "path": "guardian/recalibration/queue.json"
+    },
     "reflex_confidence": {
       "field": "/anomalies/-1/confidence",
       "path": "guardian/incidents/reflex_confidence_calibration.json"
@@ -161,7 +165,7 @@
   "corrective_actions": "none",
   "current_risk_class": "low_confidence_watch",
   "display_risk": "watch",
-  "dmn_append_count": 78,
+  "dmn_append_count": 79,
   "docker_context": {
     "containers": [
       {
@@ -198,7 +202,7 @@
       "simulation": "guardian/simulations/latest_simulation.md"
     }
   },
-  "generated_at": "2026-05-12T08:47:35.570555+00:00",
+  "generated_at": "2026-05-12T08:50:15.012495+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
   "incident_count": 2,
@@ -237,6 +241,7 @@
       "suggested_confidence": 0.2
     }
   ],
+  "recalibration_queue_count": 2,
   "recommendations": [
     "Continue observing memory_used_percent; it is linked to prior incident memory.",
     "Review memory pressure and avoid launching additional heavy local tasks."
