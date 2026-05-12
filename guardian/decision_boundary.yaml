@@ -29,3 +29,4 @@ routes:
   operator-briefing-build: RECOMMEND_ONLY
   approval-packet-build: RECOMMEND_ONLY
   simulation-build: RECOMMEND_ONLY
+  dream-build: RECOMMEND_ONLY

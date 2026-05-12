@@ -1,0 +1,119 @@
+{
+  "corrective_actions": "none",
+  "dream_cycle": {
+    "dominant_theme": "repeated memory pressure with watch-level reflex suppression",
+    "generated_at": "2026-05-12T08:47:35.570143+00:00",
+    "incident_window": 5,
+    "replayed_incident_count": 2,
+    "source_context": {
+      "anomaly_explanation": "guardian/explanations/latest_anomaly.md",
+      "operator_briefing": "docs/briefings/latest_operator_briefing.md",
+      "self_reflection": "docs/reflections/latest.md",
+      "simulation": "guardian/simulations/latest_simulation.md"
+    }
+  },
+  "generated_at": "2026-05-12T08:47:35.570047+00:00",
+  "recalibration_candidates": [
+    {
+      "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+      "recalibration_suggestion": "Keep reflex confidence conservative, but escalate repeated memory warnings to review.",
+      "rule": "high_memory_usage",
+      "suggested_confidence": 0.15
+    },
+    {
+      "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+      "recalibration_suggestion": "Lower confidence for this rule family and treat the warning as artifact-prone.",
+      "rule": "high_memory_usage",
+      "suggested_confidence": 0.2
+    }
+  ],
+  "recommendations_only": true,
+  "reflection_context": {
+    "briefing_meta": {
+      "anomaly_explanation": "guardian/explanations/latest_anomaly.md",
+      "base_reflex_confidence": "0.1",
+      "baseline_deviation": "elevated",
+      "circadian_deviation": "warning",
+      "confidence_level": "low (0.10, low_confidence_watch)",
+      "corrective_actions": "none",
+      "daily_digest": "dashboard/daily_digest.md",
+      "dmn_append_count": "68",
+      "generated_at": "2026-05-12T08:30:32.043957+00:00",
+      "health_risk": "watch",
+      "health_score": "76.53",
+      "incident_count": "2",
+      "reflex_explanation": "observed_value: 0.05",
+      "response_mode": "recommendations only",
+      "self_reflection": "docs/reflections/latest.md",
+      "state_generated_at": "2026-05-12T00:29:41.271285+00:00",
+      "system_state": "state/system_state.json",
+      "time_adjusted_reflex_confidence": "0.05",
+      "trend": "stable"
+    },
+    "recent_incidents": [
+      "2026-05-11T21:49:02.703942+00:00: high_memory_usage (warning) in guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+      "2026-05-11T22:14:37.782126+00:00: high_memory_usage (warning) in guardian/incidents/incident-2026-05-11T221437.780998Z0000.md"
+    ],
+    "reflection_meta": {
+      "confidence_level": "low (0.10, low_confidence_watch)",
+      "corrective_actions": "none",
+      "daily_digest": "dashboard/daily_digest.md",
+      "digest_generated_at": "2026-05-11T23:18:21.040135+00:00",
+      "dmn_append_count": "63",
+      "dominant_risk": "high_memory_usage repeated 2 times",
+      "generated_at": "2026-05-12T00:23:03.435347+00:00",
+      "health_score": "76.53",
+      "incident_count": "2",
+      "incident_index": "guardian/incidents/index.json",
+      "response_mode": "recommendations only",
+      "risk_class": "low_confidence_watch",
+      "state_generated_at": "2026-05-11T23:18:17.337821+00:00",
+      "system_state": "state/system_state.json"
+    }
+  },
+  "replays": [
+    {
+      "alternative_interpretation": "The replay does not show a strong alternative beyond the observed deviation.",
+      "confidence_recalibration_suggestion": {
+        "current_confidence": 0.05,
+        "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+        "rule": "high_memory_usage",
+        "suggested_confidence": 0.15,
+        "suggestion": "Keep reflex confidence conservative, but escalate repeated memory warnings to review.",
+        "value": 99.61
+      },
+      "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+      "possible_false_positive": "possible",
+      "possible_missed_warning": "The repeated pattern should have raised the next memory warning sooner.",
+      "timestamp": "2026-05-11T21:49:02.703942+00:00",
+      "what_actually_happened": "Observed high_memory_usage at 99.61 with severity warning.",
+      "what_happened": "high_memory_usage=99.61 (warning)",
+      "what_was_predicted": "Latest anomaly explanation framed this as a watch-level deviation with no corrective action."
+    },
+    {
+      "alternative_interpretation": "This may be a scoring artifact amplified by memory-scoring logic rather than a structural fault.",
+      "confidence_recalibration_suggestion": {
+        "current_confidence": 0.05,
+        "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+        "rule": "high_memory_usage",
+        "suggested_confidence": 0.2,
+        "suggestion": "Lower confidence for this rule family and treat the warning as artifact-prone.",
+        "value": 97.69
+      },
+      "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+      "possible_false_positive": "likely",
+      "possible_missed_warning": "The earlier incident established the pattern; repeat escalation remains the key missed warning.",
+      "timestamp": "2026-05-11T22:14:37.782126+00:00",
+      "what_actually_happened": "Observed high_memory_usage at 97.69 with severity warning.",
+      "what_happened": "high_memory_usage=97.69 (warning)",
+      "what_was_predicted": "Latest anomaly explanation framed this as a watch-level deviation with no corrective action."
+    }
+  ],
+  "sources": {
+    "anomaly_explanations": "guardian/explanations/latest_anomaly.md",
+    "incident_memory": "guardian/incidents/index.json",
+    "operator_briefings": "docs/briefings/latest_operator_briefing.md",
+    "self_reflections": "docs/reflections/latest.md",
+    "simulations": "guardian/simulations/latest_simulation.json"
+  }
+}

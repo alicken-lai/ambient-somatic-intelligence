@@ -24,6 +24,7 @@ BASELINE_JSON = ROOT / "guardian" / "baselines" / "telemetry_baseline.json"
 CIRCADIAN_JSON = ROOT / "guardian" / "baselines" / "circadian_baseline.json"
 MEMORY_PRESSURE_JSON = ROOT / "guardian" / "health" / "memory_pressure_report.json"
 SIMULATION_JSON = ROOT / "guardian" / "simulations" / "latest_simulation.json"
+DREAM_JSON = ROOT / "guardian" / "dreams" / "latest_dream.json"
 TELEMETRY_DIR = ROOT / "observability" / "snapshots"
 
 
@@ -121,6 +122,14 @@ def authoritative_sources() -> dict[str, dict[str, str]]:
             "path": str(SIMULATION_JSON.relative_to(ROOT)),
             "field": "/predicted_risk",
         },
+        "dream_cycle": {
+            "path": str(DREAM_JSON.relative_to(ROOT)),
+            "field": "/dream_cycle",
+        },
+        "recalibration_candidates": {
+            "path": str(DREAM_JSON.relative_to(ROOT)),
+            "field": "/recalibration_candidates",
+        },
     }
 
 
@@ -132,6 +141,7 @@ def source_values() -> dict[str, Any]:
     circadian = load_json(CIRCADIAN_JSON)
     memory_pressure = load_json(MEMORY_PRESSURE_JSON)
     simulation = load_json(SIMULATION_JSON)
+    dream = load_json(DREAM_JSON)
 
     current = health.get("current", {})
     subsystems = current.get("subsystems", {})
@@ -209,6 +219,16 @@ def source_values() -> dict[str, Any]:
                 "horizon_summary": {"5m": "watch", "30m": "watch", "2h": "watch"},
             },
         ),
+        "dream_cycle": dream.get(
+            "dream_cycle",
+            {
+                "generated_at": None,
+                "incident_window": 0,
+                "replayed_incident_count": 0,
+                "dominant_theme": "none",
+            },
+        ),
+        "recalibration_candidates": dream.get("recalibration_candidates", []),
         "docker_context": {
             "vm": docker_context.get("docker_vm", {}),
             "containers": docker_context.get("docker_stats", []),
@@ -243,6 +263,7 @@ def stale_state_detection(state: dict[str, Any]) -> dict[str, Any]:
             CIRCADIAN_JSON,
             MEMORY_PRESSURE_JSON,
             SIMULATION_JSON,
+            DREAM_JSON,
         ]:
             if path.exists() and path.stat().st_mtime > state_mtime:
                 newer_sources.append(str(path.relative_to(ROOT)))
@@ -306,6 +327,8 @@ def write_report(state: dict[str, Any]) -> None:
             f"- circadian_deviation: {state['circadian_deviation']['overall_severity']}",
             f"- simulation_active: {state['simulation_active']}",
             f"- predicted_risk: {stable_json(state['predicted_risk']) if state['predicted_risk'] else 'none'}",
+            f"- dream_cycle: {stable_json(state['dream_cycle']) if state['dream_cycle'] else 'none'}",
+            f"- recalibration_candidates: {stable_json(state['recalibration_candidates']) if state['recalibration_candidates'] else '[]'}",
             "",
             "## Validation",
             "",
