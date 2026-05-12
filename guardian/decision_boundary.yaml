@@ -33,3 +33,4 @@ routes:
   recalibration-queue-build: RECOMMEND_ONLY
   mem-palace-build: RECOMMEND_ONLY
   mem-palace-query: OBSERVE_ONLY
+  identity-build: RECOMMEND_ONLY

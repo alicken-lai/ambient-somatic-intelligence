@@ -161,6 +161,20 @@ def build_palace() -> dict[str, Any]:
             )
         )
 
+    if reflection:
+        palace_nodes["visual_layer"].append(
+            node(
+                domain="visual_layer",
+                event_id="reflection:" + str(state.get("generated_at", "latest")),
+                timestamp=str(state.get("generated_at", "unknown")),
+                anomaly_type="self_reflection",
+                confidence=state.get("latest_reflex_confidence"),
+                explanation="Self-reflection carries the current watch posture and the memory-pressure narrative.",
+                linked_events=[str(REFLECTION_MD.relative_to(ROOT))],
+                lessons=["Keep self-reflection aligned with the latest operator briefing and anomaly explanation."],
+            )
+        )
+
     if queue:
         for item in queue.get("items", []):
             palace_nodes["guardian_reflex"].append(
@@ -171,10 +185,10 @@ def build_palace() -> dict[str, Any]:
                     anomaly_type=str(item.get("candidate_rule", "unknown")),
                     confidence=item.get("recommended_confidence", 0.0),
                     explanation=str(item.get("candidate_suggestion", "Review candidate")),
-                    linked_events=list(item.get("source_evidence", [])),
-                    lessons=["Treat recalibration as review-only until approval is granted."],
-                )
+                linked_events=list(dict.fromkeys(item.get("source_evidence", []))),
+                lessons=["Treat recalibration as review-only until approval is granted."],
             )
+        )
 
     palace_nodes["docker_runtime"].append(
         node(

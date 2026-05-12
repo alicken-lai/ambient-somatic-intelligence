@@ -1,6 +1,6 @@
 # Single Source of Truth Report
 
-- generated_at: 2026-05-12T08:53:10.200501+00:00
+- generated_at: 2026-05-12T09:02:03.194458+00:00
 - state_file: state/system_state.json
 - corrective_actions: none
 - response_mode: recommendations only
@@ -25,10 +25,11 @@
 | recalibration_queue_count | guardian/recalibration/queue.json | /queue_count |
 | palace_nodes | tools/mempalace/palace.json | /palace_nodes |
 | palace_links | tools/mempalace/palace.json | /palace_links |
+| identity_loaded | identity/core_values.json | /identity_loaded |
 
 ## Current Values
 
-- dmn_append_count: 81
+- dmn_append_count: 83
 - health_score: 76.53
 - incident_count: 2
 - repeated_anomaly_count: 2
@@ -46,6 +47,7 @@
 - recalibration_queue_count: 2
 - palace_nodes: 6
 - palace_links: 4
+- identity_loaded: True
 
 ## Validation
 

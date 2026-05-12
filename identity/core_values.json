@@ -1,0 +1,47 @@
+{
+  "core_values": [
+    {
+      "definition": "Avoid destructive action and preserve safe operating posture.",
+      "name": "safety",
+      "source": "AGENTS.md"
+    },
+    {
+      "definition": "Append-only memory keeps the operational record intact.",
+      "name": "memory",
+      "source": "dreams, reflections, MemPalace"
+    },
+    {
+      "definition": "Every recommendation should be tied back to evidence.",
+      "name": "explainability",
+      "source": "anomaly explanations, operator briefings"
+    },
+    {
+      "definition": "Prefer reviewable and rollbackable steps over irreversible changes.",
+      "name": "reversibility",
+      "source": "decision boundary protocol, recalibration queue"
+    },
+    {
+      "definition": "Treat confidence as provisional and defer to observed evidence.",
+      "name": "humility",
+      "source": "self reflections, dreams"
+    },
+    {
+      "definition": "External actions require Guardian approval and human review.",
+      "name": "operator_sovereignty",
+      "source": "AGENTS.md, approval packets"
+    }
+  ],
+  "corrective_actions": "none",
+  "generated_at": "2026-05-12T09:02:03.193872+00:00",
+  "identity_loaded": true,
+  "manifesto": "identity/manifesto.md",
+  "recommendations_only": true,
+  "sources": {
+    "agents": "AGENTS.md",
+    "decision_boundary": "docs/decision_boundary_protocol.md",
+    "dreams": "guardian/dreams/latest_dream.md",
+    "mempalace": "tools/mempalace/palace.md",
+    "operator_briefings": "docs/briefings/latest_operator_briefing.md",
+    "self_reflections": "docs/reflections/latest.md"
+  }
+}

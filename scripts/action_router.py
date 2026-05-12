@@ -65,6 +65,7 @@ ROUTES = {
     "recalibration-queue-build": [sys.executable, "scripts/build_recalibration_queue.py", "--build"],
     "mem-palace-build": [sys.executable, "scripts/build_mem_palace.py", "--build"],
     "mem-palace-query": [sys.executable, "scripts/query_mem_palace.py"],
+    "identity-build": [sys.executable, "scripts/build_identity.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {

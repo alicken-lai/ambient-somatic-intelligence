@@ -20,6 +20,10 @@
       "field": "/current/health_score",
       "path": "guardian/health/health_scores.json"
     },
+    "identity_loaded": {
+      "field": "/identity_loaded",
+      "path": "identity/core_values.json"
+    },
     "incident_count": {
       "field": "/incident_count",
       "path": "guardian/incidents/index.json"
@@ -173,7 +177,7 @@
   "corrective_actions": "none",
   "current_risk_class": "low_confidence_watch",
   "display_risk": "watch",
-  "dmn_append_count": 81,
+  "dmn_append_count": 83,
   "docker_context": {
     "containers": [
       {
@@ -210,9 +214,10 @@
       "simulation": "guardian/simulations/latest_simulation.md"
     }
   },
-  "generated_at": "2026-05-12T08:53:10.200501+00:00",
+  "generated_at": "2026-05-12T09:02:03.194458+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
+  "identity_loaded": true,
   "incident_count": 2,
   "latest_reflex_confidence": 0.05,
   "latest_telemetry_snapshot": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
