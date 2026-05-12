@@ -1061,6 +1061,25 @@ def create_mcp_server(event_bridge: Optional[EventBridge] = None) -> "FastMCP":
         except Exception as e:
             return _json_error(f"night_log_search failed: {e}")
 
+    # -- memory_recall -----------------------------------------------------
+
+    @mcp.tool()
+    def memory_recall(query: str) -> str:
+        """Recall Ambient OS memory from DMN, Night logs, MemPalace, and system_state.
+
+        Args:
+            query: Text to recall across unified memory sources.
+        """
+        if not query:
+            return _json_error("query is required")
+        try:
+            _ensure_ambient_scripts_on_path()
+            from memory_recall import memory_recall as run_memory_recall
+            payload = run_memory_recall(query)
+            return json.dumps(payload, indent=2, sort_keys=True)
+        except Exception as e:
+            return _json_error(f"memory_recall failed: {e}")
+
     return mcp
 
 

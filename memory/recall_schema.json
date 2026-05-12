@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ambient OS Unified Memory Recall Result",
+  "type": "object",
+  "required": [
+    "query",
+    "sources",
+    "matches",
+    "confidence",
+    "null_recall",
+    "timestamp"
+  ],
+  "properties": {
+    "query": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "source_type",
+          "content",
+          "tags",
+          "timestamp",
+          "confidence"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "null_recall": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
