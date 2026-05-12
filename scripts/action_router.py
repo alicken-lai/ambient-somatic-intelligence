@@ -53,6 +53,7 @@ ROUTES = {
     "system-state-build": [sys.executable, "scripts/build_system_state.py", "--build"],
     "somatic-dashboard-build": [sys.executable, "scripts/build_somatic_dashboard.py", "--build"],
     "daily-digest-build": [sys.executable, "scripts/daily_digest.py", "--build"],
+    "anomaly-explain-build": [sys.executable, "scripts/explain_anomaly.py", "--build"],
     "memory-integrity-audit": [sys.executable, "scripts/memory_integrity_audit.py", "--build"],
     "state-query": [sys.executable, "scripts/query_state.py"],
     "self-reflect-build": [sys.executable, "scripts/self_reflect.py", "--build"],
