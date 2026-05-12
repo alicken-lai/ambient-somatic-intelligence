@@ -57,6 +57,7 @@ ROUTES = {
     "memory-integrity-audit": [sys.executable, "scripts/memory_integrity_audit.py", "--build"],
     "state-query": [sys.executable, "scripts/query_state.py"],
     "self-reflect-build": [sys.executable, "scripts/self_reflect.py", "--build"],
+    "operator-briefing-build": [sys.executable, "scripts/operator_briefing.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {
