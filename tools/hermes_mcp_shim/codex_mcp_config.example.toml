@@ -1,0 +1,12 @@
+# Example Codex MCP registration for the Hermes shim.
+# Replace placeholder paths for the target machine.
+
+[mcp_servers.hermes]
+command = "hermes"
+args = ["mcp", "serve"]
+
+[mcp_servers.hermes.env]
+HERMES_HOME = "/path/to/hermes-home"
+AMBIENT_OS_ROOT = "/path/to/ambient-os"
+PYTHONPATH = "/path/to/hermes-home/mcp_shim:/path/to/hermes-home/mcp_deps"
+
