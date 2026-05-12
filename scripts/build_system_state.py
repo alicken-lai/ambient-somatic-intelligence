@@ -23,6 +23,7 @@ CALIBRATION_JSON = ROOT / "guardian" / "incidents" / "reflex_confidence_calibrat
 BASELINE_JSON = ROOT / "guardian" / "baselines" / "telemetry_baseline.json"
 CIRCADIAN_JSON = ROOT / "guardian" / "baselines" / "circadian_baseline.json"
 MEMORY_PRESSURE_JSON = ROOT / "guardian" / "health" / "memory_pressure_report.json"
+SIMULATION_JSON = ROOT / "guardian" / "simulations" / "latest_simulation.json"
 TELEMETRY_DIR = ROOT / "observability" / "snapshots"
 
 
@@ -112,6 +113,14 @@ def authoritative_sources() -> dict[str, dict[str, str]]:
             "path": str(CIRCADIAN_JSON.relative_to(ROOT)),
             "field": "/overall_deviation_severity and /metrics/*/deviation",
         },
+        "simulation_active": {
+            "path": str(SIMULATION_JSON.relative_to(ROOT)),
+            "field": "/simulation_active",
+        },
+        "predicted_risk": {
+            "path": str(SIMULATION_JSON.relative_to(ROOT)),
+            "field": "/predicted_risk",
+        },
     }
 
 
@@ -122,6 +131,7 @@ def source_values() -> dict[str, Any]:
     baseline = load_json(BASELINE_JSON)
     circadian = load_json(CIRCADIAN_JSON)
     memory_pressure = load_json(MEMORY_PRESSURE_JSON)
+    simulation = load_json(SIMULATION_JSON)
 
     current = health.get("current", {})
     subsystems = current.get("subsystems", {})
@@ -187,6 +197,18 @@ def source_values() -> dict[str, Any]:
             "time_adjusted_reflex_confidence": time_adjusted,
         },
         "latest_telemetry_snapshot": latest_telemetry_snapshot(),
+        "simulation_active": bool(simulation.get("simulation_active", False)),
+        "predicted_risk": simulation.get(
+            "predicted_risk",
+            {
+                "level": "none",
+                "confidence": 0.0,
+                "primary_driver": "none",
+                "incident_similarity": "none",
+                "false_positive_likelihood": "unknown",
+                "horizon_summary": {"5m": "watch", "30m": "watch", "2h": "watch"},
+            },
+        ),
         "docker_context": {
             "vm": docker_context.get("docker_vm", {}),
             "containers": docker_context.get("docker_stats", []),
@@ -212,7 +234,16 @@ def stale_state_detection(state: dict[str, Any]) -> dict[str, Any]:
     newer_sources = []
     if STATE_JSON.exists():
         state_mtime = STATE_JSON.stat().st_mtime
-        for path in [DMN_FILE, HEALTH_JSON, INCIDENT_INDEX, CALIBRATION_JSON, BASELINE_JSON, CIRCADIAN_JSON, MEMORY_PRESSURE_JSON]:
+        for path in [
+            DMN_FILE,
+            HEALTH_JSON,
+            INCIDENT_INDEX,
+            CALIBRATION_JSON,
+            BASELINE_JSON,
+            CIRCADIAN_JSON,
+            MEMORY_PRESSURE_JSON,
+            SIMULATION_JSON,
+        ]:
             if path.exists() and path.stat().st_mtime > state_mtime:
                 newer_sources.append(str(path.relative_to(ROOT)))
 
@@ -273,6 +304,8 @@ def write_report(state: dict[str, Any]) -> None:
             f"- baseline_deviation: {state['baseline_deviation']['overall_severity']}",
             f"- time_context: {stable_json(state['time_context']) if state['time_context'] else 'unknown'}",
             f"- circadian_deviation: {state['circadian_deviation']['overall_severity']}",
+            f"- simulation_active: {state['simulation_active']}",
+            f"- predicted_risk: {stable_json(state['predicted_risk']) if state['predicted_risk'] else 'none'}",
             "",
             "## Validation",
             "",

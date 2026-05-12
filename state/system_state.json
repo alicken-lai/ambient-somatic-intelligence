@@ -20,6 +20,10 @@
       "field": "/incident_count",
       "path": "guardian/incidents/index.json"
     },
+    "predicted_risk": {
+      "field": "/predicted_risk",
+      "path": "guardian/simulations/latest_simulation.json"
+    },
     "reflex_confidence": {
       "field": "/anomalies/-1/confidence",
       "path": "guardian/incidents/reflex_confidence_calibration.json"
@@ -27,6 +31,10 @@
     "repeated_anomalies": {
       "field": "/patterns/repeated_anomaly_types",
       "path": "guardian/incidents/index.json"
+    },
+    "simulation_active": {
+      "field": "/simulation_active",
+      "path": "guardian/simulations/latest_simulation.json"
     },
     "time_context": {
       "field": "/time_context",
@@ -145,7 +153,7 @@
   "corrective_actions": "none",
   "current_risk_class": "low_confidence_watch",
   "display_risk": "watch",
-  "dmn_append_count": 68,
+  "dmn_append_count": 77,
   "docker_context": {
     "containers": [
       {
@@ -170,7 +178,7 @@
       "rss_mb": 32.8
     }
   },
-  "generated_at": "2026-05-12T00:29:41.271285+00:00",
+  "generated_at": "2026-05-12T08:41:56.890716+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
   "incident_count": 2,
@@ -183,6 +191,18 @@
     "true_risk": "watch",
     "used_percent": 97.69
   },
+  "predicted_risk": {
+    "confidence": 0.6,
+    "false_positive_likelihood": "low",
+    "horizon_summary": {
+      "2h": "review",
+      "30m": "review",
+      "5m": "watch"
+    },
+    "incident_similarity": "memory_used_percent",
+    "level": "review",
+    "primary_driver": "memory_used_percent"
+  },
   "recommendations": [
     "Continue observing memory_used_percent; it is linked to prior incident memory.",
     "Review memory pressure and avoid launching additional heavy local tasks."
@@ -192,6 +212,7 @@
     "high_memory_usage": 2
   },
   "repeated_anomaly_count": 2,
+  "simulation_active": true,
   "state_version": 1,
   "subsystems": {
     "cpu_health": {

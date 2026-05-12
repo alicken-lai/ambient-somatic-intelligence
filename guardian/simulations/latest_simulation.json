@@ -1,0 +1,262 @@
+{
+  "active_warnings": [
+    {
+      "circadian_baseline": {
+        "comparison_basis": "weekday",
+        "delta_from_mean": 0.4295,
+        "mean": 54.4305,
+        "severity": "elevated",
+        "z_score": 1.5607
+      },
+      "confidence": 0.25,
+      "current_simulation_result": "watch",
+      "false_positive_likelihood": "medium",
+      "flat_baseline": {
+        "delta_from_mean": 0.555,
+        "mean": 53.965,
+        "severity": "elevated",
+        "z_score": 1.7322
+      },
+      "horizons": {
+        "2h": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "30m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "5m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        }
+      },
+      "incident_similarity": {
+        "matches": [],
+        "repeat_count": 0,
+        "resembles_prior_incidents": false
+      },
+      "likely_degradation_path": "disk headroom likely tightens slowly, but the current drift looks bounded",
+      "metric": "disk_used_percent",
+      "observed_value": 54.86,
+      "source": "disk",
+      "subsystem_impact": "disk capacity margin; current disk_health score is 68.82"
+    },
+    {
+      "circadian_baseline": {
+        "comparison_basis": "weekday",
+        "delta_from_mean": -0.1481,
+        "mean": 1.5481,
+        "severity": "elevated",
+        "z_score": -1.4118
+      },
+      "confidence": 0.2,
+      "current_simulation_result": "watch",
+      "false_positive_likelihood": "medium",
+      "flat_baseline": {
+        "delta_from_mean": -0.145,
+        "mean": 1.745,
+        "severity": "elevated",
+        "z_score": -1.7303
+      },
+      "horizons": {
+        "2h": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "30m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "5m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        }
+      },
+      "incident_similarity": {
+        "matches": [],
+        "repeat_count": 0,
+        "resembles_prior_incidents": false
+      },
+      "likely_degradation_path": "load stays modestly elevated against the learned baseline",
+      "metric": "load_average_15m",
+      "observed_value": 1.4,
+      "source": "load",
+      "subsystem_impact": "load balancing and short-term scheduling; current load_health score is 100.0"
+    },
+    {
+      "circadian_baseline": {
+        "comparison_basis": "weekday",
+        "delta_from_mean": -0.1195,
+        "mean": 1.5495,
+        "severity": "elevated",
+        "z_score": -1.2107
+      },
+      "confidence": 0.2,
+      "current_simulation_result": "watch",
+      "false_positive_likelihood": "medium",
+      "flat_baseline": {
+        "delta_from_mean": 0.085,
+        "mean": 1.745,
+        "severity": "elevated",
+        "z_score": 1.7103
+      },
+      "horizons": {
+        "2h": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "30m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "5m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        }
+      },
+      "incident_similarity": {
+        "matches": [],
+        "repeat_count": 0,
+        "resembles_prior_incidents": false
+      },
+      "likely_degradation_path": "load stays modestly elevated against the learned baseline",
+      "metric": "load_average_5m",
+      "observed_value": 1.43,
+      "source": "load",
+      "subsystem_impact": "load balancing and short-term scheduling; current load_health score is 100.0"
+    },
+    {
+      "circadian_baseline": {
+        "comparison_basis": "weekday",
+        "delta_from_mean": -1.7229,
+        "mean": 97.9329,
+        "severity": "warning",
+        "z_score": -2.1355
+      },
+      "confidence": 0.6,
+      "current_simulation_result": "review",
+      "false_positive_likelihood": "low",
+      "flat_baseline": {
+        "delta_from_mean": -0.1825,
+        "mean": 99.4625,
+        "severity": "elevated",
+        "z_score": -1.2916
+      },
+      "horizons": {
+        "2h": {
+          "expected_behavior": "continued drift toward review",
+          "projected_risk": "review"
+        },
+        "30m": {
+          "expected_behavior": "continued drift toward review",
+          "projected_risk": "review"
+        },
+        "5m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        }
+      },
+      "incident_similarity": {
+        "matches": [
+          {
+            "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+            "rule": "high_memory_usage",
+            "severity": "warning",
+            "value": 99.61
+          },
+          {
+            "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+            "rule": "high_memory_usage",
+            "severity": "warning",
+            "value": 97.69
+          }
+        ],
+        "repeat_count": 2,
+        "resembles_prior_incidents": true
+      },
+      "likely_degradation_path": "continued memory pressure could recreate the earlier high-memory pattern and push the host toward a repeat incident",
+      "metric": "memory_used_percent",
+      "observed_value": 96.21,
+      "source": "memory",
+      "subsystem_impact": "memory subsystem headroom and local task scheduling; current memory_health score is 43.93"
+    },
+    {
+      "circadian_baseline": {
+        "comparison_basis": "weekday",
+        "delta_from_mean": -0.05,
+        "mean": 0.05,
+        "severity": "warning",
+        "z_score": null
+      },
+      "confidence": 0.6,
+      "current_simulation_result": "watch",
+      "false_positive_likelihood": "medium",
+      "flat_baseline": {
+        "delta_from_mean": -0.05,
+        "mean": 0.1,
+        "severity": "watch",
+        "z_score": null
+      },
+      "horizons": {
+        "2h": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "30m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        },
+        "5m": {
+          "expected_behavior": "bounded watch-level persistence",
+          "projected_risk": "watch"
+        }
+      },
+      "incident_similarity": {
+        "matches": [
+          {
+            "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+            "rule": "high_memory_usage",
+            "severity": "warning",
+            "value": 99.61
+          },
+          {
+            "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+            "rule": "high_memory_usage",
+            "severity": "warning",
+            "value": 97.69
+          }
+        ],
+        "repeat_count": 2,
+        "resembles_prior_incidents": true
+      },
+      "likely_degradation_path": "reflex confidence stays suppressed while incident memory remains active",
+      "metric": "reflex_confidence",
+      "observed_value": 0.05,
+      "source": "reflex",
+      "subsystem_impact": "decision routing and conservative behavior"
+    }
+  ],
+  "anomaly_explanations": "guardian/explanations/latest_anomaly.md",
+  "baseline": "guardian/baselines/telemetry_baseline.json",
+  "circadian_baseline": "guardian/baselines/circadian_baseline.json",
+  "corrective_actions": "none",
+  "generated_at": "2026-05-12T08:41:56.890236+00:00",
+  "incident_memory": "guardian/incidents/index.json",
+  "latest_telemetry": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
+  "predicted_risk": {
+    "confidence": 0.6,
+    "false_positive_likelihood": "low",
+    "horizon_summary": {
+      "2h": "review",
+      "30m": "review",
+      "5m": "watch"
+    },
+    "incident_similarity": "memory_used_percent",
+    "level": "review",
+    "primary_driver": "memory_used_percent"
+  },
+  "recommendations_only": true,
+  "simulation_active": true,
+  "system_state": "state/system_state.json"
+}

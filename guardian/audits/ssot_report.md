@@ -1,6 +1,6 @@
 # Single Source of Truth Report
 
-- generated_at: 2026-05-12T00:29:41.271285+00:00
+- generated_at: 2026-05-12T08:41:56.890716+00:00
 - state_file: state/system_state.json
 - corrective_actions: none
 - response_mode: recommendations only
@@ -18,10 +18,12 @@
 | baseline_deviation | guardian/baselines/telemetry_baseline.json | /overall_deviation_severity and /metrics/*/deviation |
 | time_context | guardian/baselines/circadian_baseline.json | /time_context |
 | circadian_deviation | guardian/baselines/circadian_baseline.json | /overall_deviation_severity and /metrics/*/deviation |
+| simulation_active | guardian/simulations/latest_simulation.json | /simulation_active |
+| predicted_risk | guardian/simulations/latest_simulation.json | /predicted_risk |
 
 ## Current Values
 
-- dmn_append_count: 68
+- dmn_append_count: 77
 - health_score: 76.53
 - incident_count: 2
 - repeated_anomaly_count: 2
@@ -32,6 +34,8 @@
 - baseline_deviation: elevated
 - time_context: {"day_type":"weekday","hour_of_day":22,"timestamp":"2026-05-11T22:14:35.452488+00:00","weekday":"monday"}
 - circadian_deviation: warning
+- simulation_active: True
+- predicted_risk: {"confidence":0.6,"false_positive_likelihood":"low","horizon_summary":{"2h":"review","30m":"review","5m":"watch"},"incident_similarity":"memory_used_percent","level":"review","primary_driver":"memory_used_percent"}
 
 ## Validation
 
