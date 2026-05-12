@@ -66,6 +66,7 @@ ROUTES = {
     "mem-palace-build": [sys.executable, "scripts/build_mem_palace.py", "--build"],
     "mem-palace-query": [sys.executable, "scripts/query_mem_palace.py"],
     "identity-build": [sys.executable, "scripts/build_identity.py", "--build"],
+    "public-architecture-build": [sys.executable, "scripts/build_public_architecture.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {
