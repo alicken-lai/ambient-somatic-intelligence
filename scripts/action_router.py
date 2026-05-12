@@ -54,6 +54,7 @@ ROUTES = {
     "daily-digest-build": [sys.executable, "scripts/daily_digest.py", "--build"],
     "memory-integrity-audit": [sys.executable, "scripts/memory_integrity_audit.py", "--build"],
     "state-query": [sys.executable, "scripts/query_state.py"],
+    "self-reflect-build": [sys.executable, "scripts/self_reflect.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {
