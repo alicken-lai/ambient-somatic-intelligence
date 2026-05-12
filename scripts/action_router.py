@@ -11,6 +11,7 @@ from pathlib import Path
 
 from action_log import log_action, stable_json
 from guardian_check import classify_action, record_approval
+from guardian_check import route_boundary_level
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,7 +88,9 @@ def route_command(name: str, extra_args: list[str] | None = None) -> dict[str, o
 
     command = ROUTES[name] + extra_args
     action = " ".join(command)
-    guardian = classify_action(action)
+    boundary_level = route_boundary_level(name)
+    guardian = classify_action(action, name)
+    guardian["boundary_level"] = boundary_level
     if guardian["risk"] == "BLOCK":
         log_action(action, "blocked", "BLOCK", guardian)
         return {"route": name, "guardian": guardian, "status": "blocked"}
@@ -100,6 +103,7 @@ def route_command(name: str, extra_args: list[str] | None = None) -> dict[str, o
     status = "completed" if completed.returncode == 0 else "failed"
     detail = {
         "route": name,
+        "boundary_level": boundary_level,
         "command": command,
         "returncode": completed.returncode,
         "stdout": completed.stdout,

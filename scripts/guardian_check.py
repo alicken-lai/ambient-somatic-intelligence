@@ -13,6 +13,7 @@ from action_log import append_jsonl, log_action, record_checksum, utc_now
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_FILE = ROOT / "guardian" / "policy.yaml"
+BOUNDARY_FILE = ROOT / "guardian" / "decision_boundary.yaml"
 APPROVALS_FILE = ROOT / "guardian" / "approvals.jsonl"
 
 
@@ -34,17 +35,58 @@ def _load_keyword_list(section: str) -> list[str]:
     return keywords
 
 
-def classify_action(action: str) -> dict[str, object]:
+def _load_boundary_config() -> dict[str, dict[str, str]]:
+    if not BOUNDARY_FILE.exists():
+        return {"levels": {}, "routes": {}}
+
+    config: dict[str, dict[str, str]] = {"levels": {}, "routes": {}}
+    section: str | None = None
+    for raw_line in BOUNDARY_FILE.read_text(encoding="utf-8").splitlines():
+        stripped = raw_line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if stripped == "levels:":
+            section = "levels"
+            continue
+        if stripped == "routes:":
+            section = "routes"
+            continue
+        if section == "levels" and raw_line.startswith("  ") and ":" in stripped:
+            key, value = stripped.split(":", 1)
+            config["levels"][key.strip()] = value.strip()
+        if section == "routes" and raw_line.startswith("  ") and ":" in stripped:
+            key, value = stripped.split(":", 1)
+            config["routes"][key.strip()] = value.strip()
+    return config
+
+
+def route_boundary_level(route_name: str | None) -> str:
+    if not route_name:
+        return "OBSERVE_ONLY"
+    config = _load_boundary_config()
+    return config.get("routes", {}).get(route_name, "OBSERVE_ONLY")
+
+
+def classify_action(action: str, route_name: str | None = None) -> dict[str, object]:
     normalized = action.casefold()
     blocked = [keyword for keyword in _load_keyword_list("blocked_keywords") if keyword.casefold() in normalized]
     if blocked:
-        return {"risk": "BLOCK", "matched": blocked, "action": action}
+        result = {"risk": "BLOCK", "matched": blocked, "action": action}
+        if route_name:
+            result["boundary_level"] = route_boundary_level(route_name)
+        return result
 
     review = [keyword for keyword in _load_keyword_list("review_keywords") if keyword.casefold() in normalized]
     if review:
-        return {"risk": "REVIEW_REQUIRED", "matched": review, "action": action}
+        result = {"risk": "REVIEW_REQUIRED", "matched": review, "action": action}
+        if route_name:
+            result["boundary_level"] = route_boundary_level(route_name)
+        return result
 
-    return {"risk": "ALLOW", "matched": [], "action": action}
+    result = {"risk": "ALLOW", "matched": [], "action": action}
+    if route_name:
+        result["boundary_level"] = route_boundary_level(route_name)
+    return result
 
 
 def record_approval(action: str, risk: str, approver: str, reason: str = "") -> dict[str, Any]:

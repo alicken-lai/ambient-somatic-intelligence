@@ -1,0 +1,29 @@
+levels:
+  OBSERVE_ONLY: read-only observation and query actions with no corrective changes.
+  RECOMMEND_ONLY: derived analysis, reports, and append-only summaries with no execution.
+  PREPARE_FOR_APPROVAL: guarded readiness checks and safety probes that prepare evidence for review.
+  EXECUTE_ALLOWED: explicitly approved execution only; currently unmapped.
+routes:
+  system-info: OBSERVE_ONLY
+  uptime: OBSERVE_ONLY
+  disk-usage: OBSERVE_ONLY
+  memory-usage: OBSERVE_ONLY
+  telemetry-local: RECOMMEND_ONLY
+  vision-capture: OBSERVE_ONLY
+  vision-capture-smoke: OBSERVE_ONLY
+  vision-capture-ocr-smoke: OBSERVE_ONLY
+  cua-guarded-smoke: PREPARE_FOR_APPROVAL
+  guardian-reflex-once: PREPARE_FOR_APPROVAL
+  incident-recall-build: RECOMMEND_ONLY
+  baseline-learn-build: RECOMMEND_ONLY
+  health-score-build: RECOMMEND_ONLY
+  memory-pressure-diagnose: RECOMMEND_ONLY
+  circadian-baseline-build: RECOMMEND_ONLY
+  system-state-build: RECOMMEND_ONLY
+  somatic-dashboard-build: RECOMMEND_ONLY
+  daily-digest-build: RECOMMEND_ONLY
+  anomaly-explain-build: RECOMMEND_ONLY
+  memory-integrity-audit: RECOMMEND_ONLY
+  state-query: OBSERVE_ONLY
+  self-reflect-build: RECOMMEND_ONLY
+  operator-briefing-build: RECOMMEND_ONLY
