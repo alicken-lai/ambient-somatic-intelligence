@@ -64,10 +64,28 @@ ROUTES = {
     "dream-build": [sys.executable, "scripts/guardian_dream.py", "--build"],
     "recalibration-queue-build": [sys.executable, "scripts/build_recalibration_queue.py", "--build"],
     "mem-palace-build": [sys.executable, "scripts/build_mem_palace.py", "--build"],
+    "mem-palace-query": [sys.executable, "scripts/query_mem_palace.py"],
 }
 
 ROUTE_EXTRA_ARGS = {
     "state-query": {"health", "incidents", "memory", "reflex", "dashboard", "digest", "summary", "--json"},
+    "mem-palace-query": {
+        "summary",
+        "domain",
+        "anomaly_type",
+        "confidence",
+        "linked_events",
+        "lessons",
+        "--json",
+        "--domain",
+        "--anomaly-type",
+        "system_health",
+        "memory_pressure",
+        "docker_runtime",
+        "guardian_reflex",
+        "visual_layer",
+        "operator_decisions",
+    },
 }
 
 

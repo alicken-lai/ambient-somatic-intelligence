@@ -17,7 +17,7 @@
 
 ## Route Summary
 
-- OBSERVE_ONLY: `system-info`, `uptime`, `disk-usage`, `memory-usage`, `vision-capture`, `vision-capture-smoke`, `vision-capture-ocr-smoke`, `state-query`
+- OBSERVE_ONLY: `system-info`, `uptime`, `disk-usage`, `memory-usage`, `vision-capture`, `vision-capture-smoke`, `vision-capture-ocr-smoke`, `state-query`, `mem-palace-query`
 - RECOMMEND_ONLY: `telemetry-local`, `incident-recall-build`, `baseline-learn-build`, `health-score-build`, `memory-pressure-diagnose`, `circadian-baseline-build`, `system-state-build`, `somatic-dashboard-build`, `daily-digest-build`, `anomaly-explain-build`, `memory-integrity-audit`, `self-reflect-build`, `operator-briefing-build`, `approval-packet-build`, `simulation-build`, `dream-build`, `recalibration-queue-build`, `mem-palace-build`
 - PREPARE_FOR_APPROVAL: `cua-guarded-smoke`, `guardian-reflex-once`
 - EXECUTE_ALLOWED: none

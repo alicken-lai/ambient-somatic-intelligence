@@ -61,6 +61,7 @@ Ambient Somatic Intelligence uses four boundary levels to describe what the syst
 | `dream-build` | `RECOMMEND_ONLY` |
 | `recalibration-queue-build` | `RECOMMEND_ONLY` |
 | `mem-palace-build` | `RECOMMEND_ONLY` |
+| `mem-palace-query` | `OBSERVE_ONLY` |
 
 ## Operating Rules
 
