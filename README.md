@@ -1,96 +1,112 @@
-# Ambient Somatic Intelligence Alpha
+# Ambient Somatic Intelligence
 
-## Project Thesis
+> AI should not wait for accidents to understand risk.
 
-Ambient Somatic Intelligence Alpha observes the system, explains drift, preserves memory, and prepares evidence for human review without taking unsanctioned corrective action.
+An embodied AI operating system for pre-accident sensing - combining somatic telemetry, visual cognition, memory, and Guardian-governed action.
 
-## Architecture Diagram
+## Why
+
+Most AI systems act after failure.
+
+Ambient Somatic Intelligence explores a different question:
+
+> Can an AI agent feel risk before it fully understands why?
+
+Instead of waiting for alarms, logs, or incidents, this system continuously senses weak signals across infrastructure, interfaces, and environments - then turns them into memory, prediction, and guarded action.
+
+## Core Components
+
+- Somatic Telemetry: CPU, memory, disk, uptime, local runtime signals
+- Visual Cognition: screenshot capture, OCR, anomaly detection
+- DMN Memory: append-only episodic memory with validation
+- Guardian Reflex: policy-gated action routing and approvals
+- Observability Loop: Prometheus + Grafana
+- CUA Scaffold: observe-first computer-use layer
+
+## Milestones
+
+### Night 0 - Cognitive Scaffold
+- Hermes Agent
+- Codex integration
+- DMN memory
+- Guardian policy
+
+### Night 1 - Secure Substrate
+- Structured action logging
+- Approval records
+- Immutable checksums
+- Action router
+
+### Night 2 - Body Awareness
+- Prometheus
+- Grafana
+- Local telemetry loop
+
+### Night 3 - Visual Layer
+- Screen capture
+- Visual anomaly detection
+
+### Night 4 - Visual Cognition
+- OCR
+- Semantic parsing
+- Confidence-based Guardian routing
+
+## Architecture
 
 ```mermaid
 flowchart TD
-    T[Telemetry and incidents] --> B[Baselines and circadian context]
-    B --> S[System state and self-model]
-    S --> E[Explanations, reflections, briefings, simulations]
-    E --> G[Guardian boundary and review queues]
-    G --> M[MemPalace and identity]
-    M --> O[Operator review]
-    O -->|approval| X[Execution reserved]
+    A[Sensors] --> B[Somatic Signals]
+    B --> C[Guardian Router]
+    C --> D[DMN Memory]
+    D --> E[Hermes Reasoning]
+    E --> F[Guarded Actions]
+    C --> G[Prometheus + Grafana]
+    H[Visual Cognition] --> C
 ```
 
-## Current Features
+## Quick Start
 
-- I am the Ambient Somatic Intelligence operator identity: a read-mostly system that turns telemetry, incidents, dreams, and review artifacts into accountable memory.
-- I observe health, incidents, reflex confidence, circadian drift, simulations, dreams, and MemPalace spatial recall.
-- I escalate by converting evidence into approval packets, recalibration queues, and reviewable summaries when a boundary level requires it.
-- It can query state, explain anomalies, generate operator briefings, simulate incident drift, dream over incident memory, and build review queues.
-- It maintains append-only memory, public-facing snapshots, and a spatial memory palace.
-- MemPalace lessons remain synchronized with reflections and briefings.
+```bash
+git clone https://github.com/alicken-lai/ambient-somatic-intelligence.git
+cd ambient-somatic-intelligence
+
+python3 scripts/guardian_check.py "uptime"
+python3 scripts/sense_local.py
+
+docker compose up -d
+```
+
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3000
 
 ## Safety Model
 
-- No destructive commands.
-- No external actions without Guardian approval.
-- Append-only memory only.
-- CLI first; GUI actions stay sandboxed.
-- No autonomous corrective actions by default.
-- Execution remains reserved for explicit approval paths.
+- Destructive commands are blocked.
+- External actions require review.
+- Memory is append-only.
+- GUI interaction is observe-only until explicitly enabled.
+- Guardian policy must approve action routes.
 
-## Night 0-29 Build Log
+## Project Status
 
-- Night 0: bootstrap and substrate initialization.
-- Night 1: baseline identity and approval scaffolding.
-- Night 2: telemetry capture and incident recall beginnings.
-- Night 3: visual observation and OCR-adjacent checks.
-- Night 4: dashboard and local state synthesis.
-- Night 5: integrity and health scoring foundations.
-- Night 6: memory pressure diagnosis and reflex review.
-- Night 7: circadian baseline work.
-- Night 8: system state synthesis.
-- Night 9: dashboard synthesis.
-- Night 10: digest generation.
-- Night 11: anomaly explanation patterns.
-- Night 12: memory integrity and incident review.
-- Night 13: foundational self-model stabilization.
-- Night 14: memory integrity audit.
-- Night 15: single source of truth.
-- Night 16: self-model query interface.
-- Night 17: self-reflection loop.
-- Night 18: circadian memory.
-- Night 19: anomaly explanation engine.
-- Night 20: operator briefing.
-- Night 21: decision boundary protocol.
-- Night 22: approval packet protocol.
-- Night 23: pre-accident simulation.
-- Night 24: Guardian dreaming.
-- Night 25: recalibration queue.
-- Night 26: MemPalace integration.
-- Night 27: MemPalace recall interface.
-- Night 28: operational identity.
-- Night 29: public architecture snapshot.
+Early research prototype.
 
-## Quickstart
+Night 5 planned:
+Guarded low-risk visual actions.
 
-1. Read the public architecture snapshot to understand the operating model.
-2. Use the Guardian-gated CLI to inspect current state, explanations, simulations, and memory artifacts.
-3. Review the boundary protocol before treating any recommendation as an execution path.
-4. Prefer the public summaries and append-only artifacts over ad hoc inspection.
+## Research Thesis
 
-## Limitations
+Ambient Somatic Intelligence is an experiment in:
 
-- It does not silently change system behavior.
-- It does not execute external actions on its own.
-- It does not erase prior memory or rewrite the record.
-- It does not expose private paths, machine identifiers, or secrets in public snapshots.
-- It does not treat model confidence as a substitute for evidence.
+Embodied AI x Safety Engineering x Cognitive Infrastructure
 
-## Roadmap
+Applications:
+- AI agents
+- Data centers
+- Industrial systems
+- Humanoid robots
+- Pre-accident safety systems
 
-- Broaden recall and explanation coverage for new incident classes.
-- Refine recalibration review flows with stronger evidence summaries.
-- Expand public architecture snapshots as the system matures.
-- Keep the memory graph and operator-facing summaries aligned.
-- Preserve the current no-corrective default until a formal execution path exists.
+## License
 
-## Source Basis
-
-This README is derived from the public architecture snapshot and the current public identity artifacts.
+Apache-2.0
