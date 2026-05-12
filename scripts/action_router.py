@@ -68,6 +68,7 @@ ROUTES = {
     "identity-build": [sys.executable, "scripts/build_identity.py", "--build"],
     "public-architecture-build": [sys.executable, "scripts/build_public_architecture.py", "--build"],
     "github-readme-build": [sys.executable, "scripts/build_github_readme.py", "--build"],
+    "release-build": [sys.executable, "scripts/build_release.py", "--build"],
 }
 
 ROUTE_EXTRA_ARGS = {

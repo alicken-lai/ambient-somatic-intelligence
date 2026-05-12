@@ -214,7 +214,7 @@
       "simulation": "guardian/simulations/latest_simulation.md"
     }
   },
-  "generated_at": "2026-05-12T09:02:03.194458+00:00",
+  "generated_at": "2026-05-12T09:11:29.911918+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
   "identity_loaded": true,
@@ -428,6 +428,7 @@
     "Review memory pressure and avoid launching additional heavy local tasks."
   ],
   "recommendations_only": true,
+  "release_version": "v0.1.0-alpha",
   "repeated_anomalies": {
     "high_memory_usage": 2
   },
