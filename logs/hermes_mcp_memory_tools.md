@@ -97,10 +97,32 @@ Result:
 - MemPalace free-text search returned no exact match for `Ambient Somatic Intelligence Night 0`.
 - System state read confirmed DMN memory source and reported `dmn_append_count: 83` from `state/system_state.json`.
 
+## Null Recall Signal
+
+MemPalace currently does not support exact free-text recall for `Ambient Somatic Intelligence Night 0`.
+
+This is recorded as:
+
+- Limitation: MemPalace does not return an exact phrase match for this Night 0 query.
+- Future improvement: add a unified memory recall surface that can search across heterogeneous memory stores.
+- Indexing/query-normalization gap: MemPalace needs normalized aliases such as `Night 0`, `night0`, `Ambient Somatic Intelligence Night 0`, and related milestone labels.
+
+Null recall is a valid signal and should remain visible in test results. Do not hide empty result sets from MemPalace or any other memory source.
+
+## Recommendation
+
+Create a unified memory recall tool that queries:
+
+1. DMN
+2. Night logs
+3. MemPalace
+4. `system_state`
+
+The tool should return ranked results with provenance, including source file, source system, matched field or line, timestamp when available, score, and whether the result was exact, normalized, semantic, or null.
+
 ## Remaining Limitations
 
 - The current Codex session does not hot-reload MCP tool namespaces. A new Codex session is required before the new `mcp__hermes__` tools appear directly in the tool palette.
 - The live Hermes MCP shim is under `/Users/alicken/.hermes`, outside the `ambient-os` git worktree.
-- MemPalace currently does not contain an exact free-text node for the full phrase `Ambient Somatic Intelligence Night 0`; the Night 0 evidence is in DMN memory and `logs/night0.log`.
+- MemPalace currently does not contain an exact free-text node for the full phrase `Ambient Somatic Intelligence Night 0`; the Night 0 evidence is in DMN memory and `logs/night0.log`. This is an indexing/query-normalization gap, not evidence that the event did not occur.
 - Codex config currently points at `hermes mcp serve` with `PYTHONPATH=/Users/alicken/.hermes/mcp_shim:/Users/alicken/.hermes/mcp_deps`, so the wrapper registration depends on that shim path remaining in place.
-
