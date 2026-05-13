@@ -110,6 +110,26 @@ docker compose -f observability/docker-compose.yml up -d
 - `docs/decision_boundary_protocol.md`
 - `state/system_state.json`
 
+## Hermes v2 Video-as-Code Module (MVP)
+
+Video module path: `video/`
+
+Quickstart:
+
+```bash
+npm install
+npx hyperframes --help
+./scripts/render_video.sh video/examples/ai-second-brain-demo/composition.html video/renders/ai-second-brain-demo.mp4
+```
+
+Current module posture:
+
+- local-first
+- agent-editable
+- template-first
+- ebook marketing oriented
+- no external API required
+
 ## Limitations
 
 - This remains a local, memory-heavy research prototype.

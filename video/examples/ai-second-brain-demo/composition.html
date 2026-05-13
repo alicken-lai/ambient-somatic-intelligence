@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 第二大腦 Demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    body { margin:0; background:#000; font-family:Inter,Segoe UI,Arial,sans-serif; }
+    #composition { position:relative; width:1080px; height:1080px; background:radial-gradient(circle at top,#1f2937,#030712 65%); color:#f9fafb; overflow:hidden; }
+    .clip { position:absolute; inset:0; display:grid; place-content:center; text-align:center; padding:100px; opacity:0; }
+    h1 { font-size:70px; line-height:1.15; margin:0; }
+    p { font-size:36px; line-height:1.4; margin:0; }
+    .accent { color:#2dd4bf; }
+    .book { font-size:62px; font-weight:700; color:#fcd34d; }
+  </style>
+</head>
+<body>
+  <div id="composition" data-composition-id="ai-second-brain-demo" data-width="1080" data-height="1080" data-fps="30">
+    <section class="clip" data-start="0" data-duration="4" data-track-index="0"><h1>你每天都在忙，<br/>流程卻還在卡住？</h1></section>
+    <section class="clip" data-start="4" data-duration="8" data-track-index="0"><p>資訊分散、任務切換、重工太多，<br/>注意力被持續切碎。</p></section>
+    <section class="clip" data-start="12" data-duration="14" data-track-index="0"><p><span class="accent">AI 不只是回答問題，</span><br/>它可以成為你的第二大腦。</p></section>
+    <section class="clip" data-start="26" data-duration="18" data-track-index="0"><p>定義任務 → 建立提示模板<br/>交給 AI 產生初稿 → 你做最終判斷</p></section>
+    <section class="clip" data-start="44" data-duration="14" data-track-index="0"><h1 class="book">《AI 第二大腦》</h1><p>用 ChatGPT 重構你的工作流程<br/>Build your AI-native workflow.</p></section>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || [];
+    document.querySelectorAll('.clip').forEach((clip) => {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(clip, { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+        .to({}, { duration: Math.max(0.2, Number(clip.dataset.duration || 2) - 1.1) })
+        .to(clip, { autoAlpha: 0, y: -20, duration: 0.5, ease: 'power1.in' });
+      window.__timelines.push(tl);
+    });
+  </script>
+</body>
+</html>

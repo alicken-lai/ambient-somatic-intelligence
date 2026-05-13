@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn Thought Leadership</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    :root { --bg:#0b0f1a; --fg:#f5f7fa; --accent:#3ee6d8; --gold:#d4af37; }
+    body { margin:0; background:#000; font-family:Inter,Segoe UI,Arial,sans-serif; }
+    #composition { position:relative; width:1080px; height:1080px; background:radial-gradient(circle at top, #141b2d, var(--bg)); color:var(--fg); overflow:hidden; }
+    .clip { position:absolute; inset:0; display:grid; place-content:center; padding:100px; text-align:center; opacity:0; }
+    h1 { font-size:72px; line-height:1.1; margin:0 0 24px; }
+    p { font-size:38px; line-height:1.35; margin:0; }
+    .accent { color:var(--accent); }
+    .gold { color:var(--gold); }
+    .steps { display:grid; gap:16px; font-size:34px; text-align:left; }
+  </style>
+</head>
+<body>
+  <div id="composition" data-composition-id="linkedin-thought-leadership" data-width="1080" data-height="1080" data-fps="30">
+    <section class="clip" data-start="0" data-duration="3" data-track-index="0"><h1>AI is not your tool.<br/>It is your <span class="accent">leverage</span>.</h1></section>
+    <section class="clip" data-start="3" data-duration="9" data-track-index="0"><p>Most teams still ship with<br/><span class="gold">manual thinking bottlenecks</span>.</p></section>
+    <section class="clip" data-start="12" data-duration="13" data-track-index="0"><p>Insight: the edge is not more prompts.<br/>It is <span class="accent">systemized cognition</span>.</p></section>
+    <section class="clip" data-start="25" data-duration="15" data-track-index="0"><div class="steps"><div>1. Capture signal</div><div>2. Structure memory</div><div>3. Route action with guardrails</div></div></section>
+    <section class="clip" data-start="40" data-duration="15" data-track-index="0"><h1>Build your AI-native workflow.</h1><p>Start with one repeatable system.</p></section>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || [];
+    document.querySelectorAll('.clip').forEach((clip) => {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(clip, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+        .to({}, { duration: Math.max(0.2, Number(clip.dataset.duration || 2) - 1.0) })
+        .to(clip, { autoAlpha: 0, y: -16, duration: 0.4, ease: 'power1.in' });
+      window.__timelines.push(tl);
+    });
+  </script>
+</body>
+</html>
