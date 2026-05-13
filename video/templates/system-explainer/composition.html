@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Explainer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    body { margin:0; background:#04070d; font-family:Inter,Segoe UI,Arial,sans-serif; }
+    #composition { position:relative; width:1080px; height:1080px; color:#e5e7eb; background:linear-gradient(135deg,#020617,#0f172a); overflow:hidden; }
+    .clip { position:absolute; inset:0; padding:88px; opacity:0; }
+    .center { display:grid; place-content:center; text-align:center; }
+    .card { border:1px solid #334155; border-radius:14px; padding:28px; background:rgba(15,23,42,.65); }
+    h1 { font-size:56px; margin:0 0 16px; }
+    p, li { font-size:31px; line-height:1.35; margin:0; }
+    .terminal { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:#22c55e; font-size:28px; }
+    .status span { display:inline-block; margin-right:16px; padding:8px 14px; border-radius:999px; border:1px solid #334155; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:26px; }
+    .flow div { border:1px solid #334155; border-radius:10px; padding:16px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div id="composition" data-composition-id="system-explainer" data-width="1080" data-height="1080" data-fps="30">
+    <section class="clip center" data-start="0" data-duration="10" data-track-index="0"><div class="card"><h1>Hermes / Ambient OS</h1><p>A guarded architecture for AI operations.</p></div></section>
+    <section class="clip" data-start="10" data-duration="16" data-track-index="0"><div class="card"><h1>Architecture Map</h1><ul><li>Telemetry → Baseline → State</li><li>Explain → Review → Memory</li><li>Guardian boundary on all action routes</li></ul></div></section>
+    <section class="clip" data-start="26" data-duration="18" data-track-index="0"><div class="card"><h1>Terminal + Status</h1><p class="terminal">$ python3 scripts/action_router.py system-state-build</p><p class="status"><span>CHECK: OK</span><span>BOUNDARY: RECOMMEND_ONLY</span><span>DMN: APPEND_ONLY</span></p></div></section>
+    <section class="clip" data-start="44" data-duration="18" data-track-index="0"><div class="card"><h1>Flow Diagram</h1><div class="flow"><div>Sense</div><div>Model</div><div>Gate</div><div>Review</div></div></div></section>
+    <section class="clip center" data-start="62" data-duration="10" data-track-index="0"><div class="card"><h1>Deploy safer AI workflows.</h1><p>Start with observable, auditable modules.</p></div></section>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || [];
+    document.querySelectorAll('.clip').forEach((clip) => {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(clip, { autoAlpha: 0, x: 18 }, { autoAlpha: 1, x: 0, duration: 0.55, ease: 'power2.out' })
+        .to({}, { duration: Math.max(0.2, Number(clip.dataset.duration || 2) - 1.0) })
+        .to(clip, { autoAlpha: 0, x: -18, duration: 0.45, ease: 'power1.in' });
+      window.__timelines.push(tl);
+    });
+  </script>
+</body>
+</html>
