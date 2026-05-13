@@ -4,7 +4,7 @@
 
 Ambient Somatic Intelligence Alpha is a Guardian-governed memory and observation system that turns telemetry, incidents, simulations, reflections, and review artifacts into accountable action proposals without autonomous corrective behavior.
 
-Release status: `v0.1.0-alpha`, completed through Night 32.
+Release status: `v0.1.0-alpha`, local build history synchronized through Night 37 plus the Hermes v2 video-as-code MVP module.
 
 ## Project Thesis
 
@@ -22,11 +22,13 @@ Instead of waiting for alarms, logs, or incidents, this system continuously sens
 flowchart TD
     T[Telemetry and incidents] --> B[Baselines and circadian context]
     B --> S[System state and self-model]
-    S --> E[Explanations, reflections, briefings, simulations]
+    S --> R[Unified memory recall]
+    R --> E[Explanations, reflections, briefings, simulations]
     E --> G[Guardian boundary and review queues]
-    G --> M[MemPalace and identity]
+    G --> M[DMN, MemPalace, Hermes MCP, identity]
     M --> O[Operator review]
     O -->|approval| X[Execution reserved]
+    M --> V[Hermes video-as-code module]
 ```
 
 ## Current Features
@@ -36,6 +38,10 @@ flowchart TD
 - Anomaly explanations, self-reflection, operator briefings, simulations, and Guardian dreaming.
 - Decision boundary checks, approval packets, release audits, and recalibration queues.
 - Append-only DMN memory, checksum-backed action logs, MemPalace recall, and operational identity.
+- Unified `memory_recall(query)` interface over DMN, Night logs, MemPalace, and system state.
+- Persistent local DMN tick loop via a separate `ai.ambient-os.dmn-tick` LaunchAgent.
+- Hermes MCP shim packaging, gateway diagnostics, and no-Discord gateway recovery path.
+- Hermes v2 video-as-code module with HyperFrames-oriented templates and prompts.
 - Public architecture, README, release notes, and first alpha release packaging.
 
 ## Safety Model
@@ -43,13 +49,14 @@ flowchart TD
 - Destructive commands are blocked.
 - External actions require Guardian approval.
 - Memory is append-only.
+- Autonomous DMN telemetry ticks are Guardian-gated and local-only.
 - CLI is preferred over GUI.
 - GUI interaction remains sandboxed.
 - Guardian policy must approve action routes.
 - No autonomous corrective actions by default.
 - Execution remains reserved for explicit approval paths.
 
-## Night 0-32 Build Log
+## Night 0-37 Build Log
 
 - Night 0: bootstrap and substrate initialization.
 - Night 1: baseline identity and approval scaffolding.
@@ -84,12 +91,18 @@ flowchart TD
 - Night 30: GitHub README packaging.
 - Night 31: release readiness audit.
 - Night 32: alpha release freeze and verification.
+- Night 34: unified memory recall over fragmented memory sources.
+- Night 35: persistent local Hermes nervous system and autonomous DMN tick LaunchAgent.
+- Night 36: Hermes gateway diagnosis without credential or plist replacement.
+- Night 37: Hermes gateway no-Discord recovery path and MCP memory tool preservation.
 
 ## Quickstart
 
 ```bash
 python3 scripts/guardian_check.py "uptime"
 python3 scripts/sense_local.py
+python3 scripts/memory_recall.py "Night 0"
+python3 scripts/persistent_nervous_system_health.py
 python3 scripts/build_release.py --build
 ```
 
@@ -109,6 +122,11 @@ docker compose -f observability/docker-compose.yml up -d
 - `docs/release_readiness_audit.md`
 - `docs/decision_boundary_protocol.md`
 - `state/system_state.json`
+- `memory/recall_schema.json`
+- `logs/night35_persistent_nervous_system.md`
+- `logs/night35_hermes_gateway_issue.md`
+- `logs/night36_hermes_gateway_diagnosis.md`
+- `logs/night37_hermes_gateway_recovery.md`
 
 ## Hermes v2 Video-as-Code Module (MVP)
 
@@ -131,6 +149,13 @@ Current module posture:
 - template-first
 - ebook marketing oriented
 - no external API required
+
+Key files:
+
+- `docs/hermes_video_as_code_workflow.md`
+- `video/specs/video_schema.json`
+- `video/templates/`
+- `video/examples/ai-second-brain-demo/`
 
 ## Limitations
 
