@@ -21,7 +21,7 @@
     "target_audience": {"type": "string"},
     "cta": {"type": "string"},
     "platform": {"type": "string", "enum": ["LinkedIn", "X", "Blogger", "YouTube", "Instagram"]},
-    "duration_seconds": {"type": "integer", "minimum": 15, "maximum": 90},
+    "duration_seconds": {"type": "integer", "minimum": 15, "maximum": 75},
     "aspect_ratio": {"type": "string", "enum": ["1:1", "9:16", "16:9"]},
     "composition_template": {
       "type": "string",

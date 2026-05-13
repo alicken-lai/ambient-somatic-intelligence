@@ -17,6 +17,8 @@ Ebook → LinkedIn Post → Script → Storyboard → HyperFrames HTML Compositi
 
 ## Rendering
 
+First run may require internet access because `npx` can download `hyperframes` on demand.
+
 ```bash
 ./scripts/render_video.sh video/examples/ai-second-brain-demo/composition.html video/renders/ai-second-brain-demo.mp4
 ```

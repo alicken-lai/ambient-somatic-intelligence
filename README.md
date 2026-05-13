@@ -122,6 +122,8 @@ npx hyperframes --help
 ./scripts/render_video.sh video/examples/ai-second-brain-demo/composition.html video/renders/ai-second-brain-demo.mp4
 ```
 
+Note: first-time `npx hyperframes` usage may require internet access to download the CLI package.
+
 Current module posture:
 
 - local-first
