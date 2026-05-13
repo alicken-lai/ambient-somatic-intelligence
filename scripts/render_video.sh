@@ -22,9 +22,19 @@ fi
 OUTPUT_DIR="$(dirname "$OUTPUT_MP4")"
 mkdir -p "$OUTPUT_DIR"
 
+if ! command -v npx >/dev/null 2>&1; then
+  echo "Error: npx is not installed. Please install Node.js/npm first." >&2
+  exit 1
+fi
+
 echo "[render_video] Rendering with HyperFrames..."
 echo "[render_video] Input:  $INPUT_HTML"
 echo "[render_video] Output: $OUTPUT_MP4"
+
+if ! npx --yes hyperframes --help >/dev/null 2>&1; then
+  echo "Error: HyperFrames CLI is unavailable. Run 'npm install' or retry with network access." >&2
+  exit 1
+fi
 
 if ! npx hyperframes render "$INPUT_HTML" --output "$OUTPUT_MP4"; then
   echo "Error: HyperFrames render failed." >&2
