@@ -1,0 +1,158 @@
+{
+  "id": "c11e8536_stage0_134505",
+  "graph_data": {
+    "id": "c11e8536",
+    "name": "integration-test",
+    "created_at": "2026-05-13T13:45:05.300630+00:00",
+    "nodes": {
+      "compile_a": {
+        "id": "compile_a",
+        "name": "compile_a",
+        "handler": "build",
+        "status": "pending",
+        "params": {},
+        "result": null,
+        "error": null,
+        "attempts": 0,
+        "created_at": "2026-05-13T13:45:05.300754+00:00",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": null,
+        "retry_policy": {
+          "max_retries": 3,
+          "backoff_seconds": 2.0,
+          "backoff_multiplier": 2.0,
+          "retryable_errors": []
+        }
+      },
+      "compile_b": {
+        "id": "compile_b",
+        "name": "compile_b",
+        "handler": "build",
+        "status": "pending",
+        "params": {},
+        "result": null,
+        "error": null,
+        "attempts": 0,
+        "created_at": "2026-05-13T13:45:05.300758+00:00",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": null,
+        "retry_policy": {
+          "max_retries": 3,
+          "backoff_seconds": 2.0,
+          "backoff_multiplier": 2.0,
+          "retryable_errors": []
+        }
+      },
+      "test_a": {
+        "id": "test_a",
+        "name": "test_a",
+        "handler": "test",
+        "status": "pending",
+        "params": {},
+        "result": null,
+        "error": null,
+        "attempts": 0,
+        "created_at": "2026-05-13T13:45:05.300761+00:00",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": null,
+        "retry_policy": {
+          "max_retries": 3,
+          "backoff_seconds": 2.0,
+          "backoff_multiplier": 2.0,
+          "retryable_errors": []
+        }
+      },
+      "test_b": {
+        "id": "test_b",
+        "name": "test_b",
+        "handler": "test",
+        "status": "pending",
+        "params": {},
+        "result": null,
+        "error": null,
+        "attempts": 0,
+        "created_at": "2026-05-13T13:45:05.300763+00:00",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": null,
+        "retry_policy": {
+          "max_retries": 3,
+          "backoff_seconds": 2.0,
+          "backoff_multiplier": 2.0,
+          "retryable_errors": []
+        }
+      },
+      "final": {
+        "id": "final",
+        "name": "final",
+        "handler": "test",
+        "status": "pending",
+        "params": {},
+        "result": null,
+        "error": null,
+        "attempts": 0,
+        "created_at": "2026-05-13T13:45:05.300765+00:00",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": null,
+        "retry_policy": {
+          "max_retries": 3,
+          "backoff_seconds": 2.0,
+          "backoff_multiplier": 2.0,
+          "retryable_errors": []
+        }
+      }
+    },
+    "edges": [
+      {
+        "source": "compile_a",
+        "target": "test_a",
+        "condition": "success"
+      },
+      {
+        "source": "compile_b",
+        "target": "test_b",
+        "condition": "success"
+      },
+      {
+        "source": "test_a",
+        "target": "final",
+        "condition": "success"
+      },
+      {
+        "source": "test_b",
+        "target": "final",
+        "condition": "success"
+      }
+    ],
+    "stages": [
+      [
+        "compile_a",
+        "compile_b"
+      ],
+      [
+        "test_a",
+        "test_b"
+      ],
+      [
+        "final"
+      ]
+    ],
+    "progress": {
+      "total": 5,
+      "done": 0,
+      "progress_pct": 0.0,
+      "by_status": {
+        "pending": 5
+      },
+      "is_complete": false,
+      "is_successful": false
+    }
+  },
+  "stage": 0,
+  "created_at": "2026-05-13T13:45:05.300979+00:00",
+  "metadata": {}
+}

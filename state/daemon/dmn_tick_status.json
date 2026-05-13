@@ -1,0 +1,17 @@
+{
+  "external_actions_enabled": false,
+  "interactive_cua_enabled": false,
+  "last_dmn_timestamp": "2026-05-13T14:03:32.757360+00:00",
+  "last_snapshot": "observability/snapshots/telemetry-2026-05-13T140332.716016Z0000.json",
+  "last_tick_at": "2026-05-13T14:03:32.786424+00:00",
+  "status": "ok",
+  "system_state": {
+    "dmn_append_count": 451,
+    "health_score": 76.53,
+    "incident_count": 2,
+    "recommendations_only": true,
+    "report": "guardian/audits/ssot_report.md",
+    "stale_state_detection": "ok",
+    "system_state": "state/system_state.json"
+  }
+}
