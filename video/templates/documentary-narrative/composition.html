@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentary Narrative</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    body { margin:0; background:#111; font-family:Inter,Segoe UI,Arial,sans-serif; }
+    #composition { position:relative; width:1080px; height:1080px; background:linear-gradient(180deg,#1f2937,#111827); color:#f3f4f6; overflow:hidden; }
+    .clip { position:absolute; inset:0; display:grid; place-content:center; text-align:center; padding:120px; opacity:0; }
+    h1 { font-size:58px; line-height:1.25; margin:0; font-weight:500; }
+    p { font-size:34px; line-height:1.45; margin:0; }
+    .quote { border-left:4px solid #e5e7eb; text-align:left; padding-left:26px; font-style:italic; max-width:760px; }
+    .soft { color:#d1d5db; }
+  </style>
+</head>
+<body>
+  <div id="composition" data-composition-id="documentary-narrative" data-width="1080" data-height="1080" data-fps="30">
+    <section class="clip" data-start="0" data-duration="9" data-track-index="0"><h1>Some days move quietly,<br/>but change everything.</h1></section>
+    <section class="clip" data-start="9" data-duration="14" data-track-index="0"><p>We keep building between ordinary moments—<br/>line by line, habit by habit.</p></section>
+    <section class="clip" data-start="23" data-duration="15" data-track-index="0"><p class="quote">“The future is not an event.
+It is a rhythm you practice.”</p></section>
+    <section class="clip" data-start="38" data-duration="14" data-track-index="0"><p class="soft">Leave space. Keep signal. Move with intent.</p></section>
+    <section class="clip" data-start="52" data-duration="8" data-track-index="0"><h1 class="soft">Follow for more quiet systems thinking.</h1></section>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || [];
+    document.querySelectorAll('.clip').forEach((clip) => {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(clip, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.0, ease: 'power1.out' })
+        .to({}, { duration: Math.max(0.2, Number(clip.dataset.duration || 2) - 1.8) })
+        .to(clip, { autoAlpha: 0, duration: 0.8, ease: 'power1.in' });
+      window.__timelines.push(tl);
+    });
+  </script>
+</body>
+</html>
