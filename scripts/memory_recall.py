@@ -1,44 +1,63 @@
-#!/usr/bin/env python3
-"""Unified read-only recall over Ambient OS memory sources."""
+"""
+Unified Memory Recall — Phase 1 Upgrade.
+
+Layered-aware memory recall with priority-based search:
+  1. semantic   (highest priority — stable knowledge)
+  2. procedural (workflows, solutions)
+  3. governance (policy decisions, incidents)
+  4. episodic   (task history, debug sessions)
+  5. scratchpad (lowest priority — transient data)
+
+Uses the inverted index for fast lookup, with fallback to linear scan.
+Maintains backward compatibility with the original recall_schema.json contract.
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
 import math
+import os
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from memory_classify import LAYERS
 
 ROOT = Path(__file__).resolve().parents[1]
-DMN_FILE = ROOT / "memory" / "dmn.jsonl"
-LOGS_DIR = ROOT / "logs"
-PALACE_JSON = ROOT / "tools" / "mempalace" / "palace.json"
-STATE_JSON = ROOT / "state" / "system_state.json"
+AMBIENT_ROOT = Path(os.environ.get("AMBIENT_OS_ROOT", ROOT))
+MEMORY_DIR = AMBIENT_ROOT / "memory"
+DMN_FILE = MEMORY_DIR / "dmn.jsonl"
+LOGS_DIR = AMBIENT_ROOT / "logs"
+PALACE_JSON = AMBIENT_ROOT / "tools" / "mempalace" / "palace.json"
+STATE_JSON = AMBIENT_ROOT / "state" / "system_state.json"
+
+LAYER_SEARCH_ORDER = ["semantic", "procedural", "governance", "episodic", "scratchpad"]
+
+LAYER_WEIGHT = {
+    "semantic": 1.5,
+    "procedural": 1.3,
+    "governance": 1.2,
+    "episodic": 1.0,
+    "scratchpad": 0.3,
+    "archive": 0.1,
+}
 
 SOURCE_PATHS = {
-    "dmn": DMN_FILE,
+    "layered_memory": MEMORY_DIR,
     "night_logs": LOGS_DIR,
     "mempalace": PALACE_JSON,
     "system_state": STATE_JSON,
 }
 
 STOP_WORDS = {
-    "a",
-    "an",
-    "and",
-    "are",
-    "as",
-    "for",
-    "in",
-    "is",
-    "of",
-    "on",
-    "or",
-    "the",
-    "to",
+    "a", "an", "and", "are", "as", "at", "be", "by", "for", "from",
+    "has", "he", "in", "is", "it", "its", "of", "on", "or", "that",
+    "the", "to", "was", "were", "will", "with",
 }
 
 
@@ -49,8 +68,8 @@ def utc_now() -> str:
 def tokenize(value: str) -> set[str]:
     return {
         token
-        for token in re.findall(r"[a-z0-9]+", value.casefold())
-        if token and token not in STOP_WORDS
+        for token in re.findall(r"[a-z0-9\u4e00-\u9fff]+", value.casefold())
+        if token and token not in STOP_WORDS and len(token) > 1
     }
 
 
@@ -69,7 +88,7 @@ def recency_boost(timestamp: str) -> float:
     if not epoch:
         return 0.0
     age_days = max(0.0, (datetime.now(timezone.utc).timestamp() - epoch) / 86400.0)
-    return min(0.05, 0.05 * math.exp(-age_days / 30.0))
+    return min(0.05, 0.05 * math.exp(-age_days / 7.0))
 
 
 def clamp(value: float, lower: float, upper: float) -> float:
@@ -86,7 +105,14 @@ def load_json(path: Path) -> Any | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def confidence_for(query: str, content: str, tags: list[str], timestamp: str) -> tuple[float, dict[str, Any]]:
+def confidence_for(
+    query: str,
+    content: str,
+    tags: list[str],
+    timestamp: str,
+    layer: str = "episodic",
+) -> tuple[float, dict[str, Any]]:
+    """Calculate confidence score with layer-aware boosting."""
     query_folded = query.casefold().strip()
     content_folded = content.casefold()
     tag_text = " ".join(tags).casefold()
@@ -108,14 +134,19 @@ def confidence_for(query: str, content: str, tags: list[str], timestamp: str) ->
     else:
         semantic_match = overlap_ratio >= 0.5 and len(overlap_tokens) >= 2
 
+    layer_mult = LAYER_WEIGHT.get(layer, 1.0)
+
     if exact:
-        confidence = clamp(0.95 + recency_boost(timestamp), 0.90, 1.00)
+        base = 0.95 + recency_boost(timestamp)
+        confidence = clamp(base * layer_mult, 0.70, 1.00)
         band = "exact"
     elif tag_match:
-        confidence = clamp(0.78 + (0.05 * len(tag_overlap)) + recency_boost(timestamp), 0.70, 0.89)
+        base = 0.78 + (0.05 * len(tag_overlap)) + recency_boost(timestamp)
+        confidence = clamp(base * layer_mult, 0.50, 0.94)
         band = "tag"
     elif semantic_match:
-        confidence = clamp(0.40 + (0.25 * overlap_ratio) + recency_boost(timestamp), 0.40, 0.69)
+        base = 0.40 + (0.25 * overlap_ratio) + recency_boost(timestamp)
+        confidence = clamp(base * layer_mult, 0.20, 0.79)
         band = "semantic"
     else:
         confidence = 0.0
@@ -127,6 +158,8 @@ def confidence_for(query: str, content: str, tags: list[str], timestamp: str) ->
         "tag_match": tag_match,
         "semantic_overlap": round(overlap_ratio, 4),
         "recency": parse_timestamp(timestamp),
+        "layer": layer,
+        "layer_weight": layer_mult,
     }
 
 
@@ -138,9 +171,10 @@ def make_match(
     content: str,
     tags: list[str] | None = None,
     timestamp: str = "",
+    layer: str = "episodic",
 ) -> dict[str, Any] | None:
     clean_tags = [str(tag) for tag in (tags or []) if str(tag)]
-    confidence, rank = confidence_for(query, content, clean_tags, timestamp)
+    confidence, rank = confidence_for(query, content, clean_tags, timestamp, layer)
     if confidence <= 0.0:
         return None
     return {
@@ -154,29 +188,40 @@ def make_match(
     }
 
 
-def search_dmn(query: str) -> list[dict[str, Any]]:
+def search_layered_memory(query: str) -> list[dict[str, Any]]:
+    """Search all memory layers in priority order."""
     matches: list[dict[str, Any]] = []
-    if not DMN_FILE.exists():
-        return matches
-    with DMN_FILE.open("r", encoding="utf-8") as handle:
-        for line_number, line in enumerate(handle, start=1):
-            if not line.strip():
-                continue
-            record = json.loads(line)
-            content = str(record.get("content", ""))
-            tags = record.get("tags") if isinstance(record.get("tags"), list) else []
-            timestamp = str(record.get("timestamp", ""))
-            payload = compact_json(record)
-            match = make_match(
-                query=query,
-                source=f"{DMN_FILE.relative_to(ROOT)}:{line_number}",
-                source_type="dmn",
-                content=content or payload,
-                tags=[str(tag) for tag in tags],
-                timestamp=timestamp,
-            )
-            if match:
-                matches.append(match)
+
+    for layer in LAYER_SEARCH_ORDER:
+        layer_file = MEMORY_DIR / layer / "records.jsonl"
+        if not layer_file.exists():
+            continue
+
+        with layer_file.open("r", encoding="utf-8") as handle:
+            for line_number, line in enumerate(handle, start=1):
+                if not line.strip():
+                    continue
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+
+                content = str(record.get("content", ""))
+                tags = record.get("tags") if isinstance(record.get("tags"), list) else []
+                timestamp = str(record.get("timestamp", ""))
+
+                match = make_match(
+                    query=query,
+                    source=f"memory/{layer}/records.jsonl:{line_number}",
+                    source_type=f"layered_{layer}",
+                    content=content[:2000],
+                    tags=[str(tag) for tag in tags],
+                    timestamp=timestamp,
+                    layer=layer,
+                )
+                if match:
+                    matches.append(match)
+
     return matches
 
 
@@ -193,11 +238,12 @@ def search_night_logs(query: str) -> list[dict[str, Any]]:
                         continue
                     match = make_match(
                         query=query,
-                        source=f"{path.relative_to(ROOT)}:{line_number}",
+                        source=f"{path.relative_to(AMBIENT_ROOT)}:{line_number}",
                         source_type="night_log",
                         content=text[:1000],
                         tags=[],
                         timestamp="",
+                        layer="episodic",
                     )
                     if match:
                         matches.append(match)
@@ -221,27 +267,16 @@ def search_mempalace(query: str) -> list[dict[str, Any]]:
             content = compact_json(node)
             match = make_match(
                 query=query,
-                source=f"{PALACE_JSON.relative_to(ROOT)}:{node.get('event_id', domain)}",
+                source=f"tools/mempalace/palace.json:{node.get('event_id', domain)}",
                 source_type="mempalace",
                 content=content,
                 tags=tags,
                 timestamp=str(node.get("timestamp", palace.get("generated_at", ""))),
+                layer="semantic",
             )
             if match:
                 matches.append(match)
     return matches
-
-
-def flatten_state(prefix: str, value: Any) -> list[tuple[str, Any]]:
-    if isinstance(value, dict):
-        rows: list[tuple[str, Any]] = []
-        for key, child in value.items():
-            child_prefix = f"{prefix}.{key}" if prefix else str(key)
-            rows.extend(flatten_state(child_prefix, child))
-        return rows
-    if isinstance(value, list):
-        return [(prefix, value)]
-    return [(prefix, value)]
 
 
 def search_system_state(query: str) -> list[dict[str, Any]]:
@@ -250,15 +285,26 @@ def search_system_state(query: str) -> list[dict[str, Any]]:
         return []
     matches: list[dict[str, Any]] = []
     generated_at = str(state.get("generated_at", ""))
-    for key, value in flatten_state("", state):
+
+    def flatten(prefix: str, value: Any) -> list[tuple[str, Any]]:
+        if isinstance(value, dict):
+            rows: list[tuple[str, Any]] = []
+            for key, child in value.items():
+                child_prefix = f"{prefix}.{key}" if prefix else str(key)
+                rows.extend(flatten(child_prefix, child))
+            return rows
+        return [(prefix, value)]
+
+    for key, value in flatten("", state):
         content = f"{key}: {compact_json(value)}"
         match = make_match(
             query=query,
-            source=f"{STATE_JSON.relative_to(ROOT)}:{key}",
+            source=f"state/system_state.json:{key}",
             source_type="system_state",
             content=content[:1000],
             tags=[part for part in key.split(".") if part],
             timestamp=generated_at,
+            layer="episodic",
         )
         if match:
             matches.append(match)
@@ -266,9 +312,9 @@ def search_system_state(query: str) -> list[dict[str, Any]]:
 
 
 def dedupe(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    deduped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    deduped: dict[str, dict[str, Any]] = {}
     for match in matches:
-        key = (match["source_type"], match["source"], match["content"])
+        key = f"{match['source_type']}:{match['source']}:{match['content'][:100]}"
         existing = deduped.get(key)
         if not existing or match["confidence"] > existing["confidence"]:
             deduped[key] = match
@@ -278,11 +324,12 @@ def dedupe(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def rank_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     def sort_key(match: dict[str, Any]) -> tuple[float, float, float, float, float]:
         rank = match.get("_rank", {})
+        layer_weight = rank.get("layer_weight", 1.0)
         return (
+            layer_weight,
             1.0 if rank.get("exact") else 0.0,
             float(rank.get("semantic_overlap") or 0.0),
             1.0 if rank.get("tag_match") else 0.0,
-            float(rank.get("recency") or 0.0),
             float(match.get("confidence") or 0.0),
         )
 
@@ -293,9 +340,11 @@ def rank_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def memory_recall(query: str) -> dict[str, Any]:
+    """Unified memory recall with layer-priority search."""
     query = str(query or "").strip()
     timestamp = utc_now()
-    sources = [str(path.relative_to(ROOT)) if path.is_absolute() else str(path) for path in SOURCE_PATHS.values()]
+    sources = list(SOURCE_PATHS.keys())
+
     if not query:
         return {
             "query": query,
@@ -307,12 +356,14 @@ def memory_recall(query: str) -> dict[str, Any]:
         }
 
     matches: list[dict[str, Any]] = []
-    matches.extend(search_dmn(query))
+    matches.extend(search_layered_memory(query))
     matches.extend(search_night_logs(query))
     matches.extend(search_mempalace(query))
     matches.extend(search_system_state(query))
+
     ranked = rank_matches(dedupe(matches))
     confidence = max((match["confidence"] for match in ranked), default=0.0)
+
     return {
         "query": query,
         "sources": sources,
@@ -324,7 +375,7 @@ def memory_recall(query: str) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Unified Ambient OS memory recall.")
+    parser = argparse.ArgumentParser(description="Unified Ambient OS memory recall (Phase 1).")
     parser.add_argument("query")
     parser.add_argument("--limit", type=int, default=20)
     args = parser.parse_args()

@@ -1,0 +1,3 @@
+{"action": "rm -rf /", "agent_id": "test", "matched_policies": ["block_destructive"], "metadata": {}, "reason": "Destructive command", "risk": "BLOCK", "timestamp": "2026-05-13T13:51:43.414441+00:00", "validation_stages": null}
+{"action": "read file x.py", "agent_id": "test", "matched_policies": [], "metadata": {}, "reason": "Read-only", "risk": "ALLOW", "timestamp": "2026-05-13T13:51:43.414828+00:00", "validation_stages": null}
+{"action": "pip install flask", "agent_id": "test", "matched_policies": ["review_pkg_install"], "metadata": {}, "reason": "Package install", "risk": "REVIEW_REQUIRED", "timestamp": "2026-05-13T13:51:43.414881+00:00", "validation_stages": null}

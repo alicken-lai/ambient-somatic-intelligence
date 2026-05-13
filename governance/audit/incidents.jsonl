@@ -1,0 +1,1 @@
+{"action": "rm -rf /", "agent_id": "test", "policies": ["block_destructive"], "reason": "Destructive command", "resolved": false, "timestamp": "2026-05-13T13:51:43.414441+00:00", "type": "blocked_action"}
