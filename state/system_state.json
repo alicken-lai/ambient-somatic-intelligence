@@ -177,7 +177,7 @@
   "corrective_actions": "none",
   "current_risk_class": "low_confidence_watch",
   "display_risk": "watch",
-  "dmn_append_count": 257,
+  "dmn_append_count": 1349,
   "docker_context": {
     "containers": [
       {
@@ -214,13 +214,13 @@
       "simulation": "guardian/simulations/latest_simulation.md"
     }
   },
-  "generated_at": "2026-05-13T10:59:19.863602+00:00",
+  "generated_at": "2026-05-14T04:37:24.433662+00:00",
   "health_risk": "watch",
   "health_score": 76.53,
   "identity_loaded": true,
   "incident_count": 2,
   "latest_reflex_confidence": 0.05,
-  "latest_telemetry_snapshot": "observability/snapshots/telemetry-2026-05-13T105919.789945Z0000.json",
+  "latest_telemetry_snapshot": "observability/snapshots/telemetry-2026-05-14T043724.330708Z0000.json",
   "memory_status": {
     "free_bytes": 380993536,
     "scoring_artifact": true,
