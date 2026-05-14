@@ -4,7 +4,7 @@
 
 A **persistent cognitive operating system** that transforms environmental signals into intelligent, governance-aware autonomous behavior. Built on a 7-layer architecture spanning memory, context engineering, task orchestration, governance, somatic sensing, observability, and specialized agents.
 
-Release status: `v0.2.0-alpha` — Cognitive Architecture Phase 1–7 complete.
+Release status: `v0.3.0-alpha — Adaptive Cognitive Runtime` — Phase 1–7 + Adaptive Runtime complete.
 
 ## Project Thesis
 
@@ -20,16 +20,26 @@ Instead of waiting for alarms, logs, or incidents, this system continuously sens
 flowchart TD
     ENV[Environment Signals] --> SM[Somatic Event Layer]
     SM --> ATT[Attention Manager]
-    ATT --> CTX[Context Engineering]
-    CTX --> MEM[6-Layer Memory]
+    ATT --> SART[Somatic Attention Runtime]
+    SART --> CTX[Context Engineering]
+    CTX --> CE[Context Economy Engine]
+    CE --> MEM[6-Layer Memory]
     MEM --> TG[Task Graph Runtime]
-    TG --> AGT[Specialized Agents]
+    TG --> TGO[Task Graph Optimizer]
+    TGO --> AGT[Specialized Agents]
     AGT --> GOV[Governance Runtime]
     GOV -->|ALLOW| EXEC[Execution]
     GOV -->|BLOCK| AUDIT[Audit Log]
     GOV -->|REVIEW| OPS[Operator Review]
     EXEC --> OBS[Observability]
-    OBS --> MEM
+    OBS --> ROBS[Recursive Observability]
+    ROBS --> MEM
+    MEM --> MEV[Memory-Guided Evolution]
+    MEV --> EVO[Evolution Engine]
+    EVO --> GOV
+    CSM[Cognitive Self-Model] --> DRIFT[Drift Detection]
+    DRIFT --> EVO
+    OBS --> CSM
 ```
 
 ## Cognitive Architecture (Phase 1–7)
@@ -42,18 +52,22 @@ ambient-os/
 │   ├── procedural/         Successful workflows, orchestration patterns
 │   ├── governance/         Blocked actions, security incidents, policy decisions
 │   ├── scratchpad/         Active task context (auto-TTL, auto-cleanup)
-│   └── archive/            Cold data archive
+│   ├── archive/            Cold data archive
+│   └── evolution/          v0.3 — Memory-guided evolution + pattern mining
 ├── context/             Phase 2 — Context Engineering Layer
 │   ├── budget_manager.py      Token budget allocation (6 pools)
 │   ├── semantic_retriever.py  Layer-prioritized memory retrieval
 │   ├── memory_compressor.py   Progressive compression (4 tiers)
-│   └── assembler.py           Dynamic context assembly orchestrator
+│   ├── assembler.py           Dynamic context assembly orchestrator
+│   └── context_economy/       v0.3 — Token economy + retrieval scoring
 ├── runtime/             Phase 3 — Task Graph Runtime
-│   └── task_graph/
-│       ├── dag.py             Dependency-aware DAG with cycle detection
-│       ├── scheduler.py       Async parallel/sequential execution
-│       ├── checkpoint.py      Execution snapshots + rollback
-│       └── executor.py        High-level engine with Guardian integration
+│   ├── task_graph/
+│   │   ├── dag.py             Dependency-aware DAG with cycle detection
+│   │   ├── scheduler.py       Async parallel/sequential execution
+│   │   ├── checkpoint.py      Execution snapshots + rollback
+│   │   └── executor.py        High-level engine with Guardian integration
+│   ├── task_graph_optimizer/  v0.3 — Bottleneck detection + dependency compression
+│   └── evolution_engine/      v0.3 — Controlled self-refactoring + mutation simulation
 ├── governance/          Phase 4 — Governance Runtime
 │   ├── policy_engine.py       Structured rule-based policy evaluation
 │   ├── anomaly_detector.py    Runaway agent + token abuse detection
@@ -63,12 +77,20 @@ ambient-os/
 │   ├── signal_bus.py          Pub/sub bus (6 signal types × 5 urgency levels)
 │   ├── attention_manager.py   4-level cognitive attention allocation
 │   ├── environment_monitor.py Real-time CPU/mem/disk/load sensing
-│   └── anomaly_event_stream.py Signal patterns → cognitive responses
+│   ├── anomaly_event_stream.py Signal patterns → cognitive responses
+│   └── attention_runtime/     v0.3 — Adaptive attention weighting + throttling
 ├── observability/       Phase 6 — Observability
 │   ├── tracer.py              Distributed tracing (spans/traces/tree view)
 │   ├── metrics_collector.py   Counter/gauge/histogram/rate metrics
 │   ├── telemetry.py           Per-agent execution profiling
-│   └── dashboard.py           ASCII status dashboard + JSON reports
+│   ├── dashboard.py           ASCII status dashboard + JSON reports
+│   ├── drift_detection/       v0.3 — Architecture drift analysis + health scoring
+│   └── recursive_runtime/     v0.3 — Recursive self-observability + meta-telemetry
+├── identity/            v0.3 — Cognitive Self-Model
+│   └── cognitive_self_model/  Architecture introspection + dependency graphs
+├── kernel/              v0.3 — Integration kernel
+│   ├── bootstrap.py           boot() + boot_v03() + verify_v03()
+│   └── integration_bus.py     27-connection subsystem wiring
 ├── agents/              Phase 7 — Persistent Specialized Agents
 │   ├── base.py                BaseAgent with state persistence + learning
 │   ├── memory.py              Per-agent local knowledge store
@@ -80,7 +102,8 @@ ambient-os/
     ├── memory_recall.py       Layer-aware retrieval with scoring
     ├── memory_index.py        Inverted index for fast lookup
     ├── memory_ttl.py          Automatic expiration + archival
-    └── memory_summarize.py    Telemetry aggregation (60x reduction)
+    ├── memory_summarize.py    Telemetry aggregation (60x reduction)
+    └── verify_v03_evolution.py v0.3 verification (14 checks)
 ```
 
 ## Design Principles
@@ -95,6 +118,17 @@ ambient-os/
 | 6 | Persistent systems require entropy management | TTL, archival, summarization, eviction |
 
 ## Current Features
+
+### Adaptive Cognitive Runtime (v0.3.0-alpha)
+
+- **Cognitive Self-Model** — system architecture introspection via AST scanning, dependency graphs, memory topology mapping.
+- **Architecture Drift Detection** — consistency scanning, dependency drift analysis, health scoring (A-F), remediation proposals.
+- **Memory-Guided Evolution** — pattern mining from execution history, incident learning, optimization proposal generation.
+- **Adaptive Task Graph Optimization** — bottleneck detection, latency analysis, dependency compression, redundancy detection.
+- **Context Economy Engine** — token cost accounting, 3-tier budget allocation, retrieval utility scoring, entropy management.
+- **Somatic Attention Runtime** — 5-factor attention weighting, anomaly amplification, stress scoring, adaptive throttling.
+- **Recursive Observability** — cognition tracing, memory flow tracing, governance analytics, meta-observability (<5% overhead).
+- **Controlled Self-Refactoring** — patch proposals, mutation simulation, rollback planning, evolution audit (governance-gated).
 
 ### Cognitive Runtime (v0.2.0-alpha)
 
@@ -208,6 +242,19 @@ from observability import Dashboard, MetricsCollector, AgentTelemetry, Execution
 dashboard = Dashboard()
 print(dashboard.render())
 "
+
+# v0.3 Adaptive Cognitive Runtime
+python3 -c "
+from kernel.bootstrap import boot, boot_v03
+
+kernel = boot()
+v03 = boot_v03(kernel)
+
+topology = v03['self_model'].get_system_topology()
+drift = v03['drift_detector'].detect(v03['self_model'])
+health = v03['health_scorer'].score(drift.unified_report, drift.consistency_result)
+print(f'Health grade: {health.grade}')
+"
 ```
 
 ## Somatic Signal Flow
@@ -228,6 +275,7 @@ CognitiveResponse                 — context_compression / scheduler_throttle /
 
 ## Release Artifacts
 
+- `RELEASE_NOTES_v0.3.0-alpha.md`
 - `RELEASE_NOTES_v0.1.0-alpha.md`
 - `docs/public_architecture_snapshot.md`
 - `docs/release_readiness_audit.md`
