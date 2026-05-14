@@ -14,6 +14,7 @@ from typing import Any
 from action_log import log_action, stable_json
 from build_system_state import build_system_state
 from guardian_check import classify_action
+from memory_store import store_memory
 from remember import append_memory
 from sense_local import collect_snapshot, write_snapshot
 
@@ -64,6 +65,14 @@ def tick() -> dict[str, Any]:
         },
         "guardian": guardian,
     }
+    store_result = store_memory(
+        content=stable_json(memory),
+        tags=TAGS,
+        source="night35-dmn-tick",
+        layer="scratchpad",
+        skip_dmn=True,
+        skip_dedup=True,
+    )
     record = append_memory(stable_json(memory), TAGS, "night35-dmn-tick")
     state_summary = build_system_state()
     status = {
