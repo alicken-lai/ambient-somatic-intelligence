@@ -1,0 +1,3935 @@
+{
+  "timestamp": "2026-05-13T23:03:42.082800+00:00",
+  "architecture": {
+    "root": ".",
+    "built": true,
+    "topology": {
+      "subsystems": {
+        "kernel": {
+          "name": "kernel",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "kernel/__init__.py",
+              "classes": [
+                {
+                  "name": "_SubsystemRef",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "AmbientKernel",
+                  "methods": [
+                    "boot",
+                    "integration_bus",
+                    "health",
+                    "shutdown"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "_SomaticSubsystem",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "_GovernanceSubsystem",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "_ContextSubsystem",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "_TaskGraphSubsystem",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "_AgentSubsystem",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "_ObservabilitySubsystem",
+                  "methods": [],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "somatic.signal_bus",
+                "somatic.attention_manager",
+                "somatic.environment_monitor",
+                "somatic.anomaly_event_stream",
+                "somatic.signal_normalizer",
+                "somatic.signal_correlator",
+                "somatic.rate_tracker",
+                "somatic.signal_analytics",
+                "governance.policy_engine",
+                "governance.execution_validator",
+                "governance.anomaly_detector",
+                "governance.audit_log",
+                "governance.tool_permissions",
+                "governance.mandatory_gate",
+                "governance.unified_router",
+                "context.assembler",
+                "context.budget_manager",
+                "context.semantic_retriever",
+                "context.memory_compressor",
+                "context.injection_logger",
+                "context.kernel_retriever",
+                "runtime.task_graph.executor",
+                "agents.registry",
+                "agents.orchestrator",
+                "agents.isolation",
+                "observability.tracer",
+                "observability.metrics_collector",
+                "observability.telemetry",
+                "observability.dashboard",
+                "observability.agent_decision_log",
+                "observability.system_report",
+                "observability.trace_schema",
+                "memory.memory_kernel",
+                "runtime.task_graph.visualizer",
+                "kernel.integration_bus",
+                "observability.system_report",
+                "importlib"
+              ]
+            },
+            {
+              "name": "bootstrap",
+              "path": "kernel/bootstrap.py",
+              "classes": [],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "typing",
+                "kernel",
+                "kernel",
+                "agents.specialists"
+              ]
+            },
+            {
+              "name": "integration_bus",
+              "path": "kernel/integration_bus.py",
+              "classes": [
+                {
+                  "name": "BusEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "IntegrationBus",
+                  "methods": [
+                    "wire",
+                    "unwire",
+                    "is_wired",
+                    "status"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus",
+                "somatic.attention_manager",
+                "governance.policy_engine",
+                "governance.mandatory_gate",
+                "governance.tool_permissions",
+                "runtime.task_graph.scheduler",
+                "runtime.task_graph.failure_propagation",
+                "kernel"
+              ]
+            }
+          ],
+          "dependencies": [
+            "agents",
+            "context",
+            "governance",
+            "memory",
+            "observability",
+            "runtime.task_graph",
+            "somatic"
+          ],
+          "status": "active"
+        },
+        "agents": {
+          "name": "agents",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "agents/__init__.py",
+              "classes": [],
+              "imports": [
+                "agents.base",
+                "agents.registry",
+                "agents.memory",
+                "agents.orchestrator",
+                "agents.isolation",
+                "agents.execution_history"
+              ]
+            },
+            {
+              "name": "base",
+              "path": "agents/base.py",
+              "classes": [
+                {
+                  "name": "AgentStatus",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "AgentCapability",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "ExecutionPreferences",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentPerformance",
+                  "methods": [
+                    "success_rate",
+                    "avg_duration_ms",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "BaseAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "execute",
+                    "before_task",
+                    "after_task",
+                    "learn_strategy",
+                    "learn_pattern",
+                    "find_strategy",
+                    "memory_slice",
+                    "memory_slice",
+                    "retrieval_profile",
+                    "retrieval_profile",
+                    "execution_history",
+                    "run_task",
+                    "save_state",
+                    "load_state",
+                    "profile"
+                  ],
+                  "base_classes": [
+                    "ABC"
+                  ]
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "abc",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing",
+                "agents.isolation",
+                "agents.execution_history",
+                "agents.execution_history"
+              ]
+            },
+            {
+              "name": "execution_history",
+              "path": "agents/execution_history.py",
+              "classes": [
+                {
+                  "name": "ExecutionRecord",
+                  "methods": [
+                    "to_dict",
+                    "from_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ExecutionHistory",
+                  "methods": [
+                    "record",
+                    "recent",
+                    "query",
+                    "stats",
+                    "patterns"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "isolation",
+              "path": "agents/isolation.py",
+              "classes": [
+                {
+                  "name": "RetrievalProfile",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemorySlice",
+                  "methods": [
+                    "agent_id",
+                    "profile",
+                    "recall",
+                    "store",
+                    "stats"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentIsolationManager",
+                  "methods": [
+                    "register",
+                    "get_slice",
+                    "get_profile",
+                    "is_registered",
+                    "all_profiles",
+                    "status"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "dataclasses",
+                "typing",
+                "memory.memory_kernel",
+                "memory.memory_kernel"
+              ]
+            },
+            {
+              "name": "memory",
+              "path": "agents/memory.py",
+              "classes": [
+                {
+                  "name": "MemoryEntry",
+                  "methods": [
+                    "to_dict",
+                    "from_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentMemory",
+                  "methods": [
+                    "remember",
+                    "recall",
+                    "recall_strategies",
+                    "recall_failures",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "dataclasses",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "orchestrator",
+              "path": "agents/orchestrator.py",
+              "classes": [
+                {
+                  "name": "DispatchResult",
+                  "methods": [
+                    "duration_ms",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "OrchestrationPlan",
+                  "methods": [
+                    "add_stage",
+                    "total_subtasks",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentOrchestrator",
+                  "methods": [
+                    "dispatch",
+                    "dispatch_parallel",
+                    "dispatch_with_fallback",
+                    "plan_execution",
+                    "execute_plan",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "agents.base",
+                "agents.registry"
+              ]
+            },
+            {
+              "name": "registry",
+              "path": "agents/registry.py",
+              "classes": [
+                {
+                  "name": "AgentRegistry",
+                  "methods": [
+                    "register",
+                    "unregister",
+                    "get",
+                    "find_best",
+                    "find_by_capability",
+                    "find_available",
+                    "all_agents",
+                    "status_report",
+                    "save_all",
+                    "load_all"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "typing",
+                "agents.base"
+              ]
+            },
+            {
+              "name": "specialists",
+              "path": "agents/specialists.py",
+              "classes": [
+                {
+                  "name": "FrontendAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                },
+                {
+                  "name": "BackendAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                },
+                {
+                  "name": "TestingAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute",
+                    "record_flaky"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                },
+                {
+                  "name": "GuardianAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                },
+                {
+                  "name": "MemoryManagerAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                },
+                {
+                  "name": "PlannerAgent",
+                  "methods": [
+                    "domain",
+                    "capabilities",
+                    "can_handle",
+                    "default_retrieval_profile",
+                    "execute"
+                  ],
+                  "base_classes": [
+                    "BaseAgent"
+                  ]
+                }
+              ],
+              "imports": [
+                "__future__",
+                "typing",
+                "agents.base",
+                "agents.isolation"
+              ]
+            }
+          ],
+          "dependencies": [
+            "memory"
+          ],
+          "status": "active"
+        },
+        "governance": {
+          "name": "governance",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "governance/__init__.py",
+              "classes": [],
+              "imports": [
+                "governance.policy_engine",
+                "governance.anomaly_detector",
+                "governance.execution_validator",
+                "governance.audit_log",
+                "governance.tool_permissions",
+                "governance.mandatory_gate",
+                "governance.unified_router"
+              ]
+            },
+            {
+              "name": "anomaly_detector",
+              "path": "governance/anomaly_detector.py",
+              "classes": [
+                {
+                  "name": "AnomalyLevel",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "Anomaly",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentBehavior",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "AnomalyDetector",
+                  "methods": [
+                    "record_action",
+                    "record_failure",
+                    "record_token_usage",
+                    "record_file_modification",
+                    "check",
+                    "check_all",
+                    "get_agent_health",
+                    "reset"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "audit_log",
+              "path": "governance/audit_log.py",
+              "classes": [
+                {
+                  "name": "GovernanceAuditLog",
+                  "methods": [
+                    "record_decision",
+                    "record_override",
+                    "recent_decisions",
+                    "incidents",
+                    "stats",
+                    "policy_effectiveness"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "collections",
+                "datetime",
+                "pathlib",
+                "typing",
+                "governance.policy_engine"
+              ]
+            },
+            {
+              "name": "execution_validator",
+              "path": "governance/execution_validator.py",
+              "classes": [
+                {
+                  "name": "ValidationStage",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "ValidationResult",
+                  "methods": [
+                    "blocking_stage",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ExecutionValidator",
+                  "methods": [
+                    "validate"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "os",
+                "re",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "governance.policy_engine",
+                "governance.anomaly_detector"
+              ]
+            },
+            {
+              "name": "mandatory_gate",
+              "path": "governance/mandatory_gate.py",
+              "classes": [
+                {
+                  "name": "GateResult",
+                  "methods": [
+                    "is_blocked",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MandatoryGate",
+                  "methods": [
+                    "check",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "governance.policy_engine",
+                "governance.execution_validator",
+                "governance.tool_permissions",
+                "governance.audit_log"
+              ]
+            },
+            {
+              "name": "policy_engine",
+              "path": "governance/policy_engine.py",
+              "classes": [
+                {
+                  "name": "RiskLevel",
+                  "methods": [
+                    "from_str"
+                  ],
+                  "base_classes": [
+                    "IntEnum"
+                  ]
+                },
+                {
+                  "name": "Condition",
+                  "methods": [
+                    "evaluate"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "EvalContext",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "Policy",
+                  "methods": [
+                    "evaluate",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "PolicyDecision",
+                  "methods": [
+                    "is_allowed",
+                    "is_blocked",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "PolicyEngine",
+                  "methods": [
+                    "add_policy",
+                    "evaluate",
+                    "classify_action",
+                    "list_policies",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "re",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "tool_permissions",
+              "path": "governance/tool_permissions.py",
+              "classes": [
+                {
+                  "name": "ToolPermission",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "PermissionResult",
+                  "methods": [
+                    "is_allowed",
+                    "is_denied",
+                    "needs_review",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ToolPermissionMatrix",
+                  "methods": [
+                    "check",
+                    "grant",
+                    "revoke",
+                    "list_permissions",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "unified_router",
+              "path": "governance/unified_router.py",
+              "classes": [
+                {
+                  "name": "RouterStats",
+                  "methods": [
+                    "total",
+                    "agreement_rate",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "UnifiedRouter",
+                  "methods": [
+                    "check",
+                    "legacy_check",
+                    "stats",
+                    "health"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "governance.policy_engine",
+                "governance.mandatory_gate"
+              ]
+            }
+          ],
+          "dependencies": [],
+          "status": "active"
+        },
+        "memory": {
+          "name": "memory",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "memory/evolution/__init__.py",
+              "classes": [],
+              "imports": [
+                "memory.evolution.pattern_miner",
+                "memory.evolution.incident_learner",
+                "memory.evolution.optimization_proposer",
+                "memory.evolution.orchestration_templates",
+                "memory.evolution.efficiency_reporter"
+              ]
+            },
+            {
+              "name": "efficiency_reporter",
+              "path": "memory/evolution/efficiency_reporter.py",
+              "classes": [
+                {
+                  "name": "ReportSection",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "EfficiencyReport",
+                  "methods": [
+                    "to_dict",
+                    "to_markdown"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "EfficiencyReporter",
+                  "methods": [
+                    "generate_report"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "memory.evolution.incident_learner",
+                "memory.evolution.optimization_proposer",
+                "memory.evolution.pattern_miner"
+              ]
+            },
+            {
+              "name": "incident_learner",
+              "path": "memory/evolution/incident_learner.py",
+              "classes": [
+                {
+                  "name": "IncidentAnalysis",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "DecisionAnalysis",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "PolicyRecommendation",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "IncidentLearner",
+                  "methods": [
+                    "analyze_incidents",
+                    "learn_from_decisions",
+                    "generate_policy_recommendations"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "optimization_proposer",
+              "path": "memory/evolution/optimization_proposer.py",
+              "classes": [
+                {
+                  "name": "ProposalType",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "ImpactLevel",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "OptimizationProposal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SchedulerRefinement",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryOptimization",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "OptimizationProposer",
+                  "methods": [
+                    "propose_from_patterns",
+                    "propose_scheduler_refinements",
+                    "propose_memory_optimizations"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "uuid",
+                "dataclasses",
+                "enum",
+                "typing",
+                "memory.evolution.pattern_miner"
+              ]
+            },
+            {
+              "name": "orchestration_templates",
+              "path": "memory/evolution/orchestration_templates.py",
+              "classes": [
+                {
+                  "name": "OrchestrationTemplate",
+                  "methods": [
+                    "to_dict",
+                    "from_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "OrchestrationTemplateStore",
+                  "methods": [
+                    "extract_template",
+                    "store",
+                    "find",
+                    "list_all",
+                    "effectiveness_report",
+                    "record_usage"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "re",
+                "uuid",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "memory.evolution.pattern_miner"
+              ]
+            },
+            {
+              "name": "pattern_miner",
+              "path": "memory/evolution/pattern_miner.py",
+              "classes": [
+                {
+                  "name": "SuccessPattern",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "FailurePattern",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CostAnalysis",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryPatterns",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "PatternMiner",
+                  "methods": [
+                    "mine_success_patterns",
+                    "mine_failure_patterns",
+                    "mine_from_memory"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "uuid",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "re",
+                "re",
+                "pathlib",
+                "os"
+              ]
+            },
+            {
+              "name": "memory_kernel",
+              "path": "memory/memory_kernel.py",
+              "classes": [
+                {
+                  "name": "ScoringWeights",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "ScoredRecord",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RecallResult",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryKernel",
+                  "methods": [
+                    "recall",
+                    "store",
+                    "score",
+                    "deduplicate",
+                    "ttl_sweep",
+                    "save_access_counts",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "hashlib",
+                "json",
+                "math",
+                "os",
+                "re",
+                "sys",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "memory_classify"
+              ]
+            }
+          ],
+          "dependencies": [],
+          "status": "active"
+        },
+        "context": {
+          "name": "context",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "context/__init__.py",
+              "classes": [],
+              "imports": [
+                "context.budget_manager",
+                "context.semantic_retriever",
+                "context.kernel_retriever",
+                "context.memory_compressor",
+                "context.assembler",
+                "context.injection_logger"
+              ]
+            },
+            {
+              "name": "assembler",
+              "path": "context/assembler.py",
+              "classes": [
+                {
+                  "name": "ContextBlock",
+                  "methods": [
+                    "to_prompt_sections",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextAssembler",
+                  "methods": [
+                    "assemble",
+                    "assemble_for_subagent",
+                    "estimate_task_budget"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "re",
+                "sys",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "context.budget_manager",
+                "context.semantic_retriever",
+                "context.memory_compressor"
+              ]
+            },
+            {
+              "name": "budget_manager",
+              "path": "context/budget_manager.py",
+              "classes": [
+                {
+                  "name": "BudgetPool",
+                  "methods": [
+                    "remaining",
+                    "utilization",
+                    "is_exhausted",
+                    "consume",
+                    "release"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextBudgetManager",
+                  "methods": [
+                    "total_used",
+                    "total_remaining",
+                    "utilization",
+                    "can_fit",
+                    "consume",
+                    "allocate_text",
+                    "reallocate",
+                    "suggest_allocation",
+                    "apply_preset",
+                    "report"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "re",
+                "dataclasses",
+                "typing",
+                "json"
+              ]
+            },
+            {
+              "name": "__init__",
+              "path": "context/context_economy/__init__.py",
+              "classes": [],
+              "imports": [
+                "context.context_economy.cost_accountant",
+                "context.context_economy.token_economy",
+                "context.context_economy.retrieval_scorer",
+                "context.context_economy.entropy_manager",
+                "context.context_economy.economy_reporter"
+              ]
+            },
+            {
+              "name": "cost_accountant",
+              "path": "context/context_economy/cost_accountant.py",
+              "classes": [
+                {
+                  "name": "CostOperation",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "CostRecord",
+                  "methods": [
+                    "cost_efficiency",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CostSummary",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextCostAccountant",
+                  "methods": [
+                    "record_cost",
+                    "get_agent_costs",
+                    "get_task_costs",
+                    "get_system_costs",
+                    "recent_records"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "economy_reporter",
+              "path": "context/context_economy/economy_reporter.py",
+              "classes": [
+                {
+                  "name": "ContextEconomyReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextEconomyReporter",
+                  "methods": [
+                    "generate_report",
+                    "to_markdown",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing"
+              ]
+            },
+            {
+              "name": "entropy_manager",
+              "path": "context/context_economy/entropy_manager.py",
+              "classes": [
+                {
+                  "name": "EntropyReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextEntropyManager",
+                  "methods": [
+                    "measure_entropy",
+                    "measure_redundancy",
+                    "optimal_compression_level",
+                    "entropy_weighted_selection",
+                    "get_entropy_report"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "math",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "typing"
+              ]
+            },
+            {
+              "name": "retrieval_scorer",
+              "path": "context/context_economy/retrieval_scorer.py",
+              "classes": [
+                {
+                  "name": "ScoredRetrieval",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "OutcomeRecord",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "RetrievalUtilityScorer",
+                  "methods": [
+                    "score_retrieval",
+                    "rank_by_utility",
+                    "track_outcome"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "math",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing"
+              ]
+            },
+            {
+              "name": "token_economy",
+              "path": "context/context_economy/token_economy.py",
+              "classes": [
+                {
+                  "name": "BudgetTier",
+                  "methods": [],
+                  "base_classes": [
+                    "IntEnum"
+                  ]
+                },
+                {
+                  "name": "AgentAllocation",
+                  "methods": [
+                    "remaining",
+                    "utilization",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RebalanceProposal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "TokenEconomy",
+                  "methods": [
+                    "set_system_budget",
+                    "system_budget",
+                    "allocate_budget",
+                    "get_allocation",
+                    "record_usage",
+                    "get_utilization",
+                    "rebalance"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "injection_logger",
+              "path": "context/injection_logger.py",
+              "classes": [
+                {
+                  "name": "InjectionEvent",
+                  "methods": [
+                    "memory_count",
+                    "layers_used",
+                    "top_score",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "InjectionLogger",
+                  "methods": [
+                    "log_injection",
+                    "on_injection",
+                    "query_by_agent",
+                    "query_by_time",
+                    "stats",
+                    "recent_events"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "kernel_retriever",
+              "path": "context/kernel_retriever.py",
+              "classes": [
+                {
+                  "name": "KernelRetriever",
+                  "methods": [
+                    "retrieve",
+                    "retrieve_for_context"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "sys",
+                "dataclasses",
+                "pathlib",
+                "typing",
+                "context.semantic_retriever",
+                "memory.memory_kernel"
+              ]
+            },
+            {
+              "name": "memory_compressor",
+              "path": "context/memory_compressor.py",
+              "classes": [
+                {
+                  "name": "CompressedBlock",
+                  "methods": [
+                    "compression_ratio",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryCompressor",
+                  "methods": [
+                    "compress"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "re",
+                "dataclasses",
+                "typing"
+              ]
+            },
+            {
+              "name": "semantic_retriever",
+              "path": "context/semantic_retriever.py",
+              "classes": [
+                {
+                  "name": "RetrievalResult",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RetrievalQuery",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "SemanticRetriever",
+                  "methods": [
+                    "retrieve",
+                    "retrieve_for_context"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "math",
+                "os",
+                "re",
+                "sys",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "memory_classify"
+              ]
+            }
+          ],
+          "dependencies": [
+            "memory"
+          ],
+          "status": "active"
+        },
+        "runtime.task_graph": {
+          "name": "runtime.task_graph",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "runtime/task_graph/__init__.py",
+              "classes": [],
+              "imports": [
+                "runtime.task_graph.dag",
+                "runtime.task_graph.scheduler",
+                "runtime.task_graph.checkpoint",
+                "runtime.task_graph.executor",
+                "runtime.task_graph.failure_propagation",
+                "runtime.task_graph.visualizer"
+              ]
+            },
+            {
+              "name": "checkpoint",
+              "path": "runtime/task_graph/checkpoint.py",
+              "classes": [
+                {
+                  "name": "Checkpoint",
+                  "methods": [
+                    "to_dict",
+                    "from_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CheckpointManager",
+                  "methods": [
+                    "save",
+                    "restore",
+                    "rollback",
+                    "list_checkpoints",
+                    "cleanup",
+                    "purge",
+                    "cleanup_by_age",
+                    "cleanup_all_graphs",
+                    "list_graphs"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "shutil",
+                "datetime",
+                "pathlib",
+                "typing",
+                "runtime.task_graph.dag",
+                "runtime.task_graph.dag",
+                "time",
+                "datetime"
+              ]
+            },
+            {
+              "name": "dag",
+              "path": "runtime/task_graph/dag.py",
+              "classes": [
+                {
+                  "name": "TaskStatus",
+                  "methods": [
+                    "is_terminal",
+                    "is_success"
+                  ],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "RetryPolicy",
+                  "methods": [
+                    "should_retry",
+                    "delay_for_attempt",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "TaskNode",
+                  "methods": [
+                    "duration_ms",
+                    "mark_running",
+                    "mark_completed",
+                    "mark_failed",
+                    "mark_cancelled",
+                    "mark_skipped",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "TaskEdge",
+                  "methods": [
+                    "is_satisfied"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "TaskGraph",
+                  "methods": [
+                    "add_task",
+                    "add_edge",
+                    "get_dependencies",
+                    "get_dependents",
+                    "get_ready_tasks",
+                    "topological_order",
+                    "parallel_stages",
+                    "is_complete",
+                    "is_successful",
+                    "failed_tasks",
+                    "progress",
+                    "cancel_downstream",
+                    "to_dict",
+                    "to_json",
+                    "from_dict"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "uuid",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "executor",
+              "path": "runtime/task_graph/executor.py",
+              "classes": [
+                {
+                  "name": "TaskExecutor",
+                  "methods": [
+                    "register",
+                    "register_many",
+                    "create_graph",
+                    "plan",
+                    "run",
+                    "run_sync",
+                    "run_simple",
+                    "run_parallel",
+                    "get_history",
+                    "status"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "asyncio",
+                "json",
+                "os",
+                "sys",
+                "time",
+                "datetime",
+                "pathlib",
+                "typing",
+                "runtime.task_graph.dag",
+                "runtime.task_graph.scheduler",
+                "runtime.task_graph.checkpoint",
+                "guardian_check"
+              ]
+            },
+            {
+              "name": "failure_propagation",
+              "path": "runtime/task_graph/failure_propagation.py",
+              "classes": [
+                {
+                  "name": "PropagationRecord",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "PropagationChain",
+                  "methods": [
+                    "to_dict",
+                    "affected_task_ids"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "FailurePropagator",
+                  "methods": [
+                    "propagate",
+                    "propagate_all_failures",
+                    "get_propagation_summary",
+                    "clear_history"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "runtime.task_graph.dag"
+              ]
+            },
+            {
+              "name": "scheduler",
+              "path": "runtime/task_graph/scheduler.py",
+              "classes": [
+                {
+                  "name": "ExecutionMode",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "SchedulerEvent",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "SchedulerConfig",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "ExecutionPlan",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ExecutionResult",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "Scheduler",
+                  "methods": [
+                    "on_event",
+                    "plan",
+                    "execute",
+                    "execute_sync"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "asyncio",
+                "json",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing",
+                "runtime.task_graph.dag"
+              ]
+            },
+            {
+              "name": "visualizer",
+              "path": "runtime/task_graph/visualizer.py",
+              "classes": [
+                {
+                  "name": "DAGVisualizer",
+                  "methods": [
+                    "to_ascii",
+                    "to_mermaid",
+                    "to_status_table",
+                    "to_json"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "typing",
+                "runtime.task_graph.dag"
+              ]
+            }
+          ],
+          "dependencies": [],
+          "status": "active"
+        },
+        "somatic": {
+          "name": "somatic",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "somatic/__init__.py",
+              "classes": [],
+              "imports": [
+                "somatic.signal_bus",
+                "somatic.attention_manager",
+                "somatic.environment_monitor",
+                "somatic.anomaly_event_stream",
+                "somatic.signal_normalizer",
+                "somatic.signal_correlator",
+                "somatic.rate_tracker",
+                "somatic.signal_analytics"
+              ]
+            },
+            {
+              "name": "anomaly_event_stream",
+              "path": "somatic/anomaly_event_stream.py",
+              "classes": [
+                {
+                  "name": "CognitiveResponse",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ResponseRule",
+                  "methods": [
+                    "in_cooldown"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AnomalyEventStream",
+                  "methods": [
+                    "on_response",
+                    "recent_responses",
+                    "status",
+                    "full_state"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus",
+                "somatic.attention_manager"
+              ]
+            },
+            {
+              "name": "attention_manager",
+              "path": "somatic/attention_manager.py",
+              "classes": [
+                {
+                  "name": "AttentionLevel",
+                  "methods": [
+                    "label"
+                  ],
+                  "base_classes": [
+                    "IntEnum"
+                  ]
+                },
+                {
+                  "name": "AttentionState",
+                  "methods": [
+                    "max_concurrency",
+                    "context_budget_ratio",
+                    "governance_sensitivity",
+                    "should_pause_non_critical",
+                    "should_notify_operator",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AttentionManager",
+                  "methods": [
+                    "on_change",
+                    "current_state",
+                    "force_level",
+                    "reset",
+                    "get_recommendations"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "__init__",
+              "path": "somatic/attention_runtime/__init__.py",
+              "classes": [],
+              "imports": [
+                "somatic.attention_runtime.attention_engine",
+                "somatic.attention_runtime.anomaly_amplifier",
+                "somatic.attention_runtime.signal_prioritizer",
+                "somatic.attention_runtime.execution_throttle",
+                "somatic.attention_runtime.stress_scorer",
+                "somatic.attention_runtime.attention_runtime"
+              ]
+            },
+            {
+              "name": "anomaly_amplifier",
+              "path": "somatic/attention_runtime/anomaly_amplifier.py",
+              "classes": [
+                {
+                  "name": "AmplifiedSignal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AnomalyAmplifier",
+                  "methods": [
+                    "set_governance_sensitivity",
+                    "amplify"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "attention_engine",
+              "path": "somatic/attention_runtime/attention_engine.py",
+              "classes": [
+                {
+                  "name": "AttentionProfile",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AttentionWeightingEngine",
+                  "methods": [
+                    "set_governance_escalation",
+                    "set_memory_pressure",
+                    "compute_weights",
+                    "get_attention_profile"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus",
+                "somatic.attention_manager"
+              ]
+            },
+            {
+              "name": "execution_throttle",
+              "path": "somatic/attention_runtime/execution_throttle.py",
+              "classes": [
+                {
+                  "name": "ThrottleLevel",
+                  "methods": [],
+                  "base_classes": [
+                    "IntEnum"
+                  ]
+                },
+                {
+                  "name": "ThrottleAction",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ThrottleState",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AdaptiveExecutionThrottle",
+                  "methods": [
+                    "evaluate",
+                    "get_throttle_state",
+                    "reset"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "signal_prioritizer",
+              "path": "somatic/attention_runtime/signal_prioritizer.py",
+              "classes": [
+                {
+                  "name": "PrioritizedSignal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SignalPrioritizer",
+                  "methods": [
+                    "set_attention_weights",
+                    "set_priority_override",
+                    "clear_priority_override",
+                    "prioritize",
+                    "get_priority_queue"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "environment_monitor",
+              "path": "somatic/environment_monitor.py",
+              "classes": [
+                {
+                  "name": "Thresholds",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "EnvironmentSnapshot",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "EnvironmentMonitor",
+                  "methods": [
+                    "sense",
+                    "trend"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "os",
+                "platform",
+                "time",
+                "dataclasses",
+                "pathlib",
+                "typing",
+                "somatic.signal_bus",
+                "shutil",
+                "subprocess",
+                "subprocess"
+              ]
+            },
+            {
+              "name": "rate_tracker",
+              "path": "somatic/rate_tracker.py",
+              "classes": [
+                {
+                  "name": "RateWindow",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RateTracker",
+                  "methods": [
+                    "subscribe",
+                    "record",
+                    "current_rate",
+                    "is_spike",
+                    "trend",
+                    "all_rates",
+                    "status"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "collections",
+                "dataclasses",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "signal_analytics",
+              "path": "somatic/signal_analytics.py",
+              "classes": [
+                {
+                  "name": "AnalyticsSummary",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "HealthReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SignalAnalytics",
+                  "methods": [
+                    "summary",
+                    "top_sources",
+                    "trend",
+                    "health_score",
+                    "health_report"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "signal_bus",
+              "path": "somatic/signal_bus.py",
+              "classes": [
+                {
+                  "name": "SignalType",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "SignalUrgency",
+                  "methods": [],
+                  "base_classes": [
+                    "int",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "SomaticSignal",
+                  "methods": [
+                    "is_critical",
+                    "exceeds_threshold",
+                    "age_seconds",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SomaticSignalBus",
+                  "methods": [
+                    "on",
+                    "on_any",
+                    "off",
+                    "mute",
+                    "unmute",
+                    "emit",
+                    "emit_pressure",
+                    "emit_pain",
+                    "emit_calm",
+                    "recent",
+                    "current_state"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "signal_correlator",
+              "path": "somatic/signal_correlator.py",
+              "classes": [
+                {
+                  "name": "CorrelationRule",
+                  "methods": [
+                    "in_cooldown"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CorrelatedEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SignalCorrelator",
+                  "methods": [
+                    "subscribe",
+                    "on_correlation",
+                    "add_rule",
+                    "correlate",
+                    "recent_correlations",
+                    "status"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "typing",
+                "somatic.signal_bus"
+              ]
+            },
+            {
+              "name": "signal_normalizer",
+              "path": "somatic/signal_normalizer.py",
+              "classes": [
+                {
+                  "name": "BaselineState",
+                  "methods": [
+                    "std_dev",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "NormalizedSignal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "SignalNormalizer",
+                  "methods": [
+                    "normalize",
+                    "update_baseline",
+                    "get_baseline",
+                    "all_baselines",
+                    "reset"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "math",
+                "time",
+                "dataclasses",
+                "typing"
+              ]
+            }
+          ],
+          "dependencies": [],
+          "status": "active"
+        },
+        "observability": {
+          "name": "observability",
+          "modules": [
+            {
+              "name": "__init__",
+              "path": "observability/__init__.py",
+              "classes": [],
+              "imports": [
+                "observability.tracer",
+                "observability.metrics_collector",
+                "observability.telemetry",
+                "observability.dashboard",
+                "observability.agent_decision_log",
+                "observability.system_report",
+                "observability.trace_schema"
+              ]
+            },
+            {
+              "name": "agent_decision_log",
+              "path": "observability/agent_decision_log.py",
+              "classes": [
+                {
+                  "name": "DecisionEvent",
+                  "methods": [
+                    "memories_count",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentDecisionLog",
+                  "methods": [
+                    "log_decision",
+                    "query_by_agent",
+                    "query_by_time",
+                    "stats",
+                    "recent"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "dashboard",
+              "path": "observability/dashboard.py",
+              "classes": [
+                {
+                  "name": "DashboardConfig",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "Dashboard",
+                  "methods": [
+                    "snapshot",
+                    "report",
+                    "render",
+                    "render_compact"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "observability.metrics_collector",
+                "observability.telemetry",
+                "observability.tracer"
+              ]
+            },
+            {
+              "name": "__init__",
+              "path": "observability/drift_detection/__init__.py",
+              "classes": [],
+              "imports": [
+                "observability.drift_detection.consistency_scanner",
+                "observability.drift_detection.dependency_drift",
+                "observability.drift_detection.integration_checker",
+                "observability.drift_detection.drift_detector",
+                "observability.drift_detection.health_scorer"
+              ]
+            },
+            {
+              "name": "consistency_scanner",
+              "path": "observability/drift_detection/consistency_scanner.py",
+              "classes": [
+                {
+                  "name": "IssueSeverity",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "ConsistencyIssue",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ConsistencyScanResult",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ConsistencyScanner",
+                  "methods": [
+                    "scan"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "ast",
+                "logging",
+                "time",
+                "dataclasses",
+                "enum",
+                "pathlib",
+                "typing",
+                "identity.cognitive_self_model.self_model",
+                "datetime"
+              ]
+            },
+            {
+              "name": "dependency_drift",
+              "path": "observability/drift_detection/dependency_drift.py",
+              "classes": [
+                {
+                  "name": "DriftReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "DependencyDriftAnalyzer",
+                  "methods": [
+                    "analyze",
+                    "save_baseline"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing",
+                "identity.cognitive_self_model.dependency_graph"
+              ]
+            },
+            {
+              "name": "drift_detector",
+              "path": "observability/drift_detection/drift_detector.py",
+              "classes": [
+                {
+                  "name": "RemediationSeverity",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "RemediationProposal",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "UnifiedDriftReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "DriftDetector",
+                  "methods": [
+                    "detect",
+                    "generate_remediation_proposals",
+                    "create_review_packet",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing",
+                "observability.drift_detection.consistency_scanner",
+                "observability.drift_detection.dependency_drift",
+                "observability.drift_detection.integration_checker",
+                "identity.cognitive_self_model.self_model",
+                "kernel.integration_bus",
+                "identity.cognitive_self_model.dependency_graph",
+                "identity.cognitive_self_model.architecture_graph"
+              ]
+            },
+            {
+              "name": "health_scorer",
+              "path": "observability/drift_detection/health_scorer.py",
+              "classes": [
+                {
+                  "name": "HealthDimension",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "HealthScore",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ArchitectureHealthScorer",
+                  "methods": [
+                    "score"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "dataclasses",
+                "typing",
+                "observability.drift_detection.consistency_scanner",
+                "observability.drift_detection.drift_detector",
+                "datetime"
+              ]
+            },
+            {
+              "name": "integration_checker",
+              "path": "observability/drift_detection/integration_checker.py",
+              "classes": [
+                {
+                  "name": "ConnectionStatus",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "IntegrityReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "IntegrationIntegrityChecker",
+                  "methods": [
+                    "check"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "inspect",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "kernel.integration_bus",
+                "pathlib",
+                "ast"
+              ]
+            },
+            {
+              "name": "metrics_collector",
+              "path": "observability/metrics_collector.py",
+              "classes": [
+                {
+                  "name": "MetricType",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "MetricPoint",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "HistogramBucket",
+                  "methods": [
+                    "record",
+                    "count",
+                    "sum",
+                    "avg",
+                    "min",
+                    "max",
+                    "p50",
+                    "p95",
+                    "p99",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MetricsCollector",
+                  "methods": [
+                    "increment",
+                    "gauge",
+                    "histogram",
+                    "get_counter",
+                    "get_gauge",
+                    "get_histogram",
+                    "get_rate",
+                    "report",
+                    "report_by_layer",
+                    "reset"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "__init__",
+              "path": "observability/recursive_runtime/__init__.py",
+              "classes": [],
+              "imports": [
+                "observability.recursive_runtime.cognition_tracer",
+                "observability.recursive_runtime.memory_flow_tracer",
+                "observability.recursive_runtime.context_assembly_tracer",
+                "observability.recursive_runtime.governance_analytics",
+                "observability.recursive_runtime.recursive_telemetry",
+                "observability.recursive_runtime.introspection_dashboard"
+              ]
+            },
+            {
+              "name": "cognition_tracer",
+              "path": "observability/recursive_runtime/cognition_tracer.py",
+              "classes": [
+                {
+                  "name": "DecisionType",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "CognitionTrace",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ReasoningStep",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ReasoningChain",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CognitionTracer",
+                  "methods": [
+                    "trace_decision",
+                    "trace_reasoning_chain",
+                    "get_cognition_trace",
+                    "query_traces",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "time",
+                "uuid",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "context_assembly_tracer",
+              "path": "observability/recursive_runtime/context_assembly_tracer.py",
+              "classes": [
+                {
+                  "name": "AssemblyEvent",
+                  "methods": [
+                    "budget_utilization",
+                    "waste_tokens",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RetrievalEvent",
+                  "methods": [
+                    "retrieval_efficiency",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AssemblyReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ContextAssemblyTracer",
+                  "methods": [
+                    "trace_assembly",
+                    "trace_retrieval",
+                    "get_assembly_report"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "time",
+                "uuid",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "governance_analytics",
+              "path": "observability/recursive_runtime/governance_analytics.py",
+              "classes": [
+                {
+                  "name": "GateCheckEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "GovernanceLoadReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "GovernanceEffectivenessReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "GovernanceLoadAnalytics",
+                  "methods": [
+                    "track_gate_check",
+                    "record_threat_confirmation",
+                    "get_governance_load",
+                    "get_governance_effectiveness"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "typing"
+              ]
+            },
+            {
+              "name": "introspection_dashboard",
+              "path": "observability/recursive_runtime/introspection_dashboard.py",
+              "classes": [
+                {
+                  "name": "IntrospectionDashboard",
+                  "methods": [
+                    "render",
+                    "to_dict",
+                    "to_markdown"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "datetime",
+                "typing",
+                "observability.recursive_runtime.cognition_tracer",
+                "observability.recursive_runtime.memory_flow_tracer",
+                "observability.recursive_runtime.context_assembly_tracer",
+                "observability.recursive_runtime.governance_analytics",
+                "observability.recursive_runtime.recursive_telemetry"
+              ]
+            },
+            {
+              "name": "memory_flow_tracer",
+              "path": "observability/recursive_runtime/memory_flow_tracer.py",
+              "classes": [
+                {
+                  "name": "RecallEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "StoreEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "CompressionEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryPressurePoint",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryFlowSummary",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MemoryFlowTracer",
+                  "methods": [
+                    "trace_recall",
+                    "trace_store",
+                    "trace_compression",
+                    "record_pressure",
+                    "get_flow_summary",
+                    "get_memory_pressure_timeline"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "logging",
+                "os",
+                "time",
+                "collections",
+                "dataclasses",
+                "datetime",
+                "pathlib",
+                "typing"
+              ]
+            },
+            {
+              "name": "recursive_telemetry",
+              "path": "observability/recursive_runtime/recursive_telemetry.py",
+              "classes": [
+                {
+                  "name": "TracerHealth",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "MetricsHealth",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RecursiveTelemetryReport",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "RecursiveTelemetry",
+                  "methods": [
+                    "collect",
+                    "get_observability_overhead",
+                    "is_healthy"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "logging",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing"
+              ]
+            },
+            {
+              "name": "system_report",
+              "path": "observability/system_report.py",
+              "classes": [
+                {
+                  "name": "ReportSection",
+                  "methods": [],
+                  "base_classes": []
+                },
+                {
+                  "name": "SystemReport",
+                  "methods": [
+                    "generate",
+                    "render_json",
+                    "render_ascii"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "kernel"
+              ]
+            },
+            {
+              "name": "telemetry",
+              "path": "observability/telemetry.py",
+              "classes": [
+                {
+                  "name": "TaskRecord",
+                  "methods": [
+                    "duration_ms",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentProfile",
+                  "methods": [
+                    "success_rate",
+                    "avg_duration_ms",
+                    "avg_tokens_per_task",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "AgentTelemetry",
+                  "methods": [
+                    "register_agent",
+                    "start_task",
+                    "complete_task",
+                    "record_tokens",
+                    "record_memory_recall",
+                    "record_governance_check",
+                    "get_profile",
+                    "all_profiles",
+                    "active_tasks",
+                    "recent_tasks",
+                    "summary"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "typing",
+                "observability.metrics_collector"
+              ]
+            },
+            {
+              "name": "trace_schema",
+              "path": "observability/trace_schema.py",
+              "classes": [
+                {
+                  "name": "TraceEventType",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "TraceEvent",
+                  "methods": [
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "TraceEventSchema",
+                  "methods": [
+                    "event_types",
+                    "get_schema",
+                    "validate_event",
+                    "create_event",
+                    "to_json_schema"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "time",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "typing"
+              ]
+            },
+            {
+              "name": "tracer",
+              "path": "observability/tracer.py",
+              "classes": [
+                {
+                  "name": "SpanKind",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "SpanStatus",
+                  "methods": [],
+                  "base_classes": [
+                    "str",
+                    "Enum"
+                  ]
+                },
+                {
+                  "name": "Span",
+                  "methods": [
+                    "duration_ms",
+                    "is_active",
+                    "set_attribute",
+                    "add_event",
+                    "end",
+                    "end_error",
+                    "to_dict"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "Trace",
+                  "methods": [
+                    "duration_ms",
+                    "span_count",
+                    "error_count",
+                    "to_dict",
+                    "tree_view"
+                  ],
+                  "base_classes": []
+                },
+                {
+                  "name": "ExecutionTracer",
+                  "methods": [
+                    "trace",
+                    "span",
+                    "recent_traces",
+                    "find_trace",
+                    "stats"
+                  ],
+                  "base_classes": []
+                }
+              ],
+              "imports": [
+                "__future__",
+                "json",
+                "os",
+                "time",
+                "uuid",
+                "contextlib",
+                "dataclasses",
+                "datetime",
+                "enum",
+                "pathlib",
+                "typing"
+              ]
+            }
+          ],
+          "dependencies": [
+            "kernel"
+          ],
+          "status": "active"
+        }
+      },
+      "edges": [
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.signal_bus"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.attention_manager"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.environment_monitor"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.anomaly_event_stream"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.signal_normalizer"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.signal_correlator"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.rate_tracker"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "__init__ imports somatic.signal_analytics"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.policy_engine"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.execution_validator"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.anomaly_detector"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.audit_log"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.tool_permissions"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.mandatory_gate"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "__init__ imports governance.unified_router"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.assembler"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.budget_manager"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.semantic_retriever"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.memory_compressor"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.injection_logger"
+        },
+        {
+          "from": "kernel",
+          "to": "context",
+          "via": "__init__ imports context.kernel_retriever"
+        },
+        {
+          "from": "kernel",
+          "to": "runtime.task_graph",
+          "via": "__init__ imports runtime.task_graph.executor"
+        },
+        {
+          "from": "kernel",
+          "to": "agents",
+          "via": "__init__ imports agents.registry"
+        },
+        {
+          "from": "kernel",
+          "to": "agents",
+          "via": "__init__ imports agents.orchestrator"
+        },
+        {
+          "from": "kernel",
+          "to": "agents",
+          "via": "__init__ imports agents.isolation"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.tracer"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.metrics_collector"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.telemetry"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.dashboard"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.agent_decision_log"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.system_report"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.trace_schema"
+        },
+        {
+          "from": "kernel",
+          "to": "memory",
+          "via": "__init__ imports memory.memory_kernel"
+        },
+        {
+          "from": "kernel",
+          "to": "runtime.task_graph",
+          "via": "__init__ imports runtime.task_graph.visualizer"
+        },
+        {
+          "from": "kernel",
+          "to": "observability",
+          "via": "__init__ imports observability.system_report"
+        },
+        {
+          "from": "kernel",
+          "to": "agents",
+          "via": "bootstrap imports agents.specialists"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "integration_bus imports somatic.signal_bus"
+        },
+        {
+          "from": "kernel",
+          "to": "somatic",
+          "via": "integration_bus imports somatic.attention_manager"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "integration_bus imports governance.policy_engine"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "integration_bus imports governance.mandatory_gate"
+        },
+        {
+          "from": "kernel",
+          "to": "governance",
+          "via": "integration_bus imports governance.tool_permissions"
+        },
+        {
+          "from": "kernel",
+          "to": "runtime.task_graph",
+          "via": "integration_bus imports runtime.task_graph.scheduler"
+        },
+        {
+          "from": "kernel",
+          "to": "runtime.task_graph",
+          "via": "integration_bus imports runtime.task_graph.failure_propagation"
+        },
+        {
+          "from": "agents",
+          "to": "memory",
+          "via": "isolation imports memory.memory_kernel"
+        },
+        {
+          "from": "agents",
+          "to": "memory",
+          "via": "isolation imports memory.memory_kernel"
+        },
+        {
+          "from": "context",
+          "to": "memory",
+          "via": "kernel_retriever imports memory.memory_kernel"
+        },
+        {
+          "from": "observability",
+          "to": "kernel",
+          "via": "drift_detector imports kernel.integration_bus"
+        },
+        {
+          "from": "observability",
+          "to": "kernel",
+          "via": "integration_checker imports kernel.integration_bus"
+        },
+        {
+          "from": "observability",
+          "to": "kernel",
+          "via": "system_report imports kernel"
+        }
+      ],
+      "summary": {
+        "subsystem_count": 8,
+        "module_count": 81,
+        "class_count": 217,
+        "edge_count": 49
+      }
+    }
+  },
+  "dependencies": {
+    "subsystems": [
+      "agents",
+      "context",
+      "governance",
+      "kernel",
+      "memory",
+      "observability",
+      "runtime.task_graph",
+      "somatic"
+    ],
+    "adjacency": {
+      "kernel": [
+        "agents",
+        "context",
+        "governance",
+        "memory",
+        "observability",
+        "runtime.task_graph",
+        "somatic"
+      ],
+      "agents": [
+        "memory"
+      ],
+      "context": [
+        "memory"
+      ],
+      "observability": [
+        "kernel"
+      ]
+    },
+    "edges": [
+      {
+        "source": "kernel",
+        "target": "somatic",
+        "via": [
+          "__init__ imports somatic.signal_bus",
+          "__init__ imports somatic.attention_manager",
+          "__init__ imports somatic.environment_monitor",
+          "__init__ imports somatic.anomaly_event_stream",
+          "__init__ imports somatic.signal_normalizer",
+          "__init__ imports somatic.signal_correlator",
+          "__init__ imports somatic.rate_tracker",
+          "__init__ imports somatic.signal_analytics",
+          "integration_bus imports somatic.signal_bus",
+          "integration_bus imports somatic.attention_manager"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "governance",
+        "via": [
+          "__init__ imports governance.policy_engine",
+          "__init__ imports governance.execution_validator",
+          "__init__ imports governance.anomaly_detector",
+          "__init__ imports governance.audit_log",
+          "__init__ imports governance.tool_permissions",
+          "__init__ imports governance.mandatory_gate",
+          "__init__ imports governance.unified_router",
+          "integration_bus imports governance.policy_engine",
+          "integration_bus imports governance.mandatory_gate",
+          "integration_bus imports governance.tool_permissions"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "context",
+        "via": [
+          "__init__ imports context.assembler",
+          "__init__ imports context.budget_manager",
+          "__init__ imports context.semantic_retriever",
+          "__init__ imports context.memory_compressor",
+          "__init__ imports context.injection_logger",
+          "__init__ imports context.kernel_retriever"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "runtime.task_graph",
+        "via": [
+          "__init__ imports runtime.task_graph.executor",
+          "__init__ imports runtime.task_graph.visualizer",
+          "integration_bus imports runtime.task_graph.scheduler",
+          "integration_bus imports runtime.task_graph.failure_propagation"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "agents",
+        "via": [
+          "__init__ imports agents.registry",
+          "__init__ imports agents.orchestrator",
+          "__init__ imports agents.isolation",
+          "bootstrap imports agents.specialists"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "observability",
+        "via": [
+          "__init__ imports observability.tracer",
+          "__init__ imports observability.metrics_collector",
+          "__init__ imports observability.telemetry",
+          "__init__ imports observability.dashboard",
+          "__init__ imports observability.agent_decision_log",
+          "__init__ imports observability.system_report",
+          "__init__ imports observability.trace_schema",
+          "__init__ imports observability.system_report"
+        ]
+      },
+      {
+        "source": "kernel",
+        "target": "memory",
+        "via": [
+          "__init__ imports memory.memory_kernel"
+        ]
+      },
+      {
+        "source": "agents",
+        "target": "memory",
+        "via": [
+          "isolation imports memory.memory_kernel",
+          "isolation imports memory.memory_kernel"
+        ]
+      },
+      {
+        "source": "context",
+        "target": "memory",
+        "via": [
+          "kernel_retriever imports memory.memory_kernel"
+        ]
+      },
+      {
+        "source": "observability",
+        "target": "kernel",
+        "via": [
+          "drift_detector imports kernel.integration_bus",
+          "integration_checker imports kernel.integration_bus",
+          "system_report imports kernel"
+        ]
+      }
+    ],
+    "cycles": [
+      {
+        "path": [
+          "kernel",
+          "observability",
+          "kernel"
+        ],
+        "length": 3,
+        "cycle_str": "kernel → observability → kernel"
+      }
+    ],
+    "critical_path": [
+      "observability",
+      "kernel",
+      "context",
+      "memory"
+    ],
+    "depths": {
+      "agents": 2,
+      "context": 2,
+      "governance": 2,
+      "kernel": 1,
+      "memory": 3,
+      "observability": 1,
+      "runtime.task_graph": 2,
+      "somatic": 2
+    }
+  },
+  "memory": {
+    "memory_map": {
+      "layers": {
+        "episodic": {
+          "name": "episodic",
+          "record_count": 328,
+          "storage_bytes": 305400,
+          "storage_kb": 298.24,
+          "ttl_hours": 720.0,
+          "decay_half_life_hours": 168.0,
+          "layer_weight": 1.0,
+          "avg_age_hours": 21.6,
+          "oldest_hours": 58.2,
+          "newest_hours": 7.9,
+          "expired_count": 0,
+          "access_count_total": 0
+        },
+        "semantic": {
+          "name": "semantic",
+          "record_count": 28,
+          "storage_bytes": 15537,
+          "storage_kb": 15.17,
+          "ttl_hours": 8760.0,
+          "decay_half_life_hours": 4320.0,
+          "layer_weight": 2.0,
+          "avg_age_hours": 23.9,
+          "oldest_hours": 38.0,
+          "newest_hours": 10.1,
+          "expired_count": 0,
+          "access_count_total": 0
+        },
+        "procedural": {
+          "name": "procedural",
+          "record_count": 1,
+          "storage_bytes": 921,
+          "storage_kb": 0.9,
+          "ttl_hours": 4320.0,
+          "decay_half_life_hours": 720.0,
+          "layer_weight": 1.6,
+          "avg_age_hours": 10.6,
+          "oldest_hours": 10.6,
+          "newest_hours": 10.6,
+          "expired_count": 0,
+          "access_count_total": 0
+        },
+        "governance": {
+          "name": "governance",
+          "record_count": 30,
+          "storage_bytes": 18385,
+          "storage_kb": 17.95,
+          "ttl_hours": 8760.0,
+          "decay_half_life_hours": 2160.0,
+          "layer_weight": 1.3,
+          "avg_age_hours": 44.8,
+          "oldest_hours": 49.2,
+          "newest_hours": 10.5,
+          "expired_count": 0,
+          "access_count_total": 0
+        },
+        "scratchpad": {
+          "name": "scratchpad",
+          "record_count": 0,
+          "storage_bytes": 0,
+          "storage_kb": 0.0,
+          "ttl_hours": 24.0,
+          "decay_half_life_hours": 12.0,
+          "layer_weight": 0.2,
+          "avg_age_hours": 0.0,
+          "oldest_hours": 0.0,
+          "newest_hours": 0.0,
+          "expired_count": 0,
+          "access_count_total": 0
+        },
+        "archive": {
+          "name": "archive",
+          "record_count": 0,
+          "storage_bytes": 0,
+          "storage_kb": 0.0,
+          "ttl_hours": 87600.0,
+          "decay_half_life_hours": 8760.0,
+          "layer_weight": 0.1,
+          "avg_age_hours": 0.0,
+          "oldest_hours": 0.0,
+          "newest_hours": 0.0,
+          "expired_count": 0,
+          "access_count_total": 0
+        }
+      },
+      "summary": {
+        "total_records": 387,
+        "total_storage_bytes": 340243,
+        "total_storage_kb": 332.27,
+        "layer_count": 6,
+        "total_expired": 0
+      },
+      "policies": {
+        "ttl": {
+          "episodic": 720.0,
+          "semantic": 8760.0,
+          "procedural": 4320.0,
+          "governance": 8760.0,
+          "scratchpad": 24.0,
+          "archive": 87600.0
+        },
+        "decay_half_life": {
+          "episodic": 168.0,
+          "semantic": 4320.0,
+          "procedural": 720.0,
+          "governance": 2160.0,
+          "scratchpad": 12.0,
+          "archive": 8760.0
+        },
+        "layer_weights": {
+          "episodic": 1.0,
+          "semantic": 2.0,
+          "procedural": 1.6,
+          "governance": 1.3,
+          "scratchpad": 0.2,
+          "archive": 0.1
+        }
+      }
+    },
+    "layer_health": {
+      "episodic": {
+        "name": "episodic",
+        "utilization": 1.0,
+        "freshness": 0.871,
+        "entropy": -0.0,
+        "status": "healthy"
+      },
+      "semantic": {
+        "name": "semantic",
+        "utilization": 1.0,
+        "freshness": 0.994,
+        "entropy": -0.0,
+        "status": "healthy"
+      },
+      "procedural": {
+        "name": "procedural",
+        "utilization": 1.0,
+        "freshness": 0.985,
+        "entropy": -0.0,
+        "status": "healthy"
+      },
+      "governance": {
+        "name": "governance",
+        "utilization": 1.0,
+        "freshness": 0.979,
+        "entropy": -0.0,
+        "status": "healthy"
+      },
+      "scratchpad": {
+        "name": "scratchpad",
+        "utilization": 0.0,
+        "freshness": 0.0,
+        "entropy": 0.0,
+        "status": "empty"
+      },
+      "archive": {
+        "name": "archive",
+        "utilization": 0.0,
+        "freshness": 0.0,
+        "entropy": 0.0,
+        "status": "empty"
+      }
+    }
+  },
+  "governance": {
+    "boundaries": {
+      "permission_matrix": {
+        "total_agents": 13,
+        "total_tools": 29,
+        "allowed_count": 0,
+        "denied_count": 0,
+        "review_required_count": 0,
+        "default_policy": "DENIED"
+      },
+      "gate_rules": [
+        "tool_permission_check",
+        "execution_validation_4_stage",
+        "risk_escalation",
+        "automatic_audit_record",
+        "risk_level_classification",
+        "human_review_escalation"
+      ],
+      "policy_rules": [
+        {
+          "name": "reflex_policy",
+          "scope": "global",
+          "risk_level": "HIGH",
+          "description": "Automatic reflex responses to critical events",
+          "conditions": []
+        }
+      ],
+      "agent_overrides": {},
+      "risk_thresholds": {
+        "levels": [
+          "NONE",
+          "LOW",
+          "MEDIUM",
+          "HIGH",
+          "CRITICAL"
+        ],
+        "auto_block_above": "HIGH",
+        "review_required_above": "MEDIUM"
+      }
+    },
+    "built": true
+  },
+  "health": {
+    "architecture_score": 100.0,
+    "dependency_score": 85.0,
+    "memory_score": 100.0,
+    "governance_score": 80.0,
+    "overall_score": 92.25,
+    "grade": "A",
+    "recommendations": []
+  }
+}

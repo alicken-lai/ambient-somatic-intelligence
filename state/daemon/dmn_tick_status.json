@@ -1,12 +1,12 @@
 {
   "external_actions_enabled": false,
   "interactive_cua_enabled": false,
-  "last_dmn_timestamp": "2026-05-13T14:03:32.757360+00:00",
-  "last_snapshot": "observability/snapshots/telemetry-2026-05-13T140332.716016Z0000.json",
-  "last_tick_at": "2026-05-13T14:03:32.786424+00:00",
+  "last_dmn_timestamp": "2026-05-14T02:50:18.017928+00:00",
+  "last_snapshot": "observability/snapshots/telemetry-2026-05-14T025017.972162Z0000.json",
+  "last_tick_at": "2026-05-14T02:50:18.096267+00:00",
   "status": "ok",
   "system_state": {
-    "dmn_append_count": 451,
+    "dmn_append_count": 1238,
     "health_score": 76.53,
     "incident_count": 2,
     "recommendations_only": true,

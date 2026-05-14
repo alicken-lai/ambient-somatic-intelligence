@@ -25,8 +25,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Awaitable, Callable
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "scripts"))
-
 from runtime.task_graph.dag import TaskGraph, TaskNode, TaskStatus, RetryPolicy
 from runtime.task_graph.scheduler import (
     Scheduler,
@@ -129,22 +127,26 @@ class TaskExecutor:
         if self.enable_guardian:
             await self._guardian_validate(graph)
 
-        if self.checkpoint_mgr:
+        if self.checkpoint_mgr and not getattr(self, "_checkpoint_listener_registered", False):
             self.scheduler.on_event(self._checkpoint_on_stage)
+            self._checkpoint_listener_registered = True
 
         self._current_graph = graph
-        result = await self.scheduler.execute(graph, self.handlers)
+        try:
+            result = await self.scheduler.execute(graph, self.handlers)
 
-        self._log_execution(graph, result)
+            self._log_execution(graph, result)
 
-        if self.checkpoint_mgr:
-            stages = graph.parallel_stages()
-            self.checkpoint_mgr.save(graph, stage=len(stages), metadata={
-                "final": True,
-                "success": result.success,
-            })
+            if self.checkpoint_mgr:
+                stages = graph.parallel_stages()
+                self.checkpoint_mgr.save(graph, stage=len(stages), metadata={
+                    "final": True,
+                    "success": result.success,
+                })
 
-        return result
+            return result
+        finally:
+            self._current_graph = None
 
     def run_sync(self, graph: TaskGraph) -> ExecutionResult:
         """Synchronous wrapper for run()."""
@@ -206,6 +208,9 @@ class TaskExecutor:
     async def _guardian_validate(self, graph: TaskGraph) -> None:
         """Pre-execution validation via Guardian (if available)."""
         try:
+            scripts_path = str(Path(__file__).resolve().parent.parent.parent / "scripts")
+            if scripts_path not in sys.path:
+                sys.path.insert(0, scripts_path)
             from guardian_check import classify_action
             action_desc = f"Execute task graph '{graph.name}' with {len(graph.nodes)} tasks: {list(graph.nodes.keys())}"
             result = classify_action(action_desc, "task-graph-executor")

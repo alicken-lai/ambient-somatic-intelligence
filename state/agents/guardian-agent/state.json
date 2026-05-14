@@ -1,0 +1,33 @@
+{
+  "agent_id": "guardian-agent",
+  "name": "Guardian Specialist",
+  "domain": "security",
+  "status": "idle",
+  "created_at": "2026-05-13T23:26:59.473349+00:00",
+  "preferences": {
+    "max_retries": 1,
+    "timeout_seconds": 60,
+    "preferred_tools": [
+      "grep",
+      "file_read"
+    ],
+    "avoid_patterns": [
+      "destructive_commands",
+      "force_push"
+    ],
+    "context_budget_ratio": 0.5,
+    "parallelism": 1
+  },
+  "performance": {
+    "tasks_completed": 0,
+    "tasks_failed": 0,
+    "success_rate": 1.0,
+    "total_duration_ms": 0,
+    "avg_duration_ms": 0,
+    "total_tokens_used": 0,
+    "strategies_learned": 0
+  },
+  "strategies": [],
+  "patterns": [],
+  "saved_at": "2026-05-13T23:26:59.760607+00:00"
+}
