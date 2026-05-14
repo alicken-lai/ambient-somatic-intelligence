@@ -26,6 +26,19 @@ from memory.somatic.precursor_matcher import (
     PrecursorPattern,
     PrecursorMatch,
 )
+from memory.somatic.ontology_bridge import (
+    SomaticOntologyBridge,
+    OntologyMapping,
+    PromotionCandidate,
+)
+from memory.somatic.confidence_tracker import (
+    SomaticConfidenceTracker,
+    ConfidenceEvent,
+)
+from memory.somatic.cluster_assignment import (
+    OntologyAwareClusterer,
+    ClusterAssignment,
+)
 
 __all__ = [
     "EnvironmentalSignature",
@@ -39,4 +52,11 @@ __all__ = [
     "PrecursorMatcher",
     "PrecursorPattern",
     "PrecursorMatch",
+    "SomaticOntologyBridge",
+    "OntologyMapping",
+    "PromotionCandidate",
+    "SomaticConfidenceTracker",
+    "ConfidenceEvent",
+    "OntologyAwareClusterer",
+    "ClusterAssignment",
 ]
