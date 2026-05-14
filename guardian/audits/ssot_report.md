@@ -1,6 +1,6 @@
 # Single Source of Truth Report
 
-- generated_at: 2026-05-13T10:59:19.863602+00:00
+- generated_at: 2026-05-14T02:50:18.043570+00:00
 - state_file: state/system_state.json
 - corrective_actions: none
 - response_mode: recommendations only
@@ -29,7 +29,7 @@
 
 ## Current Values
 
-- dmn_append_count: 257
+- dmn_append_count: 1238
 - health_score: 76.53
 - incident_count: 2
 - repeated_anomaly_count: 2

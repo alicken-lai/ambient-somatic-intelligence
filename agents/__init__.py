@@ -18,6 +18,8 @@ from agents.base import BaseAgent, AgentCapability, AgentStatus
 from agents.registry import AgentRegistry
 from agents.memory import AgentMemory
 from agents.orchestrator import AgentOrchestrator
+from agents.isolation import AgentIsolationManager, MemorySlice, RetrievalProfile
+from agents.execution_history import ExecutionHistory, ExecutionRecord
 
 __all__ = [
     "BaseAgent",
@@ -26,4 +28,9 @@ __all__ = [
     "AgentRegistry",
     "AgentMemory",
     "AgentOrchestrator",
+    "AgentIsolationManager",
+    "MemorySlice",
+    "RetrievalProfile",
+    "ExecutionHistory",
+    "ExecutionRecord",
 ]

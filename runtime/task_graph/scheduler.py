@@ -114,6 +114,8 @@ class Scheduler:
         result = await scheduler.execute(graph, handler_registry)
     """
 
+    _MAX_EVENTS = 10000
+
     def __init__(self, config: SchedulerConfig | None = None):
         self.config = config or SchedulerConfig()
         self.events: list[dict[str, Any]] = []
@@ -130,6 +132,8 @@ class Scheduler:
             **data,
         }
         self.events.append(entry)
+        if len(self.events) > self._MAX_EVENTS:
+            self.events = self.events[-self._MAX_EVENTS:]
         for listener in self._listeners:
             try:
                 listener(event, entry)
@@ -311,19 +315,14 @@ class Scheduler:
         Synchronous execution (wraps async in event loop).
 
         Useful for simple scripts that don't need async.
+        Wraps each sync handler into an async coroutine via _make_async_handler.
         """
-        async def _wrap_handler(handler: Callable) -> TaskHandler:
-            async def wrapped(node: TaskNode) -> Any:
-                return handler(node)
-            return wrapped
-
         async_handlers: dict[str, TaskHandler] = {}
         for name, handler in handlers.items():
-            async def make_async(h=handler):
-                async def wrapped(node: TaskNode) -> Any:
-                    return h(node)
-                return wrapped
-            async_handlers[name] = asyncio.coroutine(lambda node, h=handler: h(node)).__wrapped__ if hasattr(handler, '__wrapped__') else self._make_async_handler(handler)
+            if asyncio.iscoroutinefunction(handler):
+                async_handlers[name] = handler
+            else:
+                async_handlers[name] = self._make_async_handler(handler)
 
         return asyncio.run(self.execute(graph, async_handlers))
 

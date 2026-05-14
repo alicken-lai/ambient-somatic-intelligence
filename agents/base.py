@@ -22,7 +22,11 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
-from typing import Any
+from typing import Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from agents.isolation import MemorySlice, RetrievalProfile
+    from agents.execution_history import ExecutionHistory
 
 
 AGENTS_STATE_DIR = Path(os.environ.get("AMBIENT_OS_ROOT", Path.home() / "ambient-os")) / "state" / "agents"
@@ -123,6 +127,10 @@ class BaseAgent(ABC):
         self._strategies: list[dict[str, Any]] = []
         self._patterns: list[dict[str, Any]] = []
 
+        self._memory_slice: MemorySlice | None = None
+        self._retrieval_profile: RetrievalProfile | None = None
+        self._execution_history: ExecutionHistory | None = None
+
     @property
     @abstractmethod
     def domain(self) -> str:
@@ -179,8 +187,34 @@ class BaseAgent(ABC):
                 return s
         return None
 
+    @property
+    def memory_slice(self) -> "MemorySlice | None":
+        """Isolated memory slice for this agent (set by IsolationManager)."""
+        return self._memory_slice
+
+    @memory_slice.setter
+    def memory_slice(self, value: "MemorySlice") -> None:
+        self._memory_slice = value
+
+    @property
+    def retrieval_profile(self) -> "RetrievalProfile | None":
+        """Domain-specific retrieval profile (set by IsolationManager)."""
+        return self._retrieval_profile
+
+    @retrieval_profile.setter
+    def retrieval_profile(self, value: "RetrievalProfile") -> None:
+        self._retrieval_profile = value
+
+    @property
+    def execution_history(self) -> "ExecutionHistory":
+        """Persistent execution history (lazy-initialized)."""
+        if self._execution_history is None:
+            from agents.execution_history import ExecutionHistory as EH
+            self._execution_history = EH(self.agent_id)
+        return self._execution_history
+
     def run_task(self, task: dict[str, Any]) -> dict[str, Any]:
-        """Full task lifecycle: before → execute → after → learn."""
+        """Full task lifecycle: before → execute → after → record → learn."""
         self.before_task(task)
         start = time.time()
 
@@ -196,18 +230,38 @@ class BaseAgent(ABC):
             if result.get("strategy"):
                 self.learn_strategy(result["strategy"])
 
+            self._record_execution(task, result, duration_ms)
             self.after_task(task, result)
             return result
 
         except Exception as e:
+            duration_ms = (time.time() - start) * 1000
             self.performance.tasks_failed += 1
             self.status = AgentStatus.IDLE
-            return {
+            error_result = {
                 "agent_id": self.agent_id,
                 "status": "error",
                 "error": str(e),
-                "duration_ms": round((time.time() - start) * 1000, 1),
+                "duration_ms": round(duration_ms, 1),
             }
+            self._record_execution(task, error_result, duration_ms)
+            return error_result
+
+    def _record_execution(self, task: dict[str, Any], result: dict[str, Any], duration_ms: float) -> None:
+        """Record task execution to persistent history."""
+        try:
+            strategy_info = result.get("strategy", {})
+            self.execution_history.record(
+                task_type=task.get("type", "unknown"),
+                description=task.get("description", "")[:200],
+                status=result.get("status", "unknown"),
+                duration_ms=duration_ms,
+                tokens_used=result.get("tokens_used", 0),
+                strategy=strategy_info.get("approach", "") if isinstance(strategy_info, dict) else str(strategy_info),
+                metadata={"task_domain": task.get("domain", ""), "agent_id": self.agent_id},
+            )
+        except Exception:
+            pass
 
     def save_state(self) -> None:
         """Persist agent state to disk."""

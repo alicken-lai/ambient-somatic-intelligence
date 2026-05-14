@@ -1,1 +1,3 @@
 {"action": "rm -rf /", "agent_id": "test", "policies": ["block_destructive"], "reason": "Destructive command", "resolved": false, "timestamp": "2026-05-13T13:51:43.414441+00:00", "type": "blocked_action"}
+{"action": "exec shell command", "agent_id": "frontend-agent", "policies": [], "reason": "Tool permission denied: Agent override for frontend-agent", "resolved": false, "timestamp": "2026-05-13T22:05:02.538225+00:00", "type": "blocked_action"}
+{"action": "rm -rf /", "agent_id": "backend-agent", "policies": ["block_destructive_system"], "reason": "Destructive system command detected", "resolved": false, "timestamp": "2026-05-13T22:05:02.538493+00:00", "type": "blocked_action"}

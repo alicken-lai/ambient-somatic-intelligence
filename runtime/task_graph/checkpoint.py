@@ -214,6 +214,47 @@ class CheckpointManager:
             return True
         return False
 
+    def cleanup_by_age(self, max_age_hours: float = 24.0) -> int:
+        """Remove checkpoint directories older than max_age_hours."""
+        if not self.checkpoint_dir.exists():
+            return 0
+
+        import time
+        cutoff = time.time() - (max_age_hours * 3600)
+        removed = 0
+
+        for path in list(self.checkpoint_dir.iterdir()):
+            if not path.is_dir():
+                continue
+            latest = path / "latest.json"
+            if not latest.exists():
+                continue
+            try:
+                data = json.loads(latest.read_text(encoding="utf-8"))
+                created = data.get("created_at", "")
+                if created:
+                    from datetime import datetime, timezone
+                    ts = datetime.fromisoformat(created).timestamp()
+                    if ts < cutoff:
+                        shutil.rmtree(path)
+                        removed += 1
+            except (json.JSONDecodeError, OSError, ValueError):
+                continue
+
+        return removed
+
+    def cleanup_all_graphs(self, keep_latest_n: int = 3) -> int:
+        """Run cleanup(keep_latest=N) on every graph that has checkpoints."""
+        if not self.checkpoint_dir.exists():
+            return 0
+
+        total_removed = 0
+        for path in list(self.checkpoint_dir.iterdir()):
+            if path.is_dir():
+                total_removed += self.cleanup(path.name, keep_latest=keep_latest_n)
+
+        return total_removed
+
     def list_graphs(self) -> list[dict[str, Any]]:
         """List all graphs that have checkpoints."""
         if not self.checkpoint_dir.exists():

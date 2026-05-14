@@ -1,0 +1,171 @@
+{
+  "subsystems": [
+    "agents",
+    "context",
+    "governance",
+    "kernel",
+    "memory",
+    "observability",
+    "runtime.task_graph",
+    "somatic"
+  ],
+  "adjacency": {
+    "kernel": [
+      "agents",
+      "context",
+      "governance",
+      "memory",
+      "observability",
+      "runtime.task_graph",
+      "somatic"
+    ],
+    "agents": [
+      "memory"
+    ],
+    "context": [
+      "memory"
+    ],
+    "observability": [
+      "kernel"
+    ]
+  },
+  "edges": [
+    {
+      "source": "kernel",
+      "target": "somatic",
+      "via": [
+        "__init__ imports somatic.signal_bus",
+        "__init__ imports somatic.attention_manager",
+        "__init__ imports somatic.environment_monitor",
+        "__init__ imports somatic.anomaly_event_stream",
+        "__init__ imports somatic.signal_normalizer",
+        "__init__ imports somatic.signal_correlator",
+        "__init__ imports somatic.rate_tracker",
+        "__init__ imports somatic.signal_analytics",
+        "integration_bus imports somatic.signal_bus",
+        "integration_bus imports somatic.attention_manager"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "governance",
+      "via": [
+        "__init__ imports governance.policy_engine",
+        "__init__ imports governance.execution_validator",
+        "__init__ imports governance.anomaly_detector",
+        "__init__ imports governance.audit_log",
+        "__init__ imports governance.tool_permissions",
+        "__init__ imports governance.mandatory_gate",
+        "__init__ imports governance.unified_router",
+        "integration_bus imports governance.policy_engine",
+        "integration_bus imports governance.mandatory_gate",
+        "integration_bus imports governance.tool_permissions"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "context",
+      "via": [
+        "__init__ imports context.assembler",
+        "__init__ imports context.budget_manager",
+        "__init__ imports context.semantic_retriever",
+        "__init__ imports context.memory_compressor",
+        "__init__ imports context.injection_logger",
+        "__init__ imports context.kernel_retriever"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "runtime.task_graph",
+      "via": [
+        "__init__ imports runtime.task_graph.executor",
+        "__init__ imports runtime.task_graph.visualizer",
+        "integration_bus imports runtime.task_graph.scheduler",
+        "integration_bus imports runtime.task_graph.failure_propagation"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "agents",
+      "via": [
+        "__init__ imports agents.registry",
+        "__init__ imports agents.orchestrator",
+        "__init__ imports agents.isolation",
+        "bootstrap imports agents.specialists"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "observability",
+      "via": [
+        "__init__ imports observability.tracer",
+        "__init__ imports observability.metrics_collector",
+        "__init__ imports observability.telemetry",
+        "__init__ imports observability.dashboard",
+        "__init__ imports observability.agent_decision_log",
+        "__init__ imports observability.system_report",
+        "__init__ imports observability.trace_schema",
+        "__init__ imports observability.system_report"
+      ]
+    },
+    {
+      "source": "kernel",
+      "target": "memory",
+      "via": [
+        "__init__ imports memory.memory_kernel"
+      ]
+    },
+    {
+      "source": "agents",
+      "target": "memory",
+      "via": [
+        "isolation imports memory.memory_kernel",
+        "isolation imports memory.memory_kernel"
+      ]
+    },
+    {
+      "source": "context",
+      "target": "memory",
+      "via": [
+        "kernel_retriever imports memory.memory_kernel"
+      ]
+    },
+    {
+      "source": "observability",
+      "target": "kernel",
+      "via": [
+        "drift_detector imports kernel.integration_bus",
+        "integration_checker imports kernel.integration_bus",
+        "system_report imports kernel"
+      ]
+    }
+  ],
+  "cycles": [
+    {
+      "path": [
+        "kernel",
+        "observability",
+        "kernel"
+      ],
+      "length": 3,
+      "cycle_str": "kernel → observability → kernel"
+    }
+  ],
+  "critical_path": [
+    "observability",
+    "kernel",
+    "agents",
+    "memory"
+  ],
+  "depths": {
+    "agents": 2,
+    "context": 2,
+    "governance": 2,
+    "kernel": 1,
+    "memory": 3,
+    "observability": 1,
+    "runtime.task_graph": 2,
+    "somatic": 2
+  },
+  "saved_at": "2026-05-13T23:04:07.047117+00:00"
+}

@@ -21,6 +21,7 @@ from __future__ import annotations
 from typing import Any
 
 from agents.base import BaseAgent, AgentCapability, ExecutionPreferences
+from agents.isolation import RetrievalProfile
 
 
 class FrontendAgent(BaseAgent):
@@ -58,6 +59,18 @@ class FrontendAgent(BaseAgent):
         if task.get("domain") == "frontend":
             return min(0.7 + len(overlap) * 0.05, 1.0)
         return min(len(overlap) * 0.15, 0.9)
+
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="frontend-agent",
+            domain="frontend",
+            preferred_layers=["episodic", "procedural"],
+            required_tags=["frontend", "ui", "css", "react"],
+            scoring_overrides={"semantic_overlap": 0.25, "tag_match": 0.30},
+            max_results=15,
+            token_budget=16_000,
+        )
 
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         """Execute a frontend task."""
@@ -109,6 +122,18 @@ class BackendAgent(BaseAgent):
             return min(0.7 + len(overlap) * 0.05, 1.0)
         return min(len(overlap) * 0.15, 0.9)
 
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="backend-agent",
+            domain="backend",
+            preferred_layers=["procedural", "semantic"],
+            required_tags=["backend", "api", "database"],
+            scoring_overrides={"semantic_overlap": 0.35, "tag_match": 0.25},
+            max_results=15,
+            token_budget=16_000,
+        )
+
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         strategy = self.find_strategy(task.get("type", "implement"))
         return {
@@ -157,6 +182,18 @@ class TestingAgent(BaseAgent):
         if task.get("domain") == "testing" or task.get("type") == "test":
             return min(0.8 + len(overlap) * 0.04, 1.0)
         return min(len(overlap) * 0.15, 0.85)
+
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="testing-agent",
+            domain="testing",
+            preferred_layers=["episodic", "procedural"],
+            required_tags=["test", "bug", "fix"],
+            scoring_overrides={"semantic_overlap": 0.30, "tag_match": 0.25},
+            max_results=15,
+            token_budget=12_000,
+        )
 
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         strategy = self.find_strategy(task.get("type", "test"))
@@ -213,6 +250,18 @@ class GuardianAgent(BaseAgent):
             return min(0.75 + len(overlap) * 0.05, 1.0)
         return min(len(overlap) * 0.15, 0.85)
 
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="guardian-agent",
+            domain="security",
+            preferred_layers=["governance", "semantic"],
+            required_tags=["security", "policy", "guardian"],
+            scoring_overrides={"semantic_overlap": 0.30, "tag_match": 0.30},
+            max_results=10,
+            token_budget=8_000,
+        )
+
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         return {
             "status": "completed",
@@ -259,6 +308,18 @@ class MemoryManagerAgent(BaseAgent):
         if task.get("domain") == "memory":
             return min(0.8 + len(overlap) * 0.04, 1.0)
         return min(len(overlap) * 0.15, 0.8)
+
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="memory-agent",
+            domain="memory_management",
+            preferred_layers=["episodic", "semantic", "procedural", "governance", "scratchpad"],
+            required_tags=["memory", "maintenance"],
+            scoring_overrides={},
+            max_results=20,
+            token_budget=24_000,
+        )
 
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         return {
@@ -307,6 +368,18 @@ class PlannerAgent(BaseAgent):
         if task.get("type") in ("plan", "decompose", "architect"):
             return min(0.85 + len(overlap) * 0.03, 1.0)
         return min(len(overlap) * 0.12, 0.8)
+
+    @staticmethod
+    def default_retrieval_profile() -> RetrievalProfile:
+        return RetrievalProfile(
+            agent_id="planner-agent",
+            domain="planning",
+            preferred_layers=["semantic", "procedural"],
+            required_tags=["architecture", "planning", "design"],
+            scoring_overrides={"semantic_overlap": 0.35, "tag_match": 0.20},
+            max_results=15,
+            token_budget=20_000,
+        )
 
     def execute(self, task: dict[str, Any]) -> dict[str, Any]:
         return {

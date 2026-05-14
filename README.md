@@ -2,9 +2,9 @@
 
 > AI should not wait for accidents to understand risk.
 
-A **persistent cognitive operating system** that transforms environmental signals into intelligent, governance-aware autonomous behavior. Built on a 7-layer architecture spanning memory, context engineering, task orchestration, governance, somatic sensing, observability, and specialized agents.
+A **persistent cognitive operating system** with somatic sensing, governance, and production-grade stability controls. Built on a 7-layer architecture spanning memory, context engineering, task orchestration, governance, somatic sensing, observability, and specialized agents — now hardened through 8 phases of systematic stabilization covering entropy control, execution isolation, feedback damping, and causal observability.
 
-Release status: `v0.3.0-alpha — Adaptive Cognitive Runtime` — Phase 1–7 + Adaptive Runtime complete.
+Release status: `v0.3.1-alpha — Stabilized Cognitive Runtime`
 
 ## Project Thesis
 
@@ -31,73 +31,93 @@ flowchart TD
     GOV -->|ALLOW| EXEC[Execution]
     GOV -->|BLOCK| AUDIT[Audit Log]
     GOV -->|REVIEW| OPS[Operator Review]
-    EXEC --> OBS[Observability]
-    OBS --> ROBS[Recursive Observability]
+    EXEC --> ISO[Isolation Kernel]
+    ISO --> OBS[Observability v2]
+    OBS --> CT[Causal Trace Engine]
+    CT --> ROBS[Recursive Observability]
     ROBS --> MEM
     MEM --> MEV[Memory-Guided Evolution]
     MEV --> EVO[Evolution Engine]
     EVO --> GOV
     CSM[Cognitive Self-Model] --> DRIFT[Drift Detection]
     DRIFT --> EVO
+
     OBS --> CSM
+    OBS --> ENT[Entropy Controller]
+    ENT --> DAMP[Feedback Stabilizer]
+    DAMP --> TG
+
+    ATL[Architecture Truth Layer] --> CSM
+    ATL --> BUS[Bus Decomposition]
+    BUS --> GOV
+
+    PERF[Performance Hardening] --> TG
+    PERF --> MEM
 ```
 
-## Cognitive Architecture (Phase 1–7)
+## Cognitive Architecture
 
 ```
 ambient-os/
-├── memory/              Phase 1 — 6-Layer Memory Architecture
-│   ├── episodic/           Task history, execution traces, debugging sessions
-│   ├── semantic/           Repo knowledge, architecture concepts
-│   ├── procedural/         Successful workflows, orchestration patterns
-│   ├── governance/         Blocked actions, security incidents, policy decisions
-│   ├── scratchpad/         Active task context (auto-TTL, auto-cleanup)
-│   ├── archive/            Cold data archive
-│   └── evolution/          v0.3 — Memory-guided evolution + pattern mining
-├── context/             Phase 2 — Context Engineering Layer
+├── architecture/           Stabilization — Architecture Verification
+│   ├── graph_truth_layer/     Static dependency graph, coupling analysis, orphan detection
+│   └── bus_decomposition/     IntegrationBus event schemas, risk report, refactor plan
+├── runtime/
+│   ├── task_graph/            Phase 3 — DAG execution, scheduling, checkpoints
+│   ├── task_graph_optimizer/  v0.3 — Bottleneck detection, dependency compression
+│   ├── evolution_engine/      v0.3 — Controlled self-refactoring
+│   ├── entropy_controller/    Stabilization — Entropy scoring, damping, decay enforcement
+│   ├── isolation_kernel/      Stabilization — Execution sandbox, memory boundaries
+│   ├── feedback_stabilizer/   Stabilization — Loop detection, damping, amplification control
+│   └── performance_hardening/ Stabilization — Latency profiling, recall cache, bottleneck map
+├── observability/
+│   ├── tracer.py              Distributed tracing (spans/traces/tree view)
+│   ├── metrics_collector.py   Counter/gauge/histogram/rate metrics
+│   ├── telemetry.py           Per-agent execution profiling
+│   ├── dashboard.py           ASCII status dashboard + JSON reports
+│   ├── drift_detection/       v0.3 — Architecture drift analysis
+│   ├── recursive_runtime/     v0.3 — Recursive self-observability
+│   └── cognitive_trace_v2/    Stabilization — Causal tracing, decision provenance, replay
+├── memory/                 Phase 1 — 6-Layer Memory Architecture
+│   ├── episodic/              Task history, execution traces, debugging sessions
+│   ├── semantic/              Repo knowledge, architecture concepts
+│   ├── procedural/            Successful workflows, orchestration patterns
+│   ├── governance/            Blocked actions, security incidents, policy decisions
+│   ├── scratchpad/            Active task context (auto-TTL, auto-cleanup)
+│   ├── archive/               Cold data archive
+│   └── evolution/             v0.3 — Memory-guided evolution + pattern mining
+├── context/                Phase 2 — Context Engineering + Economy
 │   ├── budget_manager.py      Token budget allocation (6 pools)
 │   ├── semantic_retriever.py  Layer-prioritized memory retrieval
 │   ├── memory_compressor.py   Progressive compression (4 tiers)
 │   ├── assembler.py           Dynamic context assembly orchestrator
 │   └── context_economy/       v0.3 — Token economy + retrieval scoring
-├── runtime/             Phase 3 — Task Graph Runtime
-│   ├── task_graph/
-│   │   ├── dag.py             Dependency-aware DAG with cycle detection
-│   │   ├── scheduler.py       Async parallel/sequential execution
-│   │   ├── checkpoint.py      Execution snapshots + rollback
-│   │   └── executor.py        High-level engine with Guardian integration
-│   ├── task_graph_optimizer/  v0.3 — Bottleneck detection + dependency compression
-│   └── evolution_engine/      v0.3 — Controlled self-refactoring + mutation simulation
-├── governance/          Phase 4 — Governance Runtime
+├── governance/             Phase 4 — Governance Runtime
 │   ├── policy_engine.py       Structured rule-based policy evaluation
 │   ├── anomaly_detector.py    Runaway agent + token abuse detection
 │   ├── execution_validator.py Multi-stage pre-execution safety pipeline
-│   └── audit_log.py           Immutable decision log + incident tracking
-├── somatic/             Phase 5 — Somatic Event Layer
+│   ├── audit_log.py           Immutable decision log + incident tracking
+│   ├── mandatory_gate.py      Stabilization — Mandatory governance gate enforcement
+│   ├── tool_permissions.py    Stabilization — Per-agent tool permission control
+│   └── unified_router.py     Stabilization — Unified governance routing
+├── somatic/                Phase 5 — Somatic Event Layer + Attention Runtime
 │   ├── signal_bus.py          Pub/sub bus (6 signal types × 5 urgency levels)
 │   ├── attention_manager.py   4-level cognitive attention allocation
 │   ├── environment_monitor.py Real-time CPU/mem/disk/load sensing
 │   ├── anomaly_event_stream.py Signal patterns → cognitive responses
 │   └── attention_runtime/     v0.3 — Adaptive attention weighting + throttling
-├── observability/       Phase 6 — Observability
-│   ├── tracer.py              Distributed tracing (spans/traces/tree view)
-│   ├── metrics_collector.py   Counter/gauge/histogram/rate metrics
-│   ├── telemetry.py           Per-agent execution profiling
-│   ├── dashboard.py           ASCII status dashboard + JSON reports
-│   ├── drift_detection/       v0.3 — Architecture drift analysis + health scoring
-│   └── recursive_runtime/     v0.3 — Recursive self-observability + meta-telemetry
-├── identity/            v0.3 — Cognitive Self-Model
+├── identity/               v0.3 — Cognitive Self-Model
 │   └── cognitive_self_model/  Architecture introspection + dependency graphs
-├── kernel/              v0.3 — Integration kernel
+├── kernel/                 v0.3 — Integration kernel + IntegrationBus
 │   ├── bootstrap.py           boot() + boot_v03() + verify_v03()
-│   └── integration_bus.py     27-connection subsystem wiring
-├── agents/              Phase 7 — Persistent Specialized Agents
+│   └── integration_bus.py     29-connection subsystem wiring
+├── agents/                 Phase 7 — Persistent Specialized Agents
 │   ├── base.py                BaseAgent with state persistence + learning
 │   ├── memory.py              Per-agent local knowledge store
 │   ├── registry.py            Capability-indexed agent discovery
 │   ├── specialists.py         6 domain experts (FE/BE/Test/Guard/Mem/Plan)
 │   └── orchestrator.py        Multi-agent dispatch + execution planning
-└── scripts/             Runtime Scripts
+└── scripts/                Runtime Scripts
     ├── memory_store.py        Unified layered memory write API
     ├── memory_recall.py       Layer-aware retrieval with scoring
     ├── memory_index.py        Inverted index for fast lookup
@@ -105,6 +125,89 @@ ambient-os/
     ├── memory_summarize.py    Telemetry aggregation (60x reduction)
     └── verify_v03_evolution.py v0.3 verification (14 checks)
 ```
+
+## System Stabilization (v0.3.1-alpha)
+
+Eight phases of systematic hardening to transform the system from a functional cognitive runtime into a production-grade, entropy-controlled cognitive operating system.
+
+### Phase 0 — Safety Patches
+
+Critical runtime fixes applied across existing modules:
+
+- Fixed `Scheduler._listeners` leak (duplicate listeners accumulated per `executor.run()`)
+- Removed `sys.path` mutation from `executor.py` import-time side effect
+- Added caps to `Scheduler.events` (10K limit) and `FailurePropagator.history` (1K limit)
+- Fixed agent ID mismatch in `AGENT_OVERRIDES` (`"memory-manager-agent"` → `"memory-agent"`)
+- Clear `TaskExecutor._current_graph` after `run()` for proper GC
+
+### Phase 1 — Architecture Truth Layer
+
+`architecture/graph_truth_layer/` — Structural verification of the entire system:
+
+- **Static dependency graph**: 155 modules, 270 edges, 0 cycles detected
+- **Runtime dependency verifier**: validates that actual imports match declared dependencies
+- **IntegrationBus consistency checker**: 29/29 connections verified
+- **Orphan module detector**: 57 orphans identified (36.8% of modules)
+- **Cross-layer coupling analyzer**: 26 violations found, coupling score 0.137
+
+### Phase 2 — Cognitive Entropy Controller
+
+`runtime/entropy_controller/` — Prevents unbounded system growth:
+
+- **6-dimensional entropy scoring**: memory, data files, context, listeners, feedback loops, execution
+- **Damping mechanism**: configurable thresholds per entropy dimension
+- **Load regulator**: hysteresis-based control to prevent oscillation
+- **Decay enforcer**: TTL sweep, DMN rotation, log rotation
+- **Compression triggers**: OCR bloat detection and automated compression
+
+### Phase 3 — Execution Isolation Kernel
+
+`runtime/isolation_kernel/` — Per-agent security boundaries:
+
+- **Execution sandbox**: per-agent isolated execution with MandatoryGate integration
+- **Memory boundaries**: layer-level write control with quotas per agent
+- **Context firewall**: cross-task context isolation with token budget enforcement
+- **Permission enforcer**: default-deny tool, interaction, and state access
+- **Boundary definitions**: explicit permissions for all 6 specialist agents
+
+### Phase 4 — IntegrationBus Decomposition
+
+`architecture/bus_decomposition/` — Systematic bus analysis and refactoring roadmap:
+
+- **29 typed event schemas**: 15 monkey-patch connections, 14 callback connections
+- **Connection lifecycle registry**: full lifecycle tracking per connection
+- **Risk report**: 17 findings (1 critical, 4 high, 9 medium, 3 low)
+- **Refactor plan**: 23 steps across 3 priority levels (P0: 8, P1: 10, P2: 5)
+
+### Phase 5 — Cognitive Feedback Stabilization
+
+`runtime/feedback_stabilizer/` — Bounded, observable feedback loops:
+
+- **5 feedback loops mapped** with safeguards analysis
+- **Loop detector**: causal chain tracking with generation depth limiting
+- **6 damping functions**: exponential, logarithmic, sigmoid, hysteresis, EMA, generation decay
+- **Amplification controller**: cascade detection and automatic dampening
+- **Stability monitor**: scoring and recommendations
+
+### Phase 6 — Observability v2 (Causal Tracing)
+
+`observability/cognitive_trace_v2/` — Full causal observability:
+
+- **Causal trace schema**: 18 event types with unified trace format
+- **Execution lineage tracer**: full ancestry and descendant queries
+- **Decision provenance tracker**: reasoning path reconstruction
+- **Memory injection tracer**: effectiveness analysis and anomaly detection
+- **Replay engine**: snapshot, plan, validation, trace export/import, diff
+
+### Phase 7 — Performance Hardening
+
+`runtime/performance_hardening/` — Measurable performance optimization:
+
+- **Latency profiler**: percentile tracking, trend detection, decorator API
+- **Memory pressure analyzer**: 7.1MB data files, 1558 recall records analyzed
+- **Recall cache**: LRU + TTL + fuzzy match for memory retrieval
+- **Context reuse optimizer**: cross-task context block reuse
+- **Bottleneck map**: 10 identified, top bottleneck: `recall_full_scan` (impact score 0.9)
 
 ## Design Principles
 
@@ -115,9 +218,22 @@ ambient-os/
 | 3 | Context is a scarce resource | Token budgeting, compression, semantic retrieval |
 | 4 | Governance is mandatory | Every action validated before execution |
 | 5 | Environment signals are cognition inputs | Somatic bus transforms metrics into attention |
-| 6 | Persistent systems require entropy management | TTL, archival, summarization, eviction |
+| 6 | No subsystem may grow without bound | Entropy scoring, damping, decay enforcement |
+| 7 | Default-deny isolation | Per-agent sandbox, memory boundaries, permission enforcer |
+| 8 | Every decision must have provenance | Causal tracing, decision lineage, replay |
+| 9 | Feedback loops must be observable and bounded | Loop detection, damping functions, stability monitoring |
 
 ## Current Features
+
+### Stabilized Cognitive Runtime (v0.3.1-alpha)
+
+- **Architecture Truth Layer** — static dependency graph (155 modules, 270 edges, 0 cycles), coupling analysis, orphan detection.
+- **Cognitive Entropy Controller** — 6-dimensional entropy scoring, damping, hysteresis-based load regulation, decay enforcement.
+- **Execution Isolation Kernel** — per-agent sandbox, memory boundaries, context firewall, default-deny permissions.
+- **IntegrationBus Decomposition** — 29 typed event schemas, risk report (17 findings), 23-step refactor plan.
+- **Feedback Stabilization** — 5 mapped loops, 6 damping functions, cascade detection, stability monitoring.
+- **Observability v2** — causal trace schema (18 event types), decision provenance, memory injection tracing, replay engine.
+- **Performance Hardening** — latency profiler, recall cache (LRU+TTL+fuzzy), bottleneck map (10 identified).
 
 ### Adaptive Cognitive Runtime (v0.3.0-alpha)
 
@@ -162,52 +278,31 @@ ambient-os/
 | Execution Validator | 4-stage pipeline: policy → anomaly → resource protection → context validation |
 | Audit Log | Immutable decision records, incident tracking, policy effectiveness analytics |
 | Attention Manager | Auto-reduces concurrency and increases governance sensitivity under stress |
+| Isolation Kernel | Per-agent execution sandbox with memory boundaries and context firewall |
+| Permission Enforcer | Default-deny tool access, interaction control, state access control |
+| Mandatory Gate | Governance gate enforcement for all agent actions |
 
 Additional safeguards:
 - Destructive commands are blocked by default.
 - Protected paths and branches cannot be modified without review.
 - Prompt injection detection in context validation stage.
 - No autonomous corrective actions without explicit approval.
+- Per-agent memory quotas enforced at boundary level.
+- Feedback loop amplification bounded by damping functions.
 
-## Night 0-37 Build Log
+## Stats
 
-- Night 0: bootstrap and substrate initialization.
-- Night 1: baseline identity and approval scaffolding.
-- Night 2: telemetry capture and incident recall beginnings.
-- Night 3: visual observation and OCR-adjacent checks.
-- Night 4: dashboard and local state synthesis.
-- Night 5: integrity and health scoring foundations.
-- Night 6: memory pressure diagnosis and reflex review.
-- Night 7: circadian baseline work.
-- Night 8: system state synthesis.
-- Night 9: dashboard synthesis.
-- Night 10: digest generation.
-- Night 11: anomaly explanation patterns.
-- Night 12: memory integrity and incident review.
-- Night 13: foundational self-model stabilization.
-- Night 14: memory integrity audit.
-- Night 15: single source of truth.
-- Night 16: self-model query interface.
-- Night 17: self-reflection loop.
-- Night 18: circadian memory.
-- Night 19: anomaly explanation engine.
-- Night 20: operator briefing.
-- Night 21: decision boundary protocol.
-- Night 22: approval packet protocol.
-- Night 23: pre-accident simulation.
-- Night 24: Guardian dreaming.
-- Night 25: recalibration queue.
-- Night 26: MemPalace integration.
-- Night 27: MemPalace recall interface.
-- Night 28: operational identity.
-- Night 29: public architecture snapshot.
-- Night 30: GitHub README packaging.
-- Night 31: release readiness audit.
-- Night 32: alpha release freeze and verification.
-- Night 34: unified memory recall over fragmented memory sources.
-- Night 35: persistent local Hermes nervous system and autonomous DMN tick LaunchAgent.
-- Night 36: Hermes gateway diagnosis without credential or plist replacement.
-- Night 37: Hermes gateway no-Discord recovery path and MCP memory tool preservation.
+| Metric | Value |
+|--------|-------|
+| Modules | 70+ |
+| Lines of Code | ~20,000+ |
+| Classes | 160+ |
+| IntegrationBus Connections | 29 |
+| Entropy Dimensions | 6 |
+| Damping Functions | 6 |
+| Event Schema Types | 18 (causal trace) + 29 (bus) |
+| Stabilization Phases | 8 |
+| v0.3 Verification | 11/11 PASS |
 
 ## Quickstart
 
@@ -255,6 +350,24 @@ drift = v03['drift_detector'].detect(v03['self_model'])
 health = v03['health_scorer'].score(drift.unified_report, drift.consistency_result)
 print(f'Health grade: {health.grade}')
 "
+
+# Architecture Truth Layer
+python3 -c "
+from architecture.graph_truth_layer.static_dependency_graph import StaticDependencyGraph
+graph = StaticDependencyGraph('.')
+result = graph.build()
+print(f'Modules: {result.module_count}, Edges: {result.edge_count}, Cycles: {len(result.cycles)}')
+"
+
+# Entropy scoring
+python3 -c "
+from runtime.entropy_controller.entropy_scorer import EntropyScorer
+scorer = EntropyScorer()
+report = scorer.score()
+print(f'Total entropy: {report.total_score:.2f}')
+for dim in report.dimensions:
+    print(f'  {dim.name}: {dim.score:.2f}')
+"
 ```
 
 ## Somatic Signal Flow
@@ -272,6 +385,46 @@ AnomalyEventStream                — 6 rules map patterns to cognitive response
         ↓
 CognitiveResponse                 — context_compression / scheduler_throttle / emergency_pause
 ```
+
+## Night 0-37 Build Log
+
+- Night 0: bootstrap and substrate initialization.
+- Night 1: baseline identity and approval scaffolding.
+- Night 2: telemetry capture and incident recall beginnings.
+- Night 3: visual observation and OCR-adjacent checks.
+- Night 4: dashboard and local state synthesis.
+- Night 5: integrity and health scoring foundations.
+- Night 6: memory pressure diagnosis and reflex review.
+- Night 7: circadian baseline work.
+- Night 8: system state synthesis.
+- Night 9: dashboard synthesis.
+- Night 10: digest generation.
+- Night 11: anomaly explanation patterns.
+- Night 12: memory integrity and incident review.
+- Night 13: foundational self-model stabilization.
+- Night 14: memory integrity audit.
+- Night 15: single source of truth.
+- Night 16: self-model query interface.
+- Night 17: self-reflection loop.
+- Night 18: circadian memory.
+- Night 19: anomaly explanation engine.
+- Night 20: operator briefing.
+- Night 21: decision boundary protocol.
+- Night 22: approval packet protocol.
+- Night 23: pre-accident simulation.
+- Night 24: Guardian dreaming.
+- Night 25: recalibration queue.
+- Night 26: MemPalace integration.
+- Night 27: MemPalace recall interface.
+- Night 28: operational identity.
+- Night 29: public architecture snapshot.
+- Night 30: GitHub README packaging.
+- Night 31: release readiness audit.
+- Night 32: alpha release freeze and verification.
+- Night 34: unified memory recall over fragmented memory sources.
+- Night 35: persistent local Hermes nervous system and autonomous DMN tick LaunchAgent.
+- Night 36: Hermes gateway diagnosis without credential or plist replacement.
+- Night 37: Hermes gateway no-Discord recovery path and MCP memory tool preservation.
 
 ## Release Artifacts
 
@@ -338,6 +491,8 @@ Core research questions:
 1. Can environmental signals drive cognitive attention without explicit rules?
 2. Can governance be embedded as a first-class runtime concern, not an afterthought?
 3. Can persistent agents develop domain expertise through accumulated experience?
+4. Can a cognitive system maintain stability while continuously evolving?
+5. Can feedback loops be made observable and self-regulating?
 
 Applications:
 

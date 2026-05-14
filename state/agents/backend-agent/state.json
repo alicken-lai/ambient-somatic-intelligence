@@ -1,0 +1,35 @@
+{
+  "agent_id": "backend-agent",
+  "name": "Backend Specialist",
+  "domain": "backend",
+  "status": "idle",
+  "created_at": "2026-05-13T23:26:59.473334+00:00",
+  "preferences": {
+    "max_retries": 3,
+    "timeout_seconds": 300,
+    "preferred_tools": [
+      "shell",
+      "file_edit",
+      "grep",
+      "database"
+    ],
+    "avoid_patterns": [
+      "ui_modification",
+      "css_changes"
+    ],
+    "context_budget_ratio": 1.0,
+    "parallelism": 3
+  },
+  "performance": {
+    "tasks_completed": 0,
+    "tasks_failed": 0,
+    "success_rate": 1.0,
+    "total_duration_ms": 0,
+    "avg_duration_ms": 0,
+    "total_tokens_used": 0,
+    "strategies_learned": 0
+  },
+  "strategies": [],
+  "patterns": [],
+  "saved_at": "2026-05-13T23:26:59.760258+00:00"
+}

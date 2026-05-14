@@ -33,6 +33,8 @@ class DashboardConfig:
     show_metrics: bool = True
     show_traces: bool = True
     show_somatic: bool = True
+    show_dag: bool = True
+    show_memory: bool = True
     max_recent_traces: int = 5
     max_recent_tasks: int = 10
 
@@ -63,15 +65,21 @@ class Dashboard:
         telemetry: AgentTelemetry | None = None,
         tracer: ExecutionTracer | None = None,
         config: DashboardConfig | None = None,
+        dag_visualizer: Any = None,
+        signal_analytics: Any = None,
+        memory_kernel: Any = None,
     ):
         self.metrics = metrics or MetricsCollector(persist=False)
         self.telemetry = telemetry or AgentTelemetry(self.metrics)
         self.tracer = tracer or ExecutionTracer(persist=False)
         self.config = config or DashboardConfig()
+        self.dag_visualizer = dag_visualizer
+        self.signal_analytics = signal_analytics
+        self.memory_kernel = memory_kernel
 
     def snapshot(self) -> dict[str, Any]:
         """Get complete system state snapshot."""
-        return {
+        snap = {
             "timestamp": datetime.now(tz=timezone.utc).isoformat(),
             "health": self._health_summary(),
             "agents": self.telemetry.summary() if self.config.show_agents else {},
@@ -79,6 +87,17 @@ class Dashboard:
             "traces": self.tracer.stats() if self.config.show_traces else {},
             "recent_tasks": self.telemetry.recent_tasks(self.config.max_recent_tasks),
         }
+        if self.config.show_somatic and self.signal_analytics:
+            try:
+                snap["somatic_health"] = self.signal_analytics.health_report().to_dict()
+            except Exception:
+                snap["somatic_health"] = {"score": -1}
+        if self.config.show_memory and self.memory_kernel:
+            try:
+                snap["memory_stats"] = self.memory_kernel.stats()
+            except Exception:
+                snap["memory_stats"] = {}
+        return snap
 
     def report(self) -> dict[str, Any]:
         """Generate JSON-serializable report."""
@@ -106,6 +125,18 @@ class Dashboard:
 
         if self.config.show_traces:
             lines.extend(self._render_traces(w))
+            lines.append("")
+
+        if self.config.show_somatic and self.signal_analytics:
+            lines.extend(self._render_somatic(w))
+            lines.append("")
+
+        if self.config.show_memory and self.memory_kernel:
+            lines.extend(self._render_memory(w))
+            lines.append("")
+
+        if self.config.show_dag and self.dag_visualizer:
+            lines.extend(self._render_dag(w))
             lines.append("")
 
         lines.append("=" * w)
@@ -229,6 +260,45 @@ class Dashboard:
         else:
             lines.append("  No traces recorded yet")
 
+        return lines
+
+    def _render_somatic(self, w: int) -> list[str]:
+        """Render somatic health section."""
+        lines = [self._subheader("SOMATIC HEALTH", w)]
+        try:
+            report = self.signal_analytics.health_report()
+            lines.append(f"  Health Score: {report.score:.2f}  |  Grade: {report.grade}")
+            for factor_name, factor_val in report.factors.items():
+                bar_len = int(factor_val * 20)
+                bar = "█" * bar_len + "░" * (20 - bar_len)
+                lines.append(f"  {factor_name:<12} {bar} {factor_val:.2f}")
+            if report.recommendations:
+                lines.append("")
+                for rec in report.recommendations[:3]:
+                    lines.append(f"    - {rec}")
+        except Exception:
+            lines.append("  Somatic analytics unavailable")
+        return lines
+
+    def _render_memory(self, w: int) -> list[str]:
+        """Render memory kernel stats section."""
+        lines = [self._subheader("MEMORY KERNEL", w)]
+        try:
+            stats = self.memory_kernel.stats()
+            lines.append(f"  Total Records: {stats.get('total_records', 0)}")
+            layers = stats.get("layers", {})
+            if layers:
+                for layer_name, count in layers.items():
+                    lines.append(f"    {layer_name:<20} {count} records")
+        except Exception:
+            lines.append("  Memory kernel stats unavailable")
+        return lines
+
+    def _render_dag(self, w: int) -> list[str]:
+        """Render DAG visualization section."""
+        lines = [self._subheader("DAG EXECUTION", w)]
+        lines.append("  DAG Visualizer: active")
+        lines.append("  Use dashboard.dag_visualizer.to_ascii(graph) for live rendering")
         return lines
 
     def render_compact(self) -> str:

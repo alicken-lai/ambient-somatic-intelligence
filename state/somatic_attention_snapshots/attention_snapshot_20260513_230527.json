@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-05-13T23:05:27.469011+00:00",
+  "processed_count": 2,
+  "attention": {
+    "profile": {
+      "weights": {
+        "pressure": 0.2331,
+        "pain": 0.4102,
+        "fatigue": 0.0973,
+        "alertness": 0.0973,
+        "calm": 0.0649,
+        "reflex": 0.0973
+      },
+      "dominant_signal": "pain",
+      "stress_level": 0.5784,
+      "explanation": "Dominant: pain (41%) | moderate stress (58%)",
+      "timestamp": "2026-05-13T23:05:27.468845+00:00"
+    },
+    "level": "stressed",
+    "active_signals": 2,
+    "critical_signals": 1
+  },
+  "stress": {
+    "overall": 0.0798,
+    "components": {
+      "somatic_pressure": 0.266,
+      "memory_pressure": 0.0,
+      "task_queue_pressure": 0.0,
+      "failure_rate": 0.0,
+      "governance_escalation": 0.0
+    },
+    "level": "low",
+    "trend": "stable",
+    "timestamp": "2026-05-13T23:05:27.469004+00:00"
+  },
+  "throttle": {
+    "level": "NO_THROTTLE",
+    "parallelism_factor": 1.0,
+    "delayed_tasks": 0,
+    "reason": "Initial state — no throttling",
+    "since": "2026-05-13T23:05:27.468544+00:00",
+    "duration_seconds": 0.0
+  },
+  "priority_queue_size": 3,
+  "escalated_count": 2
+}
