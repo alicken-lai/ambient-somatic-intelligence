@@ -30,12 +30,14 @@ def _parse_python_version(name: str) -> tuple[int, ...]:
 
 
 def _latest_site_packages(lib_root: Path) -> Path | None:
-    candidates = [
-        path for path in lib_root.glob("python*/site-packages") if _parse_python_version(path.parent.name)
+    versioned_candidates = [
+        (path, _parse_python_version(path.parent.name))
+        for path in lib_root.glob("python*/site-packages")
     ]
-    if not candidates:
+    versioned_candidates = [(path, version) for path, version in versioned_candidates if version]
+    if not versioned_candidates:
         return None
-    return max(candidates, key=lambda path: _parse_python_version(path.parent.name))
+    return max(versioned_candidates, key=lambda item: item[1])[0]
 
 
 def _resolve_project_root() -> Path:
