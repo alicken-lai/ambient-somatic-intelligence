@@ -1,0 +1,1545 @@
+{
+  "version": "0.4.4b",
+  "generated_at": "2026-05-18T21:14:32.038599+00:00",
+  "missing_count": 267,
+  "missing_paths": [
+    {
+      "path": "context/injection_logger.py:238",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "context/context_economy/cost_accountant.py:226",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:368",
+      "pattern": "append",
+      "line_preview": "with layer_file.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:371",
+      "pattern": "append",
+      "line_preview": "with layer_file.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:509",
+      "pattern": "open_write",
+      "line_preview": "with layer_file.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:603",
+      "pattern": "append",
+      "line_preview": "with archive_file.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:609",
+      "pattern": "open_write",
+      "line_preview": "with layer_file.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "memory/memory_kernel.py:645",
+      "pattern": "open_write",
+      "line_preview": "self._access_log_path.write_text("
+    },
+    {
+      "path": "memory/ontology/promotion_violation.py:172",
+      "pattern": "append",
+      "line_preview": "with self._log_path.open(\"a\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:366",
+      "pattern": "append",
+      "line_preview": "with self._audit_log_path.open(\"a\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:278",
+      "pattern": "append",
+      "line_preview": "with self._path.open(\"a\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "memory/somatic/confidence_tracker.py:231",
+      "pattern": "open_write",
+      "line_preview": "with self._history_path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "memory/somatic/ontology_bridge.py:369",
+      "pattern": "open_write",
+      "line_preview": "with self._mappings_path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "identity/cognitive_self_model/self_model.py:152",
+      "pattern": "open_write",
+      "line_preview": "filepath.write_text("
+    },
+    {
+      "path": "identity/cognitive_self_model/architecture_graph.py:251",
+      "pattern": "open_write",
+      "line_preview": "filepath.write_text("
+    },
+    {
+      "path": "integration/v04_boot.py:218",
+      "pattern": "registry",
+      "line_preview": "registry.register(skill)"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:203",
+      "pattern": "registry",
+      "line_preview": "description=f\"Listener accumulation at {dim.value:.0%} — deregister stale listeners\","
+    },
+    {
+      "path": "runtime/task_graph/executor.py:74",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"run_migration\", my_migration_fn)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:75",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"deploy_service\", my_deploy_fn)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:76",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"run_tests\", my_test_fn)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:109",
+      "pattern": "registry",
+      "line_preview": "self.register(name, handler)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:342",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"build\", mock_handler)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:343",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"test\", mock_handler)"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:344",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"deploy\", mock_handler)"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_map.py:100",
+      "pattern": "callback",
+      "line_preview": "\"indirect amplification via other subscribers remains possible.\""
+    },
+    {
+      "path": "runtime/evolution_engine/audit_logger.py:288",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "tests/test_skillify/test_registration_pipeline.py:65",
+      "pattern": "registry",
+      "line_preview": "reg = pipeline.register(proposal.proposal_id)"
+    },
+    {
+      "path": "tests/test_skillify/test_registration_pipeline.py:77",
+      "pattern": "registry",
+      "line_preview": "pipeline.register(proposal.proposal_id)"
+    },
+    {
+      "path": "tests/test_skillify/test_registration_pipeline.py:86",
+      "pattern": "registry",
+      "line_preview": "reg = pipeline.register(proposal.proposal_id)"
+    },
+    {
+      "path": "tests/test_skillify/test_registration_pipeline.py:101",
+      "pattern": "registry",
+      "line_preview": "pipeline.register(proposal.proposal_id)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:44",
+      "pattern": "registry",
+      "line_preview": "def test_register_skill(tmp_dir: Path) -> None:"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:48",
+      "pattern": "registry",
+      "line_preview": "sid = registry.register(skill)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:56",
+      "pattern": "registry",
+      "line_preview": "def test_deregister_skill(tmp_dir: Path) -> None:"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:60",
+      "pattern": "registry",
+      "line_preview": "sid = registry.register(skill)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:63",
+      "pattern": "registry",
+      "line_preview": "result = registry.deregister(sid)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:67",
+      "pattern": "registry",
+      "line_preview": "assert registry.deregister(\"nonexistent-id\") is False"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:76",
+      "pattern": "registry",
+      "line_preview": "registry.register(low)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:77",
+      "pattern": "registry",
+      "line_preview": "registry.register(high)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:93",
+      "pattern": "registry",
+      "line_preview": "registry.register(s1)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:94",
+      "pattern": "registry",
+      "line_preview": "registry.register(s2)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:110",
+      "pattern": "registry",
+      "line_preview": "sid1 = registry.register(skill)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:111",
+      "pattern": "registry",
+      "line_preview": "sid2 = registry.register(skill)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:122",
+      "pattern": "registry",
+      "line_preview": "registry.register(s1)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:123",
+      "pattern": "registry",
+      "line_preview": "registry.register(s2)"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:136",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"a\", tags=[\"t1\"]))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_registry.py:137",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"b\", tags=[\"t2\"], governance=\"REVIEW_REQUIRED\"))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:46",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"broad\", routing=[\"anomaly\"]))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:47",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"specific\", routing=[\"anomaly\", \"explain\", \"detail\"]))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:59",
+      "pattern": "registry",
+      "line_preview": "registry.register("
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:73",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"niche\", routing=[\"quantum-flux\"]))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:85",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"primary\", routing=[\"fix\", \"bug\"], fail=True))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:86",
+      "pattern": "registry",
+      "line_preview": "registry.register(_make_skill(\"backup\", routing=[\"fix\"]))"
+    },
+    {
+      "path": "tests/test_skills/test_skill_router.py:114",
+      "pattern": "registry",
+      "line_preview": "registry.register("
+    },
+    {
+      "path": "tests/v042/conftest.py:22",
+      "pattern": "open_write",
+      "line_preview": "(tmp_path / \"state\" / \"system_state.json\").write_text("
+    },
+    {
+      "path": "tests/v042/conftest.py:26",
+      "pattern": "open_write",
+      "line_preview": "(tmp_path / \"memory\" / \"dmn.jsonl\").write_text("
+    },
+    {
+      "path": "tests/v042/test_patch_entropy.py:30",
+      "pattern": "registry",
+      "line_preview": "registry.register(handle)"
+    },
+    {
+      "path": "tests/v042/test_stale_state.py:25",
+      "pattern": "open_write",
+      "line_preview": "(state_dir / \"system_state.json\").write_text("
+    },
+    {
+      "path": "tests/v042/test_stale_state.py:31",
+      "pattern": "open_write",
+      "line_preview": "(mem_dir / \"dmn.jsonl\").write_text("
+    },
+    {
+      "path": "tests/v044/test_singleton_guard.py:13",
+      "pattern": "registry",
+      "line_preview": "guard.register(\"test_bus\", owner=\"somatic\")"
+    },
+    {
+      "path": "tests/v044/test_guarded_callback.py:18",
+      "pattern": "registry",
+      "line_preview": "wrapped = gc.register(\"unit_hook\", handler, source=\"test\")"
+    },
+    {
+      "path": "tests/v043/test_callback_guard.py:29",
+      "pattern": "callback",
+      "line_preview": "wrapped = bus.register_guarded_callback(\"test_hook\", fn, source=\"test\")"
+    },
+    {
+      "path": "tests/v043/test_task_executor_isolation.py:24",
+      "pattern": "registry",
+      "line_preview": "executor.register(\"noop\", noop)"
+    },
+    {
+      "path": "agents/registry.py:25",
+      "pattern": "registry",
+      "line_preview": "registry.register(frontend_agent)"
+    },
+    {
+      "path": "agents/registry.py:26",
+      "pattern": "registry",
+      "line_preview": "registry.register(backend_agent)"
+    },
+    {
+      "path": "agents/execution_history.py:249",
+      "pattern": "append",
+      "line_preview": "with open(self._history_path, \"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "agents/skillify/workflow_observer.py:213",
+      "pattern": "append",
+      "line_preview": "with self._storage_path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "agents/skillify/skill_candidate_generator.py:295",
+      "pattern": "append",
+      "line_preview": "with self._candidates_path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:168",
+      "pattern": "registry",
+      "line_preview": "reg = pipeline.register(result.proposal_id)"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:358",
+      "pattern": "registry",
+      "line_preview": "rolled_back = self._try_skill_registry_deregister(skill_id)"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:423",
+      "pattern": "registry",
+      "line_preview": "registry.register(schema)"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:433",
+      "pattern": "registry",
+      "line_preview": "def _try_skill_registry_deregister(self, skill_id: str) -> bool:"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:434",
+      "pattern": "registry",
+      "line_preview": "\"\"\"Attempt to deregister via SkillRegistry if available.\"\"\""
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:438",
+      "pattern": "registry",
+      "line_preview": "if hasattr(registry, \"deregister\"):"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:439",
+      "pattern": "registry",
+      "line_preview": "registry.deregister(skill_id)"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:461",
+      "pattern": "append",
+      "line_preview": "with path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:487",
+      "pattern": "open_write",
+      "line_preview": "with path.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "agents/skillify/skill_registration_pipeline.py:525",
+      "pattern": "open_write",
+      "line_preview": "with self._state_path.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/agent_decision_log.py:205",
+      "pattern": "append",
+      "line_preview": "with DECISIONS_LOG.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/tracer.py:293",
+      "pattern": "append",
+      "line_preview": "with open(filepath, \"a\") as f:"
+    },
+    {
+      "path": "observability/drift_detection/integration_checker.py:5",
+      "pattern": "callback",
+      "line_preview": "referencing missing methods, event types with no subscribers, and duplicate"
+    },
+    {
+      "path": "observability/drift_detection/integration_checker.py:97",
+      "pattern": "callback",
+      "line_preview": "3. Event types have at least one subscriber"
+    },
+    {
+      "path": "observability/drift_detection/dependency_drift.py:125",
+      "pattern": "open_write",
+      "line_preview": "filepath.write_text("
+    },
+    {
+      "path": "observability/recursive_runtime/cognition_tracer.py:316",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/recursive_runtime/cognition_tracer.py:327",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/recursive_runtime/context_assembly_tracer.py:299",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/recursive_runtime/memory_flow_tracer.py:389",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/cognitive_trace_v2/execution_lineage.py:263",
+      "pattern": "append",
+      "line_preview": "with filepath.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "observability/v04/migration_coverage.py:20",
+      "pattern": "callback",
+      "line_preview": "r\"GuardedCallback|register_guarded_callback|CallbackGuard\","
+    },
+    {
+      "path": "architecture/bus_decomposition/event_schema.py:312",
+      "pattern": "callback",
+      "line_preview": "\"Calls tracker.subscribe() — no per-event payload; the tracker \""
+    },
+    {
+      "path": "architecture/bus_decomposition/event_schema.py:313",
+      "pattern": "callback",
+      "line_preview": "\"internally subscribes to the somatic bus.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/event_schema.py:506",
+      "pattern": "callback",
+      "line_preview": "\"pipeline. Subscribes via bus.on_signal or bus.subscribe.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:65",
+      "pattern": "callback",
+      "line_preview": "steps.extend(self._plan_phase2_unsubscribe())"
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:123",
+      "pattern": "callback",
+      "line_preview": "def _plan_phase2_unsubscribe(self) -> list[RefactorStep]:"
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:127",
+      "pattern": "callback",
+      "line_preview": "title=\"Add return-unsubscribe to Scheduler.on_event()\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:144",
+      "pattern": "callback",
+      "line_preview": "title=\"Add return-unsubscribe to AttentionManager.on_change()\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:159",
+      "pattern": "callback",
+      "line_preview": "title=\"Add return-unsubscribe to InjectionLogger.on_injection()\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:174",
+      "pattern": "callback",
+      "line_preview": "title=\"Add return-unsubscribe to SignalCorrelator.on_correlation()\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:188",
+      "pattern": "callback",
+      "line_preview": "title=\"Add return-unsubscribe to SomaticSignalBus.on_signal()\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:190",
+      "pattern": "callback",
+      "line_preview": "\"Modify SomaticSignalBus.on_signal/subscribe to return a \""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:202",
+      "pattern": "callback",
+      "line_preview": "title=\"Store unsubscribe handles in IntegrationBus\","
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:205",
+      "pattern": "callback",
+      "line_preview": "\"unsubscribe handles returned by the new APIs. Update unwire() \""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:227",
+      "pattern": "callback",
+      "line_preview": "\"independent post_check subscriber. This eliminates the \""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:246",
+      "pattern": "callback",
+      "line_preview": "\"become independent post_recall subscribers.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:263",
+      "pattern": "callback",
+      "line_preview": "\"governance_to_audit becomes a subscriber instead of a \""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:299",
+      "pattern": "callback",
+      "line_preview": "\"becomes a subscriber instead of a wrapper.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/refactor_plan.py:520",
+      "pattern": "callback",
+      "line_preview": "f\"Callback unsubscribe support is the broadest prerequisite.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:113",
+      "pattern": "callback",
+      "line_preview": "\"subscribe independently rather than wrapping the method.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:131",
+      "pattern": "callback",
+      "line_preview": "\"can subscribe independently. This eliminates ordering dependency.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:147",
+      "pattern": "callback",
+      "line_preview": "\"governance subscribe to a post-propose event independently.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:212",
+      "pattern": "callback",
+      "line_preview": "\"accept callback registrations but provide no way to unsubscribe. \""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:232",
+      "pattern": "callback",
+      "line_preview": "\"Add return-unsubscribe pattern to all on_event/on_change/on_signal \""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:234",
+      "pattern": "callback",
+      "line_preview": "\"removes the callback. Store unsubscribe handles in IntegrationBus.\""
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:241",
+      "pattern": "callback",
+      "line_preview": "title=\"AttentionManager.on_change has 4 subscribers without ordering guarantees\","
+    },
+    {
+      "path": "architecture/bus_decomposition/bus_risk_report.py:264",
+      "pattern": "callback",
+      "line_preview": "title=\"Scheduler.on_event has 5+ subscribers with overlapping filters\","
+    },
+    {
+      "path": "architecture/bus_decomposition/connection_registry.py:61",
+      "pattern": "callback",
+      "line_preview": "{\"name\": \"rate_tracker\", \"source\": \"somatic.bus\", \"target\": \"somatic.rate_tracker\", \"mechanism\": \"callback\", \"stack_dept"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:107",
+      "pattern": "callback",
+      "line_preview": "\"\"\"Status of a subscriber/listener API.\"\"\""
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:110",
+      "pattern": "callback",
+      "line_preview": "has_unsubscribe: bool"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:116",
+      "pattern": "callback",
+      "line_preview": "\"has_unsubscribe\": self.has_unsubscribe,"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:273",
+      "pattern": "callback",
+      "line_preview": "\"\"\"Report listener counts for subscriber APIs on the bus's kernel.\"\"\""
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:279",
+      "pattern": "callback",
+      "line_preview": "subscriber_apis = ["
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:285",
+      "pattern": "callback",
+      "line_preview": "for api_name, obj, attrs in subscriber_apis:"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:296",
+      "pattern": "callback",
+      "line_preview": "for attr_name in ('_listeners', '_callbacks', '_handlers', '_subscribers'):"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:302",
+      "pattern": "callback",
+      "line_preview": "has_unsubscribe = hasattr(target, 'off') or hasattr(target, 'unsubscribe')"
+    },
+    {
+      "path": "architecture/graph_truth_layer/bus_consistency_checker.py:307",
+      "pattern": "callback",
+      "line_preview": "has_unsubscribe=has_unsubscribe,"
+    },
+    {
+      "path": "scripts/memory_summarize.py:185",
+      "pattern": "append",
+      "line_preview": "with SEMANTIC_FILE.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/memory_summarize.py:191",
+      "pattern": "append",
+      "line_preview": "with EPISODIC_FILE.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/memory_summarize.py:210",
+      "pattern": "open_write",
+      "line_preview": "with SCRATCHPAD_FILE.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/install_persistent_nervous_system.py:36",
+      "pattern": "shutil",
+      "line_preview": "shutil.copy2(TICK_PLIST, INSTALLED_TICK_PLIST)"
+    },
+    {
+      "path": "scripts/install_persistent_nervous_system.py:37",
+      "pattern": "shutil",
+      "line_preview": "shutil.copy2(HERMES_SHIM_SRC, HERMES_SHIM_DST)"
+    },
+    {
+      "path": "scripts/operator_briefing.py:234",
+      "pattern": "open_write",
+      "line_preview": "LATEST_BRIEFING.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_system_state.py:378",
+      "pattern": "open_write",
+      "line_preview": "REPORT_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_system_state.py:384",
+      "pattern": "open_write",
+      "line_preview": "STATE_JSON.write_text(json.dumps(state, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_system_state.py:386",
+      "pattern": "open_write",
+      "line_preview": "STATE_JSON.write_text(json.dumps(state, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/action_log.py:37",
+      "pattern": "append",
+      "line_preview": "with path.open(\"a\", encoding=\"utf-8\") as handle:"
+    },
+    {
+      "path": "scripts/action_log.py:45",
+      "pattern": "append",
+      "line_preview": "with LOCK_FILE.open(\"a\", encoding=\"utf-8\") as lock:"
+    },
+    {
+      "path": "scripts/memory_index.py:235",
+      "pattern": "open_write",
+      "line_preview": "INDEX_PATH.write_text("
+    },
+    {
+      "path": "scripts/memory_integrity_audit.py:293",
+      "pattern": "open_write",
+      "line_preview": "AUDIT_JSON.write_text(json.dumps(report, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/memory_integrity_audit.py:317",
+      "pattern": "open_write",
+      "line_preview": "AUDIT_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/self_reflect.py:208",
+      "pattern": "open_write",
+      "line_preview": "LATEST_REFLECTION.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/memory_pressure_diagnosis.py:234",
+      "pattern": "open_write",
+      "line_preview": "REPORT_JSON.write_text(json.dumps(result, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/memory_pressure_diagnosis.py:318",
+      "pattern": "open_write",
+      "line_preview": "REPORT_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/health_score.py:177",
+      "pattern": "open_write",
+      "line_preview": "HEALTH_JSON.write_text(json.dumps(result, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/health_score.py:203",
+      "pattern": "open_write",
+      "line_preview": "HEALTH_REPORT.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/memory_store.py:68",
+      "pattern": "open_write",
+      "line_preview": "INDEX_PATH.write_text("
+    },
+    {
+      "path": "scripts/memory_store.py:156",
+      "pattern": "append",
+      "line_preview": "with layer_file.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/memory_store.py:167",
+      "pattern": "append",
+      "line_preview": "with DMN_PATH.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/explain_anomaly.py:336",
+      "pattern": "open_write",
+      "line_preview": "LATEST_EXPLANATION.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/cua_guarded_action.py:176",
+      "pattern": "open_write",
+      "line_preview": "analysis_path.write_text(stable_json(record) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/cua_guarded_action.py:251",
+      "pattern": "append",
+      "line_preview": "with ACTION_LOG_FILE.open(\"a\", encoding=\"utf-8\") as handle:"
+    },
+    {
+      "path": "scripts/build_release.py:161",
+      "pattern": "open_write",
+      "line_preview": "RELEASE_NOTES_MD.write_text(release_notes(), encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_release.py:167",
+      "pattern": "open_write",
+      "line_preview": "STATE_JSON.write_text(json.dumps(updated, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/simulate_incident.py:423",
+      "pattern": "open_write",
+      "line_preview": "LATEST_SIMULATION_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/simulate_incident.py:424",
+      "pattern": "open_write",
+      "line_preview": "LATEST_SIMULATION_JSON.write_text(json.dumps(simulation, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/incident_recall.py:226",
+      "pattern": "open_write",
+      "line_preview": "INDEX_FILE.write_text("
+    },
+    {
+      "path": "scripts/incident_recall.py:240",
+      "pattern": "open_write",
+      "line_preview": "PATTERNS_FILE.write_text(json.dumps(patterns, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/incident_recall.py:280",
+      "pattern": "open_write",
+      "line_preview": "TIMELINE_FILE.write_text(\"\\n\".join(lines), encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/sense_local.py:137",
+      "pattern": "open_write",
+      "line_preview": "path.write_text(stable_json(snapshot) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/dmn_tick_loop.py:36",
+      "pattern": "open_write",
+      "line_preview": "STATUS_JSON.write_text(json.dumps(status, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/dmn_tick_loop.py:94",
+      "pattern": "open_write",
+      "line_preview": "with LOCK_FILE.open(\"w\", encoding=\"utf-8\") as lock:"
+    },
+    {
+      "path": "scripts/guardian_reflex.py:378",
+      "pattern": "open_write",
+      "line_preview": "CALIBRATION_JSON.write_text(json.dumps(summary, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/guardian_reflex.py:411",
+      "pattern": "open_write",
+      "line_preview": "CALIBRATION_REPORT.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/guardian_reflex.py:477",
+      "pattern": "open_write",
+      "line_preview": "path.write_text(\"\\n\".join(lines), encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/guardian_reflex.py:495",
+      "pattern": "append",
+      "line_preview": "with REFLEX_LOG.open(\"a\", encoding=\"utf-8\") as handle:"
+    },
+    {
+      "path": "scripts/guardian_dream.py:276",
+      "pattern": "open_write",
+      "line_preview": "LATEST_DREAM_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/guardian_dream.py:277",
+      "pattern": "open_write",
+      "line_preview": "LATEST_DREAM_JSON.write_text(json.dumps(dream, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/vision_capture.py:455",
+      "pattern": "open_write",
+      "line_preview": "analysis_path.write_text(stable_json(record) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/vision_capture.py:457",
+      "pattern": "append",
+      "line_preview": "with LOG_FILE.open(\"a\", encoding=\"utf-8\") as handle:"
+    },
+    {
+      "path": "scripts/memory_ttl.py:94",
+      "pattern": "append",
+      "line_preview": "with archive_file.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/memory_ttl.py:100",
+      "pattern": "open_write",
+      "line_preview": "with layer_file.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "scripts/build_public_architecture.py:272",
+      "pattern": "open_write",
+      "line_preview": "PUBLIC_MD.write_text(snapshot[\"document\"], encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_recalibration_queue.py:179",
+      "pattern": "open_write",
+      "line_preview": "QUEUE_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_recalibration_queue.py:180",
+      "pattern": "open_write",
+      "line_preview": "QUEUE_JSON.write_text(json.dumps(queue, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_github_readme.py:204",
+      "pattern": "open_write",
+      "line_preview": "LICENSE_FILE.write_text("
+    },
+    {
+      "path": "scripts/build_github_readme.py:213",
+      "pattern": "open_write",
+      "line_preview": "README_MD.write_text(payload[\"readme\"], encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/baseline_learn.py:243",
+      "pattern": "open_write",
+      "line_preview": "BASELINE_JSON.write_text(json.dumps(baseline, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/baseline_learn.py:278",
+      "pattern": "open_write",
+      "line_preview": "REPORT_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_identity.py:214",
+      "pattern": "open_write",
+      "line_preview": "MANIFESTO_MD.write_text(identity_manifesto(), encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_identity.py:215",
+      "pattern": "open_write",
+      "line_preview": "CORE_VALUES_JSON.write_text(json.dumps(identity, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/remember.py:56",
+      "pattern": "append",
+      "line_preview": "with MEMORY_FILE.open(\"a\", encoding=\"utf-8\") as memory:"
+    },
+    {
+      "path": "scripts/build_mem_palace.py:286",
+      "pattern": "open_write",
+      "line_preview": "PALACE_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_mem_palace.py:287",
+      "pattern": "open_write",
+      "line_preview": "PALACE_JSON.write_text(json.dumps(palace, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/circadian_baseline.py:284",
+      "pattern": "open_write",
+      "line_preview": "CIRCADIAN_JSON.write_text(json.dumps(baseline, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/circadian_baseline.py:320",
+      "pattern": "open_write",
+      "line_preview": "CIRCADIAN_REPORT.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_somatic_dashboard.py:338",
+      "pattern": "open_write",
+      "line_preview": "DASHBOARD_HTML.write_text(render_html(model), encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/daily_digest.py:78",
+      "pattern": "open_write",
+      "line_preview": "DIGEST_MD.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_approval_packet.py:186",
+      "pattern": "open_write",
+      "line_preview": "LATEST_PACKET.write_text(\"\\n\".join(lines) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "scripts/build_approval_packet.py:187",
+      "pattern": "open_write",
+      "line_preview": "PACKET_INDEX.write_text(json.dumps(packet, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "governance/audit_log.py:181",
+      "pattern": "append",
+      "line_preview": "with path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "skills/__init__.py:17",
+      "pattern": "registry",
+      "line_preview": "registry.register(anomaly_explain_skill)"
+    },
+    {
+      "path": "skills/core/skill_registry.py:5",
+      "pattern": "registry",
+      "line_preview": "- Register / deregister skills with schema validation"
+    },
+    {
+      "path": "skills/core/skill_registry.py:39",
+      "pattern": "registry",
+      "line_preview": "skill_id = registry.register(my_skill)"
+    },
+    {
+      "path": "skills/core/skill_registry.py:55",
+      "pattern": "registry",
+      "line_preview": "self._deregistered: dict[str, SkillSchema] = {}"
+    },
+    {
+      "path": "skills/core/skill_registry.py:104",
+      "pattern": "registry",
+      "line_preview": "def deregister(self, skill_id: str) -> bool:"
+    },
+    {
+      "path": "skills/core/skill_registry.py:108",
+      "pattern": "registry",
+      "line_preview": "The skill is kept in a deregistered pool for potential re-registration."
+    },
+    {
+      "path": "skills/core/skill_registry.py:115",
+      "pattern": "registry",
+      "line_preview": "self._deregistered[skill_id] = skill"
+    },
+    {
+      "path": "skills/core/skill_registry.py:187",
+      "pattern": "open_write",
+      "line_preview": "with target.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "skills/core/skill_registry.py:243",
+      "pattern": "registry",
+      "line_preview": "\"deregistered\": len(self._deregistered),"
+    },
+    {
+      "path": "telemetry/backfill/backfill_engine.py:218",
+      "pattern": "open_write",
+      "line_preview": "with path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "telemetry/maturation/p17c_materialize.py:710",
+      "pattern": "open_write",
+      "line_preview": "path.write_text(\"\\n\".join(lines))"
+    },
+    {
+      "path": "telemetry/maturation/p17d_analyze.py:606",
+      "pattern": "open_write",
+      "line_preview": "path.write_text(\"\\n\".join(lines))"
+    },
+    {
+      "path": "replay/sandbox/replay_runner.py:304",
+      "pattern": "open_write",
+      "line_preview": "with out_path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "replay/sandbox/replay_observability.py:192",
+      "pattern": "open_write",
+      "line_preview": "with path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "replay/sandbox/replay_revalidation.py:612",
+      "pattern": "open_write",
+      "line_preview": "with json_path.open(\"w\", encoding=\"utf-8\") as fh:"
+    },
+    {
+      "path": "replay/reports/_generate_reports.py:857",
+      "pattern": "open_write",
+      "line_preview": "with (reports_dir / \"instinct_emergence_report.json\").open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "replay/reports/_generate_reports.py:860",
+      "pattern": "open_write",
+      "line_preview": "with (reports_dir / \"missed_instinct_report.json\").open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:34",
+      "pattern": "registry",
+      "line_preview": "(\"registry\", re.compile(r\"\\.register\\s*\\(|register_skill|deregister\")),"
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:35",
+      "pattern": "callback",
+      "line_preview": "(\"callback\", re.compile(r\"subscribe|\\.on\\s*\\(|register_guarded_callback|add_listener\")),"
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:96",
+      "pattern": "setattr",
+      "line_preview": "\"line_preview\": \"setattr(...)\","
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:226",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"mutation_surface_reconciliation.json\").write_text("
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:230",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"missing_mutation_paths.json\").write_text("
+    },
+    {
+      "path": "v044b/audit/reconcile_mutations.py:234",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"inventory_gap_report.md\").write_text("
+    },
+    {
+      "path": "somatic/rate_tracker.py:78",
+      "pattern": "callback",
+      "line_preview": "self._subscribed = False"
+    },
+    {
+      "path": "somatic/rate_tracker.py:80",
+      "pattern": "callback",
+      "line_preview": "def subscribe(self) -> None:"
+    },
+    {
+      "path": "somatic/rate_tracker.py:82",
+      "pattern": "callback",
+      "line_preview": "if not self._subscribed:"
+    },
+    {
+      "path": "somatic/rate_tracker.py:84",
+      "pattern": "callback",
+      "line_preview": "self._subscribed = True"
+    },
+    {
+      "path": "somatic/rate_tracker.py:184",
+      "pattern": "callback",
+      "line_preview": "\"subscribed\": self._subscribed,"
+    },
+    {
+      "path": "somatic/signal_correlator.py:11",
+      "pattern": "callback",
+      "line_preview": "The correlator subscribes to the SignalBus, evaluates correlation"
+    },
+    {
+      "path": "somatic/signal_correlator.py:128",
+      "pattern": "callback",
+      "line_preview": "# The correlator auto-subscribes and emits when patterns match"
+    },
+    {
+      "path": "somatic/signal_correlator.py:146",
+      "pattern": "callback",
+      "line_preview": "self._subscribed = False"
+    },
+    {
+      "path": "somatic/signal_correlator.py:148",
+      "pattern": "callback",
+      "line_preview": "def subscribe(self) -> None:"
+    },
+    {
+      "path": "somatic/signal_correlator.py:150",
+      "pattern": "callback",
+      "line_preview": "if not self._subscribed:"
+    },
+    {
+      "path": "somatic/signal_correlator.py:152",
+      "pattern": "callback",
+      "line_preview": "self._subscribed = True"
+    },
+    {
+      "path": "somatic/signal_correlator.py:193",
+      "pattern": "callback",
+      "line_preview": "\"subscribed\": self._subscribed,"
+    },
+    {
+      "path": "somatic/signal_bus.py:6",
+      "pattern": "callback",
+      "line_preview": "- Consumers subscribe to signal types and react"
+    },
+    {
+      "path": "somatic/signal_bus.py:94",
+      "pattern": "callback",
+      "line_preview": "bus.on(SignalType.PRESSURE, handle_pressure)"
+    },
+    {
+      "path": "somatic/signal_bus.py:95",
+      "pattern": "callback",
+      "line_preview": "bus.on(SignalType.PAIN, handle_errors)"
+    },
+    {
+      "path": "somatic/signal_bus.py:133",
+      "pattern": "registry",
+      "line_preview": "wrapped = guarded.register("
+    },
+    {
+      "path": "somatic/signal_bus.py:150",
+      "pattern": "callback",
+      "line_preview": "\"\"\"Unsubscribe from all-signals handlers.\"\"\""
+    },
+    {
+      "path": "somatic/signal_bus.py:155",
+      "pattern": "callback",
+      "line_preview": "\"\"\"Unsubscribe from a signal type.\"\"\""
+    },
+    {
+      "path": "somatic/signal_bus.py:170",
+      "pattern": "callback",
+      "line_preview": "Emit a signal to all subscribers."
+    },
+    {
+      "path": "somatic/attention_runtime/attention_runtime.py:245",
+      "pattern": "open_write",
+      "line_preview": "with filepath.open(\"w\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "kernel/bootstrap.py:120",
+      "pattern": "registry",
+      "line_preview": "kernel.agents.registry.register(agent)"
+    },
+    {
+      "path": "kernel/bootstrap.py:124",
+      "pattern": "registry",
+      "line_preview": "mem_slice = isolation_mgr.register(profile)"
+    },
+    {
+      "path": "kernel/__init__.py:37",
+      "pattern": "singleton",
+      "line_preview": "_memory_kernel_instance = None"
+    },
+    {
+      "path": "kernel/__init__.py:45",
+      "pattern": "singleton",
+      "line_preview": "_memory_kernel_instance = MemoryKernel()"
+    },
+    {
+      "path": "kernel/integration_bus.py:14",
+      "pattern": "callback",
+      "line_preview": "The bus is purely additive — it subscribes to existing hooks and events"
+    },
+    {
+      "path": "kernel/integration_bus.py:520",
+      "pattern": "callback",
+      "line_preview": "correlator.subscribe()"
+    },
+    {
+      "path": "kernel/integration_bus.py:549",
+      "pattern": "callback",
+      "line_preview": "tracker.subscribe()"
+    },
+    {
+      "path": "kernel/integration_bus.py:554",
+      "pattern": "callback",
+      "line_preview": "\"Rate tracker subscribed to somatic bus for spike detection\","
+    },
+    {
+      "path": "kernel/integration_bus.py:993",
+      "pattern": "callback",
+      "line_preview": "elif hasattr(bus, 'subscribe'):"
+    },
+    {
+      "path": "kernel/integration_bus.py:994",
+      "pattern": "callback",
+      "line_preview": "bus.subscribe(on_signal_for_runtime)"
+    },
+    {
+      "path": "kernel/integration_bus.py:1581",
+      "pattern": "callback",
+      "line_preview": "def register_guarded_callback("
+    },
+    {
+      "path": "kernel/integration_bus.py:1618",
+      "pattern": "registry",
+      "line_preview": "return guarded.register("
+    },
+    {
+      "path": "kernel/wiring/patch_handle.py:35",
+      "pattern": "setattr",
+      "line_preview": "setattr(self.target, self.attr_name, self.original)"
+    },
+    {
+      "path": "kernel/wiring/reversible_patch.py:37",
+      "pattern": "registry",
+      "line_preview": "return reg.register(handle)"
+    },
+    {
+      "path": "kernel/isolation/registry_guard.py:28",
+      "pattern": "registry",
+      "line_preview": "\"\"\"Require ExecutionContext for registry register/deregister operations.\"\"\""
+    },
+    {
+      "path": "kernel/isolation/guarded_callback.py:17",
+      "pattern": "callback",
+      "line_preview": "Opt-in wrapper aligning IntegrationBus.register_guarded_callback with v0.4.4 trace."
+    },
+    {
+      "path": "kernel/isolation/callback_guard.py:57",
+      "pattern": "registry",
+      "line_preview": "self.register(name, callback_scope)"
+    },
+    {
+      "path": "kernel/isolation/root_resolver.py:67",
+      "pattern": "open_write",
+      "line_preview": "def write_text("
+    },
+    {
+      "path": "kernel/isolation/root_resolver.py:77",
+      "pattern": "open_write",
+      "line_preview": "path.write_text(content, encoding=encoding)"
+    },
+    {
+      "path": "kernel/isolation/guarded_file_writer.py:53",
+      "pattern": "append",
+      "line_preview": "with path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "kernel/isolation/guarded_file_writer.py:64",
+      "pattern": "open_write",
+      "line_preview": "def write_text("
+    },
+    {
+      "path": "kernel/isolation/guarded_file_writer.py:74",
+      "pattern": "open_write",
+      "line_preview": "return self.root_resolver.write_text(context, relative, content, encoding=encoding)"
+    },
+    {
+      "path": "kernel/isolation/governed_memory_writer.py:122",
+      "pattern": "append",
+      "line_preview": "with path.open(\"a\", encoding=\"utf-8\") as f:"
+    },
+    {
+      "path": "kernel/isolation/singleton_guard.py:45",
+      "pattern": "registry",
+      "line_preview": "self.register(name, owner=\"unknown\")"
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:111",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:131",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:150",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:169",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:188",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:207",
+      "pattern": "registry",
+      "line_preview": "return self.register("
+    },
+    {
+      "path": "v044/audit/generate_migration_reports.py:48",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"unknown_mutation_report.json\").write_text("
+    },
+    {
+      "path": "v044/audit/generate_migration_reports.py:72",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"file_write_migration_report.json\").write_text("
+    },
+    {
+      "path": "v044/audit/build_inventory.py:17",
+      "pattern": "callback",
+      "line_preview": "r\"callback|hook|subscribe|signal_bus|\\.on\\(|register_guarded|integration_bus\","
+    },
+    {
+      "path": "v044/audit/build_inventory.py:21",
+      "pattern": "registry",
+      "line_preview": "r\"registry|skill_registry|patch_registry|truth_registry|register_skill|deregister\","
+    },
+    {
+      "path": "v044/audit/build_inventory.py:170",
+      "pattern": "open_write",
+      "line_preview": "inv_path.write_text(json.dumps(inventory, indent=2, ensure_ascii=False) + \"\\n\", encoding=\"utf-8\")"
+    },
+    {
+      "path": "v044/audit/build_inventory.py:171",
+      "pattern": "open_write",
+      "line_preview": "(OUT_DIR / \"mutation_classification_report.md\").write_text("
+    }
+  ],
+  "truncated": false,
+  "catalogued_not_found_in_rescan": [
+    "integration/v04_boot.py:264",
+    "integration/v04_boot.py:266",
+    "integration/v04_boot.py:272",
+    "integration/v04_boot.py:289",
+    "integration/v04_boot.py:295",
+    "integration/v04_boot.py:296",
+    "integration/v04_boot.py:303",
+    "integration/v04_boot.py:309",
+    "integration/v04_boot.py:311",
+    "integration/v04_boot.py:316",
+    "integration/v04_boot.py:322",
+    "integration/v04_wiring.py:185",
+    "integration/v04_wiring.py:243",
+    "integration/v04_wiring.py:335",
+    "integration/v04_wiring.py:390",
+    "integration/v04_wiring.py:453",
+    "integration/v04_wiring.py:510",
+    "integration/v04_wiring.py:531",
+    "integration/v04_wiring.py:575",
+    "kernel/contracts/event_contract.py:34",
+    "kernel/contracts/signal_contract.py:24",
+    "kernel/contracts/signal_contract.py:27",
+    "kernel/entropy/coupling_pressure.py:128",
+    "kernel/entropy/coupling_pressure.py:137",
+    "kernel/entropy/coupling_pressure.py:142",
+    "kernel/entropy/coupling_pressure.py:35",
+    "kernel/entropy/coupling_pressure.py:38",
+    "kernel/entropy/coupling_pressure.py:41",
+    "kernel/entropy/coupling_pressure.py:45",
+    "kernel/entropy/coupling_pressure.py:48",
+    "kernel/entropy/drift_detector.py:50",
+    "kernel/entropy/drift_detector.py:65",
+    "kernel/entropy/drift_detector.py:78",
+    "kernel/entropy/drift_detector.py:90",
+    "kernel/entropy/drift_detector.py:94",
+    "kernel/entropy/mutation_tracker.py:76",
+    "kernel/entropy/orphan_pressure.py:93",
+    "kernel/entropy/stale_state_detector.py:106",
+    "kernel/entropy/stale_state_detector.py:119",
+    "kernel/entropy/stale_state_detector.py:92",
+    "kernel/entropy/stale_state_detector.py:97",
+    "kernel/integration_bus.py:1038",
+    "kernel/integration_bus.py:1088",
+    "kernel/integration_bus.py:1154",
+    "kernel/integration_bus.py:1221",
+    "kernel/integration_bus.py:1269",
+    "kernel/integration_bus.py:1311",
+    "kernel/integration_bus.py:1398",
+    "kernel/integration_bus.py:1433",
+    "kernel/integration_bus.py:1482",
+    "kernel/integration_bus.py:1519",
+    "kernel/integration_bus.py:1559",
+    "kernel/integration_bus.py:1577",
+    "kernel/integration_bus.py:1590",
+    "kernel/integration_bus.py:222",
+    "kernel/integration_bus.py:767",
+    "kernel/integration_bus.py:806",
+    "kernel/integration_bus.py:829",
+    "kernel/integration_bus.py:863",
+    "kernel/integration_bus.py:897",
+    "kernel/integration_bus.py:934",
+    "kernel/integration_bus.py:971",
+    "kernel/integration_bus.py:996",
+    "kernel/isolation/execution_audit.py:47",
+    "kernel/isolation/execution_scope.py:54",
+    "kernel/isolation/execution_scope.py:74",
+    "kernel/isolation/resource_guard.py:30",
+    "kernel/isolation/state_guard.py:53",
+    "kernel/truth/truth_graph.py:113",
+    "kernel/truth/truth_graph.py:137",
+    "kernel/truth/truth_graph.py:53",
+    "kernel/truth/truth_graph.py:72",
+    "kernel/truth/truth_graph.py:81",
+    "kernel/truth/truth_graph.py:93",
+    "kernel/truth/truth_registry.py:40",
+    "kernel/truth/truth_validator.py:29",
+    "kernel/wiring/patch_registry.py:114",
+    "kernel/wiring/patch_registry.py:115",
+    "kernel/wiring/patch_registry.py:33",
+    "kernel/wiring/patch_registry.py:63",
+    "memory/evolution/efficiency_reporter.py:123",
+    "memory/evolution/efficiency_reporter.py:124",
+    "memory/evolution/efficiency_reporter.py:125",
+    "memory/evolution/efficiency_reporter.py:126",
+    "memory/evolution/efficiency_reporter.py:161",
+    "memory/evolution/efficiency_reporter.py:163",
+    "memory/evolution/efficiency_reporter.py:168",
+    "memory/evolution/efficiency_reporter.py:171",
+    "memory/evolution/efficiency_reporter.py:173",
+    "memory/evolution/efficiency_reporter.py:178",
+    "memory/evolution/efficiency_reporter.py:219",
+    "memory/evolution/efficiency_reporter.py:256",
+    "memory/evolution/efficiency_reporter.py:279",
+    "memory/evolution/efficiency_reporter.py:287",
+    "memory/evolution/efficiency_reporter.py:292",
+    "memory/evolution/efficiency_reporter.py:297",
+    "memory/evolution/efficiency_reporter.py:345",
+    "memory/evolution/efficiency_reporter.py:353",
+    "memory/evolution/efficiency_reporter.py:360",
+    "memory/evolution/efficiency_reporter.py:366",
+    "memory/evolution/efficiency_reporter.py:368",
+    "memory/evolution/efficiency_reporter.py:370",
+    "memory/evolution/efficiency_reporter.py:60",
+    "memory/evolution/efficiency_reporter.py:61",
+    "memory/evolution/efficiency_reporter.py:62",
+    "memory/evolution/efficiency_reporter.py:63",
+    "memory/evolution/efficiency_reporter.py:64",
+    "memory/evolution/efficiency_reporter.py:65",
+    "memory/evolution/efficiency_reporter.py:68",
+    "memory/evolution/efficiency_reporter.py:69",
+    "memory/evolution/efficiency_reporter.py:73",
+    "memory/evolution/efficiency_reporter.py:76",
+    "memory/evolution/efficiency_reporter.py:78",
+    "memory/evolution/efficiency_reporter.py:80",
+    "memory/evolution/incident_learner.py:137",
+    "memory/evolution/incident_learner.py:223",
+    "memory/evolution/incident_learner.py:232",
+    "memory/evolution/incident_learner.py:242",
+    "memory/evolution/incident_learner.py:252",
+    "memory/evolution/incident_learner.py:262",
+    "memory/evolution/incident_learner.py:285",
+    "memory/evolution/incident_learner.py:330",
+    "memory/evolution/incident_learner.py:351",
+    "memory/evolution/incident_learner.py:360",
+    "memory/evolution/incident_learner.py:365",
+    "memory/evolution/optimization_proposer.py:129",
+    "memory/evolution/optimization_proposer.py:154",
+    "memory/evolution/optimization_proposer.py:198",
+    "memory/evolution/optimization_proposer.py:207",
+    "memory/evolution/optimization_proposer.py:216",
+    "memory/evolution/optimization_proposer.py:224",
+    "memory/evolution/optimization_proposer.py:233",
+    "memory/evolution/optimization_proposer.py:266",
+    "memory/evolution/optimization_proposer.py:275",
+    "memory/evolution/optimization_proposer.py:288",
+    "memory/evolution/optimization_proposer.py:298",
+    "memory/evolution/orchestration_templates.py:127",
+    "memory/evolution/orchestration_templates.py:160",
+    "memory/evolution/orchestration_templates.py:229",
+    "memory/evolution/orchestration_templates.py:237",
+    "memory/evolution/orchestration_templates.py:244",
+    "memory/evolution/orchestration_templates.py:252",
+    "memory/evolution/orchestration_templates.py:287",
+    "memory/evolution/pattern_miner.py:155",
+    "memory/evolution/pattern_miner.py:162",
+    "memory/evolution/pattern_miner.py:177",
+    "memory/evolution/pattern_miner.py:198",
+    "memory/evolution/pattern_miner.py:241",
+    "memory/evolution/pattern_miner.py:242",
+    "memory/evolution/pattern_miner.py:246",
+    "memory/evolution/pattern_miner.py:257",
+    "memory/evolution/pattern_miner.py:274",
+    "memory/evolution/pattern_miner.py:315",
+    "memory/evolution/pattern_miner.py:319",
+    "memory/evolution/pattern_miner.py:326",
+    "memory/evolution/pattern_miner.py:341",
+    "memory/evolution/pattern_miner.py:387",
+    "memory/evolution/pattern_miner.py:412",
+    "memory/evolution/pattern_miner.py:442",
+    "memory/evolution/pattern_miner.py:444",
+    "memory/evolution/pattern_miner.py:446",
+    "memory/evolution/pattern_miner.py:448",
+    "memory/evolution/pattern_miner.py:450",
+    "memory/evolution/pattern_miner.py:453",
+    "memory/memory_kernel.py:273",
+    "memory/memory_kernel.py:293",
+    "memory/memory_kernel.py:478",
+    "memory/memory_kernel.py:488",
+    "memory/memory_kernel.py:493",
+    "memory/memory_kernel.py:517",
+    "memory/memory_kernel.py:561",
+    "memory/memory_kernel.py:579",
+    "memory/memory_kernel.py:581",
+    "memory/memory_kernel.py:593",
+    "memory/memory_kernel.py:598",
+    "memory/memory_kernel.py:629",
+    "memory/memory_kernel.py:667",
+    "memory/memory_kernel.py:741",
+    "memory/ontology/confidence_model.py:48",
+    "memory/ontology/confidence_model.py:87",
+    "memory/ontology/decay_engine.py:129",
+    "memory/ontology/decay_engine.py:217",
+    "memory/ontology/decay_engine.py:241",
+    "memory/ontology/decay_engine.py:262",
+    "memory/ontology/decay_engine.py:268",
+    "memory/ontology/decay_engine.py:270",
+    "memory/ontology/decay_engine.py:91",
+    "memory/ontology/promotion_chain_validator.py:138",
+    "memory/ontology/promotion_chain_validator.py:142",
+    "memory/ontology/promotion_chain_validator.py:152",
+    "memory/ontology/promotion_chain_validator.py:156",
+    "memory/ontology/promotion_chain_validator.py:163",
+    "memory/ontology/promotion_chain_validator.py:167",
+    "memory/ontology/promotion_chain_validator.py:175",
+    "memory/ontology/promotion_chain_validator.py:179",
+    "memory/ontology/promotion_chain_validator.py:184",
+    "memory/ontology/promotion_chain_validator.py:189",
+    "memory/ontology/promotion_chain_validator.py:196",
+    "memory/ontology/promotion_chain_validator.py:201",
+    "memory/ontology/promotion_engine.py:143"
+  ]
+}

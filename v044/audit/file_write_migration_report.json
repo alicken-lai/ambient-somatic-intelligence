@@ -1,0 +1,26 @@
+{
+  "version": "0.4.4",
+  "generated_at": "2026-05-18T13:53:49.804836+00:00",
+  "total_file_writes": 468,
+  "migrated_count": 0,
+  "remaining_count": 468,
+  "critical_modules_with_guard": [
+    "governance/audit_log.py",
+    "memory/memory_kernel.py"
+  ],
+  "guard_infrastructure": "kernel/isolation/guarded_file_writer.py",
+  "high_risk_remaining": [
+    "runtime/isolation_kernel/execution_sandbox.py:125",
+    "runtime/isolation_kernel/execution_sandbox.py:271",
+    "runtime/entropy_controller/decay_enforcer.py:133",
+    "runtime/evolution_engine/patch_proposer.py:125",
+    "integration/v04_wiring.py:243",
+    "integration/v04_wiring.py:510",
+    "memory/ontology/strategic_write_gate.py:69",
+    "memory/ontology/strategic_write_gate.py:228",
+    "memory/ontology/promotion_guard.py:249",
+    "memory/ontology/promotion_engine.py:151",
+    "memory/ontology/promotion_engine.py:287",
+    "memory/ontology/promotion_engine.py:311"
+  ]
+}

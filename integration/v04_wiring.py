@@ -94,6 +94,9 @@ def wire_v04(
     # ── 7. WorkflowObserver → SkillifyPatternMiner ─────────────────
     _wire_observer_to_miner(kernel, bus, v04, wiring)
 
+    # ── 8. v0.4 stabilization (Truth / Entropy / Isolation) ────────
+    _wire_stabilization(kernel, bus, wiring)
+
     wiring._active = True
     bus._log_event(
         "kernel", "all",
@@ -106,12 +109,22 @@ def wire_v04(
     return wiring
 
 
-def unwire_v04(wiring: V04Wiring) -> None:
-    """Mark v0.4 connections as inactive."""
+def unwire_v04(
+    wiring: V04Wiring,
+    bus: "IntegrationBus | None" = None,
+) -> None:
+    """Restore patched methods/callbacks and deactivate v0.4 connections."""
+    from kernel.wiring import restore_phase
+
+    restore_phase("v04_integration")
+    if bus is not None and "v04_stabilization" in wiring._connections:
+        try:
+            bus.unwire_v04()
+        except Exception as exc:
+            logger.debug("v0.4 stabilization unwire failed: %s", exc)
+    wiring._connections.clear()
     wiring._active = False
-    logger.info(
-        "v0.4 wiring deactivated (%d connections)", len(wiring._connections),
-    )
+    logger.info("v0.4 wiring deactivated (patches restored)")
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -161,7 +174,14 @@ def _wire_somatic_to_salience(
             except Exception as exc:
                 logger.debug("Somatic→salience conversion failed: %s", exc)
 
-        somatic_bus.on_any(on_somatic_signal)
+        from kernel.wiring import apply_callback_patch
+
+        apply_callback_patch(
+            somatic_bus,
+            on_somatic_signal,
+            patch_id="v04.somatic_to_salience",
+            phase="v04_integration",
+        )
         wiring._connections.append("somatic_to_salience")
         logger.info("  [v0.4] Wired: SomaticSignalBus → SalienceEngine")
 
@@ -211,7 +231,15 @@ def _wire_escalation_to_audit(
                 logger.debug("Escalation→audit logging failed: %s", exc)
             return decision
 
-        escalation_router.evaluate = evaluate_with_audit
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            escalation_router,
+            "evaluate",
+            evaluate_with_audit,
+            patch_id="v04.escalation_router.evaluate",
+            phase="v04_integration",
+        )
         wiring._connections.append("escalation_to_audit")
         logger.info("  [v0.4] Wired: EscalationRouter → GovernanceAuditLog")
 
@@ -295,7 +323,15 @@ def _wire_skill_router_to_attention(
 
             return result
 
-        skill_router.execute_with_fallback = execute_with_attention
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            skill_router,
+            "execute_with_fallback",
+            execute_with_attention,
+            patch_id="v04.skill_router.execute_with_fallback",
+            phase="v04_integration",
+        )
         wiring._connections.append("skill_router_to_attention")
         logger.info("  [v0.4] Wired: SkillRouter → Attention (start/end)")
 
@@ -342,7 +378,15 @@ def _wire_episode_store_to_memory(
                 logger.debug("Episode→memory bridge failed: %s", exc)
             return result
 
-        episode_store.store = store_with_bridge
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            episode_store,
+            "store",
+            store_with_bridge,
+            patch_id="v04.episode_store.store",
+            phase="v04_integration",
+        )
         wiring._connections.append("episode_store_to_memory")
         logger.info("  [v0.4] Wired: SomaticEpisodeStore → MemoryKernel")
 
@@ -397,7 +441,15 @@ def _wire_precursor_to_attention(
                     logger.debug("Precursor→attention failed: %s", exc)
             return matches
 
-        precursor_matcher.match = match_with_attention
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            precursor_matcher,
+            "match",
+            match_with_attention,
+            patch_id="v04.precursor_matcher.match",
+            phase="v04_integration",
+        )
         wiring._connections.append("precursor_to_attention")
         logger.info("  [v0.4] Wired: PrecursorMatcher → Attention")
 
@@ -446,12 +498,40 @@ def _wire_registration_to_governance(
                 logger.debug("Proposal→governance logging failed: %s", exc)
             return result
 
-        pipeline.propose = propose_with_governance
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            pipeline,
+            "propose",
+            propose_with_governance,
+            patch_id="v04.skill_registration_pipeline.propose",
+            phase="v04_integration",
+        )
         wiring._connections.append("registration_to_governance")
         logger.info("  [v0.4] Wired: SkillRegistrationPipeline → Governance")
 
     except Exception as exc:
         logger.warning("  [v0.4] Failed to wire RegistrationPipeline → Governance: %s", exc)
+
+
+def _wire_stabilization(
+    kernel: "AmbientKernel",
+    bus: "IntegrationBus",
+    wiring: V04Wiring,
+) -> None:
+    """Wire kernel Truth / Entropy / Isolation via IntegrationBus.wire_v04()."""
+    try:
+        if getattr(bus, "v04_stabilization", None) is None:
+            bus.wire_v04()
+        stab = bus.v04_stabilization
+        if stab is not None:
+            from integration.v04_kernel_adapter import adapt_v04_wiring_connections
+
+            adapt_v04_wiring_connections(bus, stab.entropy_controller.coupling_pressure, wiring.connections)
+        wiring._connections.append("v04_stabilization")
+        logger.info("  [v0.4] Wired: Truth / Entropy / Isolation stabilization")
+    except Exception as exc:
+        logger.warning("  [v0.4] Failed to wire stabilization layer: %s", exc)
 
 
 def _wire_observer_to_miner(
@@ -483,7 +563,15 @@ def _wire_observer_to_miner(
                 logger.debug("Observer→miner feeding failed: %s", exc)
             return result
 
-        observer.observe = observe_with_mining
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            observer,
+            "observe",
+            observe_with_mining,
+            patch_id="v04.workflow_observer.observe",
+            phase="v04_integration",
+        )
         wiring._connections.append("observer_to_miner")
         logger.info("  [v0.4] Wired: WorkflowObserver → PatternMiner")
 

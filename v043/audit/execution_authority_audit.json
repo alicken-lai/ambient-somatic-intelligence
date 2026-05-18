@@ -1,0 +1,5007 @@
+{
+  "version": "0.4.3",
+  "generated_at": "2026-05-18T13:24:34.573220+00:00",
+  "mutation_paths": [
+    {
+      "path": "runtime/isolation_kernel/permission_enforcer.py:270",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/context_firewall.py:96",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/context_firewall.py:101",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/context_firewall.py:106",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/execution_sandbox.py:125",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/execution_sandbox.py:157",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/execution_sandbox.py:177",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/execution_sandbox.py:182",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/execution_sandbox.py:271",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/isolation_kernel/memory_boundary.py:132",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/entropy_scorer.py:152",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/entropy_scorer.py:239",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/entropy_scorer.py:279",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:133",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "memory/dmn.jsonl",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:139",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:164",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:173",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:220",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:272",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:281",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:340",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:343",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:412",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "write_text"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:447",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "shutil"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:458",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "shutil"
+    },
+    {
+      "path": "runtime/entropy_controller/decay_enforcer.py:479",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:101",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:107",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:113",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:116",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:127",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:152",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/damping_mechanism.py:161",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/compression_triggers.py:289",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/compression_triggers.py:290",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/compression_triggers.py:291",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/compression_triggers.py:295",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/load_regulator.py:113",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/entropy_controller/load_regulator.py:114",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/latency_profiler.py:90",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/context_reuse_optimizer.py:124",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/context_reuse_optimizer.py:204",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/context_reuse_optimizer.py:219",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/context_reuse_optimizer.py:220",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:194",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:218",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:250",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:276",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:306",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:340",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/bottleneck_map.py:352",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:163",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:244",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:257",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:270",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:283",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/memory_pressure_analyzer.py:294",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/performance_hardening/recall_cache.py:148",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/failure_propagation.py:133",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/failure_propagation.py:148",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/failure_propagation.py:197",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:108",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "write_text"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:114",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "write_text"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:182",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "state/checkpoint",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "snapshot",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:213",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "shutil"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:239",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "shutil"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:270",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/checkpoint.py:277",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:226",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:253",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:269",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:287",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:292",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:318",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/dag.py:373",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/scheduler.py:126",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/scheduler.py:134",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/scheduler.py:195",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:67",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:68",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:73",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:97",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:105",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:108",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:110",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:113",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:121",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:123",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:134",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:135",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:142",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:144",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:150",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:152",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:154",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:156",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:162",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:164",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:194",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:212",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:216",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:217",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:218",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:219",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:222",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:224",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:226",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/visualizer.py:245",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:224",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph/executor.py:242",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/amplification_control.py:103",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/amplification_control.py:104",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/amplification_control.py:105",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:84",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:122",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:141",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:151",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:175",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:191",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/loop_detector.py:192",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/stability_monitor.py:125",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/stability_monitor.py:242",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/stability_monitor.py:252",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/feedback_stabilizer/stability_monitor.py:261",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:135",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:138",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:154",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:195",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:200",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:208",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:215",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/rollback_planner.py:223",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/refactor_planner.py:193",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/refactor_planner.py:199",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/refactor_planner.py:224",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/refactor_planner.py:236",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/refactor_planner.py:283",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:121",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:123",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:125",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:127",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:129",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:144",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:187",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:230",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/patch_proposer.py:231",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/audit_logger.py:276",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:254",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:280",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:380",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:399",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:414",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:441",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:448",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:455",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:496",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/evolution_engine.py:499",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:150",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:151",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:157",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:161",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:167",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:171",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:174",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:175",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:197",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:227",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:229",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:231",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:233",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:287",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:304",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:329",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:356",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:370",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:379",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:452",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:454",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:468",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/evolution_engine/mutation_simulator.py:482",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:162",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:200",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:219",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:250",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:268",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:285",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:313",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/bottleneck_detector.py:352",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:139",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:147",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:171",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:176",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:183",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:228",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/redundancy_detector.py:233",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:202",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:204",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:240",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:247",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:259",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:274",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:306",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:312",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/latency_analyzer.py:333",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/dependency_compressor.py:236",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/dependency_compressor.py:263",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/dependency_compressor.py:298",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/dependency_compressor.py:319",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:257",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:258",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:259",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:260",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:261",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:262",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:264",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:265",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:266",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:267",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:268",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:269",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:271",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:272",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:273",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:274",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:275",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:277",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:278",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:280",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:281",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:282",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:283",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:284",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:285",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:287",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:288",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:289",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:290",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:291",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:292",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:295",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:296",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:300",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:304",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:308",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:313",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:315",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:316",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:319",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:321",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:322",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:323",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:325",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:436",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:448",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:461",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:477",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:490",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:501",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:546",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:551",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:559",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "runtime/task_graph_optimizer/optimizer.py:564",
+      "owner": "runtime",
+      "caller_identity": "runtime",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:222",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:767",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:806",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:829",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:863",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:897",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:934",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:971",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:996",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1038",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1088",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1154",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1221",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1269",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1311",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1398",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "truth_graph",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1433",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "truth_graph",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1482",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1519",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1559",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1577",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "truth_graph",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/integration_bus.py:1590",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/contracts/signal_contract.py:24",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/contracts/signal_contract.py:27",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/contracts/event_contract.py:34",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py:50",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py:65",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py:78",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py:90",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py:94",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:35",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:38",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:41",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:45",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:48",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:128",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:137",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/coupling_pressure.py:142",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/orphan_pressure.py:93",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/stale_state_detector.py:92",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/stale_state_detector.py:97",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/stale_state_detector.py:106",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/stale_state_detector.py:119",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/entropy/mutation_tracker.py:76",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/wiring/patch_registry.py:33",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/wiring/patch_registry.py:46",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/wiring/patch_registry.py:63",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/wiring/patch_registry.py:114",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/wiring/patch_registry.py:115",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/isolation/execution_audit.py:47",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/isolation/resource_guard.py:30",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/isolation/execution_scope.py:54",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/isolation/execution_scope.py:74",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/isolation/state_guard.py:53",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:53",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:72",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:81",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:93",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:113",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_graph.py:137",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_validator.py:29",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "kernel/truth/truth_registry.py:40",
+      "owner": "kernel",
+      "caller_identity": "kernel",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:185",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:243",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:335",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "skill_registry",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:390",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:453",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:510",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:531",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_wiring.py:575",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:264",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:266",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:272",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:289",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:295",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:296",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:303",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:309",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "skill_registry",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:311",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "skill_registry",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:316",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "integration/v04_boot.py:322",
+      "owner": "integration",
+      "caller_identity": "integration",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:273",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:293",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:478",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:488",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:493",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "memory/memory_kernel.py:517",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:561",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:579",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:581",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:593",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "memory/memory_kernel.py:598",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:629",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "write_text"
+    },
+    {
+      "path": "memory/memory_kernel.py:667",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/memory_kernel.py:741",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_violation.py:91",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_violation.py:189",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_rules.py:122",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_rules.py:127",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_rules.py:133",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_rules.py:140",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_rules.py:145",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:61",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:63",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:65",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "skill_registry",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:67",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:69",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:222",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:224",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:228",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:261",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/strategic_write_gate.py:313",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_guard.py:249",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_engine.py:143",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_engine.py:151",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_engine.py:287",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_engine.py:311",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "governance_audit",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "high",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:138",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:142",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:152",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:156",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:163",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:167",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:175",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:179",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:184",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:189",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:196",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/promotion_chain_validator.py:201",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:91",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:129",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:217",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:241",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:262",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:268",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/decay_engine.py:270",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/confidence_model.py:48",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/ontology/confidence_model.py:87",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:155",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:162",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:177",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:198",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:241",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:242",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:246",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:257",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:274",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:315",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:319",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:326",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:341",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:387",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:412",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:442",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:444",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:446",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:448",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:450",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/pattern_miner.py:453",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:129",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:154",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:198",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:207",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:216",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:224",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:233",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:266",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:275",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:288",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/optimization_proposer.py:298",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:127",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:160",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:229",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:237",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:244",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:252",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:287",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/orchestration_templates.py:297",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:60",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:61",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:62",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:63",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:64",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:65",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:68",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:69",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:73",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:76",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:78",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:80",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:123",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:124",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:125",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:126",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:161",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:163",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:168",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:171",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:173",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:178",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:219",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:256",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:279",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:287",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:292",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:297",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:345",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:353",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:360",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:366",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:368",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/efficiency_reporter.py:370",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:137",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:223",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:232",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:242",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:252",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:262",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:285",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:330",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:351",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:360",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/evolution/incident_learner.py:365",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/anomaly_fingerprint.py:79",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/anomaly_fingerprint.py:83",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:170",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:187",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:198",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:221",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:269",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py:287",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "open_write"
+    },
+    {
+      "path": "memory/somatic/precursor_matcher.py:150",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/precursor_matcher.py:153",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/precursor_matcher.py:173",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/precursor_matcher.py:196",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/precursor_matcher.py:235",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/confidence_tracker.py:105",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    },
+    {
+      "path": "memory/somatic/confidence_tracker.py:127",
+      "owner": "memory",
+      "caller_identity": "memory",
+      "write_target": "unknown",
+      "permission_mechanism": "implicit",
+      "rollback_mechanism": "none",
+      "risk_level": "medium",
+      "pattern": "append"
+    }
+  ],
+  "total_scanned_mutations": 857
+}
