@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "canonical_source": "hermes/rules/canonical_rules.md",
+  "target_ides": ["cursor", "vscode", "codex", "antigravity"],
+  "generated_files": {
+    "cursor": "hermes/rules/cursor_rules_export.md",
+    "vscode": "hermes/rules/vscode_copilot_instructions.md",
+    "codex": "hermes/rules/codex_agents.md",
+    "antigravity": "hermes/rules/antigravity_rules.md",
+    "cursor_workspace_rule": ".cursor/rules/ambient-os.mdc",
+    "github_copilot": ".github/copilot-instructions.md",
+    "project_agents_summary": "AGENTS.md",
+    "sync_map": "hermes/rules/rule_sync_map.md"
+  },
+  "sync_policy": "canonical_first_manual_port",
+  "last_updated": "2026-05-18T12:00:00Z"
+}

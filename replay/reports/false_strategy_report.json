@@ -1,0 +1,491 @@
+{
+  "report_version": "1.0.0",
+  "generated_at": "2026-05-14T13:08:00+08:00",
+  "program": "Reality Replay — Phase 1E: False Strategic Promotion Detection",
+  "replay_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:02:25.620058+00:00",
+    "span_hours": 64.14
+  },
+  "summary": {
+    "total_strategies_examined": 7,
+    "total_skills_examined": 13,
+    "false_strategy_candidates": 3,
+    "overconfident_entries": 5,
+    "rollback_candidates": 2,
+    "confidence_corrections_needed": 5,
+    "false_strategy_rate": 0.43,
+    "false_strategy_resistance_score": 0.65
+  },
+  "promotion_rules_reference": {
+    "L2_to_L3": {
+      "min_confidence": 0.8,
+      "min_occurrences": 5,
+      "min_success_rate": 0.7,
+      "requires_cross_context": true,
+      "requires_governance": true
+    },
+    "L3_to_L4": {
+      "min_confidence": 0.9,
+      "min_occurrences": 10,
+      "min_success_rate": 0.85,
+      "requires_cross_context": true,
+      "requires_governance": true,
+      "requires_verifier": true
+    }
+  },
+  "strategies_examined": [
+    {
+      "id": "FE-STRAT-001",
+      "source": "state/agents/frontend-agent/memory/entries.jsonl",
+      "content": "Tailwind @apply for repeated component styles reduces class duplication",
+      "category": "strategy",
+      "effective_layer": "L4_STRATEGIC",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T21:48:29.616077+00:00",
+      "promotion_chain": {
+        "source_evidence": "None found — stored directly as strategy at creation",
+        "episodic_precursors": 0,
+        "instinct_precursors": 0,
+        "skill_precursors": 0,
+        "governance_approval": "None",
+        "verifier_id": "None"
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.0,
+        "contradicting_events": [],
+        "confirming_events": 0,
+        "note": "No contradicting evidence exists, but critically, no confirming evidence exists either. Zero uses means zero validation."
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.3,
+        "overconfidence_delta": 0.7,
+        "overconfidence_severity": "CRITICAL",
+        "reasoning": "Confidence 1.0 assigned at creation with zero usage, zero validation events, and zero cross-context confirmation. The only historical task ('Build a login form') used 'component-first development' strategy, not Tailwind @apply. No evidence chain supports this confidence level."
+      },
+      "temporal_validity": {
+        "formation_speed": "INSTANT",
+        "events_before_formation": 0,
+        "minimum_required_events": 10,
+        "verdict": "PREMATURE — strategy materialized at agent initialization without any learning history"
+      },
+      "verdict": "FALSE_STRATEGY",
+      "rollback_recommendation": {
+        "action": "DEMOTE",
+        "target_layer": "L2_INSTINCT",
+        "corrected_confidence": 0.3,
+        "justification": "Strategy has never been validated through use. Should be treated as an instinct-level heuristic pending cross-context validation."
+      }
+    },
+    {
+      "id": "FE-STRAT-002",
+      "source": "state/agents/frontend-agent/memory/entries.jsonl",
+      "content": "Use React.lazy + Suspense for code splitting large pages",
+      "category": "strategy",
+      "effective_layer": "L4_STRATEGIC",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T21:48:29.616315+00:00",
+      "promotion_chain": {
+        "source_evidence": "None found — stored directly as strategy at creation",
+        "episodic_precursors": 0,
+        "instinct_precursors": 0,
+        "skill_precursors": 0,
+        "governance_approval": "None",
+        "verifier_id": "None"
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.0,
+        "contradicting_events": [],
+        "confirming_events": 0,
+        "note": "No contradicting evidence, but the single historical task ('Build a login form') did not involve code splitting. Strategy is untested against any real workload."
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.3,
+        "overconfidence_delta": 0.7,
+        "overconfidence_severity": "CRITICAL",
+        "reasoning": "Maximum confidence assigned without any execution history. No task in the replay window exercised code splitting. The strategy bypassed all promotion gates (L1→L2→L3→L4) and appeared directly as L4."
+      },
+      "temporal_validity": {
+        "formation_speed": "INSTANT",
+        "events_before_formation": 0,
+        "minimum_required_events": 10,
+        "verdict": "PREMATURE — instantaneous formation with no learning progression"
+      },
+      "verdict": "FALSE_STRATEGY",
+      "rollback_recommendation": {
+        "action": "DEMOTE",
+        "target_layer": "L2_INSTINCT",
+        "corrected_confidence": 0.3,
+        "justification": "No execution evidence. Should be instinct-level until validated through actual code splitting tasks across multiple contexts."
+      }
+    },
+    {
+      "id": "FE-FAIL-001",
+      "source": "state/agents/frontend-agent/memory/entries.jsonl",
+      "content": "Never use inline styles for conditional rendering — use clsx instead",
+      "category": "failure",
+      "effective_layer": "L3_SKILL",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T21:48:29.617175+00:00",
+      "promotion_chain": {
+        "source_evidence": "None found — stored as failure pattern at creation without experiencing the actual anti-pattern",
+        "episodic_precursors": 0,
+        "instinct_precursors": 0,
+        "governance_approval": "None"
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.0,
+        "contradicting_events": [],
+        "confirming_events": 0,
+        "note": "Generally valid as an industry best practice, but the agent never actually encountered this anti-pattern. No experiential basis for the failure memory."
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.5,
+        "overconfidence_delta": 0.5,
+        "overconfidence_severity": "HIGH",
+        "reasoning": "Failure pattern stored with maximum confidence but zero failure encounters. While the advice is generally sound, the confidence should reflect the agent's own experiential validation, not pre-loaded knowledge."
+      },
+      "temporal_validity": {
+        "formation_speed": "INSTANT",
+        "events_before_formation": 0,
+        "minimum_required_events": 5,
+        "verdict": "PREMATURE — no failure experiences preceded this pattern"
+      },
+      "verdict": "OVERCONFIDENT",
+      "rollback_recommendation": {
+        "action": "CONFIDENCE_CORRECTION",
+        "corrected_confidence": 0.5,
+        "justification": "Reduce confidence to reflect lack of experiential validation. The pattern itself is not false, but its confidence level is unjustified."
+      }
+    },
+    {
+      "id": "FE-KNOW-001",
+      "source": "state/agents/frontend-agent/memory/entries.jsonl",
+      "content": "React useCallback prevents unnecessary re-renders when passing callbacks to children",
+      "category": "knowledge",
+      "effective_layer": "L2_INSTINCT",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T21:48:29.615792+00:00",
+      "promotion_chain": {
+        "source_evidence": "Pre-loaded knowledge — no episodic origin in replay window"
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.6,
+        "overconfidence_delta": 0.4,
+        "overconfidence_severity": "MODERATE",
+        "reasoning": "Generally accurate knowledge but never exercised by this agent. Confidence should reflect agent-specific validation."
+      },
+      "verdict": "OVERCONFIDENT",
+      "rollback_recommendation": {
+        "action": "CONFIDENCE_CORRECTION",
+        "corrected_confidence": 0.6,
+        "justification": "Valid knowledge but agent has zero experiential confirmation."
+      }
+    },
+    {
+      "id": "FE-KNOW-002",
+      "source": "state/agents/frontend-agent/memory/entries.jsonl",
+      "content": "Component composition > inheritance in React",
+      "category": "knowledge",
+      "effective_layer": "L2_INSTINCT",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T21:48:29.616250+00:00",
+      "promotion_chain": {
+        "source_evidence": "Pre-loaded knowledge — no episodic origin in replay window"
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.6,
+        "overconfidence_delta": 0.4,
+        "overconfidence_severity": "MODERATE",
+        "reasoning": "Industry consensus knowledge pre-loaded without agent-specific validation."
+      },
+      "verdict": "OVERCONFIDENT",
+      "rollback_recommendation": {
+        "action": "CONFIDENCE_CORRECTION",
+        "corrected_confidence": 0.6,
+        "justification": "Valid knowledge but confidence should reflect experiential verification."
+      }
+    },
+    {
+      "id": "AGENT-DEC-001",
+      "source": "observability/decisions/agent_decisions.jsonl",
+      "content": "Strategy chosen: task_execution for 'Test task'",
+      "category": "agent_decision",
+      "effective_layer": "L4_STRATEGIC",
+      "confidence": 1.0,
+      "uses": 0,
+      "created_at": "2026-05-13T22:46:34.961006+00:00",
+      "agent_id": "test-agent",
+      "promotion_chain": {
+        "source_evidence": "Test record — 0 memories consulted, 0 tokens used, 0.01ms duration",
+        "governance_approval": "ALLOW (trivially)"
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.0,
+        "contradicting_events": [],
+        "note": "Test record with no real task execution. Confidence is meaningless."
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 1.0,
+        "evidence_justified_confidence": 0.0,
+        "overconfidence_delta": 1.0,
+        "overconfidence_severity": "CRITICAL",
+        "reasoning": "Pure test record with zero tokens, zero memories, zero real duration. Maximum confidence on a vacuous decision."
+      },
+      "temporal_validity": {
+        "formation_speed": "INSTANT",
+        "events_before_formation": 0,
+        "verdict": "TEST_DATA — no temporal validity to assess"
+      },
+      "verdict": "FALSE_STRATEGY",
+      "rollback_recommendation": {
+        "action": "REMOVE",
+        "justification": "Test artifact. Should not persist as a strategic decision record. Remove or tag as test_only."
+      }
+    },
+    {
+      "id": "GUARDIAN-STRAT-001",
+      "source": "guardian/incidents/index.json + guardian/dreams/latest_dream.json",
+      "content": "high_memory_usage is a critical recurring pattern requiring escalation",
+      "category": "guardian_strategic_pattern",
+      "effective_layer": "L4_STRATEGIC",
+      "confidence": 0.1,
+      "validation_events": 2,
+      "created_at": "2026-05-11T21:49:02.703942+00:00",
+      "promotion_chain": {
+        "source_evidence": "2 guardian reflex incidents (high_memory_usage at 99.61% and 97.69%)",
+        "episodic_precursors": 2,
+        "telemetry_snapshots": 4,
+        "governance_approval": "recommendations_only mode — no auto-execute",
+        "dream_replay_verification": true
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.5,
+        "contradicting_events": [
+          {
+            "event": "Dream replay identified incident 2 as 'likely' false positive",
+            "timestamp": "2026-05-12T08:47:35.570047+00:00",
+            "evidence": "scoring_artifact: true, true_anomaly: false — Docker VM memory reporting artifact"
+          },
+          {
+            "event": "Reflex confidence calibration found scoring artifact",
+            "timestamp": "2026-05-11T22:14:35.447810+00:00",
+            "evidence": "Docker VM used only 0.2% memory (32.8MB RSS), containers used <1% each, swap at 0.00M"
+          }
+        ],
+        "confirming_events": [
+          {
+            "event": "First incident at 99.61% memory was a genuine warning",
+            "timestamp": "2026-05-11T21:49:02.703942+00:00"
+          },
+          {
+            "event": "Subsequent telemetry showed persistent 95-99% memory usage across 24 hours",
+            "source": "memory/semantic/records.jsonl (hourly summaries)"
+          }
+        ],
+        "note": "The pattern itself has some validity (memory is chronically high) but 50% of the triggering incidents were identified by the system's own dream replay as false positives caused by macOS memory reporting artifacts."
+      },
+      "overconfidence_analysis": {
+        "assigned_confidence": 0.1,
+        "evidence_justified_confidence": 0.15,
+        "overconfidence_delta": -0.05,
+        "overconfidence_severity": "NONE",
+        "reasoning": "The Guardian appropriately set low confidence (0.1) and the dream replay suggested recalibration to 0.15-0.20. The system's confidence model was conservative and self-correcting. This is actually an example of GOOD confidence calibration."
+      },
+      "temporal_validity": {
+        "formation_speed": "25 minutes between incidents",
+        "events_before_formation": 2,
+        "minimum_required_events": 10,
+        "verdict": "PARTIALLY PREMATURE — only 2 events, below the 10-event threshold for L4 promotion, but the system correctly kept confidence at 0.1"
+      },
+      "verdict": "PARTIALLY_FALSE",
+      "rollback_recommendation": {
+        "action": "RETAIN_WITH_CORRECTION",
+        "corrected_confidence": 0.15,
+        "justification": "The Guardian already self-corrected via dream replay. Accept the recalibration suggestion of 0.15. The pattern should remain as a watch-level concern, not a strategic rule. Its low confidence correctly reflects the 50% false-positive rate among triggering incidents."
+      }
+    }
+  ],
+  "skills_examined": [
+    {
+      "id": "SKILLIFY-BATCH",
+      "source": "agents/skillify/pending_registrations.jsonl",
+      "skill_name": "auto_test_skill",
+      "total_registrations": 12,
+      "rollbacks": 6,
+      "rejections": 6,
+      "rollback_rate": 0.5,
+      "rejection_rate_in_pipeline": 0.3,
+      "effective_layer": "L3_SKILL",
+      "all_test_data": true,
+      "evidence": {
+        "claimed_occurrence_count": 10,
+        "claimed_success_rate": 0.9,
+        "actual_validation": "None — all evidence is synthetic pipeline test data"
+      },
+      "contradiction_analysis": {
+        "contradiction_rate": 0.5,
+        "contradicting_events": [
+          {
+            "event": "6 of 12 registered skills were rolled back",
+            "skill_ids_rolled_back": [
+              "skill-5bf8a6f5",
+              "skill-29143d89",
+              "skill-21639a7d",
+              "skill-99b7a298",
+              "skill-e3fab71b",
+              "skill-7b595ac3"
+            ]
+          },
+          {
+            "event": "6 skill proposals rejected in governance pipeline",
+            "timestamps": [
+              "2026-05-14T03:15:39",
+              "2026-05-14T03:16:32",
+              "2026-05-14T03:45:31",
+              "2026-05-14T03:46:27",
+              "2026-05-14T04:03:51 (x2)"
+            ]
+          }
+        ],
+        "note": "50% rollback rate and 30% pipeline rejection rate indicate the promotion criteria were not reliably met, even with synthetic evidence."
+      },
+      "verdict": "TEST_DATA_WITH_CONCERNING_PATTERN",
+      "rollback_recommendation": {
+        "action": "FLAG_PIPELINE",
+        "justification": "All 12 registrations are test data and should be tagged as such. The 50% rollback rate reveals that even test-mode promotions are unstable. The skillify pipeline's acceptance criteria should be tightened before production use."
+      }
+    },
+    {
+      "id": "PROC-001",
+      "source": "memory/procedural/records.jsonl",
+      "content": "Cursor-Hermes MCP setup procedure",
+      "effective_layer": "L3_SKILL",
+      "confidence_implied": 0.8,
+      "created_at": "2026-05-13T12:25:13.454200+00:00",
+      "contradiction_analysis": {
+        "contradiction_rate": 0.0,
+        "contradicting_events": [],
+        "confirming_events": [
+          {
+            "event": "Procedure was successfully executed — Hermes showed green, 17 tools available",
+            "source": "Same record documents successful outcome"
+          }
+        ]
+      },
+      "verdict": "VALID",
+      "note": "Single procedural record with documented successful execution. No contradictions found. Confidence is justified by the documented successful outcome."
+    }
+  ],
+  "aggregate_analysis": {
+    "confidence_distribution": {
+      "entries_at_1.0_confidence": 5,
+      "entries_below_0.5_confidence": 1,
+      "entries_with_zero_uses": 5,
+      "systemic_issue": "Pre-loaded agent memories are initialized at maximum confidence (1.0) without any experiential validation. This bypasses the entire promotion hierarchy (L1→L2→L3→L4) and the governance gates designed to prevent premature strategy formation."
+    },
+    "promotion_chain_integrity": {
+      "strategies_with_valid_promotion_chain": 1,
+      "strategies_bypassing_promotion": 5,
+      "strategies_from_test_data": 1,
+      "integrity_score": 0.14,
+      "note": "Only GUARDIAN-STRAT-001 has a traceable promotion chain (episodic incidents → governance records → dream replay verification). All frontend agent memories bypassed the promotion hierarchy entirely."
+    },
+    "temporal_patterns": {
+      "instant_formation_count": 5,
+      "gradual_formation_count": 1,
+      "test_data_count": 1,
+      "note": "5 of 7 strategies were formed instantaneously at agent initialization, violating the temporal accumulation principle of the ontology."
+    },
+    "contradiction_summary": {
+      "strategies_with_contradictions": 2,
+      "strategies_without_evidence_either_way": 3,
+      "strategies_with_confirming_evidence": 2,
+      "note": "GUARDIAN-STRAT-001 has 50% contradiction rate from its own dream replay. SKILLIFY-BATCH has 50% rollback rate. The remaining strategies have no evidence in either direction (which is itself a concern for high-confidence entries)."
+    }
+  },
+  "rollback_candidates": [
+    {
+      "id": "FE-STRAT-001",
+      "action": "DEMOTE to L2_INSTINCT",
+      "current_confidence": 1.0,
+      "corrected_confidence": 0.3,
+      "justification": "Zero usage, zero validation, bypassed promotion chain"
+    },
+    {
+      "id": "FE-STRAT-002",
+      "action": "DEMOTE to L2_INSTINCT",
+      "current_confidence": 1.0,
+      "corrected_confidence": 0.3,
+      "justification": "Zero usage, zero validation, bypassed promotion chain"
+    }
+  ],
+  "confidence_corrections": [
+    {
+      "id": "FE-STRAT-001",
+      "current": 1.0,
+      "corrected": 0.3,
+      "delta": -0.7
+    },
+    {
+      "id": "FE-STRAT-002",
+      "current": 1.0,
+      "corrected": 0.3,
+      "delta": -0.7
+    },
+    {
+      "id": "FE-FAIL-001",
+      "current": 1.0,
+      "corrected": 0.5,
+      "delta": -0.5
+    },
+    {
+      "id": "FE-KNOW-001",
+      "current": 1.0,
+      "corrected": 0.6,
+      "delta": -0.4
+    },
+    {
+      "id": "FE-KNOW-002",
+      "current": 1.0,
+      "corrected": 0.6,
+      "delta": -0.4
+    }
+  ],
+  "false_strategy_resistance_score": {
+    "score": 0.65,
+    "components": {
+      "guardian_self_correction": {
+        "weight": 0.30,
+        "score": 0.90,
+        "reasoning": "Guardian correctly identified false positives through dream replay, kept confidence at 0.1, and queued recalibration. Excellent self-correction."
+      },
+      "governance_gate_effectiveness": {
+        "weight": 0.25,
+        "score": 0.70,
+        "reasoning": "Governance gates blocked destructive actions (rm -rf) and denied unauthorized tool access. Skillify pipeline rejected 30% of proposals. However, gates did not prevent pre-loaded memories from bypassing the promotion chain."
+      },
+      "promotion_chain_integrity": {
+        "weight": 0.25,
+        "score": 0.20,
+        "reasoning": "Only 1 of 7 strategies (GUARDIAN-STRAT-001) followed the proper promotion chain. Frontend agent memories were injected directly at L4 with maximum confidence, completely bypassing L1→L2→L3→L4 progression."
+      },
+      "confidence_calibration": {
+        "weight": 0.20,
+        "score": 0.30,
+        "reasoning": "5 of 7 strategy-level entries have critically overconfident scores (1.0 with zero validation). The Guardian's confidence model (0.1 for uncertain patterns) is excellent, but the agent memory system lacks confidence calibration entirely."
+      }
+    },
+    "interpretation": "The system shows MODERATE false strategy resistance. The Guardian subsystem demonstrates strong self-correction capabilities (dream replay, confidence calibration, false positive detection). However, the agent memory subsystem has a critical gap: pre-loaded memories bypass the ontology's promotion chain and confidence model, creating false strategies at maximum confidence. The primary vulnerability is not in the promotion engine itself but in memory initialization that circumvents the engine."
+  }
+}

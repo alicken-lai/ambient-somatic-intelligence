@@ -1,0 +1,242 @@
+{
+  "report_version": "1.0.0",
+  "program": "Reality Replay — Phase 1G: Circadian Attention Validation",
+  "generated_at": "2026-05-14T13:08:00+08:00",
+  "data_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:09:25.834231+00:00",
+    "span_hours": 64.25,
+    "total_events_analyzed": 5652,
+    "data_sources": [
+      "memory/dmn.jsonl (1379 records)",
+      "logs/actions.jsonl (4160 records)",
+      "governance/audit/decisions.jsonl (96 records)",
+      "governance/audit/incidents.jsonl (15 records)",
+      "guardian/reflex.jsonl (2 records)"
+    ]
+  },
+  "data_limitations": [
+    "Only ~64 hours of operational data available — insufficient for full circadian confidence",
+    "System started mid-day (12:54 UTC), so early active hours are under-sampled on day 1",
+    "Only 2 real guardian reflex incidents observed, both during late_night period",
+    "Transition_morning has very low event counts (93) making statistical conclusions weak",
+    "No weekend data — all data falls on weekday (Monday–Wednesday)"
+  ],
+  "time_period_definitions": {
+    "quiet_hours": {
+      "range_utc": "00:00–06:00",
+      "range_local_tw": "08:00–14:00 (UTC+8)",
+      "description": "Low operator activity expected; autonomous operations dominate",
+      "hours_covered_in_data": 18
+    },
+    "transition_morning": {
+      "range_utc": "06:00–09:00",
+      "range_local_tw": "14:00–17:00 (UTC+8)",
+      "description": "System transitioning to active operations",
+      "hours_covered_in_data": 6
+    },
+    "active_hours": {
+      "range_utc": "09:00–18:00",
+      "range_local_tw": "17:00–02:00 (UTC+8)",
+      "description": "Peak development and operator activity",
+      "hours_covered_in_data": 24
+    },
+    "transition_evening": {
+      "range_utc": "18:00–21:00",
+      "range_local_tw": "02:00–05:00 (UTC+8)",
+      "description": "Activity winding down; maintenance-capable window",
+      "hours_covered_in_data": 9
+    },
+    "late_night": {
+      "range_utc": "21:00–00:00",
+      "range_local_tw": "05:00–08:00 (UTC+8)",
+      "description": "Late-night autonomous cycles; both real incidents occurred here",
+      "hours_covered_in_data": 9
+    }
+  },
+  "per_period_metrics": {
+    "quiet_hours": {
+      "total_events": 1490,
+      "hours_covered": 18,
+      "events_per_hour": 82.78,
+      "anomaly_count": 70,
+      "anomaly_per_hour": 3.889,
+      "escalation_count": 25,
+      "escalation_per_hour": 1.389,
+      "block_count": 14,
+      "review_count": 42,
+      "allow_count": 1414,
+      "false_positive_rate": 0.60,
+      "false_positive_analysis": "60% of flagged anomalies were REVIEW_REQUIRED that did not escalate to BLOCK — dominated by skillify pipeline test proposals during automated testing",
+      "missed_escalations": 0,
+      "avg_severity_of_anomalies": 0.20,
+      "notable_events": [
+        "Skillify pipeline governance tests generated most REVIEW/BLOCK events",
+        "Autonomous DMN ticks continued without incidents",
+        "No real somatic anomalies detected"
+      ]
+    },
+    "transition_morning": {
+      "total_events": 93,
+      "hours_covered": 6,
+      "events_per_hour": 15.50,
+      "anomaly_count": 0,
+      "anomaly_per_hour": 0.0,
+      "escalation_count": 1,
+      "escalation_per_hour": 0.167,
+      "block_count": 0,
+      "review_count": 0,
+      "allow_count": 92,
+      "false_positive_rate": 0.0,
+      "false_positive_analysis": "No anomalies flagged during this period",
+      "missed_escalations": 0,
+      "avg_severity_of_anomalies": 0.0,
+      "notable_events": [
+        "Very low activity — system in semantic consolidation phase",
+        "Dream replay and simulation occurred near this period"
+      ]
+    },
+    "active_hours": {
+      "total_events": 2140,
+      "hours_covered": 24,
+      "events_per_hour": 89.17,
+      "anomaly_count": 14,
+      "anomaly_per_hour": 0.583,
+      "escalation_count": 3,
+      "escalation_per_hour": 0.125,
+      "block_count": 3,
+      "review_count": 3,
+      "allow_count": 2124,
+      "false_positive_rate": 0.714,
+      "false_positive_analysis": "71% false positive rate but absolute numbers are very low (10 out of 14 anomalies were test/development artifacts)",
+      "missed_escalations": 0,
+      "avg_severity_of_anomalies": 0.214,
+      "notable_events": [
+        "Bootstrap and initial telemetry capture occurred here",
+        "Most governance framework tests ran during active hours",
+        "Test-driven anomalies (rm -rf /, destructive command tests) dominate BLOCK events"
+      ]
+    },
+    "transition_evening": {
+      "total_events": 792,
+      "hours_covered": 9,
+      "events_per_hour": 88.0,
+      "anomaly_count": 0,
+      "anomaly_per_hour": 0.0,
+      "escalation_count": 0,
+      "escalation_per_hour": 0.0,
+      "block_count": 0,
+      "review_count": 0,
+      "allow_count": 792,
+      "false_positive_rate": 0.0,
+      "false_positive_analysis": "Clean period with no anomalies detected",
+      "missed_escalations": 0,
+      "avg_severity_of_anomalies": 0.0,
+      "notable_events": [
+        "Steady autonomous operation with no incidents"
+      ]
+    },
+    "late_night": {
+      "total_events": 1137,
+      "hours_covered": 9,
+      "events_per_hour": 126.33,
+      "anomaly_count": 16,
+      "anomaly_per_hour": 1.778,
+      "escalation_count": 14,
+      "escalation_per_hour": 1.556,
+      "block_count": 2,
+      "review_count": 8,
+      "allow_count": 1113,
+      "false_positive_rate": 0.50,
+      "false_positive_analysis": "50% FP rate; however, this period contains both REAL incidents (memory pressure at 21:49 and 22:14 UTC) — the anomaly detection was justified",
+      "missed_escalations": 0,
+      "avg_severity_of_anomalies": 0.125,
+      "notable_events": [
+        "CRITICAL: Both real memory-pressure incidents occurred at 21:49 and 22:14 UTC",
+        "Guardian reflex correctly triggered and escalated both times",
+        "Highest event density of any period (126.3/h) due to burst telemetry during incident",
+        "Health score dropped from 86.99 to 65.79 during first incident"
+      ]
+    }
+  },
+  "period_comparisons": {
+    "anomaly_rate_ranking": [
+      {"period": "quiet_hours", "anomaly_per_hour": 3.889, "note": "Highest — but dominated by skillify test artifacts, not real anomalies"},
+      {"period": "late_night", "anomaly_per_hour": 1.778, "note": "Real incidents occurred here; anomaly rate justified"},
+      {"period": "active_hours", "anomaly_per_hour": 0.583, "note": "Low anomaly rate; governance framework tests contribute"},
+      {"period": "transition_morning", "anomaly_per_hour": 0.0, "note": "No anomalies; very low overall activity"},
+      {"period": "transition_evening", "anomaly_per_hour": 0.0, "note": "Clean operations; no anomalies"}
+    ],
+    "escalation_rate_ranking": [
+      {"period": "late_night", "escalation_per_hour": 1.556, "note": "Both real escalations occurred here"},
+      {"period": "quiet_hours", "escalation_per_hour": 1.389, "note": "Skillify pipeline rejections dominate"},
+      {"period": "transition_morning", "escalation_per_hour": 0.167},
+      {"period": "active_hours", "escalation_per_hour": 0.125},
+      {"period": "transition_evening", "escalation_per_hour": 0.0}
+    ],
+    "key_findings": [
+      "Real incidents cluster in late_night (21:00–00:00 UTC) — both memory pressure events occurred at 21:49 and 22:14",
+      "Quiet hours show high anomaly counts but these are dominated by automated test activity (skillify), not genuine anomalies",
+      "Active hours have low anomaly rates despite highest human activity — system is well-supervised",
+      "Transition periods (morning/evening) are the calmest — potential windows for reduced sensitivity",
+      "Late_night has the highest event throughput (126.3/h) driven by burst telemetry during incidents"
+    ]
+  },
+  "circadian_salience_adjustment_recommendations": {
+    "quiet_hours": {
+      "sensitivity_multiplier": 0.85,
+      "rationale": "Reduce sensitivity slightly — high anomaly count is inflated by automated test artifacts; maintain reasonable baseline for genuine anomalies",
+      "specific_adjustments": {
+        "skillify_pipeline": "Apply 0.6x salience dampening to routine skillify rejections",
+        "somatic_anomalies": "Maintain 1.0x — no reduction for somatic signals",
+        "governance_blocks": "Maintain 1.0x — always attend to BLOCK-level events"
+      }
+    },
+    "transition_morning": {
+      "sensitivity_multiplier": 1.10,
+      "rationale": "Slightly increase sensitivity — very low activity means any signal is more novel and potentially important",
+      "specific_adjustments": {
+        "novelty_boost": "Increase novelty weight to 0.20 (from 0.15) during sparse periods"
+      }
+    },
+    "active_hours": {
+      "sensitivity_multiplier": 1.0,
+      "rationale": "Standard sensitivity — operator present, system well-supervised, no adjustment needed",
+      "specific_adjustments": {}
+    },
+    "transition_evening": {
+      "sensitivity_multiplier": 1.0,
+      "rationale": "No adjustment needed — clean operational record, standard sensitivity sufficient",
+      "specific_adjustments": {}
+    },
+    "late_night": {
+      "sensitivity_multiplier": 1.25,
+      "rationale": "INCREASE sensitivity — both real incidents occurred during this period; operator likely absent; autonomous responses must be more vigilant",
+      "specific_adjustments": {
+        "somatic_weight": "Increase somatic_stress weight to 0.18 (from 0.12)",
+        "escalation_threshold": "Lower escalation threshold to 0.65 (from 0.75)",
+        "temporal_decay_half_life": "Extend to 120s (from 60s) to avoid losing track of slow-developing issues"
+      }
+    }
+  },
+  "circadian_policy_recommendation": {
+    "summary": "Implement time-aware salience adjustments: increase late_night sensitivity by 25% (where real incidents cluster), reduce quiet_hours by 15% (to dampen test artifacts), and boost transition_morning novelty detection by 10%.",
+    "confidence": "MODERATE",
+    "confidence_rationale": "Only 64 hours of data with 2 real incidents is insufficient for high-confidence circadian modeling. Recommendations are directionally correct but require validation with more operational history.",
+    "implementation_priority": "MEDIUM — circadian adjustments should be deployed after accumulating at least 2 weeks of operational data",
+    "monitoring": "Track false positive rates and missed escalations per period after implementing adjustments"
+  },
+  "circadian_adaptation_quality_score": 0.52,
+  "score_breakdown": {
+    "data_sufficiency": 0.30,
+    "data_sufficiency_note": "64 hours covers ~2.7 full circadian cycles — minimum for pattern detection, insufficient for statistical confidence",
+    "incident_coverage": 0.70,
+    "incident_coverage_note": "Both real incidents were correctly detected and escalated during late_night; no missed escalations",
+    "false_positive_management": 0.45,
+    "false_positive_management_note": "High FP rate in quiet_hours (60%) and active_hours (71%) but dominated by test artifacts, not production false alarms",
+    "period_differentiation": 0.65,
+    "period_differentiation_note": "Clear differences between periods exist, but driven more by operational patterns (tests, development) than true circadian variation",
+    "recommendation_actionability": 0.50,
+    "recommendation_actionability_note": "Recommendations are reasonable but require more data to validate; late_night sensitivity increase is the strongest recommendation"
+  }
+}

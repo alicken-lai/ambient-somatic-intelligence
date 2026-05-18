@@ -1,0 +1,369 @@
+{
+  "report_version": "1.0.0",
+  "generated_at": "2026-05-14T05:12:48.086672+00:00",
+  "program": "Reality Replay — Phase 1D: Missed Instinct Detection",
+  "data_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:02:25.620058+00:00",
+    "span_hours": 64.14
+  },
+  "detection_categories": {
+    "repeated_failures": 3,
+    "recurring_recovery_actions": 3,
+    "recurring_governance_escalations": 2
+  },
+  "total_missed_instincts": 8,
+  "ranking_summary": {
+    "HIGH": 3,
+    "MEDIUM": 2,
+    "LOW": 3
+  },
+  "missed_instincts": [
+    {
+      "missed_instinct_id": "missed-0001",
+      "pattern_name": "memory_scoring_artifact_detection",
+      "description": "The legacy memory health scoring formula produced a zero score due to tiny baseline variance (stddev=0.1413), which the system identified as a 'scoring artifact' during both incidents. The diagnosis was repeated but never crystallized into a permanent rule to pre-filter such artifacts.",
+      "category": "repeated_failure",
+      "occurrences": 2,
+      "first_seen": "2026-05-11T22:04:14.382727+00:00",
+      "last_seen": "2026-05-11T22:04:33.279883+00:00",
+      "time_span_hours": 0.005,
+      "source_records": [
+        {
+          "source": "memory_pressure_diagnosis",
+          "timestamp": "2026-05-11T22:04:14.382727+00:00"
+        },
+        {
+          "source": "memory_pressure_diagnosis",
+          "timestamp": "2026-05-11T22:04:33.279883+00:00"
+        }
+      ],
+      "evidence": {
+        "artifact_detected": true,
+        "legacy_score": 0.0,
+        "legacy_z_score": 12.5442,
+        "reason": "absolute z-score penalized memory usage below the baseline mean when baseline variance was tiny"
+      },
+      "operational_impact": "HIGH — memory health reported as zero (catastrophic) when actual risk was merely 'watch' level. Could trigger unnecessary escalations.",
+      "ranking": "HIGH",
+      "ranking_rationale": "frequency=2, impact=catastrophic_misclassification, risk=false_positive_cascade",
+      "recommended_instinct": {
+        "observation": "When baseline variance is extremely small (stddev < 0.5), z-score based scoring produces misleading results. Apply minimum variance floor.",
+        "trigger_conditions": [
+          "baseline_stddev < 0.5",
+          "z_score > 5.0"
+        ],
+        "action": "Apply minimum variance floor of 1.0 before z-score calculation; flag as scoring artifact."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0002",
+      "pattern_name": "repeated_reflex_without_escalation",
+      "description": "The high_memory_usage reflex rule fired twice (2 incidents) with identical severity='warning'. The incident recall step noted 'repeated_anomaly_types: {high_memory_usage: 2}' and 'severity matches previous maximum', but no escalation or threshold adjustment was promoted.",
+      "category": "recurring_recovery_action",
+      "occurrences": 2,
+      "first_seen": "2026-05-11T21:49:02.703942+00:00",
+      "last_seen": "2026-05-11T22:14:37.782126+00:00",
+      "time_span_hours": 0.43,
+      "source_records": [
+        {
+          "source": "guardian_reflex",
+          "timestamp": "2026-05-11T21:49:02.703942+00:00"
+        },
+        {
+          "source": "guardian_reflex",
+          "timestamp": "2026-05-11T22:14:37.782126+00:00"
+        }
+      ],
+      "evidence": {
+        "repeated_anomaly_types": {
+          "high_memory_usage": 2
+        },
+        "severity_comparison": "latest incident severity matches previous maximum",
+        "recalibration_proposed_but_not_applied": true,
+        "dream_suggested_confidence": [
+          0.15,
+          0.2
+        ]
+      },
+      "operational_impact": "MEDIUM — system correctly detected repetition but did not auto-apply recalibration. Dream cycle proposed confidence adjustments (0.15, 0.20) that remain in queue.",
+      "ranking": "HIGH",
+      "ranking_rationale": "frequency=2, impact=missed_escalation_path, risk=alert_fatigue",
+      "recommended_instinct": {
+        "observation": "When the same reflex rule fires more than once within a short window, the system should auto-escalate severity or auto-apply the dream cycle's recalibration suggestions.",
+        "trigger_conditions": [
+          "repeated_anomaly_types[rule] >= 2",
+          "time_between_incidents < 2h"
+        ],
+        "action": "Auto-apply recalibration queue entries after second occurrence of same rule."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0003",
+      "pattern_name": "docker_context_missing_on_first_reflex",
+      "description": "The first memory pressure incident lacked Docker VM context (docker_vm_memory_mib=null in first diagnosis). This was corrected in the second diagnosis (docker_vm_memory_mib=8192). The system learned to include Docker context but only after the first false alarm.",
+      "category": "repeated_failure",
+      "occurrences": 2,
+      "first_seen": "2026-05-11T22:04:14.382727+00:00",
+      "last_seen": "2026-05-11T22:04:33.279883+00:00",
+      "time_span_hours": 0.005,
+      "source_records": [
+        {
+          "source": "memory_pressure_diagnosis",
+          "timestamp": "2026-05-11T22:04:14.382727+00:00",
+          "docker_vm_memory_mib": null
+        },
+        {
+          "source": "memory_pressure_diagnosis",
+          "timestamp": "2026-05-11T22:04:33.279883+00:00",
+          "docker_vm_memory_mib": 8192
+        }
+      ],
+      "evidence": {
+        "first_diagnosis_missing_docker": true,
+        "second_diagnosis_includes_docker": true
+      },
+      "operational_impact": "MEDIUM — incomplete context in first diagnosis could lead to wrong recommendations. Pattern of adding context after-the-fact should be inverted.",
+      "ranking": "MEDIUM",
+      "ranking_rationale": "frequency=2, impact=incomplete_diagnosis, risk=incorrect_remediation",
+      "recommended_instinct": {
+        "observation": "Always collect Docker VM status and container stats before evaluating memory pressure.",
+        "trigger_conditions": [
+          "memory_pressure_check = true"
+        ],
+        "action": "Mandatory Docker context collection as prerequisite for any memory pressure diagnosis."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0004",
+      "pattern_name": "circadian_baseline_convergence_loop",
+      "description": "4 circadian baseline runs within 2 minutes (00:27:49 → 00:29:38), showing iterative convergence from 'normal' to 'warning' severity. The system adjusted confidence from 0.15 down to 0.05 but ran 4 attempts instead of converging in one pass.",
+      "category": "recurring_recovery_action",
+      "occurrences": 4,
+      "first_seen": "2026-05-12T00:27:49.510859+00:00",
+      "last_seen": "2026-05-12T00:29:38.740261+00:00",
+      "time_span_hours": 0.03,
+      "source_records": [
+        {
+          "source": "circadian_baseline",
+          "timestamp": "2026-05-12T00:27:49.510859+00:00",
+          "deviation": "normal",
+          "confidence": 0.15
+        },
+        {
+          "source": "circadian_baseline",
+          "timestamp": "2026-05-12T00:29:04.189428+00:00",
+          "deviation": "warning",
+          "confidence": 0.05
+        },
+        {
+          "source": "circadian_baseline",
+          "timestamp": "2026-05-12T00:29:14.583403+00:00",
+          "deviation": "warning",
+          "confidence": 0.05
+        },
+        {
+          "source": "circadian_baseline",
+          "timestamp": "2026-05-12T00:29:38.740261+00:00",
+          "deviation": "warning",
+          "confidence": 0.05
+        }
+      ],
+      "evidence": {
+        "iterations": 4,
+        "converged_at": "iteration 2",
+        "wasted_iterations": 2
+      },
+      "operational_impact": "LOW — wasted computation but no incorrect output. Convergence should be achievable in 1-2 iterations.",
+      "ranking": "LOW",
+      "ranking_rationale": "frequency=4_in_cluster, impact=wasted_computation, risk=low",
+      "recommended_instinct": {
+        "observation": "Circadian baseline should cache its result after convergence and not re-run if inputs haven't changed.",
+        "trigger_conditions": [
+          "circadian_baseline.deviation == previous.deviation"
+        ],
+        "action": "Skip re-evaluation if deviation severity hasn't changed since last run."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0005",
+      "pattern_name": "anomaly_explanation_duplication",
+      "description": "4 anomaly explanation runs in ~2 minutes. The last 3 outputs are identical (same active_warning_count=5, same warning_metrics). The system didn't detect it was producing duplicate explanations.",
+      "category": "recurring_recovery_action",
+      "occurrences": 4,
+      "first_seen": "2026-05-12T00:32:53.686452+00:00",
+      "last_seen": "2026-05-12T00:34:10.367620+00:00",
+      "time_span_hours": 0.02,
+      "source_records": [
+        {
+          "source": "anomaly_explanation",
+          "timestamp": "2026-05-12T00:32:53.686452+00:00",
+          "warning_count": 2
+        },
+        {
+          "source": "anomaly_explanation",
+          "timestamp": "2026-05-12T00:33:35.252419+00:00",
+          "warning_count": 5
+        },
+        {
+          "source": "anomaly_explanation",
+          "timestamp": "2026-05-12T00:33:54.566297+00:00",
+          "warning_count": 5
+        },
+        {
+          "source": "anomaly_explanation",
+          "timestamp": "2026-05-12T00:34:10.367620+00:00",
+          "warning_count": 5
+        }
+      ],
+      "evidence": {
+        "duplicate_outputs": 3,
+        "wasted_runs": 2
+      },
+      "operational_impact": "LOW — duplicate outputs waste compute and pollute the governance log. Dedup should prevent this.",
+      "ranking": "LOW",
+      "ranking_rationale": "frequency=4, impact=log_pollution, risk=low",
+      "recommended_instinct": {
+        "observation": "Content-hash deduplication should prevent storing identical anomaly explanations.",
+        "trigger_conditions": [
+          "anomaly_explanation.output_hash == previous.output_hash"
+        ],
+        "action": "Skip storage if output is byte-identical to previous explanation."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0006",
+      "pattern_name": "skillify_retry_without_backoff",
+      "description": "The Skillify pipeline submitted auto_test_skill 6 times over 48 minutes, each time getting rejected by governance. No exponential backoff or rejection memory was implemented.",
+      "category": "repeated_failure",
+      "occurrences": 6,
+      "first_seen": "2026-05-14T03:15:39.583279+00:00",
+      "last_seen": "2026-05-14T04:03:51.664118+00:00",
+      "time_span_hours": 0.8,
+      "source_records": [
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:15:39.583279+00:00"
+        },
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:15:39.584460+00:00"
+        },
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:16:32.523412+00:00"
+        },
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:16:32.524971+00:00"
+        },
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:45:31.120586+00:00"
+        },
+        {
+          "source": "governance/audit/incidents.jsonl",
+          "timestamp": "2026-05-14T03:45:31.121597+00:00"
+        }
+      ],
+      "evidence": {
+        "total_rejections": 12,
+        "unique_skill_ids": 1,
+        "rejection_reason": "Skillify pipeline: rejected",
+        "governance_decisions_consumed": 42
+      },
+      "operational_impact": "MEDIUM — 42 REVIEW_REQUIRED governance decisions consumed for a repeatedly-failing skill. Wastes governance capacity.",
+      "ranking": "HIGH",
+      "ranking_rationale": "frequency=6, impact=governance_capacity_waste, risk=resource_exhaustion",
+      "recommended_instinct": {
+        "observation": "After 2+ consecutive rejections of the same skill, apply exponential backoff (5min → 30min → 2h → permanent cooldown).",
+        "trigger_conditions": [
+          "skill.rejection_count >= 2",
+          "same_skill_id"
+        ],
+        "action": "Implement rejection memory with exponential backoff for repeated skill proposals."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0007",
+      "pattern_name": "destructive_command_from_multiple_agents",
+      "description": "Two different agents (test, backend-agent) attempted 'rm -rf /', both correctly blocked by governance. However, no cross-agent learning occurred — the block rule had to fire independently for each agent.",
+      "category": "recurring_governance_escalation",
+      "occurrences": 2,
+      "first_seen": "2026-05-13T13:51:43.414441+00:00",
+      "last_seen": "2026-05-13T22:05:02.538493+00:00",
+      "time_span_hours": 8.22,
+      "source_records": [
+        {
+          "agent_id": "test",
+          "timestamp": "2026-05-13T13:51:43.414441+00:00",
+          "policy": "block_destructive"
+        },
+        {
+          "agent_id": "backend-agent",
+          "timestamp": "2026-05-13T22:05:02.538493+00:00",
+          "policy": "block_destructive_system"
+        }
+      ],
+      "evidence": {
+        "agents_involved": [
+          "test",
+          "backend-agent"
+        ],
+        "policies_triggered": [
+          "block_destructive",
+          "block_destructive_system"
+        ],
+        "both_blocked": true
+      },
+      "operational_impact": "LOW — both were correctly blocked, but the second occurrence shows the first block didn't propagate awareness to other agents.",
+      "ranking": "MEDIUM",
+      "ranking_rationale": "frequency=2, impact=security_boundary_test, risk=policy_gap_between_agents",
+      "recommended_instinct": {
+        "observation": "Destructive command blocks should be broadcast to all agents as a shared safety constraint, not evaluated independently per agent.",
+        "trigger_conditions": [
+          "block_event.type == destructive_command"
+        ],
+        "action": "Broadcast block decisions to all agent safety constraints after first occurrence."
+      }
+    },
+    {
+      "missed_instinct_id": "missed-0008",
+      "pattern_name": "agent_capability_boundary_violation",
+      "description": "frontend-agent attempted to execute a shell command but was blocked by agent-specific permission override. This suggests the agent did not have awareness of its own capability boundaries.",
+      "category": "recurring_governance_escalation",
+      "occurrences": 1,
+      "first_seen": "2026-05-13T22:05:02.538225+00:00",
+      "last_seen": "2026-05-13T22:05:02.538225+00:00",
+      "time_span_hours": 0,
+      "source_records": [
+        {
+          "agent_id": "frontend-agent",
+          "timestamp": "2026-05-13T22:05:02.538225+00:00",
+          "reason": "Tool permission denied: Agent override for frontend-agent"
+        }
+      ],
+      "evidence": {
+        "agent": "frontend-agent",
+        "attempted_action": "exec shell command",
+        "block_reason": "Agent override — frontend-agent not authorized for shell"
+      },
+      "operational_impact": "LOW — correctly blocked, but agent wasted a planning step on an impossible action.",
+      "ranking": "LOW",
+      "ranking_rationale": "frequency=1, impact=wasted_planning_step, risk=low",
+      "recommended_instinct": {
+        "observation": "Agents should pre-check their capability boundaries before proposing actions, rather than discovering limitations through governance blocks.",
+        "trigger_conditions": [
+          "agent.action_proposed = true"
+        ],
+        "action": "Inject agent capability manifest into planning context to prevent unauthorized action proposals."
+      }
+    }
+  ],
+  "total_wasted_operations": {
+    "duplicate_governance_decisions": 42,
+    "duplicate_anomaly_explanations": 2,
+    "duplicate_circadian_runs": 2,
+    "redundant_skill_rejections": 10
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "report_version": "1.0.0",
+  "program": "Reality Replay — Phase 1F: Somatic Precursor Analysis",
+  "generated_at": "2026-05-14T13:08:00+08:00",
+  "analysis_window": {
+    "start": "2026-05-11T12:54:11+00:00",
+    "end": "2026-05-14T05:02:25+00:00",
+    "span_hours": 64.14
+  },
+  "incidents_analyzed": [
+    {
+      "incident_id": "INC-001",
+      "timestamp": "2026-05-11T21:49:02.703942+00:00",
+      "type": "high_memory_usage",
+      "severity": "warning",
+      "file": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+      "true_anomaly": true,
+      "key_metrics_at_incident": {
+        "memory_used_percent": 99.28,
+        "cpu_usage_percent": 17.56,
+        "load_average_1m": 2.8,
+        "load_average_5m": 1.83,
+        "load_average_15m": 1.6,
+        "disk_used_percent": 54.52,
+        "process_count": 667
+      },
+      "baseline_comparison": {
+        "memory_mean": 99.4625,
+        "memory_stddev": 0.1413,
+        "cpu_mean": 9.2,
+        "cpu_stddev": 5.4963,
+        "load_1m_mean": 1.68,
+        "load_1m_stddev": 0.647,
+        "process_count_mean": 632.0,
+        "process_count_stddev": 20.3224
+      }
+    },
+    {
+      "incident_id": "INC-002",
+      "timestamp": "2026-05-11T22:14:37.782126+00:00",
+      "type": "high_memory_usage",
+      "severity": "warning",
+      "file": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+      "true_anomaly": false,
+      "scoring_artifact": true,
+      "confidence": 0.1,
+      "confidence_class": "low_confidence_watch",
+      "key_metrics_at_incident": {
+        "memory_used_percent": 97.69,
+        "cpu_usage_percent": 4.58,
+        "load_average_1m": 1.39,
+        "load_average_5m": 1.5,
+        "load_average_15m": 1.5,
+        "disk_used_percent": 54.52,
+        "process_count": 666
+      },
+      "notes": "Classified as scoring_artifact by reflex confidence calibration. Memory actually BELOW baseline mean (z-score -12.54 from narrow baseline). Docker VM reservation accounts for majority of host memory."
+    }
+  ],
+  "precursor_timeline": {
+    "INC-001": {
+      "t_minus_60m": {
+        "window": "2026-05-11T20:49:02 to 2026-05-11T21:49:02",
+        "telemetry_available": false,
+        "signals_found": [],
+        "notes": "No telemetry readings available. 8-hour gap between last reading at 13:36 and incident at 21:49. Earliest telemetry (at T-8h) already showed memory at 99.37-99.61%."
+      },
+      "t_minus_30m": {
+        "window": "2026-05-11T21:19:02 to 2026-05-11T21:49:02",
+        "telemetry_available": false,
+        "signals_found": [],
+        "notes": "No telemetry readings in this window due to 8-hour observability gap."
+      },
+      "t_minus_10m": {
+        "window": "2026-05-11T21:39:02 to 2026-05-11T21:49:02",
+        "telemetry_available": false,
+        "signals_found": [],
+        "notes": "No telemetry readings available in this window."
+      },
+      "t_minus_5m": {
+        "window": "2026-05-11T21:44:02 to 2026-05-11T21:49:02",
+        "telemetry_available": false,
+        "signals_found": [],
+        "notes": "No telemetry readings available in this window."
+      },
+      "earliest_known_precursors": {
+        "window": "2026-05-11T13:36:36 to 2026-05-11T13:54:13 (T-8h)",
+        "signals": [
+          {
+            "type": "sustained_high_memory",
+            "description": "Memory usage consistently at 99.37-99.61% across all 3 early telemetry snapshots",
+            "values": [99.37, 99.59, 99.61],
+            "timestamps": ["2026-05-11T13:36:36Z", "2026-05-11T13:36:44Z", "2026-05-11T13:36:44Z"],
+            "severity": "high",
+            "lead_time_seconds": 29558
+          },
+          {
+            "type": "process_count_baseline",
+            "description": "Process count at 617-623, below later incident-time levels of 667",
+            "values": [617, 623, 621],
+            "severity": "informational"
+          },
+          {
+            "type": "disk_usage_growth_precursor",
+            "description": "Disk at 53.78%, growing to 54.52% by incident time (+0.74%)",
+            "values": [53.78],
+            "severity": "low"
+          }
+        ]
+      },
+      "at_incident_snapshot": {
+        "elevated_signals": [
+          {
+            "type": "cpu_spike",
+            "value": 17.56,
+            "baseline_mean": 9.2,
+            "z_score": 1.521,
+            "deviation": "elevated"
+          },
+          {
+            "type": "load_spike_1m",
+            "value": 2.8,
+            "baseline_mean": 1.68,
+            "z_score": 1.731,
+            "deviation": "elevated"
+          },
+          {
+            "type": "load_spike_5m",
+            "value": 1.83,
+            "baseline_mean": 1.745,
+            "z_score": 1.710,
+            "deviation": "elevated"
+          },
+          {
+            "type": "process_count_increase",
+            "value": 667,
+            "baseline_mean": 632,
+            "z_score": 1.722,
+            "deviation": "elevated"
+          },
+          {
+            "type": "disk_usage_growth",
+            "value": 54.52,
+            "baseline_mean": 53.965,
+            "z_score": 1.732,
+            "deviation": "elevated"
+          }
+        ]
+      }
+    },
+    "INC-002": {
+      "t_minus_60m": {
+        "window": "2026-05-11T21:14:37 to 2026-05-11T22:14:37",
+        "telemetry_available": true,
+        "signals_found": [
+          {
+            "type": "prior_incident",
+            "description": "INC-001 (high_memory_usage) occurred at T-25m within this window",
+            "timestamp": "2026-05-11T21:49:02Z",
+            "severity": "high"
+          },
+          {
+            "type": "health_score_drop",
+            "description": "Health score dropped from 87.0 to 65.79 at INC-001 time, then recovered to 76.5",
+            "values": {"pre_incident": 87.0, "at_incident": 65.79, "post_incident": 76.53},
+            "severity": "medium"
+          }
+        ]
+      },
+      "t_minus_30m": {
+        "window": "2026-05-11T21:44:37 to 2026-05-11T22:14:37",
+        "telemetry_available": true,
+        "signals_found": [
+          {
+            "type": "prior_incident",
+            "description": "INC-001 occurred at 21:49:02, within this window",
+            "severity": "high"
+          },
+          {
+            "type": "memory_decrease",
+            "description": "Memory dropped from 99.28% (INC-001) to 97.60-97.86% in post-incident telemetry burst",
+            "values": {"at_inc1": 99.28, "post_inc1_range": [97.60, 97.86]},
+            "severity": "medium",
+            "notes": "Memory decreasing, not increasing — reduces true precursor validity"
+          },
+          {
+            "type": "process_count_sustained_high",
+            "description": "Process count remained at 665-668 after INC-001",
+            "values": [668, 665, 665, 665, 665, 666, 666, 666, 666, 666, 666, 666, 666],
+            "severity": "low"
+          }
+        ]
+      },
+      "t_minus_10m": {
+        "window": "2026-05-11T22:04:37 to 2026-05-11T22:14:37",
+        "telemetry_available": true,
+        "signals_found": [
+          {
+            "type": "memory_pressure_diagnosis_activity",
+            "description": "memory_pressure_diagnosis entries logged at 22:04:14 and 22:04:33 in DMN",
+            "timestamps": ["2026-05-11T22:04:14Z", "2026-05-11T22:04:33Z"],
+            "severity": "medium"
+          }
+        ]
+      },
+      "t_minus_5m": {
+        "window": "2026-05-11T22:09:37 to 2026-05-11T22:14:37",
+        "telemetry_available": false,
+        "signals_found": [],
+        "notes": "No new telemetry snapshots in this window. Previous diagnosis activity at T-10m."
+      }
+    }
+  },
+  "precursor_clusters": [
+    {
+      "cluster_id": "PC-001",
+      "name": "Multi-Signal Resource Saturation",
+      "fingerprint": {
+        "signal_pattern": "CPU_SPIKE+LOAD_SPIKE+MEMORY_SUSTAINED_HIGH+PROCESS_COUNT_DRIFT",
+        "severity_band": "high",
+        "temporal_pattern": "sustained"
+      },
+      "precursor_signals": [
+        "sustained_high_memory (>99%)",
+        "cpu_spike (>1.5 stddev above mean)",
+        "load_1m_spike (>1.5 stddev above mean)",
+        "process_count_elevation (>1.5 stddev above mean)"
+      ],
+      "incidents_preceded": ["INC-001"],
+      "confidence": 0.50,
+      "false_positive_rate": "INDETERMINATE",
+      "earliest_detection_window_seconds": 29558,
+      "earliest_detection_window_description": "~8 hours (memory pressure visible at first available telemetry, but CPU/load spike data only available at incident time due to observability gap)",
+      "notes": "Strong co-occurrence at incident time, but limited by 8-hour telemetry gap. Memory was already saturated at earliest reading; CPU+load spikes appear only in the incident snapshot itself. True early warning potential for CPU/load components is unknown."
+    },
+    {
+      "cluster_id": "PC-002",
+      "name": "Persistent Memory Saturation (Background State)",
+      "fingerprint": {
+        "signal_pattern": "MEMORY_SUSTAINED_HIGH",
+        "severity_band": "medium",
+        "temporal_pattern": "sustained"
+      },
+      "precursor_signals": [
+        "memory_used_percent consistently >97%"
+      ],
+      "incidents_preceded": ["INC-001", "INC-002"],
+      "confidence": 0.25,
+      "false_positive_rate": 0.92,
+      "false_positive_rate_notes": "Memory was at 97-99% throughout the ENTIRE 64-hour observation window, including all non-incident periods. High memory alone cannot distinguish pre-incident from normal operation.",
+      "earliest_detection_window_seconds": 29558,
+      "earliest_detection_window_description": "~8 hours (present at first available telemetry)",
+      "notes": "This pattern is a necessary but not sufficient condition. It represents a chronic state (Docker VM reserving 8GB of 16GB host RAM) rather than an acute precursor."
+    },
+    {
+      "cluster_id": "PC-003",
+      "name": "Process Count Gradual Drift",
+      "fingerprint": {
+        "signal_pattern": "PROCESS_COUNT_DRIFT",
+        "severity_band": "low",
+        "temporal_pattern": "sustained"
+      },
+      "precursor_signals": [
+        "process_count gradually increasing from 617→623→667→668 over hours"
+      ],
+      "incidents_preceded": ["INC-001"],
+      "confidence": 0.30,
+      "false_positive_rate": "INDETERMINATE",
+      "earliest_detection_window_seconds": 29558,
+      "earliest_detection_window_description": "Gradual increase over ~8 hours (617 at T-8h → 667 at incident time)",
+      "notes": "Process count increased by ~50 between early telemetry and incident time. Could indicate cumulative resource accumulation. However, only 2 observation points available (early cluster at 13:36 and incident cluster at 21:49+)."
+    },
+    {
+      "cluster_id": "PC-004",
+      "name": "Prior Incident Cascade",
+      "fingerprint": {
+        "signal_pattern": "INCIDENT_RECURRENCE",
+        "severity_band": "medium",
+        "temporal_pattern": "burst"
+      },
+      "precursor_signals": [
+        "prior high_memory_usage incident (INC-001) within 30 minutes",
+        "health_score_drop (87→66→76)",
+        "memory_pressure_diagnosis activity"
+      ],
+      "incidents_preceded": ["INC-002"],
+      "confidence": 0.40,
+      "false_positive_rate": "INDETERMINATE",
+      "earliest_detection_window_seconds": 1535,
+      "earliest_detection_window_description": "~25 minutes (INC-001 preceded INC-002 by 25m35s)",
+      "notes": "INC-002 was classified as a scoring artifact (not a true anomaly). The prior incident triggered additional monitoring that re-evaluated the same underlying condition. This is not a true precursor pattern — it's the reflex system re-checking an already-known condition."
+    }
+  ],
+  "false_positive_analysis": {
+    "methodology": "Compared precursor signal presence during incident windows vs. non-incident windows across the 64-hour observation period",
+    "findings": [
+      {
+        "signal": "sustained_high_memory (>97%)",
+        "incident_windows_present": 2,
+        "non_incident_windows_present": "continuous (64 hours)",
+        "false_positive_rate": 0.92,
+        "verdict": "UNRELIABLE — present throughout entire observation, cannot distinguish incident from normal"
+      },
+      {
+        "signal": "cpu_spike (>15%)",
+        "incident_windows_present": 1,
+        "non_incident_windows_present": 0,
+        "false_positive_rate": 0.0,
+        "verdict": "PROMISING but insufficient data (n=1 incident, n=3 early baseline readings all <9%)"
+      },
+      {
+        "signal": "load_1m_spike (>2.5)",
+        "incident_windows_present": 1,
+        "non_incident_windows_present": 0,
+        "false_positive_rate": 0.0,
+        "verdict": "PROMISING but insufficient data (n=1). Earlier readings at 1.29-1.34."
+      },
+      {
+        "signal": "process_count >660",
+        "incident_windows_present": 2,
+        "non_incident_windows_present": "sustained after INC-001",
+        "false_positive_rate": 0.60,
+        "verdict": "MODERATE — elevated after incident but also during stable post-incident period"
+      },
+      {
+        "signal": "disk_usage_growth (z>1.5)",
+        "incident_windows_present": 2,
+        "non_incident_windows_present": "sustained after reaching 54.52%",
+        "false_positive_rate": 0.75,
+        "verdict": "UNRELIABLE — disk grew monotonically, stayed elevated in all post-growth windows"
+      }
+    ]
+  },
+  "detection_windows": {
+    "INC-001": {
+      "earliest_theoretical": "8 hours (memory saturation visible at T-8h)",
+      "earliest_actionable": "UNKNOWN — no intermediate telemetry between T-8h and T-0",
+      "earliest_specific": "0 seconds (CPU/load spike only visible in incident snapshot)",
+      "notes": "The 8-hour telemetry gap is the critical limitation. Memory saturation was chronic, so it provides a permanent warning but not a timely specific alert."
+    },
+    "INC-002": {
+      "earliest_theoretical": "25 minutes (prior incident is strongest predictor)",
+      "earliest_actionable": "10 minutes (memory_pressure_diagnosis activity)",
+      "earliest_specific": "25 minutes (INC-001 occurrence)",
+      "notes": "INC-002 was a false positive (scoring artifact). The earliest 'precursor' was the prior real incident triggering re-evaluation."
+    }
+  },
+  "overall_precursor_detection_accuracy": {
+    "score": 0.35,
+    "methodology": "Weighted average: (cluster reliability × incident coverage × 1-false_positive_rate) across all clusters, penalized for small sample size (n=2 incidents, 1 true positive) and observability gaps",
+    "breakdown": {
+      "true_precursors_identified": 1,
+      "scoring_artifacts_correctly_classified": 1,
+      "incidents_with_detectable_precursors": 1,
+      "total_incidents": 2,
+      "observability_coverage": 0.15,
+      "observability_notes": "Only 15% of the pre-incident window had telemetry coverage due to 8-hour gap before INC-001"
+    },
+    "confidence_in_score": "LOW",
+    "confidence_notes": "Sample size of 2 incidents (1 true, 1 scoring artifact) is insufficient for statistically meaningful precursor validation. Score reflects analytical potential, not proven detection capability."
+  },
+  "recommendations": [
+    {
+      "priority": "CRITICAL",
+      "recommendation": "Increase telemetry collection frequency",
+      "detail": "The 8-hour gap between T-8h telemetry and INC-001 is the primary limitation. Continuous or 5-minute-interval telemetry would enable precursor detection for CPU/load spikes.",
+      "expected_impact": "Would likely increase detection accuracy from 0.35 to 0.60+"
+    },
+    {
+      "priority": "HIGH",
+      "recommendation": "Implement composite precursor scoring",
+      "detail": "Single-metric thresholds (memory >97%) are unreliable due to chronic elevation. A composite score combining CPU deviation + load deviation + process count trend + memory pressure would have much lower false positive rates.",
+      "expected_impact": "Estimated false positive reduction from 92% to <30%"
+    },
+    {
+      "priority": "HIGH",
+      "recommendation": "Add process count trend monitoring",
+      "detail": "Process count drift from 617→667 (+8%) over 8 hours was a gradual signal. A rate-of-change detector (ΔN/Δt) could provide earlier warning than absolute thresholds.",
+      "expected_impact": "Potential 30-60 minute early warning for resource accumulation incidents"
+    },
+    {
+      "priority": "MEDIUM",
+      "recommendation": "Refine Docker VM memory accounting",
+      "detail": "Docker Desktop VM reservation (8GB of 16GB) permanently inflates host memory_used_percent to >97%. Subtract Docker VM reservation from baseline to reduce false positives.",
+      "expected_impact": "Would eliminate the primary source of scoring artifacts"
+    },
+    {
+      "priority": "MEDIUM",
+      "recommendation": "Implement circadian-aware precursor matching",
+      "detail": "Circadian baseline shows hour-22 has different normal ranges than hour-13. Time-aware precursor detection would reduce false positives from daytime/nighttime variance.",
+      "expected_impact": "Improved specificity for time-of-day dependent anomalies"
+    },
+    {
+      "priority": "LOW",
+      "recommendation": "Accumulate more incident data before trusting precursor patterns",
+      "detail": "With only 2 incidents (1 true positive, 1 scoring artifact), statistical validation is impossible. Minimum ~10 true incidents needed for reliable precursor fingerprinting.",
+      "expected_impact": "Required for any production-grade precursor detection system"
+    }
+  ],
+  "data_quality_assessment": {
+    "telemetry_coverage": {
+      "total_snapshots": 20,
+      "pre_incident_1_snapshots": 3,
+      "between_incidents_snapshots": 16,
+      "post_incident_2_snapshots": 1,
+      "largest_gap_hours": 8.34,
+      "largest_gap_description": "2026-05-11T13:36:44 to 2026-05-11T21:49:00 — no telemetry"
+    },
+    "incident_sample_size": {
+      "total_incidents": 2,
+      "true_anomalies": 1,
+      "scoring_artifacts": 1,
+      "incident_types": ["high_memory_usage"],
+      "verdict": "INSUFFICIENT for statistical validation"
+    },
+    "data_integrity": {
+      "checksum_chain_valid": true,
+      "corruption_detected": false,
+      "all_sources_clean": true
+    }
+  }
+}

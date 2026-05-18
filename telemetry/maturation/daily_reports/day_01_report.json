@@ -1,0 +1,25 @@
+{
+  "day": "day_01",
+  "date": "2026-05-11",
+  "status": "PARTIAL",
+  "metrics": {
+    "cadence_compliance": 0.9788,
+    "missing_interval_rate": 0.84,
+    "duplicate_rate": 0.7982,
+    "max_clock_drift_seconds": 0.0,
+    "corruption_count": 0,
+    "silent_sources": [
+      "governance.decisions",
+      "governance.incidents",
+      "agent.decisions"
+    ],
+    "replay_compatibility": 0.5486
+  },
+  "thresholds_met": false,
+  "issues": [
+    "Missing interval rate 84.00% above 5%",
+    "Duplicate rate 0.7982 above 0.01",
+    "Silent sources: governance.decisions, governance.incidents, agent.decisions",
+    "Partial day \u2014 not all 24 hours covered"
+  ]
+}

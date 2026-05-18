@@ -1,0 +1,343 @@
+{
+  "recheck_id": "P1.7B-rerun",
+  "timestamp": "2026-05-18T15:45:00+08:00",
+  "program": "P1.7B Real-Only Reality Gate Recheck (RERUN)",
+  "methodology": "Fresh zero-tolerance recheck. Per-day stats recomputed from day_01–day_07 JSON (record-level data_origin scan). Composite score recomputed from observability/replay/matured_reality_score.py. Live-source span cross-checked against memory/dmn.jsonl, logs/actions.jsonl, state/daemon/dmn_tick_status.json. P1.7 maturation reports used for precursor/circadian (not regenerated in this rerun).",
+  "data_as_of": "2026-05-18T07:33:52.229278+00:00",
+  "effective_evaluation_date": "2026-05-18",
+  "changes_vs_prior_p17b": {
+    "prior_recheck_id": "P1.7B",
+    "prior_timestamp": "2026-05-14T14:32:00+08:00",
+    "prior_data_as_of": "2026-05-14T06:19:28+00:00",
+    "reality_score_changed": false,
+    "gate_verdict_changed": false,
+    "v04_status_changed": false,
+    "notable_deltas": [
+      "Live telemetry span grew from ~65.4h to ~162.7h (May 11 12:54 UTC → May 18 07:33 UTC)",
+      "Calendar days with live action records: 8 (May 11–18); maturation day files still 4/7 populated",
+      "Replay continuity (live recomputed from actions.jsonl): 0.282 → 0.749; still below 0.95 gate",
+      "Daemon-era continuity: 15.3h → 112.6h at 1.00 ratio; max gap 0s in daemon era",
+      "day_05–day_07.json remain AWAITING_CAPTURE despite live data existing for those dates"
+    ]
+  },
+  "live_source_inventory": {
+    "dmn_latest": "2026-05-18T07:32:51.542620+00:00",
+    "actions_latest": "2026-05-18T07:33:52.229278+00:00",
+    "daemon_status": "ok",
+    "daemon_last_tick": "2026-05-18T07:32:52.069022+00:00",
+    "observation_window_hours": 162.66,
+    "calendar_days_with_actions": 8,
+    "calendar_days": [
+      "2026-05-11",
+      "2026-05-12",
+      "2026-05-13",
+      "2026-05-14",
+      "2026-05-15",
+      "2026-05-16",
+      "2026-05-17",
+      "2026-05-18"
+    ],
+    "maturation_day_files_populated": 4,
+    "maturation_pipeline_lag": "Live sources cover May 15–18 but day_05.json–day_07.json are empty; gate criterion 1 evaluated on official maturation day files per sprint contract."
+  },
+  "real_data_verification": {
+    "days_with_real_data": 4,
+    "days_required": 7,
+    "days_awaiting": 3,
+    "days_partial": 2,
+    "days_captured": 2,
+    "total_real_records": 14532,
+    "interpolated_records_in_day_files": 0,
+    "interpolated_records_rejected": 121,
+    "interpolation_rejection_source": "telemetry/backfill/backfill_results.json: 438 backfilled (317 REAL + 121 INTERPOLATED); all 121 excluded from scoring",
+    "per_day_summary": [
+      {
+        "day": "day_01",
+        "date": "2026-05-11",
+        "status": "PARTIAL",
+        "record_count_real": 664,
+        "interpolated_rejected": 0,
+        "data_origin": "REAL",
+        "capture_window": "12:54:11–23:22:35 UTC",
+        "capture_hours": 10.47,
+        "coverage_percent": 43.6,
+        "max_gap_seconds": 27857.24,
+        "max_gap_description": "7.74-hour gap (13:37–21:49 UTC)"
+      },
+      {
+        "day": "day_02",
+        "date": "2026-05-12",
+        "status": "PARTIAL",
+        "record_count_real": 1420,
+        "interpolated_rejected": 0,
+        "data_origin": "REAL",
+        "capture_window": "00:23:03–23:32:44 UTC",
+        "capture_hours": 23.16,
+        "coverage_percent": 96.5,
+        "max_gap_seconds": 28463.27,
+        "max_gap_description": "7.91-hour overnight gap"
+      },
+      {
+        "day": "day_03",
+        "date": "2026-05-13",
+        "status": "CAPTURED",
+        "record_count_real": 8536,
+        "interpolated_rejected": 0,
+        "data_origin": "REAL",
+        "capture_window": "00:04:18–23:59:06 UTC",
+        "capture_hours": 23.91,
+        "coverage_percent": 99.6,
+        "max_gap_seconds": 2062.51,
+        "max_gap_description": "34.4-minute gap; daemon era begins mid-day"
+      },
+      {
+        "day": "day_04",
+        "date": "2026-05-14",
+        "status": "PARTIAL",
+        "record_count_real": 3912,
+        "interpolated_rejected": 0,
+        "data_origin": "REAL",
+        "capture_window": "00:00:06–06:19:28 UTC",
+        "capture_hours": 6.32,
+        "coverage_percent": 26.3,
+        "max_gap_seconds": 240.1,
+        "max_gap_description": "4-minute max gap — daemon-era slice only through 06:19 UTC"
+      },
+      {
+        "day": "day_05",
+        "date": "2026-05-15",
+        "status": "AWAITING_CAPTURE",
+        "record_count_real": 0,
+        "interpolated_rejected": 0,
+        "data_origin": "N/A",
+        "capture_hours": 0,
+        "coverage_percent": 0,
+        "max_gap_seconds": 0,
+        "live_data_note": "actions.jsonl has records on 2026-05-15; maturation file not populated"
+      },
+      {
+        "day": "day_06",
+        "date": "2026-05-16",
+        "status": "AWAITING_CAPTURE",
+        "record_count_real": 0,
+        "interpolated_rejected": 0,
+        "data_origin": "N/A",
+        "capture_hours": 0,
+        "coverage_percent": 0,
+        "max_gap_seconds": 0,
+        "live_data_note": "actions.jsonl has records on 2026-05-16; maturation file not populated"
+      },
+      {
+        "day": "day_07",
+        "date": "2026-05-17",
+        "status": "AWAITING_CAPTURE",
+        "record_count_real": 0,
+        "interpolated_rejected": 0,
+        "data_origin": "N/A",
+        "capture_hours": 0,
+        "coverage_percent": 0,
+        "max_gap_seconds": 0,
+        "live_data_note": "actions.jsonl has records on 2026-05-17; maturation file not populated"
+      }
+    ],
+    "overall_coverage": {
+      "maturation_files_capture_hours": 63.86,
+      "maturation_files_possible_hours": 168,
+      "maturation_files_coverage_percent": 38.0,
+      "live_sources_window_hours": 162.66,
+      "daemon_era_hours_live": 112.55,
+      "daemon_era_continuity_live": 1.0,
+      "daemon_era_max_gap_seconds_live": 0
+    }
+  },
+  "interpolation_audit": {
+    "p16_backfill_total": 438,
+    "p16_backfill_real": 317,
+    "p16_backfill_interpolated": 121,
+    "p17_interpolated_excluded": true,
+    "day_file_interpolation_scan": "CLEAN — zero INTERPOLATED tags in day_01–day_07 record arrays (recomputed 2026-05-18)",
+    "precursor_maturation_report_policy": "REAL DATA ONLY",
+    "circadian_maturation_report_policy": "REAL DATA ONLY",
+    "replay_revalidation_report_policy": "REAL DATA ONLY",
+    "matured_reality_score_policy": "REAL DATA ONLY",
+    "verdict": "PASS — scoring pipeline uses zero interpolated records"
+  },
+  "real_only_scores": {
+    "instinct_emergence_precision": {
+      "value": 0.88,
+      "weight": 0.15,
+      "weighted": 0.1320,
+      "source": "P1.7 replay_revalidation — real data since P1",
+      "status": "STABLE"
+    },
+    "missed_instinct_recall": {
+      "value": 0.72,
+      "weight": 0.15,
+      "weighted": 0.1080,
+      "source": "P1.7 replay_revalidation — real data since P1",
+      "status": "STABLE"
+    },
+    "false_strategy_resistance": {
+      "value": 1.0,
+      "weight": 0.2,
+      "weighted": 0.2,
+      "source": "P1.5 enforcement modules",
+      "status": "LOCKED"
+    },
+    "precursor_detection_accuracy": {
+      "value": 0.48,
+      "weight": 0.15,
+      "weighted": 0.0720,
+      "source": "telemetry/maturation/precursor_maturation_report.json (P1.7 window ending 2026-05-14T06:16 UTC)",
+      "status": "NOT REGENERATED — full-window rerun pending day-file materialization",
+      "note": "Live data through May 18 may improve this; not recomputed in P1.7B-rerun"
+    },
+    "circadian_adaptation_quality": {
+      "value": 0.58,
+      "weight": 0.1,
+      "weighted": 0.0580,
+      "source": "telemetry/maturation/circadian_maturation_report.json (P1.7 window)",
+      "status": "NOT REGENERATED — full-window rerun pending"
+    },
+    "salience_competition_fairness": {
+      "value": 0.73,
+      "weight": 0.15,
+      "weighted": 0.1095,
+      "source": "P1.7 replay_revalidation",
+      "status": "STABLE"
+    },
+    "verifier_consistency": {
+      "value": 1.0,
+      "weight": 0.1,
+      "weighted": 0.1,
+      "source": "P1.5 enforcement modules",
+      "status": "LOCKED"
+    }
+  },
+  "score_computation": {
+    "formula": "Σ(weight_i × value_i)",
+    "expanded": "0.15×0.88 + 0.15×0.72 + 0.20×1.00 + 0.15×0.48 + 0.10×0.58 + 0.15×0.73 + 0.10×1.00",
+    "step_by_step": [
+      "0.15 × 0.88 = 0.1320",
+      "0.15 × 0.72 = 0.1080",
+      "0.20 × 1.00 = 0.2000",
+      "0.15 × 0.48 = 0.0720",
+      "0.10 × 0.58 = 0.0580",
+      "0.15 × 0.73 = 0.1095",
+      "0.10 × 1.00 = 0.1000"
+    ],
+    "sum": "0.1320 + 0.1080 + 0.2000 + 0.0720 + 0.0580 + 0.1095 + 0.1000 = 0.7795",
+    "weight_check": 1.0,
+    "recomputed_from_module": "observability.replay.matured_reality_score.compute_p17_score() = 0.7795"
+  },
+  "reality_score": 0.7795,
+  "classification": "experimental",
+  "classification_description": "System is experimental; suitable for development and testing environments only. Thresholds: >=0.90 highly reliable, >=0.80 operationally usable, >=0.70 experimental, <0.70 unstable.",
+  "score_progression": {
+    "P1": 0.6645,
+    "P1.5": 0.7525,
+    "P1.6_with_interpolation": 0.7970,
+    "P1.7_real_only": 0.7795,
+    "P1.7B_prior": 0.7795,
+    "P1.7B_rerun_verified": 0.7795,
+    "deltas": {
+      "P1_to_P1.5": 0.0880,
+      "P1.5_to_P1.6": 0.0445,
+      "P1.6_to_P1.7": -0.0175,
+      "P1_to_P1.7B_rerun": 0.1150,
+      "P1.7B_prior_to_P1.7B_rerun": 0.0
+    },
+    "note": "Composite unchanged; P1.7B-rerun confirms prior score. Precursor/circadian not refreshed against May 15–18 live data."
+  },
+  "additional_metrics": {
+    "replay_continuity": {
+      "p17_frozen_window_hours": 65.37,
+      "p17_frozen_score": 0.282,
+      "live_recomputed_window_hours": 162.55,
+      "live_recomputed_score": 0.7494,
+      "gate_threshold": 0.95,
+      "gate_value_used": 0.7494,
+      "gate_value_note": "Live recomputed from actions.jsonl gaps>10min; official P1.7 report used 0.282 on truncated window. Both FAIL >=0.95.",
+      "daemon_era_continuity": 1.0,
+      "daemon_era_hours": 112.55
+    }
+  },
+  "gate": {
+    "criteria": [
+      {
+        "id": 1,
+        "name": "7 full days of REAL telemetry captured",
+        "threshold": "7/7 maturation days with meaningful capture (not AWAITING)",
+        "actual": "4/7 populated in day files; 3 AWAITING (May 15–17). Live logs show 8 calendar days but maturation pipeline not materialized.",
+        "verdict": "FAIL",
+        "gap": "Populate day_05–day_07 (and extend day_04 past 06:19 UTC) from live sources"
+      },
+      {
+        "id": 2,
+        "name": "No interpolated records in scoring pipeline",
+        "threshold": "0 interpolated used",
+        "actual": "0 in day files; 121 rejected from P1.6 backfill",
+        "verdict": "PASS"
+      },
+      {
+        "id": 3,
+        "name": "Reality Score >= 0.80",
+        "threshold": 0.8,
+        "actual": 0.7795,
+        "verdict": "FAIL",
+        "gap": 0.0205
+      },
+      {
+        "id": 4,
+        "name": "Precursor detection >= 0.60",
+        "threshold": 0.6,
+        "actual": 0.48,
+        "verdict": "FAIL",
+        "gap": 0.12,
+        "note": "P1.7 report only; may change after full-window maturation rerun"
+      },
+      {
+        "id": 5,
+        "name": "Circadian adaptation >= 0.70",
+        "threshold": 0.7,
+        "actual": 0.58,
+        "verdict": "FAIL",
+        "gap": 0.12,
+        "note": "P1.7 report only; may change after full-window maturation rerun"
+      },
+      {
+        "id": 6,
+        "name": "Replay continuity >= 0.95",
+        "threshold": 0.95,
+        "actual": 0.7494,
+        "verdict": "FAIL",
+        "gap": 0.2006,
+        "note": "Improved from 0.282 (May 14 window) but historical gaps in May 11–13 still dilute full-window ratio"
+      }
+    ],
+    "verdict": "FAIL",
+    "passing_count": "1/6",
+    "all_pass_required": true
+  },
+  "v04_status": "LOCKED",
+  "next_action": "Run maturation pipeline to materialize day_05–day_07 (and complete day_04) from live REAL sources, then regenerate precursor/circadian/replay reports on the full 7-day window before next gate attempt.",
+  "earliest_recheck_date": "2026-05-19",
+  "earliest_recheck_note": "Blocked on maturation day-file materialization, not daemon uptime (daemon is healthy through 2026-05-18).",
+  "projection_if_7_days_daemon": {
+    "label": "PROJECTION — not actual measurements",
+    "assumptions": [
+      "Maturation day files populated for all 7 days",
+      "Daemon continues 60s cadence",
+      "Precursor/circadian recomputed on full REAL window"
+    ],
+    "projected_scores": {
+      "precursor_detection": 0.62,
+      "circadian_adaptation": 0.72,
+      "salience_competition": 0.75,
+      "replay_continuity": 0.95,
+      "composite_score": 0.8165
+    },
+    "projected_gate_pass_count": "5/6 (historical gaps may still block continuity on full-history basis)",
+    "confidence": "MODERATE"
+  }
+}

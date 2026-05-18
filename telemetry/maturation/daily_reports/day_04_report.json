@@ -1,0 +1,23 @@
+{
+  "day": "day_04",
+  "date": "2026-05-14",
+  "status": "PARTIAL",
+  "metrics": {
+    "cadence_compliance": 0.999,
+    "missing_interval_rate": 0.0,
+    "duplicate_rate": 0.7025,
+    "max_clock_drift_seconds": 0.0,
+    "corruption_count": 0,
+    "silent_sources": [
+      "agent.decisions",
+      "health.snapshot"
+    ],
+    "replay_compatibility": 0.8496
+  },
+  "thresholds_met": false,
+  "issues": [
+    "Duplicate rate 0.7025 above 0.01",
+    "Silent sources: agent.decisions, health.snapshot",
+    "Partial day \u2014 not all 24 hours covered"
+  ]
+}

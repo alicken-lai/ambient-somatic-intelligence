@@ -1,0 +1,218 @@
+{
+  "program": "Ambient OS P1 Reality Replay Program",
+  "closeout_date": "2026-05-18",
+  "inventory_version": "1.0",
+  "phases": {
+    "P1": {
+      "name": "Initial Reality Replay (Phases 1C–1J)",
+      "date": "2026-05-14",
+      "reality_score": 0.6645,
+      "classification": "unstable",
+      "score_delta_vs_prior": null,
+      "gate_result": "FAIL",
+      "gate_detail": "2 PASS / 4 FAIL (of 6 criteria)",
+      "blocker": "Precursor 0.35, false strategy 0.65, verifier 0.82, composite 0.6645 below thresholds",
+      "repair_action": "P1.5 promotion-chain enforcement sprint",
+      "inputs": [
+        "replay/data_catalog/historical_index.json",
+        "replay/data_catalog/replay_manifest.json",
+        "memory/dmn.jsonl",
+        "logs/actions.jsonl",
+        "governance/audit/decisions.jsonl",
+        "governance/audit/incidents.jsonl"
+      ],
+      "outputs": [
+        "replay/reports/instinct_emergence_report.json",
+        "replay/reports/missed_instinct_report.json",
+        "replay/reports/false_strategy_report.json",
+        "replay/reports/precursor_analysis_report.json",
+        "replay/reports/circadian_attention_report.json",
+        "replay/reports/salience_competition_report.json",
+        "replay/reports/reality_replay_score.json",
+        "docs/releases/p1_reality_gate.md"
+      ],
+      "key_file_paths": [
+        "observability/replay/reality_score.py",
+        "observability/replay/replay_metrics.py",
+        "replay/sandbox/replay_runner.py",
+        "replay/sandbox/replay_verifier.py"
+      ]
+    },
+    "P1.5": {
+      "name": "Reality Repair Sprint — Promotion Integrity",
+      "date": "2026-05-14",
+      "reality_score": 0.7525,
+      "classification": "experimental",
+      "score_delta_vs_prior": 0.088,
+      "gate_result": "PARTIAL PASS",
+      "gate_detail": "4 PASS / 1 FAIL (repair gate: composite < 0.80)",
+      "blocker": "Composite 0.7525; precursor 0.35 and circadian 0.52 unchanged",
+      "repair_action": "P1.6 telemetry density upgrade",
+      "inputs": [
+        "repair/audit/promotion_path_audit.json",
+        "repair/audit/illegal_promotion_paths.md",
+        "repair/reports/strategic_audit_report.json"
+      ],
+      "outputs": [
+        "memory/ontology/promotion_chain_validator.py",
+        "memory/ontology/promotion_guard.py",
+        "memory/ontology/strategic_write_gate.py",
+        "governance/doctrine/verifier_enforcement.py",
+        "governance/doctrine/promotion_verification_gate.py",
+        "repair/reports/repaired_reality_score.json",
+        "repair/reports/replay_repair_report.json",
+        "observability/replay/repaired_reality_score.py",
+        "docs/releases/p15_repair_gate.md"
+      ],
+      "key_file_paths": [
+        "repair/audit/revalidation_gate.jsonl",
+        "repair/audit/violations.jsonl"
+      ]
+    },
+    "P1.6": {
+      "name": "Telemetry Density Upgrade",
+      "date": "2026-05-14",
+      "reality_score": 0.797,
+      "classification": "experimental",
+      "score_delta_vs_prior": 0.0445,
+      "gate_result": "FAIL",
+      "gate_detail": "2 PASS / 3 FAIL (P1.6 reality gate)",
+      "blocker": "Precursor 0.58, circadian 0.62, composite 0.797 (0.003 below 0.80)",
+      "repair_action": "P1.7 real-data maturation; deploy sampling to production",
+      "inputs": [
+        "telemetry/audit/telemetry_inventory.json",
+        "telemetry/audit/gap_analysis.json",
+        "logs/actions.jsonl",
+        "memory/dmn.jsonl"
+      ],
+      "outputs": [
+        "telemetry/core/telemetry_schema.py",
+        "telemetry/sampling/sampling_scheduler.py",
+        "telemetry/backfill/backfill_results.json",
+        "telemetry/reports/precursor_upgrade_report.json",
+        "telemetry/reports/circadian_upgrade_report.json",
+        "telemetry/reports/telemetry_reality_score.json",
+        "observability/replay/telemetry_repaired_reality_score.py",
+        "docs/releases/p16_reality_gate.md"
+      ],
+      "key_file_paths": [
+        "telemetry/backfill/backfill_engine.py",
+        "telemetry/runtime/launchd_sampling.py",
+        "telemetry/maturation/day_01.json"
+      ],
+      "notes": "121 INTERPOLATED backfill records excluded from P1.7+ scoring"
+    },
+    "P1.7": {
+      "name": "Operational Maturity — Real Data Only",
+      "date": "2026-05-14",
+      "reality_score": 0.7795,
+      "classification": "experimental",
+      "score_delta_vs_prior": -0.0175,
+      "gate_result": "FAIL",
+      "gate_detail": "0 PASS / 6 FAIL (v0.4 unlock gate)",
+      "blocker": "65.4h observation; historical gaps; precursor 0.48 real-only; composite 0.7795",
+      "repair_action": "7-day daemon capture; maturation pipeline; P1.7B recheck",
+      "inputs": [
+        "telemetry/maturation/drift_report.json",
+        "telemetry/maturation/precursor_maturation_report.json",
+        "telemetry/maturation/circadian_maturation_report.json",
+        "telemetry/maturation/replay_revalidation_report.json"
+      ],
+      "outputs": [
+        "telemetry/maturation/matured_reality_score.json",
+        "observability/replay/matured_reality_score.py",
+        "docs/releases/p17_unlock_gate.md"
+      ],
+      "key_file_paths": [
+        "state/daemon/dmn_tick_status.json",
+        "telemetry/maturation/daily_health_checker.py"
+      ],
+      "notes": "Score dropped vs P1.6 when interpolation removed from precursor/circadian"
+    },
+    "P1.7B": {
+      "name": "Real-Only Gate Recheck",
+      "date": "2026-05-18",
+      "reality_score": 0.7795,
+      "classification": "experimental",
+      "score_delta_vs_prior": 0.0,
+      "gate_result": "FAIL",
+      "gate_detail": "1 PASS / 6 FAIL; v0.4 LOCKED",
+      "blocker": "Maturation day files 4/7; metrics not regenerated on extended window",
+      "repair_action": "P1.7C materialization of day_05–day_07",
+      "inputs": [
+        "telemetry/maturation/day_01.json",
+        "telemetry/maturation/day_07.json",
+        "observability/replay/matured_reality_score.py"
+      ],
+      "outputs": [
+        "telemetry/maturation/p17b_recheck.json",
+        "docs/releases/p17b_reality_gate_recheck.md"
+      ],
+      "key_file_paths": [
+        "logs/actions.jsonl",
+        "memory/dmn.jsonl"
+      ],
+      "notes": "Live continuity improved to 0.749 but gate artifacts stale"
+    },
+    "P1.7C": {
+      "name": "Telemetry Materialization Repair",
+      "date": "2026-05-18",
+      "reality_score": 0.8015,
+      "classification": "operationally-usable",
+      "score_delta_vs_prior": 0.022,
+      "gate_result": "FAIL",
+      "gate_detail": "3 PASS / 6 FAIL; v0.4 LOCKED (historical union gate)",
+      "blocker": "Precursor 0.56, circadian 0.68, union continuity 0.7712",
+      "repair_action": "P1.7D operational unlock with BOOTSTRAP_GAP doctrine",
+      "inputs": [
+        "telemetry/maturation/day_01.json",
+        "telemetry/maturation/day_07.json",
+        "telemetry/maturation/p17c_materialize.py"
+      ],
+      "outputs": [
+        "telemetry/maturation/p17c_materialization_report.json",
+        "telemetry/maturation/matured_reality_score.json",
+        "docs/releases/p17c_reality_gate.md"
+      ],
+      "key_file_paths": [
+        "telemetry/maturation/p17c_materialization_report.json"
+      ],
+      "historical_continuity": 0.7712
+    },
+    "P1.7D": {
+      "name": "Operational Unlock Gate",
+      "date": "2026-05-18",
+      "reality_score": 0.812,
+      "classification": "operationally-usable",
+      "score_delta_vs_prior": 0.0105,
+      "gate_result": "PASS",
+      "gate_detail": "5 PASS / 5 (operational gate); v0.4 UNLOCKED (operational)",
+      "blocker": null,
+      "repair_action": "P1 closeout freeze; v0.4 stabilization program",
+      "inputs": [
+        "telemetry/maturation/p17d_continuity_exception_report.json",
+        "telemetry/maturation/day_01.json",
+        "telemetry/maturation/day_07.json"
+      ],
+      "outputs": [
+        "telemetry/maturation/p17d_continuity_exception_report.json",
+        "docs/releases/p17d_operational_unlock_gate.md"
+      ],
+      "key_file_paths": [
+        "telemetry/maturation/p17d_analyze.py"
+      ],
+      "operational_continuity": 1.0,
+      "historical_reality_score": 0.8015,
+      "daemon_stable_window": {
+        "start": "2026-05-13T15:00:00+00:00",
+        "end": "2026-05-17T23:59:13.138892+00:00",
+        "duration_hours": 104.99
+      }
+    }
+  },
+  "synthetic_validation": {
+    "tests_passed": "382/382",
+    "ontology_health_score": 0.9592,
+    "evidence": "docs/releases/v0.3.1_release_gate.md"
+  }
+}

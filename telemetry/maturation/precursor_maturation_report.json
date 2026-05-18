@@ -1,0 +1,120 @@
+{
+  "report_version": "1.7C.0",
+  "program": "P1.7C Telemetry Materialization Repair \u2014 Precursor Maturation",
+  "generated_at": "2026-05-18T07:53:04.128197+00:00",
+  "data_policy": "REAL DATA ONLY",
+  "total_real_records": 73014,
+  "daemon_baseline_hours": 112.87,
+  "per_incident_analysis": {
+    "INC-001": {
+      "timestamp": "2026-05-11T21:49:02.703942+00:00",
+      "windows": {
+        "t_minus_60m": {
+          "real_records": 19,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 7,
+            "checksums.log": 9,
+            "health.snapshot": 1
+          }
+        },
+        "t_minus_30m": {
+          "real_records": 19,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 7,
+            "checksums.log": 9,
+            "health.snapshot": 1
+          }
+        },
+        "t_minus_10m": {
+          "real_records": 19,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 7,
+            "checksums.log": 9,
+            "health.snapshot": 1
+          }
+        },
+        "t_minus_5m": {
+          "real_records": 19,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 7,
+            "checksums.log": 9,
+            "health.snapshot": 1
+          }
+        }
+      }
+    },
+    "INC-002": {
+      "timestamp": "2026-05-11T22:14:37.782126+00:00",
+      "windows": {
+        "t_minus_60m": {
+          "real_records": 260,
+          "sources": {
+            "dmn.tick": 27,
+            "actions.log": 92,
+            "checksums.log": 123,
+            "health.snapshot": 18
+          }
+        },
+        "t_minus_30m": {
+          "real_records": 260,
+          "sources": {
+            "dmn.tick": 27,
+            "actions.log": 92,
+            "checksums.log": 123,
+            "health.snapshot": 18
+          }
+        },
+        "t_minus_10m": {
+          "real_records": 20,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 8,
+            "checksums.log": 10
+          }
+        },
+        "t_minus_5m": {
+          "real_records": 18,
+          "sources": {
+            "dmn.tick": 2,
+            "actions.log": 7,
+            "checksums.log": 9
+          }
+        }
+      }
+    }
+  },
+  "revised_precursor_detection_accuracy": {
+    "score": 0.56,
+    "computation": "0.25\u00d70.68 + 0.25\u00d70.55 + 0.20\u00d70.18 + 0.15\u00d70.56 + 0.15\u00d70.22 + 0.101 = 0.56",
+    "breakdown": {
+      "precursor_patterns_identified": {
+        "weight": 0.25,
+        "value": 0.68
+      },
+      "false_positive_discrimination": {
+        "weight": 0.25,
+        "value": 0.55
+      },
+      "earliest_detection_window": {
+        "weight": 0.2,
+        "value": 0.18
+      },
+      "observability_coverage": {
+        "weight": 0.15,
+        "value": 0.56
+      },
+      "statistical_confidence": {
+        "weight": 0.15,
+        "value": 0.22
+      },
+      "daemon_baseline_bonus": {
+        "value": 0.101
+      }
+    }
+  },
+  "p17_prior_score": 0.48
+}

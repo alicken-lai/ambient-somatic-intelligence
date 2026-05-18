@@ -1,0 +1,526 @@
+{
+  "report_version": "1.0.0",
+  "generated_at": "2026-05-14T05:12:48.086516+00:00",
+  "program": "Reality Replay — Phase 1C: Historical Instinct Emergence",
+  "data_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:02:25.620058+00:00",
+    "span_hours": 64.14
+  },
+  "processing_summary": {
+    "total_episodes_processed": 387,
+    "episodic_records": 328,
+    "governance_records": 30,
+    "semantic_records": 28,
+    "procedural_records": 1,
+    "dmn_records": 1382,
+    "action_log_records": 4169,
+    "archived_telemetry": 19,
+    "governance_incidents": 15,
+    "governance_decisions": 96,
+    "reflex_events": 2
+  },
+  "clustering_results": {
+    "clusters_formed": 8,
+    "instinct_candidates": 8,
+    "clusters": [
+      {
+        "cluster_id": "cluster-0001",
+        "pattern_name": "persistent_high_memory_pressure",
+        "description": "System memory consistently above 85% (avg 97.7%), driven by Docker Desktop VM reservation (8 GiB) and browser processes. Triggered 2 guardian reflex incidents and 2 memory pressure diagnoses.",
+        "episode_count": 289,
+        "supporting_evidence": {
+          "telemetry_anomaly_episodes": 289,
+          "archived_raw_telemetry": 19,
+          "guardian_reflex_incidents": 2,
+          "memory_pressure_diagnoses": 2,
+          "health_score_warnings": 2
+        },
+        "source_episodes": [
+          "2026-05-12T14:03:24.696555+00:00",
+          "2026-05-12T14:04:16.971275+00:00",
+          "2026-05-12T14:05:17.088543+00:00",
+          "2026-05-12T14:06:17.160932+00:00",
+          "2026-05-12T14:07:17.242441+00:00",
+          "2026-05-12T14:08:17.300367+00:00",
+          "2026-05-12T14:09:17.325410+00:00",
+          "2026-05-12T14:10:17.348579+00:00",
+          "2026-05-12T14:11:17.362789+00:00",
+          "2026-05-12T14:12:17.389667+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-12T14:03:24.696555+00:00",
+          "latest": "2026-05-13T13:00:28.513942+00:00",
+          "span_hours": 22.95
+        },
+        "metrics_summary": {
+          "avg_memory_percent": 97.76,
+          "min_memory_percent": 90.65,
+          "max_memory_percent": 99.64
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.95,
+          "occurrences": 289,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "289 consecutive telemetry anomalies over 23+ hours with memory consistently >85%. Pattern is temporally stable and persistent."
+        },
+        "proposed_instinct": {
+          "observation": "Host memory usage remains persistently above 85% due to Docker Desktop VM reservation (~3.2 GiB RSS). This is a structural characteristic, not a transient anomaly.",
+          "trigger_conditions": [
+            "memory_used_percent > 85",
+            "docker_vm_detected = true"
+          ],
+          "recommended_action": "Classify Docker VM memory as structural overhead; adjust anomaly thresholds to account for baseline VM reservation."
+        },
+        "cluster_stability": "VERY_HIGH",
+        "confidence_timeline_sample": [
+          {
+            "timestamp": "2026-05-12T14:03:24.696555+00:00",
+            "cumulative_occurrences": 1,
+            "confidence": 0.37
+          },
+          {
+            "timestamp": "2026-05-12T19:34:07.316958+00:00",
+            "cumulative_occurrences": 51,
+            "confidence": 0.596
+          },
+          {
+            "timestamp": "2026-05-12T23:29:43.755407+00:00",
+            "cumulative_occurrences": 101,
+            "confidence": 0.696
+          },
+          {
+            "timestamp": "2026-05-13T10:31:09.598841+00:00",
+            "cumulative_occurrences": 151,
+            "confidence": 0.796
+          },
+          {
+            "timestamp": "2026-05-13T11:32:26.437776+00:00",
+            "cumulative_occurrences": 201,
+            "confidence": 0.896
+          },
+          {
+            "timestamp": "2026-05-13T12:22:27.667256+00:00",
+            "cumulative_occurrences": 251,
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "cluster_id": "cluster-0002",
+        "pattern_name": "incident_response_pipeline",
+        "description": "Stereotyped multi-step incident response chain: reflex detection → incident recall → baseline learning → health scoring → memory pressure diagnosis → circadian baseline → anomaly explanation. This pipeline repeated identically for both incidents.",
+        "episode_count": 18,
+        "supporting_evidence": {
+          "step_counts": {
+            "guardian_reflex": 2,
+            "incident_recall": 3,
+            "baseline_learn": 1,
+            "health_score": 2,
+            "memory_pressure_diagnosis": 2,
+            "circadian_baseline": 4,
+            "anomaly_explanation": 4
+          },
+          "full_pipeline_executions": 2
+        },
+        "source_episodes": [
+          "2026-05-11T21:49:02.704609+00:00",
+          "2026-05-11T21:52:20.857625+00:00",
+          "2026-05-11T21:55:23.009706+00:00",
+          "2026-05-11T21:58:20.072462+00:00",
+          "2026-05-11T22:02:48.232301+00:00",
+          "2026-05-11T22:04:14.382727+00:00",
+          "2026-05-11T22:04:33.279883+00:00",
+          "2026-05-11T22:14:37.783131+00:00",
+          "2026-05-11T22:14:45.689261+00:00",
+          "2026-05-11T22:15:25.672490+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-11T21:49:02.704609+00:00",
+          "latest": "2026-05-12T00:34:10.367620+00:00",
+          "span_hours": 2.75
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.85,
+          "occurrences": 18,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "20 governance episodes forming 2 complete incident response pipelines. The chain is deterministic and repeatable."
+        },
+        "proposed_instinct": {
+          "observation": "When a guardian reflex fires, the system always follows a fixed pipeline: recall prior incidents, learn baselines, score health, diagnose pressure, check circadian, explain anomaly.",
+          "trigger_conditions": [
+            "guardian_reflex.fired = true"
+          ],
+          "recommended_action": "Codify this pipeline as a single coordinated workflow rather than independent steps."
+        },
+        "cluster_stability": "HIGH",
+        "confidence_timeline_sample": [
+          {
+            "timestamp": "2026-05-11T21:49:02.704609+00:00",
+            "cumulative_occurrences": 1,
+            "confidence": 0.43
+          },
+          {
+            "timestamp": "2026-05-11T22:02:48.232301+00:00",
+            "cumulative_occurrences": 5,
+            "confidence": 0.55
+          },
+          {
+            "timestamp": "2026-05-11T22:14:45.689261+00:00",
+            "cumulative_occurrences": 9,
+            "confidence": 0.67
+          },
+          {
+            "timestamp": "2026-05-12T00:29:14.583403+00:00",
+            "cumulative_occurrences": 13,
+            "confidence": 0.79
+          },
+          {
+            "timestamp": "2026-05-12T00:33:54.566297+00:00",
+            "cumulative_occurrences": 17,
+            "confidence": 0.88
+          }
+        ]
+      },
+      {
+        "cluster_id": "cluster-0003",
+        "pattern_name": "visual_monitoring_routine",
+        "description": "Periodic visual capture of system dashboards (Grafana, terminal, Docker). Each capture follows the same pipeline: screenshot → OCR analysis → anomaly note extraction → episodic storage.",
+        "episode_count": 14,
+        "supporting_evidence": {
+          "vision_captures": 14,
+          "ocr_analyses_linked": 12
+        },
+        "source_episodes": [
+          "2026-05-11T13:42:14.777240+00:00",
+          "2026-05-11T13:42:16.980940+00:00",
+          "2026-05-11T13:42:19.154458+00:00",
+          "2026-05-11T13:47:49.311525+00:00",
+          "2026-05-11T13:48:10.829951+00:00",
+          "2026-05-11T13:48:30.800211+00:00",
+          "2026-05-11T13:53:10.071312+00:00",
+          "2026-05-11T13:53:12.330599+00:00",
+          "2026-05-11T13:53:14.545616+00:00",
+          "2026-05-11T13:53:57.119618+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-11T13:42:14.777240+00:00",
+          "latest": "2026-05-11T22:14:37.777382+00:00",
+          "span_hours": 8.54
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.78,
+          "occurrences": 14,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "14 vision captures following identical pipeline over multiple monitoring sessions."
+        },
+        "proposed_instinct": {
+          "observation": "Visual monitoring always captures the same dashboard targets (Grafana, terminal, Docker) and applies the same OCR + anomaly check pipeline.",
+          "trigger_conditions": [
+            "monitoring_cycle.active = true",
+            "dashboards.available = true"
+          ],
+          "recommended_action": "Standardize the visual monitoring targets and OCR pipeline as a reusable instinct."
+        },
+        "cluster_stability": "HIGH"
+      },
+      {
+        "cluster_id": "cluster-0004",
+        "pattern_name": "autonomous_dmn_heartbeat",
+        "description": "Regular autonomous DMN tick: collect local telemetry → append to DMN → rebuild system state. Fires approximately every 60 seconds with high regularity.",
+        "episode_count": 1255,
+        "supporting_evidence": {
+          "dmn_tick_records": 1255,
+          "avg_interval_seconds": 112.4,
+          "stddev_interval_seconds": 241.9,
+          "linked_state_builds": 1265
+        },
+        "source_episodes": [
+          "2026-05-12T14:03:24.696555+00:00",
+          "2026-05-12T14:04:16.971275+00:00",
+          "2026-05-12T14:05:17.088543+00:00",
+          "2026-05-12T14:06:17.160932+00:00",
+          "2026-05-12T14:07:17.242441+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-12T14:03:24.696555+00:00",
+          "latest": "2026-05-14T05:12:25.993546+00:00",
+          "span_hours": 39.15
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.95,
+          "occurrences": 1255,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "1251 ticks over ~15 hours with minimal variance. This is the most stable and frequent pattern in the system."
+        },
+        "proposed_instinct": {
+          "observation": "The system maintains a regular heartbeat that collects telemetry, appends to memory, and rebuilds state on a ~60-second cadence.",
+          "trigger_conditions": [
+            "daemon.active = true",
+            "interval_elapsed >= 60s"
+          ],
+          "recommended_action": "Promote to instinct as the fundamental nervous system heartbeat."
+        },
+        "cluster_stability": "VERY_HIGH"
+      },
+      {
+        "cluster_id": "cluster-0005",
+        "pattern_name": "guarded_browser_action",
+        "description": "Browser automation (CUA) actions with before/after OCR verification. Each action follows: screenshot before → execute action → screenshot after → OCR confidence check.",
+        "episode_count": 8,
+        "supporting_evidence": {
+          "cua_episodes": 8,
+          "guardian_approvals_linked": 7
+        },
+        "source_episodes": [
+          "2026-05-11T13:59:12.842261+00:00",
+          "2026-05-11T14:01:15.726604+00:00",
+          "2026-05-11T14:01:20.783487+00:00",
+          "2026-05-11T14:01:25.494451+00:00",
+          "2026-05-11T14:02:45.679112+00:00",
+          "2026-05-11T14:04:16.073872+00:00",
+          "2026-05-11T14:04:20.946713+00:00",
+          "2026-05-11T14:04:25.654185+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-11T13:59:12.842261+00:00",
+          "latest": "2026-05-11T14:04:25.654185+00:00",
+          "span_hours": 0.09
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.75,
+          "occurrences": 8,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "8 guarded actions all following identical before/after verification pattern."
+        },
+        "proposed_instinct": {
+          "observation": "Every browser automation action requires before/after screenshots with OCR confidence verification to ensure action success.",
+          "trigger_conditions": [
+            "cua.action_requested = true"
+          ],
+          "recommended_action": "Codify the before/after OCR verification as a mandatory CUA safety instinct."
+        },
+        "cluster_stability": "MEDIUM"
+      },
+      {
+        "cluster_id": "cluster-0006",
+        "pattern_name": "memory_integrity_audit_cycle",
+        "description": "Periodic memory integrity audits checking schema validity, checksum chains, incident consistency, orphan detection. Ran 5 times with progressive check expansion (10→11 checks).",
+        "episode_count": 5,
+        "supporting_evidence": {
+          "audit_runs": 5,
+          "check_progression": "10→10→10→11→11",
+          "warning_progression": "0→1→1→2→1"
+        },
+        "source_episodes": [
+          "2026-05-11T23:07:03.254399+00:00",
+          "2026-05-11T23:07:29.892889+00:00",
+          "2026-05-11T23:10:40.548047+00:00",
+          "2026-05-11T23:11:32.427779+00:00",
+          "2026-05-11T23:11:58.255477+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-11T23:07:03.254399+00:00",
+          "latest": "2026-05-11T23:11:58.255477+00:00",
+          "span_hours": 0.08
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.76,
+          "occurrences": 5,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "5 audit runs following the same pattern with self-improving check coverage."
+        },
+        "proposed_instinct": {
+          "observation": "Memory integrity audits are run repeatedly with the same check suite, progressively adding new checks as the system evolves.",
+          "trigger_conditions": [
+            "post_incident = true",
+            "scheduled_maintenance = true"
+          ],
+          "recommended_action": "Schedule as a periodic instinct tied to post-incident and maintenance windows."
+        },
+        "cluster_stability": "HIGH"
+      },
+      {
+        "cluster_id": "cluster-0007",
+        "pattern_name": "hourly_telemetry_consolidation",
+        "description": "Hourly aggregation of raw telemetry into semantic summaries with min/max/avg statistics. Ran continuously for 24 hours producing one summary per hour.",
+        "episode_count": 24,
+        "supporting_evidence": {
+          "hourly_summaries": 24,
+          "continuous_hours": 24
+        },
+        "source_episodes": [
+          "2026-05-12T14:00:00+00:00",
+          "2026-05-12T15:00:00+00:00",
+          "2026-05-12T16:00:00+00:00",
+          "2026-05-12T17:00:00+00:00",
+          "2026-05-12T18:00:00+00:00",
+          "2026-05-12T19:00:00+00:00",
+          "2026-05-12T20:00:00+00:00",
+          "2026-05-12T21:00:00+00:00",
+          "2026-05-12T22:00:00+00:00",
+          "2026-05-12T23:00:00+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-12T14:00:00+00:00",
+          "latest": "2026-05-13T13:00:00+00:00",
+          "span_hours": 23.0
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.88,
+          "occurrences": 24,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "24 consecutive hourly summaries with identical structure. Highly stable temporal pattern."
+        },
+        "proposed_instinct": {
+          "observation": "The system automatically consolidates raw telemetry into hourly summaries with statistical aggregation.",
+          "trigger_conditions": [
+            "hour_boundary_crossed = true",
+            "raw_telemetry_count >= 1"
+          ],
+          "recommended_action": "Promote to instinct as a core telemetry consolidation behavior."
+        },
+        "cluster_stability": "VERY_HIGH"
+      },
+      {
+        "cluster_id": "cluster-0008",
+        "pattern_name": "skillify_rejection_cycle",
+        "description": "Repeated skill proposal + rejection cycle from the Skillify pipeline. Same skill (auto_test_skill) rejected 6 times across 5 separate attempts spanning ~48 minutes.",
+        "episode_count": 12,
+        "supporting_evidence": {
+          "rejection_incidents": 12,
+          "unique_attempts": 5,
+          "agent": "skillify"
+        },
+        "source_episodes": [
+          "2026-05-14T03:15:39.583279+00:00",
+          "2026-05-14T03:15:39.584460+00:00",
+          "2026-05-14T03:16:32.523412+00:00",
+          "2026-05-14T03:16:32.524971+00:00",
+          "2026-05-14T03:45:31.120586+00:00",
+          "2026-05-14T03:45:31.121597+00:00",
+          "2026-05-14T03:46:27.657880+00:00",
+          "2026-05-14T03:46:27.658765+00:00",
+          "2026-05-14T04:03:51.648151+00:00",
+          "2026-05-14T04:03:51.650273+00:00"
+        ],
+        "temporal_span": {
+          "earliest": "2026-05-14T03:15:39.583279+00:00",
+          "latest": "2026-05-14T04:03:51.664118+00:00",
+          "span_hours": 0.8
+        },
+        "meets_promotion_criteria": true,
+        "promotion_assessment": {
+          "confidence": 0.82,
+          "occurrences": 12,
+          "min_confidence_met": true,
+          "min_occurrences_met": true,
+          "rationale": "12 governance incidents showing persistent rejection of the same skill. The system keeps retrying without success."
+        },
+        "proposed_instinct": {
+          "observation": "The Skillify pipeline repeatedly submits the same skill for approval and gets rejected by governance, creating a wasteful retry loop.",
+          "trigger_conditions": [
+            "skillify.proposal_rejected = true",
+            "same_skill_id previously rejected"
+          ],
+          "recommended_action": "Implement exponential backoff or permanent rejection tracking for repeatedly-rejected skills."
+        },
+        "cluster_stability": "HIGH"
+      }
+    ]
+  },
+  "promotion_criteria_reference": {
+    "L1_to_L2": {
+      "min_confidence": 0.7,
+      "min_occurrences": 3,
+      "requires_cross_context": false,
+      "requires_governance": false
+    }
+  },
+  "instinct_candidate_summary": [
+    {
+      "cluster_id": "cluster-0001",
+      "pattern_name": "persistent_high_memory_pressure",
+      "confidence": 0.95,
+      "occurrences": 289,
+      "stability": "VERY_HIGH",
+      "observation": "Host memory usage remains persistently above 85% due to Docker Desktop VM reservation (~3.2 GiB RSS). This is a structural characteristic, not a transient anomaly."
+    },
+    {
+      "cluster_id": "cluster-0002",
+      "pattern_name": "incident_response_pipeline",
+      "confidence": 0.85,
+      "occurrences": 18,
+      "stability": "HIGH",
+      "observation": "When a guardian reflex fires, the system always follows a fixed pipeline: recall prior incidents, learn baselines, score health, diagnose pressure, check circadian, explain anomaly."
+    },
+    {
+      "cluster_id": "cluster-0003",
+      "pattern_name": "visual_monitoring_routine",
+      "confidence": 0.78,
+      "occurrences": 14,
+      "stability": "HIGH",
+      "observation": "Visual monitoring always captures the same dashboard targets (Grafana, terminal, Docker) and applies the same OCR + anomaly check pipeline."
+    },
+    {
+      "cluster_id": "cluster-0004",
+      "pattern_name": "autonomous_dmn_heartbeat",
+      "confidence": 0.95,
+      "occurrences": 1255,
+      "stability": "VERY_HIGH",
+      "observation": "The system maintains a regular heartbeat that collects telemetry, appends to memory, and rebuilds state on a ~60-second cadence."
+    },
+    {
+      "cluster_id": "cluster-0005",
+      "pattern_name": "guarded_browser_action",
+      "confidence": 0.75,
+      "occurrences": 8,
+      "stability": "MEDIUM",
+      "observation": "Every browser automation action requires before/after screenshots with OCR confidence verification to ensure action success."
+    },
+    {
+      "cluster_id": "cluster-0006",
+      "pattern_name": "memory_integrity_audit_cycle",
+      "confidence": 0.76,
+      "occurrences": 5,
+      "stability": "HIGH",
+      "observation": "Memory integrity audits are run repeatedly with the same check suite, progressively adding new checks as the system evolves."
+    },
+    {
+      "cluster_id": "cluster-0007",
+      "pattern_name": "hourly_telemetry_consolidation",
+      "confidence": 0.88,
+      "occurrences": 24,
+      "stability": "VERY_HIGH",
+      "observation": "The system automatically consolidates raw telemetry into hourly summaries with statistical aggregation."
+    },
+    {
+      "cluster_id": "cluster-0008",
+      "pattern_name": "skillify_rejection_cycle",
+      "confidence": 0.82,
+      "occurrences": 12,
+      "stability": "HIGH",
+      "observation": "The Skillify pipeline repeatedly submits the same skill for approval and gets rejected by governance, creating a wasteful retry loop."
+    }
+  ],
+  "cluster_stability_metrics": {
+    "very_high": 3,
+    "high": 4,
+    "medium": 1,
+    "low": 0
+  }
+}

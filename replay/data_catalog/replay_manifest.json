@@ -1,0 +1,441 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at": "2026-05-14T13:01:00+08:00",
+  "program": "Reality Replay — Phase 1A",
+  "description": "Defines which data sources to use for ontology replay, in what order, and how to map schemas.",
+  "replay_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:02:25.620058+00:00",
+    "span_hours": 64.14
+  },
+  "replay_phases": [
+    {
+      "phase": 1,
+      "name": "bootstrap_and_sensing",
+      "description": "System bootstrap, initial telemetry capture, and first observations.",
+      "time_window": {
+        "start": "2026-05-11T12:54:11+00:00",
+        "end": "2026-05-11T21:48:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp < 2026-05-11T21:48:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp < 2026-05-11T21:48:00",
+          "schema_mapping": "action_event",
+          "priority": 2
+        },
+        {
+          "path": "memory/archive/scratchpad_archived.jsonl",
+          "filter": "timestamp < 2026-05-11T21:48:00",
+          "schema_mapping": "telemetry_raw",
+          "priority": 3
+        },
+        {
+          "path": "memory/episodic/records.jsonl",
+          "filter": "timestamp < 2026-05-11T21:48:00",
+          "schema_mapping": "episodic_event",
+          "priority": 4
+        },
+        {
+          "path": "guardian/approvals.jsonl",
+          "schema_mapping": "approval_event",
+          "priority": 5
+        }
+      ],
+      "context_sources": [
+        "guardian/policy.yaml",
+        "guardian/reflex_policy.yaml",
+        "guardian/decision_boundary.yaml"
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "incident_detection_and_response",
+      "description": "First and second memory pressure incidents, reflex responses, baseline learning.",
+      "time_window": {
+        "start": "2026-05-11T21:48:00+00:00",
+        "end": "2026-05-12T00:30:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp >= 2026-05-11T21:48:00 AND timestamp < 2026-05-12T00:30:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "guardian/reflex.jsonl",
+          "schema_mapping": "reflex_event",
+          "priority": 2
+        },
+        {
+          "path": "memory/governance/records.jsonl",
+          "filter": "timestamp < 2026-05-12T00:30:00",
+          "schema_mapping": "governance_event",
+          "priority": 3
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp >= 2026-05-11T21:48:00 AND timestamp < 2026-05-12T00:30:00",
+          "schema_mapping": "action_event",
+          "priority": 4
+        },
+        {
+          "path": "memory/archive/scratchpad_archived.jsonl",
+          "filter": "timestamp >= 2026-05-11T21:48:00",
+          "schema_mapping": "telemetry_raw",
+          "priority": 5
+        }
+      ],
+      "context_sources": [
+        "guardian/baselines/telemetry_baseline.json",
+        "guardian/health/health_scores.json",
+        "guardian/health/memory_pressure_report.json",
+        "guardian/incidents/index.json",
+        "guardian/incidents/patterns.json",
+        "guardian/incidents/reflex_confidence_calibration.json",
+        "guardian/baselines/circadian_baseline.json"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "reflection_and_dream_cycle",
+      "description": "Anomaly explanation, self-reflection, operator briefing, dream replay, simulation, recalibration.",
+      "time_window": {
+        "start": "2026-05-12T00:30:00+00:00",
+        "end": "2026-05-12T09:00:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp >= 2026-05-12T00:30:00 AND timestamp < 2026-05-12T09:00:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "memory/governance/records.jsonl",
+          "filter": "timestamp >= 2026-05-12T00:30:00 AND timestamp < 2026-05-12T09:00:00",
+          "schema_mapping": "governance_event",
+          "priority": 2
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp >= 2026-05-12T00:30:00 AND timestamp < 2026-05-12T09:00:00",
+          "schema_mapping": "action_event",
+          "priority": 3
+        }
+      ],
+      "context_sources": [
+        "guardian/dreams/latest_dream.json",
+        "guardian/simulations/latest_simulation.json",
+        "guardian/approval_packets/latest_approval_packet.json",
+        "guardian/recalibration/queue.json",
+        "guardian/audits/memory_integrity_audit.json"
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "semantic_consolidation",
+      "description": "Identity loading, architecture build, release, continuous telemetry summarization.",
+      "time_window": {
+        "start": "2026-05-12T09:00:00+00:00",
+        "end": "2026-05-13T13:00:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp >= 2026-05-12T09:00:00 AND timestamp < 2026-05-13T13:00:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "memory/semantic/records.jsonl",
+          "schema_mapping": "semantic_record",
+          "priority": 2
+        },
+        {
+          "path": "memory/procedural/records.jsonl",
+          "schema_mapping": "procedural_record",
+          "priority": 3
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp >= 2026-05-12T09:00:00 AND timestamp < 2026-05-13T13:00:00",
+          "schema_mapping": "action_event",
+          "priority": 4
+        },
+        {
+          "path": "memory/episodic/records.jsonl",
+          "filter": "timestamp >= 2026-05-12T09:00:00",
+          "schema_mapping": "episodic_event",
+          "priority": 5
+        }
+      ],
+      "context_sources": [
+        "state/system_state.json"
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "multi_agent_and_governance_framework",
+      "description": "Governance gate framework, multi-agent orchestration, cognitive tracing, topology mapping.",
+      "time_window": {
+        "start": "2026-05-13T13:00:00+00:00",
+        "end": "2026-05-14T00:00:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp >= 2026-05-13T13:00:00 AND timestamp < 2026-05-14T00:00:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "governance/audit/decisions.jsonl",
+          "filter": "timestamp < 2026-05-14T00:00:00",
+          "schema_mapping": "governance_decision",
+          "priority": 2
+        },
+        {
+          "path": "governance/audit/incidents.jsonl",
+          "filter": "timestamp < 2026-05-14T00:00:00",
+          "schema_mapping": "governance_incident",
+          "priority": 3
+        },
+        {
+          "path": "observability/cognitive_trace_v2/lineage_data/lineage.jsonl",
+          "schema_mapping": "cognitive_lineage_event",
+          "priority": 4
+        },
+        {
+          "path": "observability/decisions/agent_decisions.jsonl",
+          "schema_mapping": "agent_decision",
+          "priority": 5
+        },
+        {
+          "path": "observability/evolution_audit/audit_2026-05-13.jsonl",
+          "schema_mapping": "evolution_audit_event",
+          "priority": 6
+        },
+        {
+          "path": "state/agents/frontend-agent/memory/entries.jsonl",
+          "schema_mapping": "agent_memory_entry",
+          "priority": 7
+        },
+        {
+          "path": "state/agents/frontend-agent/history.jsonl",
+          "schema_mapping": "agent_history_entry",
+          "priority": 8
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp >= 2026-05-13T13:00:00 AND timestamp < 2026-05-14T00:00:00",
+          "schema_mapping": "action_event",
+          "priority": 9
+        }
+      ],
+      "context_sources": [
+        "state/somatic_attention_snapshots/attention_snapshot_20260513_230527.json",
+        "state/topology_snapshots/dependency_baseline.json",
+        "state/topology_snapshots/self_model_20260513_230342.json",
+        "state/checkpoints/c11e8536/latest.json",
+        "state/agents/planner-agent/state.json",
+        "state/agents/backend-agent/state.json",
+        "state/agents/memory-agent/state.json",
+        "state/agents/frontend-agent/state.json",
+        "state/agents/testing-agent/state.json",
+        "state/agents/guardian-agent/state.json"
+      ]
+    },
+    {
+      "phase": 6,
+      "name": "skill_evolution_and_autonomous_ops",
+      "description": "Skillify pipeline, autonomous DMN ticks, continuous telemetry monitoring.",
+      "time_window": {
+        "start": "2026-05-14T00:00:00+00:00",
+        "end": "2026-05-14T05:03:00+00:00"
+      },
+      "primary_sources": [
+        {
+          "path": "memory/dmn.jsonl",
+          "filter": "timestamp >= 2026-05-14T00:00:00",
+          "schema_mapping": "dmn_record",
+          "priority": 1
+        },
+        {
+          "path": "agents/skillify/pending_registrations.jsonl",
+          "schema_mapping": "skill_registration",
+          "priority": 2
+        },
+        {
+          "path": "governance/audit/decisions.jsonl",
+          "filter": "timestamp >= 2026-05-14T00:00:00",
+          "schema_mapping": "governance_decision",
+          "priority": 3
+        },
+        {
+          "path": "governance/audit/incidents.jsonl",
+          "filter": "timestamp >= 2026-05-14T00:00:00",
+          "schema_mapping": "governance_incident",
+          "priority": 4
+        },
+        {
+          "path": "logs/actions.jsonl",
+          "filter": "timestamp >= 2026-05-14T00:00:00",
+          "schema_mapping": "action_event",
+          "priority": 5
+        }
+      ],
+      "context_sources": [
+        "state/daemon/dmn_tick_status.json"
+      ]
+    }
+  ],
+  "schema_mappings": {
+    "dmn_record": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "layer_fields": ["_classified_layer", "_layer"],
+      "source_field": "source",
+      "tags_field": "tags",
+      "description": "Primary DMN record. Content is often JSON-stringified payload."
+    },
+    "action_event": {
+      "timestamp_field": "timestamp",
+      "action_field": "action",
+      "risk_field": "risk",
+      "status_field": "status",
+      "detail_field": "detail",
+      "description": "Action log entry with governance classification."
+    },
+    "episodic_event": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "layer_field": "_classified_layer",
+      "source_field": "source",
+      "description": "Episodic memory: vision captures, anomaly detections, bootstrap events."
+    },
+    "semantic_record": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "layer_field": "_classified_layer",
+      "source_field": "source",
+      "description": "Semantic memory: identity, architecture, telemetry summaries."
+    },
+    "procedural_record": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "source_field": "source",
+      "description": "Procedural memory: operational know-how."
+    },
+    "governance_event": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "source_field": "source",
+      "description": "Governance memory layer record."
+    },
+    "governance_decision": {
+      "timestamp_field": "timestamp",
+      "action_field": "action",
+      "agent_id_field": "agent_id",
+      "risk_field": "risk",
+      "validation_stages_field": "validation_stages",
+      "description": "Per-action governance decision with multi-stage validation."
+    },
+    "governance_incident": {
+      "timestamp_field": "timestamp",
+      "action_field": "action",
+      "agent_id_field": "agent_id",
+      "type_field": "type",
+      "description": "Blocked action incident record."
+    },
+    "telemetry_raw": {
+      "timestamp_field": "timestamp",
+      "content_field": "content",
+      "archived_fields": ["_archived_at", "_archived_from"],
+      "description": "Raw telemetry snapshot with CPU/memory/disk/load/process metrics."
+    },
+    "reflex_event": {
+      "timestamp_field": "timestamp",
+      "anomalies_field": "anomalies",
+      "incident_field": "incident",
+      "description": "Guardian reflex trigger with anomaly details and evidence."
+    },
+    "approval_event": {
+      "timestamp_field": "timestamp",
+      "action_field": "action",
+      "risk_field": "risk",
+      "approver_field": "approver",
+      "description": "Guardian approval record."
+    },
+    "cognitive_lineage_event": {
+      "timestamp_field": "timestamp",
+      "event_type_field": "event_type",
+      "parent_field": "parent_event_id",
+      "root_field": "root_event_id",
+      "generation_field": "generation",
+      "description": "Causal event chain with subsystem attribution.",
+      "notes": "Timestamps are epoch seconds, not ISO strings."
+    },
+    "agent_decision": {
+      "timestamp_field": "timestamp",
+      "decision_id_field": "decision_id",
+      "agent_id_field": "agent_id",
+      "description": "Agent strategy decision with memory consultation."
+    },
+    "evolution_audit_event": {
+      "timestamp_field": "timestamp",
+      "entry_id_field": "entry_id",
+      "action_field": "action",
+      "description": "Evolution engine audit entry."
+    },
+    "skill_registration": {
+      "timestamp_field": "registered_at",
+      "skill_id_field": "skill_id",
+      "status_field": "status",
+      "description": "Skillify pipeline registration record."
+    },
+    "agent_memory_entry": {
+      "timestamp_field": "created",
+      "content_field": "content",
+      "category_field": "category",
+      "description": "Agent-local memory entry.",
+      "notes": "Timestamp is epoch seconds."
+    },
+    "agent_history_entry": {
+      "timestamp_field": "timestamp",
+      "task_type_field": "task_type",
+      "status_field": "status",
+      "description": "Agent task execution history."
+    }
+  },
+  "integrity_verification": {
+    "checksum_chain": "logs/checksums.jsonl",
+    "chain_length": 8110,
+    "chain_status": "VALID",
+    "covers": ["logs/actions.jsonl", "memory/dmn.jsonl", "guardian/approvals.jsonl"]
+  },
+  "excluded_sources": [
+    {
+      "path": "memory/scratchpad/records.jsonl",
+      "reason": "Empty file — contents archived"
+    },
+    {
+      "path": "memory/archive/records.jsonl",
+      "reason": "Empty file"
+    }
+  ],
+  "notes": [
+    "All JSONL timestamps are ISO-8601 except cognitive_lineage (epoch seconds) and agent_memory (epoch seconds).",
+    "DMN content field often contains JSON-stringified payloads that need double-parsing.",
+    "memory/dmn.jsonl line 1 and guardian/approvals.jsonl line 1 are blank — skip during parsing.",
+    "Checksums chain can verify replay integrity against the original action and DMN append sequences.",
+    "Policy YAML files provide the decision rules active during the replay window."
+  ]
+}

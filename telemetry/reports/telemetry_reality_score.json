@@ -1,0 +1,146 @@
+{
+  "score_version": "p1.6_telemetry_repaired",
+  "generated_at": "2026-05-14T14:00:00+08:00",
+  "program": "P1.6 Reality Repair Sprint — Phase 8: Reality Score Recompute",
+  "scores": {
+    "p1_original": 0.6645,
+    "p15_repaired": 0.7525,
+    "p16_telemetry_repaired": 0.797
+  },
+  "deltas": {
+    "p1_to_p15": 0.088,
+    "p15_to_p16": 0.0445,
+    "p1_to_p16": 0.1325
+  },
+  "classification": "experimental",
+  "classification_description": "System is experimental; suitable for development and testing environments only.",
+  "classification_boundary": "0.003 below operationally-usable (0.80 threshold)",
+  "computation": "0.15×0.88 + 0.15×0.72 + 0.20×1.00 + 0.15×0.58 + 0.10×0.62 + 0.15×0.72 + 0.10×1.00 = 0.7970",
+  "metrics": {
+    "instinct_emergence_precision": {
+      "name": "Instinct Emergence Precision",
+      "weight": 0.15,
+      "p1": 0.88,
+      "p15": 0.88,
+      "p16": 0.88,
+      "weighted": 0.132,
+      "status": "unchanged",
+      "source_phase": "Phase 1C"
+    },
+    "missed_instinct_recall": {
+      "name": "Missed Instinct Recall",
+      "weight": 0.15,
+      "p1": 0.72,
+      "p15": 0.72,
+      "p16": 0.72,
+      "weighted": 0.108,
+      "status": "unchanged",
+      "source_phase": "Phase 1D"
+    },
+    "false_strategy_resistance": {
+      "name": "False Strategy Resistance",
+      "weight": 0.20,
+      "p1": 0.65,
+      "p15": 1.00,
+      "p16": 1.00,
+      "weighted": 0.200,
+      "status": "unchanged (repaired in P1.5)",
+      "source_phase": "Phase 1E / P1.5"
+    },
+    "precursor_detection_accuracy": {
+      "name": "Precursor Detection Accuracy",
+      "weight": 0.15,
+      "p1": 0.35,
+      "p15": 0.35,
+      "p16": 0.58,
+      "weighted": 0.087,
+      "status": "UPGRADED in P1.6",
+      "source_phase": "Phase 6",
+      "upgrade_evidence": "438 backfilled records; INC-2 window 21→377 records; INC-1 window 0→115 records"
+    },
+    "circadian_adaptation_quality": {
+      "name": "Circadian Adaptation Quality",
+      "weight": 0.10,
+      "p1": 0.52,
+      "p15": 0.52,
+      "p16": 0.62,
+      "weighted": 0.062,
+      "status": "UPGRADED in P1.6",
+      "source_phase": "Phase 7",
+      "upgrade_evidence": "Late_night densified +38.5%; incident lifecycle documented; hour-20 coverage added"
+    },
+    "salience_competition_fairness": {
+      "name": "Salience Competition Fairness",
+      "weight": 0.15,
+      "p1": 0.72,
+      "p15": 0.72,
+      "p16": 0.72,
+      "weighted": 0.108,
+      "status": "unchanged",
+      "source_phase": "Phase 1H"
+    },
+    "verifier_consistency": {
+      "name": "Verifier Consistency",
+      "weight": 0.10,
+      "p1": 0.82,
+      "p15": 1.00,
+      "p16": 1.00,
+      "weighted": 0.100,
+      "status": "unchanged (repaired in P1.5)",
+      "source_phase": "Phase 1E / P1.5"
+    }
+  },
+  "score_progression": [
+    {"version": "P1", "score": 0.6645, "classification": "unstable", "key_event": "Initial reality replay evaluation"},
+    {"version": "P1.5", "score": 0.7525, "classification": "experimental", "key_event": "Repaired false_strategy_resistance (0.65→1.00) and verifier_consistency (0.82→1.00)"},
+    {"version": "P1.6", "score": 0.797, "classification": "experimental", "key_event": "Upgraded precursor_detection (0.35→0.58) and circadian_adaptation (0.52→0.62) via telemetry backfill"}
+  ],
+  "remaining_gaps": [
+    {
+      "metric": "precursor_detection_accuracy",
+      "current": 0.58,
+      "target": 0.80,
+      "gap": 0.22,
+      "weight": 0.15,
+      "potential_score_gain": 0.033,
+      "blocker": "INC-1 interpolated data lacks health metrics; only 2 incidents; 38h unrecoverable gap",
+      "fix": "Run 5-min sampling for 2+ weeks; accumulate 10+ incidents; composite precursor scoring"
+    },
+    {
+      "metric": "circadian_adaptation_quality",
+      "current": 0.62,
+      "target": 0.80,
+      "gap": 0.18,
+      "weight": 0.10,
+      "potential_score_gain": 0.018,
+      "blocker": "Only 2.7 circadian cycles; 20/24 hours blind; no weekend data",
+      "fix": "7+ day continuous sampling; validate late_night sensitivity; tag test vs production events"
+    },
+    {
+      "metric": "salience_competition_fairness",
+      "current": 0.72,
+      "target": 0.85,
+      "gap": 0.13,
+      "weight": 0.15,
+      "potential_score_gain": 0.0195,
+      "blocker": "Somatic domain starvation",
+      "fix": "Attention budget caps; starvation circuit-breaker"
+    },
+    {
+      "metric": "missed_instinct_recall",
+      "current": 0.72,
+      "target": 0.85,
+      "gap": 0.13,
+      "weight": 0.15,
+      "potential_score_gain": 0.0195,
+      "blocker": "3 HIGH priority instinct gaps remain",
+      "fix": "Missed-instinct monitors for scoring artifacts, unescalated reflexes, retry loops"
+    }
+  ],
+  "theoretical_maximum": {
+    "if_all_gaps_closed": 0.887,
+    "computation": "0.797 + 0.033 + 0.018 + 0.0195 + 0.0195 = 0.887",
+    "classification_at_max": "operationally-usable",
+    "note": "Even closing all 4 gaps to target would not reach highly-reliable (0.90). The metric weights and target scores cap practical improvement."
+  }
+}

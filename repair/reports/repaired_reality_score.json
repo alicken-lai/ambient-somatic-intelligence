@@ -1,0 +1,123 @@
+{
+  "score_version": "p1.5_repaired",
+  "timestamp": "2026-05-14T13:41:00+08:00",
+  "original_score": 0.6645,
+  "repaired_score": 0.7525,
+  "delta": 0.0880,
+  "classification": "experimental",
+  "classification_description": "System is experimental; suitable for development and testing environments only.",
+  "computation": "0.15×0.88 + 0.15×0.72 + 0.20×1.00 + 0.15×0.35 + 0.10×0.52 + 0.15×0.72 + 0.10×1.00 = 0.1320 + 0.1080 + 0.2000 + 0.0525 + 0.0520 + 0.1080 + 0.1000 = 0.7525",
+  "metrics": {
+    "instinct_emergence_precision": {
+      "value": 0.88,
+      "weight": 0.15,
+      "weighted_contribution": 0.1320,
+      "status": "unchanged"
+    },
+    "missed_instinct_recall": {
+      "value": 0.72,
+      "weight": 0.15,
+      "weighted_contribution": 0.1080,
+      "status": "unchanged"
+    },
+    "false_strategy_resistance": {
+      "value": 1.00,
+      "weight": 0.20,
+      "weighted_contribution": 0.2000,
+      "status": "REPAIRED",
+      "previous": 0.65,
+      "delta": 0.35
+    },
+    "precursor_detection_accuracy": {
+      "value": 0.35,
+      "weight": 0.15,
+      "weighted_contribution": 0.0525,
+      "status": "unchanged"
+    },
+    "circadian_adaptation_quality": {
+      "value": 0.52,
+      "weight": 0.10,
+      "weighted_contribution": 0.0520,
+      "status": "unchanged"
+    },
+    "salience_competition_fairness": {
+      "value": 0.72,
+      "weight": 0.15,
+      "weighted_contribution": 0.1080,
+      "status": "unchanged"
+    },
+    "verifier_consistency": {
+      "value": 1.00,
+      "weight": 0.10,
+      "weighted_contribution": 0.1000,
+      "status": "REPAIRED",
+      "previous": 0.82,
+      "delta": 0.18
+    }
+  },
+  "repairs_applied": {
+    "false_strategy_resistance": {
+      "before": 0.65,
+      "after": 1.00,
+      "delta": 0.35,
+      "mechanism": "PromotionChainValidator + StrategicWriteGate + PromotionVerificationGate",
+      "evidence": "7/7 problematic entries blocked in Phase 6 replay revalidation"
+    },
+    "verifier_consistency": {
+      "before": 0.82,
+      "after": 1.00,
+      "delta": 0.18,
+      "mechanism": "VerifierEnforcement + PromotionVerificationGate (independent verification required)",
+      "evidence": "7/7 unverified promotions now blocked; self-certification eliminated"
+    }
+  },
+  "remaining_gaps": [
+    {
+      "metric": "precursor_detection_accuracy",
+      "value": 0.35,
+      "target": 0.80,
+      "gap": 0.45,
+      "severity": "CRITICAL",
+      "blocker": "8-hour telemetry gap before incidents; 92% false positive rate on memory saturation",
+      "fix": "P1.6 Telemetry Density Upgrade — reduce gap to <1h, add multi-signal correlation"
+    },
+    {
+      "metric": "circadian_adaptation_quality",
+      "value": 0.52,
+      "target": 0.80,
+      "gap": 0.28,
+      "severity": "HIGH",
+      "blocker": "Insufficient observation window (64h); sensitivity adjustments unvalidated",
+      "fix": "Extend observation to 7+ days; validate late_night +25% sensitivity in production"
+    },
+    {
+      "metric": "salience_competition_fairness",
+      "value": 0.72,
+      "target": 0.85,
+      "gap": 0.13,
+      "severity": "MEDIUM",
+      "blocker": "Somatic domain starvation (31.7% vs memory's 72.5%)",
+      "fix": "Implement attention budget caps per domain; add starvation circuit-breaker"
+    },
+    {
+      "metric": "missed_instinct_recall",
+      "value": 0.72,
+      "target": 0.85,
+      "gap": 0.13,
+      "severity": "MEDIUM",
+      "blocker": "Unknown unknowns in instinct detection; 3 HIGH priority gaps remain",
+      "fix": "Deploy missed-instinct monitors for memory scoring artifact, unescalated reflexes, retry loops"
+    }
+  ],
+  "next_priority": "P1.6 Telemetry Density Upgrade — precursor_detection_accuracy is the largest remaining gap (0.35 vs 0.80 target)",
+  "score_trajectory": {
+    "p1_original": {"score": 0.6645, "classification": "unstable", "gate": "FAIL (4/6)"},
+    "p1.5_repaired": {"score": 0.7525, "classification": "experimental", "gate": "PARTIAL (see repair gate)"},
+    "p1.6_projected": {
+      "scenario": "If precursor_detection raised to 0.70 and circadian to 0.70",
+      "projected_score": 0.8350,
+      "projected_classification": "operationally-usable",
+      "computation": "0.15×0.88 + 0.15×0.72 + 0.20×1.00 + 0.15×0.70 + 0.10×0.70 + 0.15×0.72 + 0.10×1.00 = 0.8350"
+    }
+  }
+}
