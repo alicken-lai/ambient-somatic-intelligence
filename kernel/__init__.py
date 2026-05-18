@@ -21,7 +21,7 @@ Usage:
 
 from __future__ import annotations
 
-__version__ = "0.3.0-alpha"
+__version__ = "0.3.1-alpha"
 __all__ = [
     "AmbientKernel",
     "memory",
