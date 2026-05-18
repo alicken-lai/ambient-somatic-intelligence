@@ -1,0 +1,192 @@
+{
+  "program": "Ambient OS P1 Reality Replay Program",
+  "generated_at": "2026-05-18",
+  "weight_formula": "Σ(weight_i × metric_i); weights sum to 1.00",
+  "metric_weights": {
+    "instinct_emergence_precision": 0.15,
+    "missed_instinct_recall": 0.15,
+    "false_strategy_resistance": 0.20,
+    "precursor_detection_accuracy": 0.15,
+    "circadian_adaptation_quality": 0.10,
+    "salience_competition_fairness": 0.15,
+    "verifier_consistency": 0.10
+  },
+  "entries": [
+    {
+      "id": "P1",
+      "date": "2026-05-14",
+      "reality_score": 0.6645,
+      "classification": "unstable",
+      "gate": "FAIL (2/6)",
+      "data_policy": "historical replay",
+      "score_delta_vs_prior": null,
+      "continuity": null,
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 0.65,
+        "precursor_detection_accuracy": 0.35,
+        "circadian_adaptation_quality": 0.52,
+        "salience_competition_fairness": 0.72,
+        "verifier_consistency": 0.82
+      },
+      "evidence": [
+        "replay/reports/reality_replay_score.json",
+        "docs/releases/p1_reality_gate.md"
+      ]
+    },
+    {
+      "id": "P1.5",
+      "date": "2026-05-14",
+      "reality_score": 0.7525,
+      "classification": "experimental",
+      "gate": "PARTIAL PASS (4/5 repair gate)",
+      "data_policy": "replay revalidation post-enforcement",
+      "score_delta_vs_prior": 0.088,
+      "continuity": null,
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.35,
+        "circadian_adaptation_quality": 0.52,
+        "salience_competition_fairness": 0.72,
+        "verifier_consistency": 1.0
+      },
+      "evidence": [
+        "repair/reports/repaired_reality_score.json",
+        "docs/releases/p15_repair_gate.md"
+      ]
+    },
+    {
+      "id": "P1.6",
+      "date": "2026-05-14",
+      "reality_score": 0.797,
+      "classification": "experimental",
+      "gate": "FAIL (2/5 P1.6 gate)",
+      "data_policy": "REAL + INTERPOLATED backfill in incident windows",
+      "score_delta_vs_prior": 0.0445,
+      "continuity": 0.93,
+      "continuity_note": "Within backfilled incident windows only",
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.58,
+        "circadian_adaptation_quality": 0.62,
+        "salience_competition_fairness": 0.72,
+        "verifier_consistency": 1.0
+      },
+      "evidence": [
+        "telemetry/reports/telemetry_reality_score.json",
+        "docs/releases/p16_reality_gate.md"
+      ]
+    },
+    {
+      "id": "P1.7",
+      "date": "2026-05-14",
+      "reality_score": 0.7795,
+      "classification": "experimental",
+      "gate": "FAIL (0/6 unlock gate)",
+      "data_policy": "REAL DATA ONLY",
+      "score_delta_vs_prior": -0.0175,
+      "continuity": 0.282,
+      "continuity_note": "Full observation window; daemon-era 1.00",
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.48,
+        "circadian_adaptation_quality": 0.58,
+        "salience_competition_fairness": 0.73,
+        "verifier_consistency": 1.0
+      },
+      "evidence": [
+        "telemetry/maturation/matured_reality_score.json",
+        "docs/releases/p17_unlock_gate.md"
+      ]
+    },
+    {
+      "id": "P1.7B",
+      "date": "2026-05-18",
+      "reality_score": 0.7795,
+      "classification": "experimental",
+      "gate": "FAIL (1/6); v0.4 LOCKED",
+      "data_policy": "REAL DATA ONLY",
+      "score_delta_vs_prior": 0.0,
+      "continuity": 0.749,
+      "continuity_note": "Live May 11–18 window; maturation files 4/7",
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.48,
+        "circadian_adaptation_quality": 0.58,
+        "salience_competition_fairness": 0.73,
+        "verifier_consistency": 1.0
+      },
+      "evidence": [
+        "telemetry/maturation/p17b_recheck.json",
+        "docs/releases/p17b_reality_gate_recheck.md"
+      ]
+    },
+    {
+      "id": "P1.7C",
+      "date": "2026-05-18",
+      "reality_score": 0.8015,
+      "classification": "operationally-usable",
+      "gate": "FAIL (3/6); v0.4 LOCKED historical",
+      "data_policy": "REAL DATA ONLY; 7/7 maturation days",
+      "score_delta_vs_prior": 0.022,
+      "continuity": 0.7712,
+      "continuity_note": "Union 7-day window; daemon-era 1.00",
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.56,
+        "circadian_adaptation_quality": 0.68,
+        "salience_competition_fairness": 0.73,
+        "verifier_consistency": 1.0
+      },
+      "evidence": [
+        "telemetry/maturation/matured_reality_score.json",
+        "telemetry/maturation/p17c_materialization_report.json",
+        "docs/releases/p17c_reality_gate.md"
+      ]
+    },
+    {
+      "id": "P1.7D",
+      "date": "2026-05-18",
+      "reality_score": 0.812,
+      "classification": "operationally-usable",
+      "gate": "PASS (5/5 operational); v0.4 UNLOCKED",
+      "data_policy": "REAL; daemon-stable window only for dynamic metrics",
+      "score_delta_vs_prior": 0.0105,
+      "continuity": 1.0,
+      "continuity_note": "Operational denominator excludes BOOTSTRAP_GAP",
+      "historical_reality_score": 0.8015,
+      "historical_continuity": 0.7712,
+      "metrics": {
+        "instinct_emergence_precision": 0.88,
+        "missed_instinct_recall": 0.72,
+        "false_strategy_resistance": 1.0,
+        "precursor_detection_accuracy": 0.61,
+        "circadian_adaptation_quality": 0.71,
+        "salience_competition_fairness": 0.73,
+        "verifier_consistency": 1.0
+      },
+      "circadian_status": "INSUFFICIENT_DURATION",
+      "circadian_cycles": 4.37,
+      "evidence": [
+        "telemetry/maturation/p17d_continuity_exception_report.json",
+        "docs/releases/p17d_operational_unlock_gate.md"
+      ]
+    }
+  ],
+  "synthetic_parallel": {
+    "ontology_health_score": 0.9592,
+    "tests": "382/382",
+    "evidence": "docs/releases/v0.3.1_release_gate.md"
+  }
+}

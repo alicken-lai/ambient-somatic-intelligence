@@ -1,0 +1,266 @@
+{
+  "report_version": "1.0.0",
+  "program": "Reality Replay — Phase 1H: Cross-Domain Attention Competition",
+  "generated_at": "2026-05-14T13:08:00+08:00",
+  "data_window": {
+    "start": "2026-05-11T12:54:11.088554+00:00",
+    "end": "2026-05-14T05:09:25.834231+00:00",
+    "span_hours": 64.25,
+    "total_events_analyzed": 555,
+    "competition_window_size": "1 hour",
+    "competition_windows_found": 11
+  },
+  "data_limitations": [
+    "Only 555 domain-classified events (from 5,652 raw events) — many action_log entries are routine system operations without attention significance",
+    "11 competition windows is a small sample for statistical conclusions",
+    "Skill domain has only 12 events (all from skillify test pipeline)",
+    "Task domain has only 10 events — task graph bottleneck detection was limited",
+    "No explicit 'attention was given' ground-truth log exists — attended status is inferred from event source and type"
+  ],
+  "domains_analyzed": [
+    {
+      "domain": "somatic",
+      "description": "Sensor/environmental signals: telemetry, health scores, guardian reflex, memory pressure diagnoses, anomaly explanations",
+      "event_count": 41,
+      "sources": ["sense_local", "health_score", "guardian_reflex", "incident_recall", "baseline_learn", "circadian_baseline", "anomaly_explanation", "memory_pressure_diagnosis", "guardian_reflex_trigger"]
+    },
+    {
+      "domain": "governance",
+      "description": "Governance decisions, escalations, approvals, blocked actions, policy-engine checks",
+      "event_count": 136,
+      "sources": ["governance_decision", "governance_incident", "approval_packet", "simulation", "guardian_dream", "recalibration_queue", "memory_integrity_audit"]
+    },
+    {
+      "domain": "memory",
+      "description": "Episodic retrievals (vision captures, bootstrap events), semantic lookups (identity, architecture, telemetry summaries)",
+      "event_count": 356,
+      "sources": ["bootstrap", "vision_capture", "telemetry-summarizer", "identity", "public_architecture", "release_build"]
+    },
+    {
+      "domain": "skill",
+      "description": "Skill invocations and pipeline registrations from skillify",
+      "event_count": 12,
+      "sources": ["skillify"]
+    },
+    {
+      "domain": "task",
+      "description": "Task graph operations: state builds, DMN ticks, blocked task actions",
+      "event_count": 10,
+      "sources": ["task_system", "task_blocked"]
+    }
+  ],
+  "competing_signal_events": {
+    "total_competition_windows": 11,
+    "window_examples": [
+      {
+        "window": "2026-05-11T13:00 → 14:00 UTC",
+        "domains_competing": ["memory", "somatic", "governance"],
+        "highest_severity_domain": "somatic",
+        "highest_severity_signal": "health_score (0.4)",
+        "was_correctly_prioritized": true,
+        "notes": "Initial bootstrap period — telemetry, episodic captures, and guardian approvals all competing. Somatic health scoring was appropriately given highest priority."
+      },
+      {
+        "window": "2026-05-11T21:00 → 22:00 UTC",
+        "domains_competing": ["somatic", "memory", "governance"],
+        "highest_severity_domain": "somatic",
+        "highest_severity_signal": "guardian_reflex_trigger (0.9)",
+        "was_correctly_prioritized": true,
+        "notes": "CRITICAL WINDOW: Memory pressure incident #1. Guardian reflex correctly received highest priority over concurrent memory recalls and governance events."
+      },
+      {
+        "window": "2026-05-13T22:00 → 23:00 UTC",
+        "domains_competing": ["governance", "memory", "task"],
+        "highest_severity_domain": "governance",
+        "highest_severity_signal": "governance_decision BLOCK (0.9)",
+        "was_correctly_prioritized": true,
+        "notes": "Multi-agent governance framework testing. BLOCK-level rm -rf / and shell exec denials correctly received top priority."
+      }
+    ]
+  },
+  "priority_correctness": {
+    "score": 1.0,
+    "correct_count": 11,
+    "total_comparisons": 11,
+    "analysis": "In all 11 competition windows, the highest-severity signal was correctly attended to. This is a strong result, though partially explained by the current system design where BLOCK-level governance signals and guardian reflex triggers are hard-coded to always receive attention (must-attend bypass in PriorityAllocator).",
+    "caveats": [
+      "11 windows is a small sample size",
+      "Many windows had a single clearly dominant signal (e.g., guardian_reflex at 0.9 severity)",
+      "True close-competition scenarios (signals within 0.1 severity of each other) were rare"
+    ]
+  },
+  "starvation_metrics": {
+    "somatic": {
+      "total_events": 41,
+      "attended_events": 13,
+      "attention_rate": 0.317,
+      "avg_severity": 0.442,
+      "starved": true,
+      "analysis": "STARVED: Only 31.7% of somatic events received explicit attention. Low-severity telemetry snapshots (sense_local at severity 0.3) are routinely unattended. While high-severity reflex triggers (0.8–0.9) are always attended, the background somatic health monitoring (health_score at 0.4) is frequently ignored. This is the primary starvation concern."
+    },
+    "governance": {
+      "total_events": 136,
+      "attended_events": 100,
+      "attention_rate": 0.735,
+      "avg_severity": 0.464,
+      "starved": false,
+      "analysis": "Adequately attended. 73.5% attention rate reflects that ALLOW-risk governance decisions (routine approvals) are appropriately not given active attention, while REVIEW_REQUIRED and BLOCK decisions receive full attention."
+    },
+    "memory": {
+      "total_events": 356,
+      "attended_events": 356,
+      "attention_rate": 1.0,
+      "avg_severity": 0.200,
+      "starved": false,
+      "analysis": "100% attention rate but at very low severity (0.2 avg). Memory retrievals are passively attended as part of normal processing rather than competing for active attention. This domain may be over-represented in attention share relative to its urgency."
+    },
+    "skill": {
+      "total_events": 12,
+      "attended_events": 12,
+      "attention_rate": 1.0,
+      "avg_severity": 0.300,
+      "starved": false,
+      "analysis": "All skill events attended, but sample is small (12 test registrations). Insufficient data to assess real-world starvation risk."
+    },
+    "task": {
+      "total_events": 10,
+      "attended_events": 10,
+      "attention_rate": 1.0,
+      "avg_severity": 0.600,
+      "starved": false,
+      "analysis": "All task events attended including blocked actions. Very small sample (10 events) limits conclusions."
+    }
+  },
+  "escalation_fairness": {
+    "somatic": {
+      "actual_attention_share": 0.0265,
+      "ideal_share_by_volume": 0.0739,
+      "severity_weighted_share": 0.0327,
+      "fairness_delta": 0.0474,
+      "analysis": "Under-attended relative to both volume and severity. Somatic signals deserve ~7.4% of attention but receive only ~2.6%."
+    },
+    "governance": {
+      "actual_attention_share": 0.2036,
+      "ideal_share_by_volume": 0.2450,
+      "severity_weighted_share": 0.1137,
+      "fairness_delta": 0.0414,
+      "analysis": "Slightly under-attended by volume but over-attended by severity weight — governance signals get appropriate priority when they are serious."
+    },
+    "memory": {
+      "actual_attention_share": 0.7248,
+      "ideal_share_by_volume": 0.6414,
+      "severity_weighted_share": 0.1283,
+      "fairness_delta": 0.0834,
+      "analysis": "OVER-attended: Memory signals consume 72.5% of attention share but represent only 64% by volume and only 12.8% by severity-weighted importance. This domain crowds out higher-severity signals."
+    },
+    "skill": {
+      "actual_attention_share": 0.0244,
+      "ideal_share_by_volume": 0.0216,
+      "severity_weighted_share": 0.0065,
+      "fairness_delta": 0.0028,
+      "analysis": "Well-balanced — attention share closely matches volume share."
+    },
+    "task": {
+      "actual_attention_share": 0.0204,
+      "ideal_share_by_volume": 0.0180,
+      "severity_weighted_share": 0.0108,
+      "fairness_delta": 0.0024,
+      "analysis": "Well-balanced — attention share closely matches volume share."
+    }
+  },
+  "response_quality_assessment": {
+    "correct_responses": [
+      {
+        "event": "Memory pressure incident #1 (2026-05-11T21:49)",
+        "response": "Guardian reflex triggered, telemetry captured, incident filed, anomaly explained",
+        "outcome": "Issue documented, recommendations generated, operator alerted",
+        "quality": "HIGH"
+      },
+      {
+        "event": "Memory pressure incident #2 (2026-05-11T22:14)",
+        "response": "Repeat reflex with confidence calibration, circadian baseline comparison",
+        "outcome": "Correctly identified as repeat occurrence, confidence downgraded to low_confidence_watch",
+        "quality": "HIGH — adaptive response with learning"
+      },
+      {
+        "event": "Destructive command blocks (rm -rf /, shell exec denial)",
+        "response": "Immediate BLOCK with policy attribution and incident logging",
+        "outcome": "Correct — dangerous actions prevented",
+        "quality": "HIGH"
+      }
+    ],
+    "missed_or_suboptimal_responses": [
+      {
+        "event": "Somatic telemetry snapshots during 21:49-22:14 UTC incident window",
+        "issue": "Intermediate health_score and sense_local readings between the two incidents were not actively attended",
+        "impact": "LOW — the guardian reflex itself captured the critical information, but continuous somatic attention between incidents could have provided earlier warning of the second event",
+        "recommended_improvement": "Increase somatic attention weight during active incident windows"
+      }
+    ]
+  },
+  "salience_competition_fairness_score": 0.72,
+  "score_breakdown": {
+    "priority_correctness": {
+      "score": 1.0,
+      "weight": 0.30,
+      "weighted": 0.30,
+      "note": "Perfect — highest-severity signal always attended"
+    },
+    "starvation_resistance": {
+      "score": 0.81,
+      "weight": 0.25,
+      "weighted": 0.2025,
+      "note": "Good overall but somatic domain is starved at 31.7% attention"
+    },
+    "escalation_fairness": {
+      "score": 0.83,
+      "weight": 0.25,
+      "weighted": 0.2075,
+      "note": "Memory domain over-consumes attention; somatic under-served"
+    },
+    "response_quality": {
+      "score": 0.85,
+      "weight": 0.10,
+      "weighted": 0.085,
+      "note": "Critical events handled well; minor gap in continuous somatic monitoring"
+    },
+    "data_confidence_penalty": {
+      "score": -0.075,
+      "weight": 0.10,
+      "weighted": -0.075,
+      "note": "Penalty for limited data (64h, 11 competition windows, 555 domain events)"
+    }
+  },
+  "improvement_recommendations": [
+    {
+      "priority": "HIGH",
+      "area": "Somatic starvation",
+      "recommendation": "Increase somatic domain budget allocation from 0.30 to 0.35 in PriorityAllocator, and reduce memory domain from 0.15 to 0.10. Background telemetry (severity 0.3–0.4) should receive at least passive tracking even when not actively attended.",
+      "expected_impact": "Somatic attention rate should increase from 31.7% to ~60%"
+    },
+    {
+      "priority": "HIGH",
+      "area": "Memory over-attention",
+      "recommendation": "Apply recurrence habituation to memory domain: episodic/semantic retrieval events with severity < 0.3 should habituate faster (increase recurrence weight for memory signals). Vision captures and telemetry summaries should not compete with somatic/governance signals.",
+      "expected_impact": "Memory attention share should decrease from 72.5% to ~50%, freeing budget for higher-severity domains"
+    },
+    {
+      "priority": "MEDIUM",
+      "area": "Incident-window somatic boost",
+      "recommendation": "When a guardian reflex triggers, temporarily boost all somatic signal salience by 0.2 for the following 30 minutes. This creates a heightened-attention window that catches developing issues.",
+      "expected_impact": "Earlier detection of repeat incidents (like the 25-minute gap between incidents #1 and #2)"
+    },
+    {
+      "priority": "MEDIUM",
+      "area": "Cross-domain correlation",
+      "recommendation": "Enable WeakSignalDetector correlation pairs for (somatic, governance) — when somatic anomalies and governance escalations co-occur, the combined signal should receive priority boost.",
+      "expected_impact": "Better compound-event detection; already configured in weak_signal_detector.py correlation pairs"
+    },
+    {
+      "priority": "LOW",
+      "area": "Task domain visibility",
+      "recommendation": "Task domain has only 10 events — likely under-instrumented. Add attention signals for task queue depth, task completion latency, and resource contention events.",
+      "expected_impact": "Better task graph bottleneck detection"
+    }
+  ]
+}

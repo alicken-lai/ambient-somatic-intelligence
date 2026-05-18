@@ -1,0 +1,121 @@
+{
+  "audit_version": "1.0.0",
+  "generated_at": "2026-05-14T13:30:00+08:00",
+  "program": "P1.5 Reality Repair Sprint — Phase 1: Promotion Path Audit",
+  "total_illegal_paths_found": 7,
+  "summary": {
+    "high_risk": 3,
+    "medium_risk": 3,
+    "low_risk": 1
+  },
+  "illegal_paths": [
+    {
+      "id": "ILP-001",
+      "source_file": "memory/somatic/ontology_bridge.py",
+      "function": "SomaticOntologyBridge.propose_escalation_strategy",
+      "source_level": "L2_INSTINCT",
+      "target_level": "L4_STRATEGIC",
+      "bypass_type": "level_skip",
+      "description": "Proposes precursor patterns directly from L2 to L4, skipping L3 entirely. The method accepts any precursor with confidence >= 0.8 and creates a PromotionCandidate with current_layer=2, proposed_layer=4. No check for an intermediate L3 skill entry.",
+      "how_it_works": "The method only checks precursor_pattern.confidence >= min_confidence (default 0.8). It creates a PromotionCandidate jumping from layer 2 to layer 4 without verifying that a corresponding L3 skill entry exists in the promotion chain.",
+      "risk": "HIGH",
+      "line_numbers": "217-246",
+      "evidence": "current_layer=2, proposed_layer=4 — violates the L1→L2→L3→L4 sequential chain requirement"
+    },
+    {
+      "id": "ILP-002",
+      "source_file": "memory/somatic/ontology_bridge.py",
+      "function": "SomaticOntologyBridge.scan_promotion_candidates (precursors loop)",
+      "source_level": "L2_INSTINCT",
+      "target_level": "L4_STRATEGIC",
+      "bypass_type": "level_skip",
+      "description": "In the scanning loop for precursors, candidates are created with current_layer=2, proposed_layer=4. This is the batch-scanning variant of ILP-001 — allows multiple L2→L4 skips in a single pass.",
+      "how_it_works": "Iterates precursors, checks confidence >= 0.8, creates PromotionCandidate(current_layer=2, proposed_layer=4) without checking for L3 intermediary.",
+      "risk": "HIGH",
+      "line_numbers": "294-307",
+      "evidence": "current_layer=2, proposed_layer=4 in batch scan — same violation as ILP-001 but potentially at scale"
+    },
+    {
+      "id": "ILP-003",
+      "source_file": "memory/somatic/ontology_bridge.py",
+      "function": "SomaticOntologyBridge.map_cluster_to_l3",
+      "source_level": "L1_EPISODIC",
+      "target_level": "L3_SKILL",
+      "bypass_type": "level_skip",
+      "description": "Maps episode clusters directly to L3 without verifying L2 instinct entries exist. The cluster contains raw episode_ids (L1 data) being promoted directly to L3, skipping L2 instinct formation.",
+      "how_it_works": "Accepts any cluster with episode_count >= min_episodes and avg_similarity >= min_similarity. Creates an OntologyMapping with target_layer=3. The cluster's episodes are L1 episodic data — no check that those episodes first became L2 instincts before being clustered into L3.",
+      "risk": "MEDIUM",
+      "line_numbers": "183-215",
+      "evidence": "cluster.episode_ids are L1 episodes being mapped directly to L3 without intermediate L2 validation"
+    },
+    {
+      "id": "ILP-004",
+      "source_file": "memory/ontology/strategic_schema.py",
+      "function": "StrategicEntry.__init__ / StrategicEntry.from_dict",
+      "source_level": "NONE",
+      "target_level": "L4_STRATEGIC",
+      "bypass_type": "direct_injection",
+      "description": "StrategicEntry can be constructed with any confidence value (including 1.0) and empty source_skills, empty governance_approval_id, and empty verifier_id. No constructor-level validation prevents creating an L4 entry without promotion chain evidence.",
+      "how_it_works": "The dataclass accepts all fields at face value. from_dict() defaults governance_approval_id and verifier_id to empty strings. Any caller can construct a fully-formed L4 entry without going through PromotionEngine. This is the structural root cause of the agent memory initialization bypass identified in the P1 report.",
+      "risk": "HIGH",
+      "line_numbers": "13-67",
+      "evidence": "FE-STRAT-001, FE-STRAT-002, AGENT-DEC-001 all exploited this path — confidence 1.0 with zero source_skills, empty governance, empty verifier"
+    },
+    {
+      "id": "ILP-005",
+      "source_file": "memory/ontology/skill_schema.py",
+      "function": "SkillMemoryEntry.__init__ / SkillMemoryEntry.from_dict",
+      "source_level": "NONE",
+      "target_level": "L3_SKILL",
+      "bypass_type": "direct_injection",
+      "description": "SkillMemoryEntry can be constructed with empty source_instincts list and any confidence value. No validation that L2 instinct entries actually exist in the source_instincts field.",
+      "how_it_works": "Dataclass constructor accepts source_instincts as a plain list with no referential integrity check. A caller can create an L3 entry claiming empty or fabricated source instincts.",
+      "risk": "MEDIUM",
+      "line_numbers": "13-85",
+      "evidence": "FE-FAIL-001 stored as L3 (failure category) with confidence 1.0 and no episodic/instinct precursors"
+    },
+    {
+      "id": "ILP-006",
+      "source_file": "agents/skillify/skill_registration_pipeline.py",
+      "function": "SkillRegistrationPipeline._try_skill_registry",
+      "source_level": "NONE",
+      "target_level": "L3_SKILL",
+      "bypass_type": "confidence_injection_without_evidence",
+      "description": "When registering a skill via SkillRegistry, the pipeline injects confidence_range from the candidate's self-declared evidence. The evidence claims (occurrence_count, success_rate) come from synthetic/generated data with no independent verification of the actual episodic history.",
+      "how_it_works": "The candidate's evidence dict is populated by SkillCandidateGenerator from WorkflowPattern attributes. These attributes could be synthetic (as seen in the 'auto_test_skill' batch — all 12 registrations used fabricated evidence). The pipeline trusts these values without cross-referencing actual episodic records.",
+      "risk": "MEDIUM",
+      "line_numbers": "397-431",
+      "evidence": "SKILLIFY-BATCH: 12 registrations with claimed occurrence_count=10, success_rate=0.9 — all synthetic"
+    },
+    {
+      "id": "ILP-007",
+      "source_file": "memory/ontology/promotion_engine.py",
+      "function": "PromotionEngine.approve_promotion",
+      "source_level": "ANY",
+      "target_level": "ANY+1",
+      "bypass_type": "missing_chain_continuity_check",
+      "description": "The approve_promotion method validates governance_decision_id and verifier_id for L4, but does NOT verify that the source entry actually exists at the claimed source_layer, nor that the entry has a valid promotion history from prior layers.",
+      "how_it_works": "The method checks candidate.eligible and governance_decision_id presence, but never validates that the entry_id referenced by the candidate actually has a proven promotion chain. A malicious or buggy caller could create a PromotionCandidate claiming source_layer=L3 with a fabricated entry_id that never went through L1→L2→L3.",
+      "risk": "LOW",
+      "line_numbers": "164-243",
+      "evidence": "No referential integrity check — trusts the candidate's source_layer claim without verification"
+    }
+  ],
+  "structural_observations": [
+    {
+      "observation": "The PromotionEngine itself is sound for single-hop transitions but lacks chain continuity enforcement",
+      "severity": "ARCHITECTURAL",
+      "recommendation": "Add a PromotionChainValidator that verifies the full provenance chain before any promotion"
+    },
+    {
+      "observation": "Schema dataclasses (StrategicEntry, SkillMemoryEntry) allow unconstrained construction",
+      "severity": "STRUCTURAL",
+      "recommendation": "Add a StrategicWriteGate that intercepts all L4 writes and validates provenance"
+    },
+    {
+      "observation": "The SomaticOntologyBridge has legitimate L2→L4 paths that should be closed",
+      "severity": "CRITICAL",
+      "recommendation": "All L2→L4 proposals must be routed through an intermediate L3 skill validation step"
+    }
+  ]
+}

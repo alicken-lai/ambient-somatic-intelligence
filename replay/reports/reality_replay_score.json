@@ -1,0 +1,186 @@
+{
+  "program": "Ambient OS — P1 Reality Replay Program",
+  "version": "v0.3.1-alpha",
+  "computed_at": "2026-05-14T13:16:00+08:00",
+  "reality_replay_score": 0.6645,
+  "classification": "unstable",
+  "classification_description": "System has critical gaps; not suitable for any production or staging workload.",
+  "metrics": [
+    {
+      "name": "Instinct Emergence Precision",
+      "key": "instinct_emergence_precision",
+      "weight": 0.15,
+      "raw_score": 0.88,
+      "weighted_contribution": 0.132,
+      "source_phase": "Phase 1C",
+      "rationale": "8/8 instinct clusters valid with strong confidence (0.70–0.95) and temporal stability. All met L1→L2 promotion criteria. Minor deduction for potential over-clustering of DMN heartbeat variants."
+    },
+    {
+      "name": "Missed Instinct Recall",
+      "key": "missed_instinct_recall",
+      "weight": 0.15,
+      "raw_score": 0.72,
+      "weighted_contribution": 0.108,
+      "source_phase": "Phase 1D",
+      "rationale": "8 missed instinct candidates identified from 56 wasted operations. 3 HIGH priority patterns (memory scoring artifact, repeated reflex not escalated, Skillify retry loop) represent genuine automation gaps. Score reflects that while detection was thorough, recall is inherently uncertain — unknown unknowns remain."
+    },
+    {
+      "name": "False Strategy Resistance",
+      "key": "false_strategy_resistance",
+      "weight": 0.20,
+      "raw_score": 0.65,
+      "weighted_contribution": 0.13,
+      "source_phase": "Phase 1E",
+      "rationale": "Directly measured: 3/7 strategies were false (43% false rate). 5 overconfident entries at confidence 1.0 with zero usage. Root cause: agent memory initialization bypasses promotion chain entirely. Promotion chain integrity scored 0.20, dragging this metric down despite excellent guardian self-correction (0.90)."
+    },
+    {
+      "name": "Precursor Detection Accuracy",
+      "key": "precursor_detection_accuracy",
+      "weight": 0.15,
+      "raw_score": 0.35,
+      "weighted_contribution": 0.0525,
+      "source_phase": "Phase 1F",
+      "rationale": "Directly measured at 0.35. Critical weakness: 8-hour telemetry gap before known incidents makes precursor detection nearly impossible. Chronic memory saturation has 92% false positive rate. Multi-signal resource saturation cluster shows promise (confidence 0.50) but lacks sufficient samples for validation."
+    },
+    {
+      "name": "Circadian Adaptation Quality",
+      "key": "circadian_adaptation_quality",
+      "weight": 0.10,
+      "raw_score": 0.52,
+      "weighted_contribution": 0.052,
+      "source_phase": "Phase 1G",
+      "rationale": "Directly measured at 0.52. Analysis of 5,652 events over ~64 hours shows real incidents cluster in late_night period (21:00–00:00 UTC). Quiet-hours anomaly rate inflated by test artifacts. Recommendations for +25% late_night sensitivity and -15% quiet_hours sensitivity are reasonable but unvalidated."
+    },
+    {
+      "name": "Salience Competition Fairness",
+      "key": "salience_competition_fairness",
+      "weight": 0.15,
+      "raw_score": 0.72,
+      "weighted_contribution": 0.108,
+      "source_phase": "Phase 1H",
+      "rationale": "Directly measured at 0.72. Priority correctness is perfect (11/11), and escalation fairness (0.83) and response quality (0.85) are strong. Dragged down by somatic domain starvation (31.7% attention) while memory over-consumes (72.5%). Starvation resistance at 0.81 shows this is a real but bounded problem."
+    },
+    {
+      "name": "Verifier Consistency",
+      "key": "verifier_consistency",
+      "weight": 0.10,
+      "raw_score": 0.82,
+      "weighted_contribution": 0.082,
+      "source_phase": "Phase 1E / Cross-phase",
+      "rationale": "Estimated from cross-phase governance data. Guardian self-correction excellent (0.90) but governance gate effectiveness only 0.70. The verifier correctly intervened on false strategies but the promotion chain bypass means it was never consulted for 5 overconfident entries. Effective verification only where the pipeline invokes it."
+    }
+  ],
+  "score_breakdown": {
+    "sum_of_weights": 1.0,
+    "computation": "Σ(weight_i × raw_score_i) = 0.132 + 0.108 + 0.130 + 0.0525 + 0.052 + 0.108 + 0.082 = 0.6645"
+  },
+  "gate_evaluation": {
+    "criteria": [
+      {
+        "name": "Historical replay succeeds",
+        "threshold": 1.0,
+        "actual": 1.0,
+        "comparison": ">=",
+        "verdict": "PASS",
+        "evidence": "All phases 1C through 1H completed without error."
+      },
+      {
+        "name": "No production mutation",
+        "threshold": 1.0,
+        "actual": 1.0,
+        "comparison": ">=",
+        "verdict": "PASS",
+        "evidence": "Sandbox mutation guards active throughout replay; no writes to production state."
+      },
+      {
+        "name": "Precursor detection accuracy",
+        "threshold": 0.80,
+        "actual": 0.35,
+        "comparison": ">",
+        "verdict": "FAIL",
+        "gap": 0.45,
+        "evidence": "8-hour telemetry gap and 92% FP rate on memory saturation precursor make reliable detection impossible with current data."
+      },
+      {
+        "name": "False strategy resistance",
+        "threshold": 0.90,
+        "actual": 0.65,
+        "comparison": ">",
+        "verdict": "FAIL",
+        "gap": 0.25,
+        "evidence": "43% false strategy rate caused by agent memory initialization bypassing the promotion chain. Promotion chain integrity at 0.20."
+      },
+      {
+        "name": "Verifier consistency",
+        "threshold": 0.95,
+        "actual": 0.82,
+        "comparison": ">",
+        "verdict": "FAIL",
+        "gap": 0.13,
+        "evidence": "Guardian self-correction strong (0.90) but governance gate effectiveness only 0.70. Verifier is bypassed by direct memory initialization path."
+      },
+      {
+        "name": "Replay score",
+        "threshold": 0.90,
+        "actual": 0.6645,
+        "comparison": ">=",
+        "verdict": "FAIL",
+        "gap": 0.2355,
+        "evidence": "Composite score of 0.6645 classifies as 'unstable', well below the 0.90 threshold."
+      }
+    ],
+    "total_criteria": 6,
+    "passed": 2,
+    "failed": 4,
+    "verdict": "FAIL",
+    "failed_criteria": [
+      "Precursor detection accuracy",
+      "False strategy resistance",
+      "Verifier consistency",
+      "Replay score"
+    ]
+  },
+  "phase_results_summary": {
+    "1C_instinct_emergence": {
+      "clusters_identified": 8,
+      "records_analyzed": 5938,
+      "top_cluster": "Autonomous DMN Heartbeat (0.95, 1255 occurrences)",
+      "all_promoted": true
+    },
+    "1D_missed_instinct_detection": {
+      "candidates_found": 8,
+      "high_priority": 3,
+      "medium_priority": 2,
+      "low_priority": 3,
+      "wasted_operations": 56
+    },
+    "1E_false_strategy_detection": {
+      "strategies_examined": 7,
+      "false_strategies": 3,
+      "false_rate": 0.43,
+      "overconfident_entries": 5,
+      "guardian_self_correction": 0.90,
+      "promotion_chain_integrity": 0.20
+    },
+    "1F_somatic_precursor_analysis": {
+      "incidents_analyzed": 2,
+      "precursor_clusters": 4,
+      "telemetry_gap_hours": 8,
+      "memory_saturation_fp_rate": 0.92
+    },
+    "1G_circadian_attention_validation": {
+      "events_analyzed": 5652,
+      "observation_hours": 64,
+      "incident_period": "late_night (21:00-00:00 UTC)",
+      "recommended_sensitivity_adjustment": "+25% late_night, -15% quiet_hours"
+    },
+    "1H_cross_domain_salience_competition": {
+      "priority_correctness": 1.0,
+      "starvation_resistance": 0.81,
+      "escalation_fairness": 0.83,
+      "response_quality": 0.85,
+      "starved_domain": "somatic (31.7%)",
+      "over_consuming_domain": "memory (72.5%)"
+    }
+  }
+}

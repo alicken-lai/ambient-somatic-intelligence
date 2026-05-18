@@ -1,0 +1,43 @@
+{
+  "score_version": "p1.7c_matured_real_data_only",
+  "generated_at": "2026-05-18T07:53:04.193210+00:00",
+  "program": "P1.7C Telemetry Materialization Repair",
+  "data_policy": "REAL DATA ONLY",
+  "scores": {
+    "p17_matured_real_data": 0.7795,
+    "p17b_recheck": 0.7795,
+    "p17c_matured": 0.8015
+  },
+  "computation": "0.15\u00d70.88 + 0.15\u00d70.72 + 0.2\u00d71.0 + 0.15\u00d70.56 + 0.1\u00d70.68 + 0.15\u00d70.73 + 0.1\u00d71.0 = 0.8015",
+  "reality_score": 0.8015,
+  "metrics": {
+    "instinct_emergence_precision": {
+      "value": 0.88,
+      "weight": 0.15
+    },
+    "missed_instinct_recall": {
+      "value": 0.72,
+      "weight": 0.15
+    },
+    "false_strategy_resistance": {
+      "value": 1.0,
+      "weight": 0.2
+    },
+    "precursor_detection_accuracy": {
+      "value": 0.56,
+      "weight": 0.15
+    },
+    "circadian_adaptation_quality": {
+      "value": 0.68,
+      "weight": 0.1
+    },
+    "salience_competition_fairness": {
+      "value": 0.73,
+      "weight": 0.15
+    },
+    "verifier_consistency": {
+      "value": 1.0,
+      "weight": 0.1
+    }
+  }
+}

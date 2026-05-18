@@ -1,0 +1,63 @@
+{
+  "freeze_id": "daemon-stable-window-v1",
+  "generated_at": "2026-05-18",
+  "source": "telemetry/maturation/p17d_continuity_exception_report.json",
+  "window": {
+    "start": "2026-05-13T15:00:00+00:00",
+    "end": "2026-05-17T23:59:13.138892+00:00",
+    "duration_hours": 104.99,
+    "duration_human": "~105h"
+  },
+  "coverage": {
+    "operational_continuity": 1.0,
+    "occupied_slots": 1260,
+    "expected_slots": 1260,
+    "slot_seconds": 300,
+    "methodology": "operational_occupied / (expected_slots - bootstrap_slot_ids); bootstrap intervals excluded from denominator only"
+  },
+  "historical_union": {
+    "continuity": 0.7712,
+    "occupied_slots": 1436,
+    "expected_slots": 1862,
+    "window_hours": 155.08,
+    "evidence": "telemetry/maturation/p17c_materialization_report.json"
+  },
+  "gap_counts_by_class": {
+    "BOOTSTRAP_GAP": 64,
+    "DAEMON_FAILURE": 0,
+    "SOURCE_SILENCE": 0,
+    "CLOCK_DRIFT": 0,
+    "UNKNOWN": 0
+  },
+  "gaps_over_10min_in_window": 0,
+  "daemon_failure_gaps_over_10min": 0,
+  "incidents": {
+    "INC-001": {
+      "timestamp": "2026-05-11T21:49:02.703942+00:00",
+      "in_daemon_window": false,
+      "coverage_status": "INSUFFICIENT_COVERAGE",
+      "t_minus_60m_real_records": 19,
+      "required_records": 60,
+      "notes": "Pre-daemon bootstrap blind spot; records cluster at t-0 burst"
+    },
+    "INC-002": {
+      "timestamp": "2026-05-11T22:14:37.782126+00:00",
+      "in_daemon_window": false,
+      "coverage_status": "ADEQUATE_COVERAGE",
+      "t_minus_60m_real_records": 260,
+      "operational_score_contribution": "excluded from operational precursor (outside window); adequate for historical burst analysis"
+    }
+  },
+  "operational_scores_in_window": {
+    "reality_score": 0.812,
+    "precursor_detection": 0.61,
+    "circadian_adaptation": 0.71,
+    "circadian_status": "INSUFFICIENT_DURATION",
+    "circadian_cycles": 4.37
+  },
+  "evidence_files": [
+    "docs/releases/p17d_operational_unlock_gate.md",
+    "telemetry/maturation/p17d_continuity_exception_report.json",
+    "state/daemon/dmn_tick_status.json"
+  ]
+}

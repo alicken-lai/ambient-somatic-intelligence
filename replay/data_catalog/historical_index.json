@@ -1,0 +1,670 @@
+{
+  "catalog_version": "1.0.0",
+  "generated_at": "2026-05-14T13:01:00+08:00",
+  "program": "Reality Replay — Phase 1A: Historical Data Discovery",
+  "total_sources": 72,
+  "total_records": 14178,
+  "global_date_range": {
+    "earliest": "2026-05-11T12:54:11.088554+00:00",
+    "latest": "2026-05-14T05:02:25.620058+00:00",
+    "span_hours": 64.14
+  },
+  "sources": {
+    "jsonl_files": [
+      {
+        "path": "memory/dmn.jsonl",
+        "record_count": 1372,
+        "date_range": {
+          "earliest": "2026-05-11T12:54:11.088554+00:00",
+          "latest": "2026-05-14T05:01:25.410263+00:00"
+        },
+        "schema_type": "dmn_mixed",
+        "description": "Default Mode Network — primary append-only memory. Contains telemetry, governance, episodic, semantic, and procedural records with cross-layer classification.",
+        "fields": ["content", "source", "tags", "timestamp", "_classified_layer", "_layer", "_source_line"],
+        "sources_found": ["bootstrap", "sense_local", "vision_capture", "guardian_reflex", "incident_recall", "baseline_learn", "health_score", "memory_pressure_diagnosis", "circadian_baseline", "anomaly_explanation", "approval_packet", "simulation", "guardian_dream", "recalibration_queue", "telemetry-summarizer", "night35-dmn-tick", "cursor-agent"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Core timeline source. Line 1 is blank. Records are chronologically ordered."
+      },
+      {
+        "path": "memory/episodic/records.jsonl",
+        "record_count": 328,
+        "date_range": {
+          "earliest": "2026-05-11T12:54:11.088554+00:00",
+          "latest": "2026-05-13T15:12:19.083997+00:00"
+        },
+        "schema_type": "episodic",
+        "description": "Classified episodic memory layer. Vision captures, telemetry anomalies, bootstrap events, and dedup-verified records.",
+        "fields": ["_classified_layer", "_source_line", "content", "source", "tags", "timestamp", "_layer", "_content_hash"],
+        "sources_found": ["bootstrap", "vision_capture", "telemetry-summarizer", "phase2-test"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Subset of DMN classified as episodic. Contains vision capture metadata with screenshot paths."
+      },
+      {
+        "path": "memory/semantic/records.jsonl",
+        "record_count": 29,
+        "date_range": {
+          "earliest": "2026-05-12T09:01:51.138846+00:00",
+          "latest": "2026-05-13T13:00:00+00:00"
+        },
+        "schema_type": "semantic",
+        "description": "Classified semantic memory layer. Identity loads, architecture snapshots, release builds, hourly telemetry summaries.",
+        "fields": ["_classified_layer", "_source_line", "content", "source", "tags", "timestamp", "_layer"],
+        "sources_found": ["identity", "public_architecture", "release_build", "telemetry-summarizer"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Hourly telemetry summaries from 2026-05-12T14:00 through 2026-05-13T13:00 (24 hours)."
+      },
+      {
+        "path": "memory/procedural/records.jsonl",
+        "record_count": 1,
+        "date_range": {
+          "earliest": "2026-05-13T12:25:13.454200+00:00",
+          "latest": "2026-05-13T12:25:13.454200+00:00"
+        },
+        "schema_type": "procedural",
+        "description": "Classified procedural memory layer. Operational know-how records.",
+        "fields": ["_classified_layer", "_source_line", "content", "source", "tags", "timestamp"],
+        "sources_found": ["cursor-agent"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Single record documenting Cursor-Hermes MCP setup procedure."
+      },
+      {
+        "path": "memory/governance/records.jsonl",
+        "record_count": 31,
+        "date_range": {
+          "earliest": "2026-05-11T21:49:02.704609+00:00",
+          "latest": "2026-05-13T12:31:16.098911+00:00"
+        },
+        "schema_type": "governance",
+        "description": "Classified governance memory layer. Guardian reflex events, incident recalls, baselines, health scores, audits, dreams, simulations.",
+        "fields": ["_classified_layer", "_source_line", "content", "source", "tags", "timestamp"],
+        "sources_found": ["guardian_reflex", "incident_recall", "baseline_learn", "health_score", "memory_pressure_diagnosis", "circadian_baseline", "anomaly_explanation", "approval_packet", "simulation", "guardian_dream", "recalibration_queue", "memory_integrity_audit", "cursor-agent"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Rich governance event timeline. Critical for replaying Guardian decision chain."
+      },
+      {
+        "path": "memory/scratchpad/records.jsonl",
+        "record_count": 0,
+        "date_range": null,
+        "schema_type": "scratchpad",
+        "description": "Working scratchpad memory layer (currently empty — contents archived).",
+        "fields": [],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "NONE",
+        "notes": "Empty. Contents were archived to memory/archive/scratchpad_archived.jsonl."
+      },
+      {
+        "path": "memory/archive/records.jsonl",
+        "record_count": 0,
+        "date_range": null,
+        "schema_type": "archive",
+        "description": "General archive layer (currently empty).",
+        "fields": [],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "NONE",
+        "notes": "Empty file."
+      },
+      {
+        "path": "memory/archive/scratchpad_archived.jsonl",
+        "record_count": 19,
+        "date_range": {
+          "earliest": "2026-05-11T13:36:36.587887+00:00",
+          "latest": "2026-05-11T21:57:12.373245+00:00"
+        },
+        "schema_type": "telemetry_archived",
+        "description": "Archived scratchpad entries. Raw telemetry snapshots from sense_local with full system metrics.",
+        "fields": ["_archived_at", "_archived_from", "_classified_layer", "_source_line", "content", "source", "tags", "timestamp"],
+        "sources_found": ["sense_local"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Archived 2026-05-13T13:34:17. Contains raw CPU/memory/disk/load/process telemetry."
+      },
+      {
+        "path": "logs/actions.jsonl",
+        "record_count": 4136,
+        "date_range": {
+          "earliest": "2026-05-11T13:00:42.948937+00:00",
+          "latest": "2026-05-14T05:01:25.501943+00:00"
+        },
+        "schema_type": "action_log",
+        "description": "Append-only action log. Every system action with risk classification, status, and detail payload.",
+        "fields": ["action", "detail", "risk", "status", "timestamp"],
+        "risk_levels_found": ["ALLOW", "REVIEW_REQUIRED", "BLOCK"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Verified by checksum chain. Includes DMN ticks, state builds, telemetry, governance actions."
+      },
+      {
+        "path": "logs/checksums.jsonl",
+        "record_count": 8110,
+        "date_range": {
+          "earliest": "2026-05-11T13:00:42.949058+00:00",
+          "latest": "2026-05-14T05:01:25.516531+00:00"
+        },
+        "schema_type": "integrity_chain",
+        "description": "Cryptographic checksum chain for append-only integrity verification. SHA-256 chain hashes.",
+        "fields": ["chain_hash", "event", "metadata", "previous_chain_hash", "target", "target_sha256", "timestamp"],
+        "events_found": ["guardian_approval_append", "action_log_append", "dmn_append"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "Integrity verification data. Useful for validating replay but not primary replay content."
+      },
+      {
+        "path": "governance/audit/decisions.jsonl",
+        "record_count": 97,
+        "date_range": {
+          "earliest": "2026-05-13T13:51:43.414441+00:00",
+          "latest": "2026-05-14T04:03:51.666756+00:00"
+        },
+        "schema_type": "governance_decisions",
+        "description": "Governance audit trail. Per-action risk decisions with multi-stage validation pipelines.",
+        "fields": ["action", "agent_id", "matched_policies", "metadata", "reason", "risk", "timestamp", "validation_stages"],
+        "agents_found": ["test", "frontend-agent", "backend-agent", "testing-agent", "cursor-agent", "legacy", "skillify"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Contains both real governance checks and skillify pipeline test decisions."
+      },
+      {
+        "path": "governance/audit/incidents.jsonl",
+        "record_count": 15,
+        "date_range": {
+          "earliest": "2026-05-13T13:51:43.414441+00:00",
+          "latest": "2026-05-14T04:03:51.664118+00:00"
+        },
+        "schema_type": "governance_incidents",
+        "description": "Blocked action incident log. Records every BLOCK-risk action for audit trail.",
+        "fields": ["action", "agent_id", "policies", "reason", "resolved", "timestamp", "type"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "All entries are type=blocked_action with resolved=false."
+      },
+      {
+        "path": "guardian/approvals.jsonl",
+        "record_count": 8,
+        "date_range": {
+          "earliest": "2026-05-11T13:00:42.948875+00:00",
+          "latest": "2026-05-11T14:02:40.967735+00:00"
+        },
+        "schema_type": "guardian_approvals",
+        "description": "Guardian approval records. Review-required actions with approver attribution.",
+        "fields": ["action", "approver", "reason", "risk", "timestamp"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Line 1 is blank. 7 actual records. Includes brew install, OCR confidence, CUA actions."
+      },
+      {
+        "path": "guardian/reflex.jsonl",
+        "record_count": 2,
+        "date_range": {
+          "earliest": "2026-05-11T21:49:02.703942+00:00",
+          "latest": "2026-05-11T22:14:37.782126+00:00"
+        },
+        "schema_type": "guardian_reflex",
+        "description": "Guardian reflex trigger events. Each record is a full anomaly detection cycle with evidence links.",
+        "fields": ["anomalies", "extra_telemetry", "incident", "policy", "screenshot", "timestamp", "calibration_report", "confidence_classes"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Two memory pressure incidents. Second includes confidence calibration data."
+      },
+      {
+        "path": "observability/decisions/agent_decisions.jsonl",
+        "record_count": 1,
+        "date_range": {
+          "earliest": "2026-05-13T22:46:34.961006+00:00",
+          "latest": "2026-05-13T22:46:34.961006+00:00"
+        },
+        "schema_type": "agent_decisions",
+        "description": "Agent decision log. Strategy choices with memory consultation records.",
+        "fields": ["decision_id", "agent_id", "task", "strategy_chosen", "memories_consulted", "memories_count", "governance_result", "confidence", "reasoning", "timestamp", "metadata"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "Single test record from test-agent. Limited replay value."
+      },
+      {
+        "path": "observability/evolution_audit/audit_2026-05-13.jsonl",
+        "record_count": 2,
+        "date_range": {
+          "earliest": "2026-05-13T23:08:16.632407+00:00",
+          "latest": "2026-05-13T23:08:16.632617+00:00"
+        },
+        "schema_type": "evolution_audit",
+        "description": "Evolution engine audit. Proposal creation and simulation runs with risk scoring.",
+        "fields": ["entry_id", "timestamp", "proposal_id", "action", "actor", "details"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "Two records: proposal_created + simulation_run for a memory fix."
+      },
+      {
+        "path": "observability/cognitive_trace_v2/lineage_data/lineage.jsonl",
+        "record_count": 10,
+        "date_range": {
+          "earliest": "2026-05-13T22:34:40.257710+00:00",
+          "latest": "2026-05-13T22:35:12.403750+00:00"
+        },
+        "schema_type": "cognitive_lineage",
+        "description": "Cognitive trace lineage. Event-sourced causal chain with parent/root event linking across subsystems.",
+        "fields": ["event_id", "event_type", "timestamp", "source_subsystem", "source_component", "action", "parent_event_id", "root_event_id", "generation", "agent_id", "task_id", "payload", "outcome", "duration_ms", "metadata"],
+        "event_types_found": ["task_dispatch", "governance_check", "memory_recall", "context_assembly", "context_injection"],
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Timestamps in epoch seconds. Demonstrates full causality chain: dispatch → governance → memory → context."
+      },
+      {
+        "path": "agents/skillify/pending_registrations.jsonl",
+        "record_count": 12,
+        "date_range": {
+          "earliest": "2026-05-14T03:15:39.579052+00:00",
+          "latest": "2026-05-14T04:03:51.656246+00:00"
+        },
+        "schema_type": "skill_registrations",
+        "description": "Skillify pipeline registration log. Approved skill candidates with full schema metadata.",
+        "fields": ["skill_id", "candidate", "registered_at", "status"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "All 12 are test registrations for auto_test_skill pipeline validation."
+      },
+      {
+        "path": "state/agents/frontend-agent/memory/entries.jsonl",
+        "record_count": 5,
+        "date_range": {
+          "earliest": "2026-05-13T21:48:29.615792+00:00",
+          "latest": "2026-05-13T21:48:29.616315+00:00"
+        },
+        "schema_type": "agent_memory",
+        "description": "Frontend agent's local memory entries. Knowledge, strategy, and failure patterns.",
+        "fields": ["content", "category", "tags", "confidence", "uses", "last_used", "created", "metadata"],
+        "categories_found": ["knowledge", "strategy", "failure"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "Timestamps in epoch seconds. Contains React/Tailwind/CSS patterns."
+      },
+      {
+        "path": "state/agents/frontend-agent/history.jsonl",
+        "record_count": 1,
+        "date_range": {
+          "earliest": "2026-05-13T21:58:47.600440+00:00",
+          "latest": "2026-05-13T21:58:47.600440+00:00"
+        },
+        "schema_type": "agent_history",
+        "description": "Frontend agent task execution history.",
+        "fields": ["task_type", "description", "status", "duration_ms", "tokens_used", "strategy", "timestamp", "metadata"],
+        "confidence": "MEDIUM",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL",
+        "notes": "Single completed task record: Build a login form."
+      }
+    ],
+    "guardian_json_files": [
+      {
+        "path": "guardian/baselines/telemetry_baseline.json",
+        "key_count": 7,
+        "date_range": {
+          "earliest": "2026-05-11T21:49:00.299316+00:00",
+          "latest": "2026-05-11T21:55:23.009180+00:00"
+        },
+        "schema_type": "telemetry_baseline",
+        "description": "Statistical baselines for 7 telemetry metrics with rolling windows and incident links.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/baselines/circadian_baseline.json",
+        "key_count": 10,
+        "date_range": {
+          "earliest": "2026-05-11T22:14:35.452488+00:00",
+          "latest": "2026-05-12T00:29:38.738351+00:00"
+        },
+        "schema_type": "circadian_baseline",
+        "description": "Time-aware baselines grouped by day_type, hour_of_day, weekday. Includes 21 weekday samples.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/health/health_scores.json",
+        "key_count": 7,
+        "history_count": 20,
+        "date_range": {
+          "earliest": "2026-05-11T13:36:36.561643+00:00",
+          "latest": "2026-05-11T22:02:48.229731+00:00"
+        },
+        "schema_type": "health_scores",
+        "description": "Health scoring history with 5-subsystem breakdown (cpu, disk, load, memory, process). 20 historical snapshots.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/health/memory_pressure_report.json",
+        "key_count": 10,
+        "date_range": {
+          "generated_at": "2026-05-11T22:04:33.278382+00:00"
+        },
+        "schema_type": "memory_pressure",
+        "description": "Memory pressure diagnosis with Docker context, top consumers, swap analysis, and risk assessment.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/incidents/patterns.json",
+        "key_count": 8,
+        "date_range": {
+          "generated_at": "2026-05-11T22:15:25.671960+00:00"
+        },
+        "schema_type": "incident_patterns",
+        "description": "Incident pattern analysis. Tracks repeated anomaly types and severity progression.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/incidents/index.json",
+        "key_count": 4,
+        "incident_count": 2,
+        "date_range": {
+          "earliest": "2026-05-11T21:49:02.703942+00:00",
+          "latest": "2026-05-11T22:15:25.672052+00:00"
+        },
+        "schema_type": "incident_index",
+        "description": "Master incident index with full evidence chains, DMN links, telemetry snapshots, and recommendations.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/incidents/reflex_confidence_calibration.json",
+        "key_count": 5,
+        "date_range": {
+          "generated_at": "2026-05-11T22:14:35.447810+00:00"
+        },
+        "schema_type": "reflex_calibration",
+        "description": "Reflex confidence calibration data. Anomaly context with Docker stats and scoring artifact detection.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/dreams/latest_dream.json",
+        "key_count": 7,
+        "replay_count": 2,
+        "date_range": {
+          "generated_at": "2026-05-12T08:47:35.570047+00:00"
+        },
+        "schema_type": "guardian_dream",
+        "description": "Dream replay with incident re-analysis, false positive detection, and confidence recalibration suggestions.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/simulations/latest_simulation.json",
+        "key_count": 9,
+        "active_warnings": 5,
+        "date_range": {
+          "generated_at": "2026-05-12T08:41:56.890236+00:00"
+        },
+        "schema_type": "simulation",
+        "description": "Risk simulation with 5m/30m/2h horizon projections for 5 active warnings. Incident similarity matching.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/audits/memory_integrity_audit.json",
+        "key_count": 5,
+        "checks_count": 11,
+        "date_range": {
+          "generated_at": "2026-05-11T23:11:58.254145+00:00"
+        },
+        "schema_type": "integrity_audit",
+        "description": "Memory integrity audit results. 11 checks covering schema, checksums, incidents, orphans, and consistency.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "guardian/approval_packets/latest_approval_packet.json",
+        "key_count": 13,
+        "date_range": {
+          "generated_at": "2026-05-12T08:36:49.127691+00:00"
+        },
+        "schema_type": "approval_packet",
+        "description": "Approval packet for guardian-reflex-once action. Full evidence chain and rollback plan.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "guardian/recalibration/queue.json",
+        "key_count": 7,
+        "queue_count": 2,
+        "date_range": {
+          "generated_at": "2026-05-12T08:50:15.012036+00:00"
+        },
+        "schema_type": "recalibration_queue",
+        "description": "Recalibration queue with 2 high_memory_usage rule candidates pending approval.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      }
+    ],
+    "state_snapshots": [
+      {
+        "path": "state/system_state.json",
+        "key_count": 30,
+        "date_range": {
+          "generated_at": "2026-05-14T05:02:25.494632+00:00"
+        },
+        "schema_type": "system_state",
+        "description": "Master SSOT system state. Aggregates health, incidents, baselines, palace nodes, predictions, and all subsystem scores.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "state/daemon/dmn_tick_status.json",
+        "key_count": 7,
+        "date_range": {
+          "last_tick_at": "2026-05-14T05:02:25.620058+00:00"
+        },
+        "schema_type": "daemon_status",
+        "description": "DMN daemon tick status. Latest heartbeat with system health summary.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/somatic_attention_snapshots/attention_snapshot_20260513_230527.json",
+        "key_count": 6,
+        "date_range": {
+          "timestamp": "2026-05-13T23:05:27.469011+00:00"
+        },
+        "schema_type": "attention_snapshot",
+        "description": "Somatic attention state. Attention weights (pressure/pain/fatigue/alertness/calm/reflex), stress level, throttle state.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL"
+      },
+      {
+        "path": "state/topology_snapshots/dependency_baseline.json",
+        "key_count": 7,
+        "date_range": {
+          "saved_at": "2026-05-13T23:04:07.047117+00:00"
+        },
+        "schema_type": "topology_baseline",
+        "description": "Subsystem dependency graph. 8 subsystems with adjacency matrix, cycle detection, and critical path.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/topology_snapshots/self_model_20260513_230342.json",
+        "key_count": 2,
+        "date_range": {
+          "timestamp": "2026-05-13T23:03:42.082800+00:00"
+        },
+        "schema_type": "self_model",
+        "description": "Full system self-model with architecture topology, module inventories, and subsystem capabilities.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/checkpoints/c11e8536/stage_000.json",
+        "date_range": { "created_at": "2026-05-13T13:45:05.300979+00:00" },
+        "schema_type": "checkpoint",
+        "description": "Task graph checkpoint stage 0.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/checkpoints/c11e8536/stage_001.json",
+        "date_range": { "created_at": "2026-05-13T13:45:05+00:00" },
+        "schema_type": "checkpoint",
+        "description": "Task graph checkpoint stage 1.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/checkpoints/c11e8536/stage_002.json",
+        "date_range": { "created_at": "2026-05-13T13:45:05+00:00" },
+        "schema_type": "checkpoint",
+        "description": "Task graph checkpoint stage 2.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/checkpoints/c11e8536/stage_003.json",
+        "date_range": { "created_at": "2026-05-13T13:45:05+00:00" },
+        "schema_type": "checkpoint",
+        "description": "Task graph checkpoint stage 3.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/checkpoints/c11e8536/latest.json",
+        "date_range": { "created_at": "2026-05-13T13:45:05.456789+00:00" },
+        "schema_type": "checkpoint",
+        "description": "Task graph checkpoint latest (stage 3 alias).",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/planner-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473361+00:00" },
+        "schema_type": "agent_state",
+        "description": "Planner agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/backend-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473334+00:00" },
+        "schema_type": "agent_state",
+        "description": "Backend agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/memory-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473355+00:00" },
+        "schema_type": "agent_state",
+        "description": "Memory agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/frontend-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473321+00:00" },
+        "schema_type": "agent_state",
+        "description": "Frontend agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/testing-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473342+00:00" },
+        "schema_type": "agent_state",
+        "description": "Testing agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      },
+      {
+        "path": "state/agents/guardian-agent/state.json",
+        "date_range": { "created_at": "2026-05-13T23:26:59.473349+00:00" },
+        "schema_type": "agent_state",
+        "description": "Guardian agent state snapshot.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "PARTIAL"
+      }
+    ],
+    "policy_files": [
+      {
+        "path": "guardian/policy.yaml",
+        "section_count": 3,
+        "schema_type": "risk_policy",
+        "description": "Risk classification policy. 3 risk classes, blocked keywords, review keywords.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Defines ALLOW/REVIEW_REQUIRED/BLOCK classification rules."
+      },
+      {
+        "path": "guardian/reflex_policy.yaml",
+        "section_count": 5,
+        "schema_type": "reflex_policy",
+        "description": "Guardian reflex rules. 7 anomaly detection rules with thresholds, allowed/blocked response actions.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Defines high_cpu_sustained, high_memory_usage, disk_usage_growth, container_down, etc."
+      },
+      {
+        "path": "guardian/decision_boundary.yaml",
+        "section_count": 2,
+        "schema_type": "decision_boundary",
+        "description": "Decision boundary levels (4 tiers) with ~40 route mappings from OBSERVE_ONLY to EXECUTE_ALLOWED.",
+        "confidence": "HIGH",
+        "corruption_status": "CLEAN",
+        "replay_compatibility": "FULL",
+        "notes": "Critical for understanding what actions were permitted at each decision point."
+      }
+    ]
+  }
+}

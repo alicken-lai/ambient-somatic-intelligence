@@ -1,0 +1,243 @@
+{
+  "report_version": "1.6.0",
+  "program": "P1.6 Reality Repair Sprint — Phase 7: Circadian Attention Revalidation",
+  "generated_at": "2026-05-14T14:00:00+08:00",
+  "baseline": {
+    "p1_circadian_adaptation_quality": 0.52,
+    "p1_total_events": 5652,
+    "p1_data_window_hours": 64.25,
+    "p1_circadian_cycles": 2.7,
+    "p1_hour_buckets_with_health_data": 3,
+    "p1_hour_buckets_total": 24,
+    "p1_coverage_percent": 12.5
+  },
+  "backfill_contribution": {
+    "additional_records": 438,
+    "additional_records_in_late_night": 438,
+    "hours_affected": [20, 21, 22],
+    "new_hour_coverage": {
+      "before": ["13", "21", "22"],
+      "after": ["13", "20", "21", "22"],
+      "improvement": "3 → 4 of 24 hours (12.5% → 16.7%)"
+    },
+    "temporal_span_change": "Unchanged — still ~64.25 hours (~2.7 cycles)",
+    "note": "Backfill adds density within existing temporal span but does not extend the observation window"
+  },
+  "revised_per_period_metrics": {
+    "quiet_hours": {
+      "range_utc": "00:00-06:00",
+      "original_events": 1490,
+      "backfill_events_added": 0,
+      "revised_events": 1490,
+      "events_per_hour": 82.78,
+      "anomaly_per_hour": 3.889,
+      "false_positive_rate": 0.60,
+      "change": "UNCHANGED — backfill data falls outside this period"
+    },
+    "transition_morning": {
+      "range_utc": "06:00-09:00",
+      "original_events": 93,
+      "backfill_events_added": 0,
+      "revised_events": 93,
+      "events_per_hour": 15.50,
+      "anomaly_per_hour": 0.0,
+      "false_positive_rate": 0.0,
+      "change": "UNCHANGED"
+    },
+    "active_hours": {
+      "range_utc": "09:00-18:00",
+      "original_events": 2140,
+      "backfill_events_added": 0,
+      "revised_events": 2140,
+      "events_per_hour": 89.17,
+      "anomaly_per_hour": 0.583,
+      "false_positive_rate": 0.714,
+      "change": "UNCHANGED"
+    },
+    "transition_evening": {
+      "range_utc": "18:00-21:00",
+      "original_events": 792,
+      "backfill_events_added": 0,
+      "revised_events": 792,
+      "events_per_hour": 88.0,
+      "anomaly_per_hour": 0.0,
+      "false_positive_rate": 0.0,
+      "change": "UNCHANGED"
+    },
+    "late_night": {
+      "range_utc": "21:00-00:00",
+      "original_events": 1137,
+      "backfill_events_added": 438,
+      "revised_events": 1575,
+      "revised_events_per_hour": 175.0,
+      "p1_events_per_hour": 126.33,
+      "densification_factor": 1.39,
+      "anomaly_per_hour": 1.778,
+      "false_positive_rate": 0.50,
+      "change": "DENSIFIED — 38.5% more events. Hour 20 newly covered. Health trajectory now visible (41 records). Metric data available (66 records).",
+      "upgraded_analysis": {
+        "health_score_trajectory": "65.79 → 76.07 → 76.5 (post-INC-1 recovery) → 54.75 → 76.53",
+        "memory_trend": "99.28% → 97.6-97.8% → 96.21% (decreasing after INC-1)",
+        "cpu_pattern": "17.56% (spike at INC-1) → 2.37-10% (normalizing) → 5.44% (stable)",
+        "incident_cascade_documented": true,
+        "scoring_artifact_confirmed": true
+      }
+    }
+  },
+  "circadian_characterization_improvements": {
+    "late_night_incident_behavior": {
+      "p1_understanding": "Both incidents occurred in late_night (21:49, 22:14 UTC). Limited to 17 health snapshots in burst + 2 incident records.",
+      "p16_understanding": "Complete incident lifecycle documented: trigger (21:49) → health drop (65.79) → recovery burst (17 snapshots) → stabilization (76.5) → diagnostic activity (22:04) → re-trigger (22:14, scoring artifact). 377 REAL records in the INC-2 T-60m window.",
+      "improvement": "From fragmentary incident snapshot to complete behavioral arc"
+    },
+    "late_night_baseline": {
+      "p1_data": "17 health samples (all from single 5-second burst at 21:57)",
+      "p16_data": "41 health records spanning 21:49-22:04 (15 minutes vs 5 seconds) + 66 metric records with raw telemetry",
+      "improvement": "Temporal span of health data in late_night expanded from 5 seconds to 15 minutes. Still far short of full 3-hour period coverage."
+    },
+    "hour_20_coverage": {
+      "p1_data": "Zero events",
+      "p16_data": "93 interpolated action records (20:50-20:59 UTC, confidence 0.18-0.60)",
+      "improvement": "Hour 20 now has temporal activity data but at low confidence. This extends the 'lead-in' period before late_night incidents."
+    },
+    "anomaly_density_refinement": {
+      "p1_late_night_anomaly_per_hour": 1.778,
+      "p16_late_night_anomaly_density": "Higher confidence in rate — backfill confirms no additional anomalies in the 20:50-21:48 window (interpolated records show ALLOW risk level). True anomaly rate concentrated in 21:49-22:14 sub-window.",
+      "conclusion": "Anomalies are not spread across late_night; they cluster tightly around incident times (21:49-22:14). This supports a burst-response model rather than a sustained-vigilance model for late_night."
+    },
+    "false_positive_refinement": {
+      "p1_late_night_fp_rate": 0.50,
+      "p16_analysis": "With 377 records in the INC-2 window, we can now clearly classify INC-2 as a scoring artifact with high confidence. This means the 'true' anomaly rate in late_night is 1 real incident per 9 hours of coverage = 0.111/hour (INC-1 only). The 50% FP rate reflects that half the detected anomalies were artifacts, not genuine.",
+      "revised_effective_fp_rate": 0.50,
+      "note": "FP rate unchanged in value but now backed by strong evidence rather than inference"
+    }
+  },
+  "signal_to_noise_analysis": {
+    "per_period": {
+      "quiet_hours": {
+        "signal_ratio": 0.0,
+        "noise_ratio": 1.0,
+        "assessment": "All anomalies are test artifacts (skillify). Zero genuine signals.",
+        "change": "UNCHANGED"
+      },
+      "transition_morning": {
+        "signal_ratio": "N/A",
+        "noise_ratio": "N/A",
+        "assessment": "No anomalies detected. Insufficient data.",
+        "change": "UNCHANGED"
+      },
+      "active_hours": {
+        "signal_ratio": 0.286,
+        "noise_ratio": 0.714,
+        "assessment": "71% of anomalies are test/development artifacts.",
+        "change": "UNCHANGED"
+      },
+      "transition_evening": {
+        "signal_ratio": "N/A",
+        "noise_ratio": "N/A",
+        "assessment": "Clean operations. No anomalies.",
+        "change": "UNCHANGED"
+      },
+      "late_night": {
+        "signal_ratio": 0.50,
+        "noise_ratio": 0.50,
+        "assessment": "1 true incident (INC-001) + 1 scoring artifact (INC-002). Now confidently classified with 377-record evidence base.",
+        "change": "IMPROVED CONFIDENCE — artifact classification now strongly evidence-based"
+      }
+    }
+  },
+  "revised_circadian_salience_recommendations": {
+    "quiet_hours": {
+      "sensitivity_multiplier": 0.85,
+      "change": "UNCHANGED",
+      "confidence_in_recommendation": "MODERATE"
+    },
+    "transition_morning": {
+      "sensitivity_multiplier": 1.10,
+      "change": "UNCHANGED",
+      "confidence_in_recommendation": "LOW — very sparse data"
+    },
+    "active_hours": {
+      "sensitivity_multiplier": 1.0,
+      "change": "UNCHANGED",
+      "confidence_in_recommendation": "MODERATE"
+    },
+    "transition_evening": {
+      "sensitivity_multiplier": 1.0,
+      "change": "UNCHANGED",
+      "confidence_in_recommendation": "MODERATE"
+    },
+    "late_night": {
+      "sensitivity_multiplier": 1.25,
+      "change": "STRENGTHENED — recommendation now backed by 438 additional records documenting incident lifecycle",
+      "confidence_in_recommendation": "MODERATE-HIGH",
+      "specific_adjustments": {
+        "somatic_stress_weight": "Increase to 0.18 (from 0.12) — STRENGTHENED: health trajectory data shows stress buildup is the primary precursor signal",
+        "escalation_threshold": "Lower to 0.65 (from 0.75) — MAINTAINED: INC-1 triggered at 65.79 health score",
+        "temporal_decay_half_life": "Extend to 120s (from 60s) — STRENGTHENED: INC-1 → INC-2 cascade spanned 25 minutes, confirming slow-developing issues need longer tracking"
+      }
+    }
+  },
+  "new_circadian_adaptation_quality": {
+    "score": 0.62,
+    "methodology": "Same 5-factor scoring as P1, re-evaluated with backfilled evidence",
+    "breakdown": {
+      "data_sufficiency": {
+        "p1_value": 0.30,
+        "p16_value": 0.35,
+        "justification": "Still only ~2.7 circadian cycles (64h). Backfill adds density to late_night but doesn't extend temporal span. Hour coverage improved from 3/24 to 4/24. Marginal improvement."
+      },
+      "incident_coverage": {
+        "p1_value": 0.70,
+        "p16_value": 0.82,
+        "justification": "Both incidents now have dense surrounding data (195 + 243 records). Complete incident lifecycle documented for INC-1 → INC-2 cascade. Health trajectory visible. Significantly improved characterization."
+      },
+      "false_positive_management": {
+        "p1_value": 0.45,
+        "p16_value": 0.58,
+        "justification": "INC-2 scoring artifact classification now backed by 377 records with clear evidence (memory decreasing, CPU normalizing). Late_night FP rate of 0.50 is now strongly evidence-based. Quiet hours and active hours FP rates unchanged."
+      },
+      "period_differentiation": {
+        "p1_value": 0.65,
+        "p16_value": 0.72,
+        "justification": "Late_night characterization significantly improved with 438 additional records and new hour-20 coverage. Anomaly clustering pattern now documented (burst at 21:49-22:14, not spread across period). Other periods unchanged."
+      },
+      "recommendation_actionability": {
+        "p1_value": 0.50,
+        "p16_value": 0.62,
+        "justification": "Late_night +25% sensitivity recommendation now backed by dense incident lifecycle data. Temporal decay extension justified by documented 25-minute cascade. Infrastructure (5-min sampling engine) enables future circadian data collection across all hours."
+      }
+    },
+    "total": 0.618,
+    "rounded": 0.62,
+    "computation": "average(0.35, 0.82, 0.58, 0.72, 0.62) = 3.09 / 5 = 0.618 ≈ 0.62"
+  },
+  "p1_vs_p16_comparison": {
+    "p1_score": 0.52,
+    "p16_score": 0.62,
+    "delta": 0.10,
+    "delta_percentage": "19.2% improvement",
+    "key_improvements": [
+      "Late_night period: 1137 → 1575 events (38.5% densification)",
+      "Hour 20 coverage: newly added (93 interpolated records)",
+      "Incident lifecycle: fully documented with health trajectory",
+      "Scoring artifact evidence: strengthened from inference to 377-record proof",
+      "Circadian salience recommendations: increased confidence for late_night adjustments"
+    ],
+    "unchanged_limitations": [
+      "Temporal span: still ~64 hours (~2.7 cycles), unchanged",
+      "Hour coverage: 4/24 (16.7%) — still 83% blind",
+      "No weekend data: all observations are Mon-Wed",
+      "Non-late_night periods: zero improvement from backfill",
+      "Minimum 2 weeks of data needed for confident circadian modeling"
+    ]
+  },
+  "why_score_is_not_higher": [
+    "Backfill only adds density to late_night (21:00-00:00), not to other periods",
+    "Temporal span is unchanged at 64 hours — no new circadian cycles observed",
+    "20 of 24 hour-buckets still have zero health telemetry data",
+    "Quiet hours, morning/evening transitions, and active hours are unaffected by backfill",
+    "True circadian modeling requires 7+ days of continuous multi-period data",
+    "Only 2 incidents (both in late_night) — cannot characterize incident risk at other times of day"
+  ]
+}

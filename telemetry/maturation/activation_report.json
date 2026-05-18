@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-05-14T06:19:35.778100+00:00",
+  "sprint": "P1.7",
+  "phase": "sampling_engine_activation",
+  "overall_readiness_score": 0.95,
+  "overall_status": "READY_FOR_DEPLOYMENT",
+  "scheduler_status": {
+    "class": "SamplingScheduler",
+    "module": "telemetry.sampling.sampling_scheduler",
+    "features": [
+      "register/unregister sources",
+      "background scheduling loop with configurable tick resolution",
+      "manual tick for testing/replay",
+      "force_sample for on-demand collection",
+      "jitter support for staggered sampling",
+      "retry with configurable count and delay",
+      "failure escalation (log/alert/guardian)",
+      "priority-based execution order (critical > standard > low)",
+      "deterministic replay via clock_fn override"
+    ],
+    "status": "READY",
+    "max_cadence_seconds": 300
+  },
+  "policy_status": {
+    "class": "SamplingPolicy",
+    "module": "telemetry.sampling.sampling_policy",
+    "predefined_templates": [
+      {
+        "name": "CRITICAL_5MIN",
+        "cadence": 300,
+        "jitter": 0,
+        "priority": "critical"
+      },
+      {
+        "name": "STANDARD_5MIN",
+        "cadence": 300,
+        "jitter": 30,
+        "priority": "standard"
+      },
+      {
+        "name": "HIGH_FREQ_1MIN",
+        "cadence": 60,
+        "jitter": 10,
+        "priority": "critical"
+      },
+      {
+        "name": "BACKGROUND_5MIN",
+        "cadence": 300,
+        "jitter": 60,
+        "priority": "low"
+      }
+    ],
+    "make_policy_available": true,
+    "status": "READY"
+  },
+  "cadence_enforcer_status": {
+    "class": "CadenceEnforcer",
+    "module": "telemetry.sampling.cadence_enforcer",
+    "features": [
+      "per-source compliance tracking",
+      "violation detection with severity levels (minor/major/critical)",
+      "silent source detection",
+      "compliance scoring",
+      "full compliance report generation"
+    ],
+    "status": "READY"
+  },
+  "runtime_integration": {
+    "launchd_sampling": {
+      "class": "LaunchdSamplingManager",
+      "module": "telemetry.runtime.launchd_sampling",
+      "plist_generation": "READY",
+      "dry_run_mode": true,
+      "auto_install": false,
+      "status": "READY \u2014 plists generated on disk, manual load required"
+    },
+    "clock_sync": {
+      "class": "ClockSyncValidator",
+      "module": "telemetry.runtime.clock_sync",
+      "ntp_servers": [
+        "time.apple.com",
+        "pool.ntp.org",
+        "time.google.com"
+      ],
+      "drift_threshold_seconds": 1.0,
+      "timestamp_adjustment": true,
+      "status": "READY"
+    },
+    "duplicate_guard": {
+      "class": "DuplicateGuard",
+      "module": "telemetry.runtime.duplicate_guard",
+      "window_seconds": 30.0,
+      "near_duplicate_seconds": 10.0,
+      "content_hash_based": true,
+      "status": "READY"
+    }
+  },
+  "per_source_readiness": {
+    "dmn.tick": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "actions.log": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "checksums.log": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "governance.decisions": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "governance.incidents": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "agent.decisions": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "health.snapshot": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "system.state": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "daemon.tick_status": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    },
+    "guardian.incidents": {
+      "policy_available": true,
+      "scheduler_registrable": true,
+      "launchd_plist_ready": true,
+      "notes": "Template policy applicable; source produces timestamped JSONL"
+    }
+  },
+  "remaining_actions": [
+    "Generate launchd plists for each source (dry-run first)",
+    "Operator review and approval of plist installation",
+    "Start SamplingScheduler with registered sources",
+    "Monitor CadenceEnforcer compliance for first 24 hours",
+    "Validate ClockSyncValidator NTP connectivity"
+  ],
+  "blockers": []
+}

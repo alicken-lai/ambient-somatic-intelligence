@@ -1,0 +1,22 @@
+{
+  "day": "day_03",
+  "date": "2026-05-13",
+  "status": "COMPLETE",
+  "metrics": {
+    "cadence_compliance": 0.9877,
+    "missing_interval_rate": 0.3042,
+    "duplicate_rate": 0.6976,
+    "max_clock_drift_seconds": 0.0,
+    "corruption_count": 0,
+    "silent_sources": [
+      "health.snapshot"
+    ],
+    "replay_compatibility": 0.7392
+  },
+  "thresholds_met": false,
+  "issues": [
+    "Missing interval rate 30.42% above 5%",
+    "Duplicate rate 0.6976 above 0.01",
+    "Silent sources: health.snapshot"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "analysis_version": "1.0.0",
+  "generated_at": "2026-05-14T13:51:00+08:00",
+  "program": "P1.6 Reality Repair Sprint — Phase 1: Gap Analysis",
+  "summary": {
+    "total_gaps_detected": 7,
+    "critical_gaps": 3,
+    "total_blind_time_hours": 52.8,
+    "coverage_ratio": 0.187,
+    "precursor_detection_impact": "SEVERE — 8-hour telemetry gap before Incident 1 makes precursor detection impossible",
+    "circadian_impact": "SEVERE — only 3 of 24 hour-buckets have data, circadian model is 87.5% blind"
+  },
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "CRITICAL",
+      "source": "guardian.health",
+      "start": "2026-05-11T13:36:44.338636+00:00",
+      "end": "2026-05-11T21:49:00.299316+00:00",
+      "duration_hours": 8.20,
+      "duration_human": "8h 12m 16s",
+      "impact": "Zero health telemetry for 8 hours before Incident 1. Memory pressure was building during this window but we have no visibility. This is the root cause of Precursor Detection = 0.35.",
+      "adjacent_data": {
+        "before": "3 health snapshots at 2026-05-11T13:36:36-44 (burst of 3 in 8 seconds)",
+        "after": "Incident 1 triggered at 2026-05-11T21:49:02 with memory_used_percent = 99.28%"
+      },
+      "backfill_feasibility": "PARTIAL — DMN records and archived scratchpad have raw telemetry from sense_local source (19 records in 2026-05-11T13:36 → 2026-05-11T21:57 window via memory/archive/scratchpad_archived.jsonl)",
+      "recommended_action": "Interpolate using archived scratchpad telemetry + actions.log timestamps"
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "CRITICAL",
+      "source": "dmn.tick",
+      "start": "2026-05-11T22:14:37.782126+00:00",
+      "end": "2026-05-13T12:25:13.454200+00:00",
+      "duration_hours": 38.17,
+      "duration_human": "38h 10m 36s",
+      "impact": "The longest continuous gap in the entire dataset. System was effectively silent for 38 hours after Incident 2. No DMN records, no telemetry, no governance events during this window.",
+      "adjacent_data": {
+        "before": "Incident 2 at 2026-05-11T22:14:37 (memory pressure, second occurrence)",
+        "after": "First procedural record at 2026-05-13T12:25:13 (cursor-agent setup)"
+      },
+      "backfill_feasibility": "NONE — no source data exists for this window. System was idle/offline.",
+      "recommended_action": "Mark as UNKNOWN. Tag the gap boundary. No interpolation possible."
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "CRITICAL",
+      "source": "somatic.attention",
+      "start": "2026-05-11T12:54:11.088554+00:00",
+      "end": "2026-05-13T23:05:27.469011+00:00",
+      "duration_hours": 58.19,
+      "duration_human": "58h 11m 16s",
+      "impact": "Only 1 somatic attention snapshot exists in the entire history. Attention dynamics — which are the primary precursor signal — have zero temporal resolution. This single snapshot cannot reveal temporal patterns.",
+      "adjacent_data": {
+        "before": "No prior attention snapshots exist",
+        "after": "Single snapshot at 2026-05-13T23:05:27 (processed_count=2, stress_level=0.5784)"
+      },
+      "backfill_feasibility": "NONE — attention state was not being captured before the somatic subsystem was built",
+      "recommended_action": "Ensure somatic attention snapshots are captured every DMN tick going forward. For historical replay, derive approximate attention from available signals (health scores, incident triggers)."
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "HIGH",
+      "source": "actions.log",
+      "start": "2026-05-11T13:02:53.397383+00:00",
+      "end": "2026-05-11T13:36:36.561643+00:00",
+      "duration_hours": 0.56,
+      "duration_human": "33m 43s",
+      "impact": "33-minute gap early in the timeline. System was likely booting/initializing.",
+      "adjacent_data": {
+        "before": "checksum_chain_repair at 13:02:53",
+        "after": "First sense_local telemetry snapshot at 13:36:36"
+      },
+      "backfill_feasibility": "LOW — system was likely initializing, no meaningful telemetry to interpolate",
+      "recommended_action": "Mark as startup gap. Tag with UNKNOWN origin."
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "HIGH",
+      "source": "guardian.health",
+      "start": "2026-05-11T21:57:12.348987+00:00",
+      "end": "2026-05-14T05:50:28.070092+00:00",
+      "duration_hours": 55.89,
+      "duration_human": "55h 53m 16s",
+      "impact": "Health scores were NOT regenerated after the initial burst. The health_scores.json 'current' entry stayed frozen at the 2026-05-11T21:57 value for over 2 days.",
+      "adjacent_data": {
+        "before": "20 health snapshots in burst (2026-05-11T13:36 → 21:57)",
+        "after": "system_state.json regenerated at 2026-05-14T05:50 with health_score=76.53"
+      },
+      "backfill_feasibility": "PARTIAL — DMN tick telemetry (60s cadence since 2026-05-13) contains raw CPU/memory/disk/load/process metrics that can be used to reconstruct health scores",
+      "recommended_action": "Reconstruct health scores from DMN tick telemetry using the health scoring formula"
+    },
+    {
+      "gap_id": "GAP-006",
+      "severity": "MEDIUM",
+      "source": "guardian.baseline_circadian",
+      "start": null,
+      "end": null,
+      "duration_hours": null,
+      "duration_human": "21 of 24 hour-buckets empty",
+      "impact": "Circadian baseline only covers hours 13, 21, 22. Hours 0-12 and 14-20 and 23 have zero data. The circadian model cannot distinguish normal from abnormal behavior for 87.5% of the day.",
+      "adjacent_data": {
+        "before": "hour 13: 3 samples",
+        "after": "hour 21: 17 samples, hour 22: 1 sample"
+      },
+      "backfill_feasibility": "PARTIAL — DMN tick telemetry from 2026-05-13 onward covers additional hours, can extend baselines",
+      "recommended_action": "Extend circadian baselines using post-daemon telemetry from all available hours"
+    },
+    {
+      "gap_id": "GAP-007",
+      "severity": "MEDIUM",
+      "source": "guardian.reflex",
+      "start": "2026-05-11T21:49:02.703942+00:00",
+      "end": "2026-05-11T22:14:37.782126+00:00",
+      "duration_hours": 0.43,
+      "duration_human": "25m 35s",
+      "impact": "Between two reflex triggers, no continuous monitoring data. The second incident at 22:14 shows memory_used_percent dropped from 99.28% to 97.69% but we don't know the trajectory.",
+      "adjacent_data": {
+        "before": "Incident 1 at 21:49:02 (memory=99.28%)",
+        "after": "Incident 2 at 22:14:37 (memory=97.69%)"
+      },
+      "backfill_feasibility": "HIGH — health_scores.json history has 17 snapshots in the 21:57 burst window between the incidents",
+      "recommended_action": "Use health_scores history to fill the inter-incident trajectory"
+    }
+  ],
+  "incident_windows": [
+    {
+      "incident_id": "incident-2026-05-11T214902",
+      "timestamp": "2026-05-11T21:49:02.703942+00:00",
+      "precursor_window_60min": {
+        "start": "2026-05-11T20:49:02+00:00",
+        "end": "2026-05-11T21:49:02+00:00",
+        "telemetry_records_available": 0,
+        "coverage": "ZERO — no telemetry records exist in the 60 minutes before Incident 1",
+        "nearest_prior_record": "2026-05-11T13:36:44.338636+00:00 (8h 12m before incident)"
+      }
+    },
+    {
+      "incident_id": "incident-2026-05-11T221437",
+      "timestamp": "2026-05-11T22:14:37.782126+00:00",
+      "precursor_window_60min": {
+        "start": "2026-05-11T21:14:37+00:00",
+        "end": "2026-05-11T22:14:37+00:00",
+        "telemetry_records_available": 21,
+        "coverage": "PARTIAL — 3 health snapshots at 13:36, then 1 at 21:49 (incident), then 17 in burst at 21:57",
+        "nearest_prior_record": "2026-05-11T21:57:12.348987+00:00 (17m before incident)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "audit_timestamp": "2026-05-14T13:35:00+08:00",
+  "auditor": "Phase 5 — Retroactive Strategic Audit",
+  "enforcement_criteria_reference": {
+    "promotion_chain_validator": "memory/ontology/promotion_chain_validator.py",
+    "strategic_write_gate": "memory/ontology/strategic_write_gate.py",
+    "verifier_enforcement": "governance/doctrine/verifier_enforcement.py",
+    "phase1_findings": "replay/reports/false_strategy_report.json"
+  },
+  "validation_rules_applied": {
+    "L2_to_L3": {
+      "min_confidence": 0.8,
+      "min_recurrence": 5,
+      "requires_governance": true,
+      "requires_verifier": false
+    },
+    "L3_to_L4": {
+      "min_confidence": 0.9,
+      "min_recurrence": 10,
+      "requires_governance": true,
+      "requires_verifier": true,
+      "verifier_must_differ_from_promoter": true
+    },
+    "strategic_write_gate": {
+      "requires_complete_provenance": true,
+      "provenance_fields": ["l1_entry_id", "l2_entry_id", "l3_entry_id", "l3_to_l4_verifier_id", "l3_to_l4_governance_id"],
+      "requires_independent_verifier": true,
+      "requires_governance_approval": true
+    }
+  },
+  "data_sources_scanned": [
+    {"file": "memory/dmn.jsonl", "entries_scanned": "~1300+", "l3_l4_found": 0, "note": "Contains episodic/semantic records only — no explicit L3/L4 layer tags or strategy/skill categories found"},
+    {"file": "memory/semantic/records.jsonl", "entries_scanned": 29, "l3_l4_found": 0, "note": "All entries are semantic-layer telemetry summaries and identity records"},
+    {"file": "memory/procedural/records.jsonl", "entries_scanned": 1, "l3_l4_found": 1, "note": "1 procedural (L3 skill-equivalent) record: Cursor-Hermes MCP setup"},
+    {"file": "state/agents/frontend-agent/memory/entries.jsonl", "entries_scanned": 5, "l3_l4_found": 5, "note": "2 strategies (L4), 1 failure pattern (L3), 2 knowledge entries (L2)"},
+    {"file": "observability/decisions/agent_decisions.jsonl", "entries_scanned": 1, "l3_l4_found": 1, "note": "1 agent decision at strategic confidence level"},
+    {"file": "agents/skillify/pending_registrations.jsonl", "entries_scanned": 12, "l3_l4_found": 12, "note": "12 skill registrations (L3), all synthetic test data"},
+    {"file": "guardian/incidents/index.json", "entries_scanned": 2, "l3_l4_found": 1, "note": "Guardian pattern data contributing to 1 L4-equivalent strategic pattern"},
+    {"file": "replay/reports/false_strategy_report.json", "entries_scanned": "N/A", "l3_l4_found": "N/A", "note": "Phase 1E analysis used as cross-reference for verdict validation"}
+  ],
+  "total_l3_examined": 14,
+  "total_l4_examined": 4,
+  "total_l2_examined_for_completeness": 2,
+  "classifications": {
+    "VALID": [
+      {
+        "id": "PROC-001",
+        "source": "memory/procedural/records.jsonl",
+        "effective_layer": "L3_SKILL",
+        "content": "Cursor-Hermes MCP setup procedure",
+        "confidence_implied": 0.8,
+        "classification": "VALID",
+        "evidence": {
+          "chain_status": "Organic formation — documented procedure from actual execution",
+          "episodic_precursors": "Yes — the procedure documents step-by-step troubleshooting (L1 episodic events)",
+          "verification": "Self-verified through successful outcome (Hermes green, 17 tools available)",
+          "recurrence": "Single documented execution, but procedural records have different validation criteria — success on execution is sufficient",
+          "contradictions": "None found",
+          "confidence_justified": true,
+          "notes": "Procedural memory formed organically through actual problem-solving. The confidence reflects documented successful outcome. This is the expected memory formation pattern."
+        }
+      },
+      {
+        "id": "GUARDIAN-STRAT-001",
+        "source": "guardian/incidents/index.json + guardian/dreams/latest_dream.json",
+        "effective_layer": "L4_STRATEGIC",
+        "content": "high_memory_usage is a recurring pattern requiring watch-level monitoring",
+        "confidence": 0.1,
+        "classification": "VALID",
+        "evidence": {
+          "chain_status": "Has traceable promotion chain: 2 episodic incidents → telemetry snapshots → dream replay verification",
+          "episodic_precursors": 2,
+          "telemetry_snapshots": 4,
+          "verification": "Dream replay provided independent verification (identified 1 of 2 as likely false positive)",
+          "recurrence": 2,
+          "recurrence_below_threshold": true,
+          "recurrence_note": "Only 2 events vs required 10 for L4, BUT confidence is appropriately low (0.1) reflecting this gap",
+          "contradictions": "50% contradiction rate — dream replay flagged incident 2 as scoring artifact (Docker VM memory reporting)",
+          "contradiction_handled": true,
+          "confidence_justified": true,
+          "confidence_note": "Confidence 0.1 is LOWER than evidence-justified 0.15, making this conservative and appropriate",
+          "governance": "recommendations_only mode — no auto-execute",
+          "notes": "This is the system's BEST example of proper memory formation. The Guardian correctly kept low confidence, the dream replay performed independent verification, and contradictions were detected and documented. Classification: VALID because the low confidence accurately reflects the evidence state, even though recurrence < 10."
+        }
+      }
+    ],
+    "SUSPICIOUS": [
+      {
+        "id": "FE-KNOW-001",
+        "source": "state/agents/frontend-agent/memory/entries.jsonl",
+        "effective_layer": "L2_INSTINCT",
+        "content": "React useCallback prevents unnecessary re-renders when passing callbacks to children",
+        "confidence": 1.0,
+        "classification": "SUSPICIOUS",
+        "evidence": {
+          "chain_status": "No episodic origin — pre-loaded at agent initialization",
+          "episodic_precursors": 0,
+          "verification": "None",
+          "recurrence": 0,
+          "contradictions": "None, but zero confirming evidence either",
+          "confidence_justified": false,
+          "overconfidence_delta": 0.4,
+          "notes": "L2 layer assignment is structurally correct for knowledge, but confidence 1.0 with zero experiential validation is unjustified. The content itself is valid React knowledge. SUSPICIOUS (not ILLEGAL) because L2 entries don't require full promotion chains, but the confidence is unearned."
+        },
+        "recommendation": {
+          "action": "CONFIDENCE_CORRECTION",
+          "corrected_confidence": 0.6,
+          "justification": "Reduce to reflect lack of agent-specific validation"
+        }
+      },
+      {
+        "id": "FE-KNOW-002",
+        "source": "state/agents/frontend-agent/memory/entries.jsonl",
+        "effective_layer": "L2_INSTINCT",
+        "content": "Component composition > inheritance in React",
+        "confidence": 1.0,
+        "classification": "SUSPICIOUS",
+        "evidence": {
+          "chain_status": "No episodic origin — pre-loaded at agent initialization",
+          "episodic_precursors": 0,
+          "verification": "None",
+          "recurrence": 0,
+          "contradictions": "None, but zero confirming evidence either",
+          "confidence_justified": false,
+          "overconfidence_delta": 0.4,
+          "notes": "Same pattern as FE-KNOW-001. Valid industry knowledge at correct layer, but unearned maximum confidence."
+        },
+        "recommendation": {
+          "action": "CONFIDENCE_CORRECTION",
+          "corrected_confidence": 0.6,
+          "justification": "Reduce to reflect lack of agent-specific validation"
+        }
+      },
+      {
+        "id": "FE-FAIL-001",
+        "source": "state/agents/frontend-agent/memory/entries.jsonl",
+        "effective_layer": "L3_SKILL",
+        "content": "Never use inline styles for conditional rendering — use clsx instead",
+        "confidence": 1.0,
+        "classification": "SUSPICIOUS",
+        "evidence": {
+          "chain_status": "No promotion chain — stored directly as failure pattern at initialization",
+          "episodic_precursors": 0,
+          "instinct_precursors": 0,
+          "verification": "None — agent never actually encountered this anti-pattern",
+          "recurrence": 0,
+          "recurrence_required": 5,
+          "contradictions": "None found, but content is generally valid industry advice",
+          "confidence_justified": false,
+          "overconfidence_delta": 0.5,
+          "overconfidence_severity": "HIGH",
+          "notes": "Failure pattern stored at L3 skill level without experiencing the failure. The advice is sound, but the agent has no experiential basis. Classified SUSPICIOUS rather than ILLEGAL because the content has genuine utility, though it bypassed the chain. The key violation is confidence 1.0 + zero experience."
+        },
+        "recommendation": {
+          "action": "CONFIDENCE_CORRECTION",
+          "corrected_confidence": 0.5,
+          "justification": "Reduce to reflect pre-loaded knowledge without experiential validation. Retain at L3 but mark as 'pending validation'."
+        }
+      }
+    ],
+    "ILLEGAL": [
+      {
+        "id": "FE-STRAT-001",
+        "source": "state/agents/frontend-agent/memory/entries.jsonl",
+        "effective_layer": "L4_STRATEGIC",
+        "content": "Tailwind @apply for repeated component styles reduces class duplication",
+        "confidence": 1.0,
+        "classification": "ILLEGAL",
+        "evidence": {
+          "chain_status": "NO CHAIN — stored directly as L4 strategy at creation, bypassing L1→L2→L3→L4 entirely",
+          "episodic_precursors": 0,
+          "instinct_precursors": 0,
+          "skill_precursors": 0,
+          "verification": "None — no verifier_id",
+          "governance_approval": "None",
+          "recurrence": 0,
+          "recurrence_required": 10,
+          "contradictions": "None, but zero confirming evidence",
+          "confidence_justified": false,
+          "overconfidence_delta": 0.7,
+          "overconfidence_severity": "CRITICAL",
+          "write_gate_verdict": "BLOCKED — fails all 5 StrategicWriteGate checks: (1) no l1_entry_id, (2) no l2_entry_id, (3) no l3_entry_id, (4) no l3_to_l4_verifier_id, (5) no l3_to_l4_governance_id",
+          "chain_validator_verdict": "BLOCKED — no valid source level for transition (entry appeared at L4 without traversing any transition)",
+          "verifier_enforcement_verdict": "BLOCKED — no verifier_id, no promoter_id, self-certification by default",
+          "formation_speed": "INSTANT — materialized at agent initialization with zero learning history",
+          "uses": 0,
+          "phase1_verdict": "FALSE_STRATEGY",
+          "notes": "This is the canonical example of the root cause identified in Phase 1: StrategicEntry constructed directly with confidence=1.0 and empty provenance. Violates every enforcement rule in the new modules."
+        },
+        "recommendation": {
+          "action": "DEMOTE",
+          "target_layer": "L2_INSTINCT",
+          "corrected_confidence": 0.3,
+          "justification": "Zero usage, zero validation, bypassed entire promotion chain. Demote to instinct-level heuristic pending cross-context validation."
+        }
+      },
+      {
+        "id": "FE-STRAT-002",
+        "source": "state/agents/frontend-agent/memory/entries.jsonl",
+        "effective_layer": "L4_STRATEGIC",
+        "content": "Use React.lazy + Suspense for code splitting large pages",
+        "confidence": 1.0,
+        "classification": "ILLEGAL",
+        "evidence": {
+          "chain_status": "NO CHAIN — stored directly as L4 strategy at creation, bypassing L1→L2→L3→L4 entirely",
+          "episodic_precursors": 0,
+          "instinct_precursors": 0,
+          "skill_precursors": 0,
+          "verification": "None — no verifier_id",
+          "governance_approval": "None",
+          "recurrence": 0,
+          "recurrence_required": 10,
+          "contradictions": "None, but zero confirming evidence (no code splitting tasks in replay window)",
+          "confidence_justified": false,
+          "overconfidence_delta": 0.7,
+          "overconfidence_severity": "CRITICAL",
+          "write_gate_verdict": "BLOCKED — fails all 5 StrategicWriteGate checks",
+          "chain_validator_verdict": "BLOCKED — no valid source level for transition",
+          "verifier_enforcement_verdict": "BLOCKED — no verifier_id, no promoter_id",
+          "formation_speed": "INSTANT",
+          "uses": 0,
+          "phase1_verdict": "FALSE_STRATEGY",
+          "notes": "Identical pattern to FE-STRAT-001. Direct L4 injection with maximum confidence, zero evidence chain."
+        },
+        "recommendation": {
+          "action": "DEMOTE",
+          "target_layer": "L2_INSTINCT",
+          "corrected_confidence": 0.3,
+          "justification": "Zero usage, zero validation, bypassed entire promotion chain."
+        }
+      },
+      {
+        "id": "AGENT-DEC-001",
+        "source": "observability/decisions/agent_decisions.jsonl",
+        "effective_layer": "L4_STRATEGIC",
+        "content": "Strategy chosen: task_execution for 'Test task'",
+        "confidence": 1.0,
+        "classification": "ILLEGAL",
+        "evidence": {
+          "chain_status": "NO CHAIN — test record with zero real execution",
+          "episodic_precursors": 0,
+          "verification": "None",
+          "governance_approval": "ALLOW (trivially — no real governance check)",
+          "recurrence": 0,
+          "recurrence_required": 10,
+          "contradictions": "N/A — vacuous test data",
+          "confidence_justified": false,
+          "overconfidence_delta": 1.0,
+          "overconfidence_severity": "CRITICAL",
+          "write_gate_verdict": "BLOCKED — no provenance chain whatsoever",
+          "agent_id": "test-agent",
+          "task_metadata": {"tokens_used": 0, "duration_ms": 0.01, "memories_consulted": 0},
+          "formation_speed": "INSTANT",
+          "phase1_verdict": "FALSE_STRATEGY",
+          "notes": "Pure test artifact. Agent decision recorded at strategic confidence (1.0) with zero tokens, zero memories, zero real duration. Should not persist as a real strategic record."
+        },
+        "recommendation": {
+          "action": "REMOVE_OR_TAG",
+          "tag": "test_only",
+          "justification": "Test artifact with no real content. Remove from production records or tag as test_only to exclude from future strategic queries."
+        }
+      },
+      {
+        "id": "SKILLIFY-BATCH-001",
+        "source": "agents/skillify/pending_registrations.jsonl",
+        "effective_layer": "L3_SKILL",
+        "content": "12x auto_test_skill registrations (synthetic pipeline test data)",
+        "skill_ids": [
+          "skill-47b2fe17", "skill-5bf8a6f5", "skill-407e0797", "skill-29143d89",
+          "skill-9004ff1d", "skill-21639a7d", "skill-c568e0a3", "skill-99b7a298",
+          "skill-2a2a8828", "skill-e3fab71b", "skill-1cf86bb0", "skill-7b595ac3"
+        ],
+        "confidence_range": [0.5, 0.9],
+        "classification": "ILLEGAL",
+        "evidence": {
+          "chain_status": "NO CHAIN — all entries are synthetic test data from pipeline tests",
+          "episodic_precursors": 0,
+          "claimed_occurrence_count": 10,
+          "actual_validation": "None — all evidence is fabricated test data",
+          "verification": "None — reviewer_notes are synthetic ([admin] LGTM or empty)",
+          "governance_approval": "Synthetic — governance_level: ALLOW set by test harness",
+          "recurrence": "Claimed 10, actual 0 (synthetic)",
+          "contradictions": "50% rollback rate (6 of 12 rolled back), 30% pipeline rejection rate",
+          "confidence_justified": false,
+          "write_gate_verdict": "N/A for L3, but chain_validator would BLOCK: no real L1→L2 precursors",
+          "verifier_enforcement_verdict": "BLOCKED — reviewer is same test harness as proposer (self-certification)",
+          "rollback_history": {
+            "rolled_back": ["skill-5bf8a6f5", "skill-29143d89", "skill-21639a7d", "skill-99b7a298", "skill-e3fab71b", "skill-7b595ac3"],
+            "rollback_rate": 0.5
+          },
+          "notes": "All 12 registrations are test artifacts. The claimed evidence (occurrence_count: 10, success_rate: 0.9) is fabricated by the test harness. The 50% rollback rate demonstrates that even synthetic promotions were unstable. Self-certification: the same test system proposed and approved all entries."
+        },
+        "recommendation": {
+          "action": "TAG_AND_QUARANTINE",
+          "tag": "test_only",
+          "justification": "Tag all 12 as test_only. Quarantine from production skill registry. The skillify pipeline's acceptance criteria should be tightened before production use."
+        }
+      }
+    ]
+  },
+  "summary": {
+    "valid_count": 2,
+    "suspicious_count": 3,
+    "illegal_count": 4,
+    "total_entries_audited": 20,
+    "total_unique_logical_entries": 9,
+    "illegal_rate": 0.44,
+    "illegal_entries_by_item_count": 16,
+    "note": "SKILLIFY-BATCH-001 represents 12 individual skill registrations grouped as 1 logical entry. If counted individually: 2 VALID + 3 SUSPICIOUS + 15 ILLEGAL = 20 entries, illegal rate = 0.75"
+  },
+  "systemic_findings": {
+    "root_cause_confirmed": "Agent memory initialization bypasses the entire promotion hierarchy. StrategicEntry can be constructed directly with confidence=1.0 and empty provenance, exactly as Phase 1 identified.",
+    "primary_attack_vector": "Pre-loaded agent memories (frontend-agent/memory/entries.jsonl) injected at L4 with maximum confidence, zero episodic history, zero verification, zero governance approval",
+    "secondary_attack_vector": "Test pipeline data (skillify/pending_registrations.jsonl) persisting as production records with fabricated evidence fields (occurrence_count, success_rate)",
+    "tertiary_attack_vector": "Agent decision records (agent_decisions.jsonl) storing test runs at strategic confidence without distinguishing test from production",
+    "positive_finding": "Guardian subsystem (GUARDIAN-STRAT-001) demonstrates the CORRECT pattern: low confidence (0.1), traceable incident chain, independent dream-replay verification, self-correction of false positives. This is the gold standard the other subsystems should emulate.",
+    "enforcement_gap": "The new enforcement modules (Phases 2-4) would have prevented ALL 4 ILLEGAL entries if they had been active at creation time. The write gate blocks all provenance-less L4 writes, the chain validator blocks all level-skipping, and the verifier enforcement blocks all self-certification."
+  },
+  "cross_reference_with_phase1": {
+    "phase1_false_strategies": 3,
+    "phase5_illegal_l4": 3,
+    "match": "100% — all 3 false strategies identified in Phase 1 (FE-STRAT-001, FE-STRAT-002, AGENT-DEC-001) are classified ILLEGAL in Phase 5",
+    "phase5_additional_findings": "Phase 5 additionally classifies SKILLIFY-BATCH (12 entries) as ILLEGAL and identifies 3 SUSPICIOUS entries (FE-KNOW-001, FE-KNOW-002, FE-FAIL-001) that Phase 1 flagged as OVERCONFIDENT"
+  }
+}

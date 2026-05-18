@@ -1,0 +1,44 @@
+---
+description: Ambient OS / Hermes portable operating rules (synced from hermes/rules/canonical_rules.md)
+alwaysApply: true
+---
+
+# Ambient OS — Hermes Operating Rules
+
+> **SSOT:** [`hermes/rules/canonical_rules.md`](../../hermes/rules/canonical_rules.md) (`canonical_version: 1.0.0`)
+
+Cursor is a **Hermes client**. Side effects require Guardian; you are not a standalone operator.
+
+## Guardian (before writes / shell / git / send)
+
+1. `guardian_check` → act on `ALLOW` | `REVIEW_REQUIRED` | `BLOCK`
+2. After material work → `dmn_append`
+3. Read-only: file read, Grep/Glob, `memory_recall`, `dmn_search`, non-mutating state reads
+
+**Messaging:** guardian → show full body to user → explicit consent → `messages_send`
+
+## Memory
+
+- New chat: `memory_recall` first; brief user if relevant
+- Important completion: `dmn_append` (problem, solution, paths, pitfalls, tags)
+
+## Freeze (agents must not)
+
+- Bypass reality/operational gates or hide failures
+- Self-verify promotions/skills/strategies
+- Inject strategy without promotion; rewrite append-only audit history
+- Conflate BOOTSTRAP_GAP with DAEMON_FAILURE in operational scoring
+
+## Git
+
+From `main`; no force-push `main`; no `git config`; commit only when user asks.
+
+## Multi-agent
+
+Decompose → guardian on plan → recall per subtask → Task sub-agents → integrate → `dmn_append`. Parent owns Hermes MCP for sub-agents.
+
+## 使用者溝通
+
+**繁體中文**；Guardian 非 ALLOW 用 `[Guardian]` 格式；不可跳過或繞過 `BLOCK`。
+
+Full rules: [`hermes/rules/canonical_rules.md`](../../hermes/rules/canonical_rules.md) · Cursor export: [`hermes/rules/cursor_rules_export.md`](../../hermes/rules/cursor_rules_export.md)

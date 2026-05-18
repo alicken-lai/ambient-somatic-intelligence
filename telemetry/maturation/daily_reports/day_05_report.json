@@ -1,0 +1,10 @@
+{
+  "day": "day_05",
+  "date": "2026-05-15",
+  "status": "AWAITING_DATA",
+  "metrics": {},
+  "thresholds_met": false,
+  "issues": [
+    "No data available for this day"
+  ]
+}

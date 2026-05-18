@@ -1,0 +1,26 @@
+{
+  "day": "day_02",
+  "date": "2026-05-12",
+  "status": "COMPLETE",
+  "metrics": {
+    "cadence_compliance": 0.9358,
+    "missing_interval_rate": 0.7906,
+    "duplicate_rate": 0.7113,
+    "max_clock_drift_seconds": 0.0,
+    "corruption_count": 0,
+    "silent_sources": [
+      "governance.decisions",
+      "governance.incidents",
+      "agent.decisions",
+      "health.snapshot"
+    ],
+    "replay_compatibility": 0.5508
+  },
+  "thresholds_met": false,
+  "issues": [
+    "Cadence compliance 93.58% below 95%",
+    "Missing interval rate 79.06% above 5%",
+    "Duplicate rate 0.7113 above 0.01",
+    "Silent sources: governance.decisions, governance.incidents, agent.decisions, health.snapshot"
+  ]
+}
