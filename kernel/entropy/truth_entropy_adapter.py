@@ -93,6 +93,14 @@ class TruthEntropyAdapter:
 
     @staticmethod
     def _orphan_truth_nodes(graph: TruthGraph) -> list[str]:
+        """
+        Nodes with no incident edges.
+
+        Edgeless graphs (single-root / baseline fixtures) are clean by doctrine —
+        do not treat isolated registration as orphan pressure.
+        """
+        if not graph.edges:
+            return []
         connected: set[str] = set()
         for edge in graph.edges:
             connected.add(edge.source_id)
