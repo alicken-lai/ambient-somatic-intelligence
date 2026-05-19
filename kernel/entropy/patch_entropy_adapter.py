@@ -35,7 +35,10 @@ class PatchEntropyAdapter:
         age_pressure = min(1.0, snapshot["mean_age_seconds"] / self._max_age)
         restore_fail = 1.0 - snapshot["unwire_success_ratio"]
 
-        leakage = min(1.0, snapshot["inactive_but_registered"] / total)
+        # Gate leakage: active patches still applied, not restored audit handles in registry.
+        leakage = (
+            min(1.0, active_count / 15.0) if active_count > 0 else 0.0
+        )
 
         return [
             EntropyMetric(

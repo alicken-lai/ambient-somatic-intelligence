@@ -1,0 +1,55 @@
+{
+  "audit_version": "v0.4.5",
+  "audited_at": "2026-05-19",
+  "reported_failure": {
+    "test": "tests/v042/test_stability_score.py::test_stability_gate_on_clean_graph",
+    "score": 0.72625,
+    "threshold": 0.85,
+    "symptom": "evidence healthy (patch_leakage=0, truth duplicates=0) but composite below gate"
+  },
+  "root_cause": {
+    "primary": "kind-mean dilution and non-gate metrics in stability dimensions",
+    "details": [
+      "truth_consistency used _kind_mean(DRIFT)*0.5, pulling in truth_orphan_nodes=1.0 on edgeless baseline graphs",
+      "patch_pressure used _kind_mean(PATCH), penalizing churn/age/active when patch_leakage=0",
+      "mutation_pressure used _kind_mean(MUTATION), averaging denial/hook/recent when mutation_rate=0",
+      "stale_state used kind-mean mixing critical binary with pressure scalar",
+      "evidence dict omitted dimension pressures, hiding drag from gate-aligned checks"
+    ]
+  },
+  "reproduced_scenario": {
+    "description": "Synthetic metrics: truth_orphan=1, patch operational noise, mutation triple, orphan_pressure=0.75",
+    "old_formula_score": 0.6725,
+    "fixed_formula_score": 0.7068,
+    "note": "Post-fix clean fixture scores 1.0; orphan truth on edgeless graphs scores 0.0"
+  },
+  "clean_fixture_post_fix": {
+    "score": 1.0,
+    "dimensions": {
+      "truth_consistency": 1.0,
+      "patch_pressure": 1.0,
+      "mutation_pressure": 1.0,
+      "orphan_pressure": 1.0,
+      "circular_coupling": 1.0,
+      "stale_state": 1.0,
+      "runtime_reproducibility": 1.0
+    },
+    "weighted_contributions": {
+      "truth_consistency": 0.22,
+      "patch_pressure": 0.18,
+      "mutation_pressure": 0.14,
+      "orphan_pressure": 0.12,
+      "circular_coupling": 0.14,
+      "stale_state": 0.12,
+      "runtime_reproducibility": 0.08
+    }
+  },
+  "fixes_applied": [
+    "kernel/entropy/truth_entropy_adapter.py: edgeless graphs exempt from orphan truth penalty",
+    "observability/v04/stability_score.py: max-of-gate-metrics via metric_normalizer",
+    "observability/v04/metric_normalizer.py",
+    "observability/v04/stability_breakdown.py",
+    "observability/v04/explainable_stability.py",
+    "observability/v04/semantics_alignment.py"
+  ]
+}

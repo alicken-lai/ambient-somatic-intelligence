@@ -155,8 +155,11 @@ class PatchRegistry:
 
         overlap = max(0, len(target_keys) - len(set(target_keys)))
         restored = sum(1 for h in handles if h.restored)
-        attempted_restore = restored + inactive_registered
-        unwire_ratio = restored / attempted_restore if attempted_restore else 1.0
+        if not active:
+            unwire_ratio = 1.0
+        else:
+            attempted_restore = restored + len(active)
+            unwire_ratio = restored / attempted_restore if attempted_restore else 1.0
 
         return {
             "total_count": len(handles),

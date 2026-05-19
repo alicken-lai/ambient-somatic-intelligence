@@ -7,8 +7,13 @@ from enum import Enum
 from typing import Any
 
 from kernel.entropy.entropy_controller import EntropyController, EntropyReport
-from kernel.entropy.entropy_metric import MetricKind
 from kernel.truth.truth_graph import TruthGraph
+from observability.v04.metric_normalizer import (
+    clamp01,
+    dimension_from_pressure,
+    metric_value,
+    pressure_max,
+)
 
 
 class StabilityClassification(str, Enum):
@@ -32,6 +37,19 @@ DIMENSION_WEIGHTS: dict[str, float] = {
 }
 
 GATE_THRESHOLD = 0.85
+
+# Gate-aligned metric subsets (max pressure, not kind-mean — avoids dilution/double penalty).
+_TRUTH_PRESSURE_METRICS = (
+    "truth_duplicate_nodes",
+    "truth_checksum_divergence",
+    "truth_conflict_pressure",
+)
+_PATCH_PRESSURE_METRICS = ("patch_leakage", "patch_unwire_failure")
+_MUTATION_PRESSURE_METRICS = (
+    "mutation_rate",
+    "mutation_hook_pressure",
+    "mutation_denial_rate",
+)
 
 
 @dataclass
@@ -57,18 +75,26 @@ class StabilityReport:
         }
 
 
-def _metric_value(report: EntropyReport, name: str, default: float = 0.0) -> float:
-    for metric in report.snapshot.metrics:
-        if metric.name == name:
-            return metric.value
-    return default
+def _dimension_pressures(entropy_report: EntropyReport) -> dict[str, float]:
+    """Per-dimension pressures (0=healthy) using gate-aligned metric subsets."""
+    truth_pressure = pressure_max(entropy_report, *_TRUTH_PRESSURE_METRICS)
+    patch_pressure = pressure_max(entropy_report, *_PATCH_PRESSURE_METRICS)
+    mutation_pressure = pressure_max(entropy_report, *_MUTATION_PRESSURE_METRICS)
+    orphan_pressure = metric_value(entropy_report, "orphan_pressure")
+    circular_coupling = metric_value(entropy_report, "circular_coupling")
+    stale_pressure = max(
+        metric_value(entropy_report, "stale_state_critical"),
+        metric_value(entropy_report, "stale_state_pressure"),
+    )
 
-
-def _kind_mean(report: EntropyReport, kind: MetricKind) -> float:
-    metrics = report.snapshot.by_kind(kind)
-    if not metrics:
-        return 0.0
-    return sum(m.value for m in metrics) / len(metrics)
+    return {
+        "truth_consistency": truth_pressure,
+        "patch_pressure": patch_pressure,
+        "mutation_pressure": mutation_pressure,
+        "orphan_pressure": orphan_pressure,
+        "circular_coupling": circular_coupling,
+        "stale_state": stale_pressure,
+    }
 
 
 def compute_stability(
@@ -80,39 +106,30 @@ def compute_stability(
     Derive stability score from entropy observables.
 
     Each dimension is 1.0 - pressure (clamped), weighted per DIMENSION_WEIGHTS.
+    Pressures use max-of-gate-metrics (not kind-mean) to avoid false penalties on clean graphs.
     """
-    truth_pressure = max(
-        _metric_value(entropy_report, "truth_duplicate_nodes"),
-        _metric_value(entropy_report, "truth_checksum_divergence"),
-        _kind_mean(entropy_report, MetricKind.DRIFT) * 0.5,
-    )
-    patch_pressure = max(
-        _metric_value(entropy_report, "patch_leakage"),
-        _kind_mean(entropy_report, MetricKind.PATCH),
-    )
-    mutation_pressure = _kind_mean(entropy_report, MetricKind.MUTATION)
-    orphan_pressure = _metric_value(entropy_report, "orphan_pressure")
-    circular_coupling = _metric_value(entropy_report, "circular_coupling")
-    stale_pressure = max(
-        _metric_value(entropy_report, "stale_state_critical"),
-        _kind_mean(entropy_report, MetricKind.STALE),
-    )
+    pressures = _dimension_pressures(entropy_report)
 
     if runtime_reproducibility is None:
-        runtime_reproducibility = 1.0 - min(1.0, patch_pressure + mutation_pressure * 0.3)
+        runtime_reproducibility = dimension_from_pressure(
+            pressures["patch_pressure"] + pressures["mutation_pressure"] * 0.3
+        )
 
     dimensions = {
-        "truth_consistency": max(0.0, 1.0 - truth_pressure),
-        "patch_pressure": max(0.0, 1.0 - patch_pressure),
-        "mutation_pressure": max(0.0, 1.0 - mutation_pressure),
-        "orphan_pressure": max(0.0, 1.0 - orphan_pressure),
-        "circular_coupling": max(0.0, 1.0 - circular_coupling),
-        "stale_state": max(0.0, 1.0 - stale_pressure),
-        "runtime_reproducibility": max(0.0, min(1.0, runtime_reproducibility)),
+        name: dimension_from_pressure(pressures[name])
+        for name in (
+            "truth_consistency",
+            "patch_pressure",
+            "mutation_pressure",
+            "orphan_pressure",
+            "circular_coupling",
+            "stale_state",
+        )
     }
+    dimensions["runtime_reproducibility"] = clamp01(runtime_reproducibility)
 
     score = sum(dimensions[k] * DIMENSION_WEIGHTS[k] for k in DIMENSION_WEIGHTS)
-    score = max(0.0, min(1.0, score))
+    score = clamp01(score)
 
     if score >= GATE_THRESHOLD:
         classification = StabilityClassification.EXCELLENT
@@ -123,14 +140,17 @@ def compute_stability(
     else:
         classification = StabilityClassification.CRITICAL
 
-    duplicate_truth = _metric_value(entropy_report, "truth_duplicate_nodes")
-    patch_leak = _metric_value(entropy_report, "patch_leakage")
+    duplicate_truth = metric_value(entropy_report, "truth_duplicate_nodes")
+    patch_leak = metric_value(entropy_report, "patch_leakage")
+    circular = metric_value(entropy_report, "circular_coupling")
+    stale_critical = metric_value(entropy_report, "stale_state_critical")
 
     evidence = {
         "duplicate_truth_count": int(duplicate_truth > 0),
         "patch_leakage": patch_leak,
-        "circular_recursion": circular_coupling,
-        "stale_state_critical": _metric_value(entropy_report, "stale_state_critical"),
+        "circular_recursion": circular,
+        "stale_state_critical": stale_critical,
+        "pressures": {k: round(v, 4) for k, v in pressures.items()},
     }
 
     return StabilityReport(
@@ -141,8 +161,8 @@ def compute_stability(
         gate_pass=score >= GATE_THRESHOLD
         and duplicate_truth == 0
         and patch_leak == 0
-        and circular_coupling == 0
-        and _metric_value(entropy_report, "stale_state_critical") == 0,
+        and circular == 0
+        and stale_critical == 0,
         evidence=evidence,
     )
 

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -626,13 +627,47 @@ def _build_v03_schemas() -> list[BusEventSchema]:
 class EventSchemaRegistry:
     """Registry of typed event schemas for all IntegrationBus connections."""
 
-    def __init__(self) -> None:
+    def __init__(self, registry_guard: Any | None = None) -> None:
         self._schemas: dict[str, BusEventSchema] = {}
+        self._registry_guard = registry_guard
+        if self._registry_guard is None:
+            try:
+                from kernel.isolation.registry_guard import RegistryGuard
+                from kernel.isolation.write_target import WriteTarget
+
+                guard = RegistryGuard()
+                guard.bind(
+                    "event_schema_registry",
+                    write_target=WriteTarget.INTEGRATION_BUS,
+                    owner="architecture",
+                )
+                self._registry_guard = guard
+            except ImportError:
+                self._registry_guard = None
         for schema in _build_v02_schemas():
             self._schemas[schema.name] = schema
         for schema in _build_v03_schemas():
             self._schemas[schema.name] = schema
         logger.debug("EventSchemaRegistry initialized with %d schemas", len(self._schemas))
+
+    def register_schema(
+        self,
+        schema: BusEventSchema,
+        execution_context: Any | None = None,
+    ) -> None:
+        """Register or replace a schema (governed when execution_context provided)."""
+        def _register() -> None:
+            self._schemas[schema.name] = schema
+
+        if execution_context is not None and self._registry_guard is not None:
+            self._registry_guard.mutate(
+                "event_schema_registry",
+                _register,
+                context=execution_context,
+                operation="register_schema",
+            )
+            return
+        _register()
 
     def get_schema(self, connection_name: str) -> BusEventSchema | None:
         return self._schemas.get(connection_name)

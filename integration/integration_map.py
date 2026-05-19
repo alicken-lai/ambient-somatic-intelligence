@@ -183,7 +183,8 @@ def _backward_compat_notes() -> list[str]:
     return [
         "v0.2 IntegrationBus.wire() connections are unmodified and remain active.",
         "v0.3 IntegrationBus.wire_v03() connections are unmodified and remain active.",
-        "v0.4 does NOT modify kernel/__init__.py, kernel/integration_bus.py, or kernel/bootstrap.py.",
+        "v0.4 skills/attention wiring does NOT modify kernel/__init__.py or kernel/bootstrap.py.",
+        "v0.4 stabilization adds wire_v04() to kernel/integration_bus.py (additive, idempotent).",
         "v0.4 boot is additive — call boot_v04(kernel) after boot() and boot_v03().",
         "v0.4 wiring uses the same _log_event() method on IntegrationBus for consistent event logging.",
         "v0.4 event schemas extend EventSchemaRegistry; v0.2/v0.3 schemas remain intact.",

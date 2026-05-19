@@ -6,7 +6,7 @@ It coordinates all other components to produce an optimally-packed context
 window within token budget:
 
   1. Analyze the task to determine budget allocation preset
-  2. Retrieve relevant memories via SemanticRetriever
+  2. Retrieve relevant memories via KernelRetriever (MemoryKernel-backed)
   3. Compress if needed via MemoryCompressor
   4. Pack into pools tracked by ContextBudgetManager
   5. Generate a ready-to-inject context block
@@ -33,8 +33,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 from context.budget_manager import ContextBudgetManager, estimate_tokens
-from context.semantic_retriever import SemanticRetriever
 from context.memory_compressor import MemoryCompressor
+from context.kernel_retriever import KernelRetriever
 
 
 @dataclass
@@ -109,9 +109,16 @@ class ContextAssembler:
         # Use context.to_prompt_sections() for prompt building
     """
 
-    def __init__(self, total_tokens: int = 128_000):
+    def __init__(
+        self,
+        total_tokens: int = 128_000,
+        retriever: KernelRetriever | None = None,
+    ):
         self.total_tokens = total_tokens
-        self.retriever = SemanticRetriever()
+        if retriever is None:
+            from kernel import get_memory_kernel
+            retriever = KernelRetriever(get_memory_kernel())
+        self.retriever = retriever
         self.compressor = MemoryCompressor()
 
     def assemble(
@@ -214,7 +221,10 @@ class ContextAssembler:
         Sub-agents get 50% of normal budget to leave room for their own work.
         """
         sub_budget = self.total_tokens // 2
-        sub_assembler = ContextAssembler(total_tokens=sub_budget)
+        sub_assembler = ContextAssembler(
+            total_tokens=sub_budget,
+            retriever=self.retriever,
+        )
         return sub_assembler.assemble(
             task=task,
             system_prompt=parent_context[:2000] if parent_context else "",

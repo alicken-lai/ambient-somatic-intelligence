@@ -1,0 +1,44 @@
+{
+  "audit_date": "2026-05-19",
+  "suite_command": "python3 -m pytest tests/v04/ tests/v042/ tests/v043/ tests/v044/ tests/v044b/ tests/v045/ tests/v045_runtime/ -q",
+  "failures_before_repair": [
+    {
+      "test": "tests/v042/test_stability_score.py::test_stability_gate_on_clean_graph",
+      "assertion": "report.score >= 0.85",
+      "observed_score": 0.74,
+      "root_cause": "patch_leakage=1.0 after v04 wire/unwire despite active_count=0; inactive registry handles misclassified as leakage"
+    },
+    {
+      "test": "tests/v045/test_clean_graph_gate.py::test_clean_graph_passes_stability_gate",
+      "assertion": "report.score >= GATE_THRESHOLD",
+      "observed_score": 0.74,
+      "root_cause": "same as test_stability_gate_on_clean_graph"
+    },
+    {
+      "test": "tests/v045/test_explainable_stability.py::test_explain_clean_graph_no_dominant_failure",
+      "assertion": "explanation.gate_pass is True",
+      "observed": "gate_pass=False, dominant_failure=patch_pressure",
+      "root_cause": "patch_pressure dimension 0.0 from patch_leakage=1.0 and runtime_reproducibility=0.0"
+    },
+    {
+      "test": "tests/v045/test_semantics_alignment.py::test_clean_graph_semantics_aligned",
+      "assertion": "alignment.score >= 0.95",
+      "observed_score": 0.8,
+      "root_cause": "critical_evidence_clean=False because evidence patch_leakage=1.0; score_matches_critical_evidence failed"
+    },
+    {
+      "test": "tests/v045_runtime/test_operational_stability_score.py::test_simulated_phases_integrate_with_semantic_stability",
+      "assertion": "semantic.gate_pass is True",
+      "observed": "semantic.gate_pass=False, score=0.74",
+      "root_cause": "evaluate_stability polluted by global patch registry after tests/v04/test_reversible_wiring.py"
+    }
+  ],
+  "pollution_chain": [
+    "tests/v04/test_reversible_wiring.py",
+    "kernel.wiring.get_patch_registry (process singleton)",
+    "kernel.entropy.patch_entropy_adapter.patch_leakage",
+    "observability.v04.stability_score._PATCH_PRESSURE_METRICS"
+  ],
+  "failures_after_repair": 0,
+  "final_pytest": "87 passed"
+}

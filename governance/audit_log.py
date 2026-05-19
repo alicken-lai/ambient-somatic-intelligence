@@ -49,11 +49,35 @@ class GovernanceAuditLog:
         stats = audit.stats(hours=24)
     """
 
-    def __init__(self, audit_dir: Path | None = None):
+    def __init__(
+        self,
+        audit_dir: Path | None = None,
+        guarded_writer: Any | None = None,
+        authority_trace: Any | None = None,
+    ):
         self.audit_dir = audit_dir or AUDIT_DIR
         self.audit_dir.mkdir(parents=True, exist_ok=True)
         self.decisions_path = self.audit_dir / "decisions.jsonl"
         self.incidents_path = self.audit_dir / "incidents.jsonl"
+        self._authority_trace = authority_trace
+        self._guarded_writer = guarded_writer
+        self._guarded_target = None
+        if self._guarded_writer is None:
+            try:
+                from kernel.isolation.guarded_file_writer import GuardedFileWriter
+                from kernel.isolation.write_target import WriteTarget
+
+                self._guarded_writer = GuardedFileWriter(authority_trace=authority_trace)
+                self._guarded_target = WriteTarget.GOVERNANCE_AUDIT
+            except ImportError:
+                self._guarded_writer = None
+        elif self._guarded_target is None:
+            try:
+                from kernel.isolation.write_target import WriteTarget
+
+                self._guarded_target = WriteTarget.GOVERNANCE_AUDIT
+            except ImportError:
+                self._guarded_target = None
 
     def record_decision(
         self,
@@ -64,6 +88,7 @@ class GovernanceAuditLog:
         matched_policies: list[str] | None = None,
         validation_stages: list[dict] | None = None,
         metadata: dict[str, Any] | None = None,
+        execution_context: Any | None = None,
     ) -> dict[str, Any]:
         """Record a governance decision."""
         record = {
@@ -77,10 +102,10 @@ class GovernanceAuditLog:
             "metadata": metadata or {},
         }
 
-        self._append(self.decisions_path, record)
+        self._append_record(self.decisions_path, record, execution_context=execution_context)
 
         if risk == RiskLevel.BLOCK:
-            self._record_incident(record)
+            self._record_incident(record, execution_context=execution_context)
 
         return record
 
@@ -100,10 +125,12 @@ class GovernanceAuditLog:
             "override_by": override_by,
             "reason": reason,
         }
-        self._append(self.decisions_path, record)
+        self._append_record(self.decisions_path, record)
         return record
 
-    def _record_incident(self, decision: dict[str, Any]) -> None:
+    def _record_incident(
+        self, decision: dict[str, Any], execution_context: Any | None = None
+    ) -> None:
         """Record a BLOCK decision as an incident."""
         incident = {
             "timestamp": decision["timestamp"],
@@ -114,7 +141,47 @@ class GovernanceAuditLog:
             "policies": decision["matched_policies"],
             "resolved": False,
         }
-        self._append(self.incidents_path, incident)
+        self._append_record(
+            self.incidents_path, incident, execution_context=execution_context
+        )
+
+    def _append_record(
+        self,
+        path: Path,
+        record: dict[str, Any],
+        *,
+        execution_context: Any | None = None,
+    ) -> None:
+        if (
+            execution_context is not None
+            and self._guarded_writer is not None
+            and self._guarded_target is not None
+        ):
+            rel = path.relative_to(self.audit_dir.parent.parent)
+            self._guarded_writer.append_jsonl(
+                rel,
+                record,
+                target=self._guarded_target,
+                context=execution_context,
+            )
+            if self._authority_trace and hasattr(
+                self._authority_trace, "record_guarded_operation"
+            ):
+                self._authority_trace.record_guarded_operation(
+                    mutation_type="FILE_WRITE",
+                    target=self._guarded_target.value,
+                    context_id=getattr(execution_context, "context_id", None),
+                    caller_id=getattr(execution_context, "caller_id", None),
+                    rollback_type=(
+                        execution_context.rollback_plan.rollback_type.value
+                        if getattr(execution_context, "rollback_plan", None)
+                        else None
+                    ),
+                    result="ok",
+                    detail="governance_audit_append",
+                )
+            return
+        self._append(path, record)
 
     def _append(self, path: Path, record: dict[str, Any]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

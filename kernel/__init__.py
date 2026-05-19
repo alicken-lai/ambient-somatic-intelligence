@@ -21,9 +21,10 @@ Usage:
 
 from __future__ import annotations
 
-__version__ = "0.3.1-alpha"
+__version__ = "0.4.1-alpha"
 __all__ = [
     "AmbientKernel",
+    "get_memory_kernel",
     "memory",
     "context",
     "task_graph",
@@ -32,6 +33,30 @@ __all__ = [
     "somatic",
     "observability",
 ]
+
+_memory_kernel_instance = None
+
+
+def get_memory_kernel():
+    """Return the canonical MemoryKernel singleton (shared with AmbientKernel.memory)."""
+    global _memory_kernel_instance
+    if _memory_kernel_instance is None:
+        from memory.memory_kernel import MemoryKernel
+        _memory_kernel_instance = MemoryKernel()
+    return _memory_kernel_instance
+
+
+class _MemoryKernelProxy:
+    """Module-level binding to the same MemoryKernel instance as AmbientKernel.memory."""
+
+    def __getattr__(self, name: str):
+        return getattr(get_memory_kernel(), name)
+
+    def __repr__(self) -> str:
+        return f"<kernel.memory proxy for {get_memory_kernel()!r}>"
+
+
+memory = _MemoryKernelProxy()
 
 
 class _SubsystemRef:
@@ -48,7 +73,6 @@ class _SubsystemRef:
         return getattr(self._module, name)
 
 
-memory = _SubsystemRef("context.semantic_retriever")
 context = _SubsystemRef("context")
 task_graph = _SubsystemRef("runtime.task_graph")
 governance = _SubsystemRef("governance")
@@ -84,7 +108,6 @@ class AmbientKernel:
         from governance.unified_router import UnifiedRouter
         from context.assembler import ContextAssembler
         from context.budget_manager import ContextBudgetManager
-        from context.semantic_retriever import SemanticRetriever
         from context.memory_compressor import MemoryCompressor
         from context.injection_logger import InjectionLogger
         from context.kernel_retriever import KernelRetriever
@@ -132,18 +155,17 @@ class AmbientKernel:
         self.governance.mandatory_gate = mandatory_gate
         self.governance.unified_router = unified_router
 
-        from memory.memory_kernel import MemoryKernel
-        self.memory = MemoryKernel()
+        self.memory = get_memory_kernel()
 
         injection_logger = InjectionLogger()
         kernel_retriever = KernelRetriever(self.memory)
 
         self.context = _ContextSubsystem(
             budget_manager=ContextBudgetManager(),
-            retriever=SemanticRetriever(),
+            retriever=kernel_retriever,
             kernel_retriever=kernel_retriever,
             compressor=MemoryCompressor(),
-            assembler=ContextAssembler(),
+            assembler=ContextAssembler(retriever=kernel_retriever),
             injection_logger=injection_logger,
         )
 

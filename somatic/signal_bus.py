@@ -117,9 +117,39 @@ class SomaticSignalBus:
         """Subscribe to a specific signal type."""
         self._handlers[signal_type].append(handler)
 
+    def on_guarded(
+        self,
+        signal_type: SignalType,
+        handler: SignalHandler,
+        *,
+        source: str,
+        allowed_writes: frozenset[str] | None = None,
+    ) -> SignalHandler:
+        """Subscribe with CallbackGuard wrapping (v0.4.4 opt-in)."""
+        try:
+            from kernel.isolation.guarded_callback import GuardedCallback
+
+            guarded = GuardedCallback()
+            wrapped = guarded.register(
+                f"somatic:{signal_type.value}",
+                handler,
+                source=source,
+                allowed_writes=allowed_writes,
+            )
+            self._handlers[signal_type].append(wrapped)
+            return wrapped
+        except ImportError:
+            self._handlers[signal_type].append(handler)
+            return handler
+
     def on_any(self, handler: SignalHandler) -> None:
         """Subscribe to all signals."""
         self._any_handlers.append(handler)
+
+    def off_any(self, handler: SignalHandler) -> None:
+        """Unsubscribe from all-signals handlers."""
+        if handler in self._any_handlers:
+            self._any_handlers.remove(handler)
 
     def off(self, signal_type: SignalType, handler: SignalHandler) -> None:
         """Unsubscribe from a signal type."""

@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-18T21:57:24.511976+00:00",
+  "window": "72h",
+  "simulation_mode": "accelerated",
+  "operational_stability_score": 0.9688980000000001,
+  "gate_pass": true,
+  "classification": "excellent",
+  "hard_failures": [],
+  "dimensions": {
+    "entropy_long_run": 1.0,
+    "patch_registry": 1.0,
+    "isolation_containment": 1.0,
+    "authority_trace_boundedness": 0.9964,
+    "daemon_continuity": 0.8015,
+    "truthgraph_stability": 0.982,
+    "replay_determinism": 1.0
+  },
+  "phases": {
+    "entropy": true,
+    "patch": true,
+    "isolation": true,
+    "authority_trace": true,
+    "daemon": true,
+    "truthgraph": true,
+    "replay": true,
+    "failure_modes": true
+  }
+}

@@ -268,8 +268,25 @@ class SandboxManager:
         sandbox = self.create_sandbox(agent_id)
         result = sandbox.execute_task(task, executor)
         if result.audit:
-            self._audit_log.append(result.audit)
+            self._record_audit(result.audit)
         return result
+
+    def _record_audit(self, audit: SandboxAuditRecord) -> None:
+        """Persist sandbox audit (governed path when GovernanceAuditLog available)."""
+        self._audit_log.append(audit)
+        try:
+            from governance.audit_log import GovernanceAuditLog
+            from governance.policy_engine import RiskLevel
+
+            GovernanceAuditLog().record_decision(
+                action=f"sandbox:{audit.task_summary[:200]}",
+                risk=RiskLevel.ALLOW,
+                reason="sandbox_execution_audit",
+                agent_id=audit.agent_id,
+                metadata=audit.to_dict(),
+            )
+        except Exception:
+            pass
 
     def get_audit_log(self) -> list[SandboxAuditRecord]:
         return list(self._audit_log)

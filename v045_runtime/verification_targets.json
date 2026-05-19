@@ -1,0 +1,98 @@
+{
+  "version": "v045_runtime_1.0",
+  "operational_gate_threshold": 0.90,
+  "dimensions": {
+    "entropy_long_run": {
+      "weight": 0.16,
+      "pass": {
+        "max_entropy_lt": 0.30,
+        "drift_slope_lte": 0.002,
+        "no_exponential_drift": true
+      },
+      "fail": {
+        "max_entropy_gte": 0.30,
+        "drift_slope_gt": 0.002
+      }
+    },
+    "patch_registry": {
+      "weight": 0.14,
+      "pass": {
+        "leakage": 0,
+        "duplicates": 0,
+        "unwire_repro_rate": 1.0
+      },
+      "fail": {
+        "leakage_gt": 0,
+        "duplicates_gt": 0,
+        "unwire_repro_rate_lt": 1.0
+      }
+    },
+    "isolation_containment": {
+      "weight": 0.14,
+      "pass": {
+        "sandbox_leaks": 0,
+        "isolation_score_gte": 0.85
+      },
+      "fail": {
+        "sandbox_leaks_gt": 0,
+        "isolation_score_lt": 0.85
+      }
+    },
+    "authority_trace_boundedness": {
+      "weight": 0.12,
+      "pass": {
+        "trace_bounded": true,
+        "event_count_lte_cap": true,
+        "runaway_growth": false
+      },
+      "fail": {
+        "trace_bounded": false,
+        "runaway_growth": true
+      }
+    },
+    "daemon_continuity": {
+      "weight": 0.14,
+      "pass": {
+        "dmn_tick_status": "ok",
+        "tick_gaps": 0,
+        "maturation_continuity_gte": 0.95
+      },
+      "fail": {
+        "dmn_tick_status_not": "ok",
+        "tick_gaps_gt": 0
+      }
+    },
+    "truthgraph_stability": {
+      "weight": 0.16,
+      "pass": {
+        "stability_score_gte": 0.85,
+        "duplicate_nodes": 0,
+        "conflicts": 0
+      },
+      "fail": {
+        "stability_score_lt": 0.85
+      }
+    },
+    "replay_determinism": {
+      "weight": 0.14,
+      "pass": {
+        "replay_match_rate": 1.0,
+        "recall_hash_stable": true
+      },
+      "fail": {
+        "replay_match_rate_lt": 1.0
+      }
+    }
+  },
+  "composite": {
+    "operational_stability_score_gte": 0.90,
+    "hard_failures_empty": true,
+    "failure_recovery_rate": 1.0
+  },
+  "constraints": [
+    "no_threshold_lowering",
+    "no_auto_repair_runtime_state",
+    "no_ontology_promotion_changes",
+    "preserve TruthGraph EntropyController IsolationKernel PatchRegistry"
+  ]
+}

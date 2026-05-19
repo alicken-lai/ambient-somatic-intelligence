@@ -45,6 +45,7 @@ class SkillRegistry:
         self,
         store_path: Path | str | None = None,
         validator: SkillValidator | None = None,
+        registry_guard: Any | None = None,
     ):
         self._skills: dict[str, SkillSchema] = {}
         self._tag_index: dict[str, list[str]] = {}
@@ -52,8 +53,19 @@ class SkillRegistry:
         self._validator = validator or SkillValidator()
         self._store_path = Path(store_path) if store_path else DEFAULT_REGISTRY_PATH
         self._deregistered: dict[str, SkillSchema] = {}
+        self._registry_guard = registry_guard
+        if self._registry_guard is None:
+            try:
+                from kernel.isolation.registry_guard import RegistryGuard
+                from kernel.isolation.write_target import WriteTarget
 
-    def register(self, skill: SkillSchema) -> str:
+                guard = RegistryGuard()
+                guard.bind("skill_registry", write_target=WriteTarget.SKILL_REGISTRY, owner="skills")
+                self._registry_guard = guard
+            except ImportError:
+                self._registry_guard = None
+
+    def register(self, skill: SkillSchema, execution_context: Any | None = None) -> str:
         """
         Register a skill after validation.
 
@@ -66,19 +78,28 @@ class SkillRegistry:
                 f"Skill '{skill.name}' failed validation: {validation.errors}"
             )
 
-        with self._lock:
-            self._skills[skill.skill_id] = skill
-            for tag in skill.metadata.tags:
-                if tag not in self._tag_index:
-                    self._tag_index[tag] = []
-                if skill.skill_id not in self._tag_index[tag]:
-                    self._tag_index[tag].append(skill.skill_id)
+        def _register() -> str:
+            with self._lock:
+                self._skills[skill.skill_id] = skill
+                for tag in skill.metadata.tags:
+                    if tag not in self._tag_index:
+                        self._tag_index[tag] = []
+                    if skill.skill_id not in self._tag_index[tag]:
+                        self._tag_index[tag].append(skill.skill_id)
+            logger.info(
+                "Registered skill '%s' v%s (id=%s, governance=%s)",
+                skill.name, skill.version, skill.skill_id, skill.governance_level,
+            )
+            return skill.skill_id
 
-        logger.info(
-            "Registered skill '%s' v%s (id=%s, governance=%s)",
-            skill.name, skill.version, skill.skill_id, skill.governance_level,
-        )
-        return skill.skill_id
+        if execution_context is not None and self._registry_guard is not None:
+            return self._registry_guard.mutate(
+                "skill_registry",
+                _register,
+                context=execution_context,
+                operation="register",
+            )
+        return _register()
 
     def deregister(self, skill_id: str) -> bool:
         """
