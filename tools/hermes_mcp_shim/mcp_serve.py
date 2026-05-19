@@ -1119,3 +1119,7 @@ def run_mcp_server(verbose: bool = False) -> None:
         asyncio.run(_run())
     except KeyboardInterrupt:
         bridge.stop()
+
+if __name__ == "__main__":
+    import sys
+    run_mcp_server(verbose="--verbose" in sys.argv)
