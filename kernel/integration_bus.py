@@ -75,6 +75,8 @@ class IntegrationBus:
         self._max_log = 500
         self._wired = False
         self._original_scheduler_config: dict[str, Any] | None = None
+        self._v04_stabilization = None
+        self._v04_connections: list[str] = []
 
     def wire(self) -> None:
         """Activate all cross-subsystem connections."""
@@ -118,15 +120,27 @@ class IntegrationBus:
     def status(self) -> dict[str, Any]:
         """Current integration bus status."""
         v03_connections = getattr(self, '_v03_connections', [])
+        v04_connections = getattr(self, '_v04_connections', [])
         return {
             "wired": self._wired,
             "v02_connections": 16 if self._wired else 0,
             "v03_connections": len(v03_connections),
             "v03_connection_names": list(v03_connections),
-            "total_connections": (16 if self._wired else 0) + len(v03_connections),
+            "v04_stabilization_connections": len(v04_connections),
+            "v04_stabilization_active": self._v04_stabilization is not None,
+            "total_connections": (
+                (16 if self._wired else 0)
+                + len(v03_connections)
+                + len(v04_connections)
+            ),
             "events_logged": len(self.event_log),
             "recent_events": [e.to_dict() for e in self.event_log[-10:]],
         }
+
+    @property
+    def v04_stabilization(self):
+        """v0.4 Truth / Entropy / Isolation container (None until wire_v04())."""
+        return self._v04_stabilization
 
     # ── Somatic → Scheduler ──────────────────────────────────────────────
 
@@ -1259,6 +1273,357 @@ class IntegrationBus:
             "v03_wired",
             "High-impact evolution proposals trigger governance review",
         )
+
+    # ══════════════════════════════════════════════════════════════════════
+    # v0.4 stabilization — Truth, Entropy, Isolation (typed contracts)
+    # ══════════════════════════════════════════════════════════════════════
+
+    def wire_v04(self, stabilization=None) -> None:
+        """
+        Wire v0.4 stabilization subsystems with typed contracts.
+
+        Additive — does not modify v0.2 wire() or v0.3 wire_v03() connections.
+        Idempotent: safe to call when already wired.
+
+        Args:
+            stabilization: Optional pre-built V04Stabilization container.
+        """
+        if self._v04_stabilization is not None:
+            return
+
+        from kernel.v04_stabilization import V04Stabilization, boot_stabilization
+
+        stab = stabilization or boot_stabilization()
+        self._v04_stabilization = stab
+        self._v04_connections = []
+
+        self._wire_v04_truth_on_events(stab)
+        self._wire_v04_entropy_observe(stab)
+        self._wire_v04_isolation_audit(stab)
+        self._wire_v04_isolation_to_entropy(stab)
+        self._wire_v04_entropy_to_somatic(stab)
+        self._register_v04_baseline_truth(stab)
+
+        try:
+            from integration.v04_kernel_adapter import adapt_kernel_health
+
+            adapt_kernel_health(self.kernel, stab)
+            self._v04_connections.append("health_adapter")
+        except Exception as exc:
+            logger.warning("v0.4 health adapter failed: %s", exc)
+
+        stab._v04_connections = list(self._v04_connections)
+        self._log_event(
+            "kernel",
+            "all",
+            "v04_stabilization_wired",
+            f"v0.4 stabilization connected ({len(self._v04_connections)} routes)",
+        )
+        logger.info(
+            "IntegrationBus: v0.4 stabilization active (%d routes)",
+            len(self._v04_connections),
+        )
+
+    def unwire_v04(self) -> None:
+        """Deactivate v0.4 stabilization routes and restore patched methods."""
+        from kernel.wiring import restore_phase
+
+        connections = list(self._v04_connections)
+        restore_phase("v04_bus")
+        self._v04_stabilization = None
+        self._v04_connections = []
+        self._log_event(
+            "kernel",
+            "all",
+            "v04_stabilization_unwired",
+            f"v0.4 stabilization disconnected ({len(connections)} routes)",
+        )
+
+    def emit_typed(
+        self,
+        contract_name: str,
+        payload: dict[str, Any],
+        *,
+        source: str,
+        target: str,
+    ) -> list[str]:
+        """
+        Emit a bus event validated against a typed v0.4 contract.
+
+        Returns validation errors (empty if valid).
+        """
+        from kernel.contracts.event_contract import EVENT_CONTRACT_MAP
+
+        contract = EVENT_CONTRACT_MAP.get(contract_name)
+        errors: list[str] = []
+        if contract is not None:
+            errors = contract.validate_payload(payload)
+        self._log_event(source, target, contract_name, str(payload)[:200])
+        return errors
+
+    def _wire_v04_truth_on_events(self, stab) -> None:
+        """Register truth nodes for significant bus events (observable)."""
+        from kernel.truth.truth_node import Mutability
+        from kernel.wiring import apply_method_patch
+
+        original_log = self._log_event
+
+        def log_with_truth(source, target, event_type, description):
+            original_log(source, target, event_type, description)
+            if event_type in ("wired", "unwired", "v03_wired", "v03_unwired"):
+                return
+            try:
+                stab.truth_registry.register_runtime(
+                    node_id=f"bus:{event_type}:{len(self.event_log)}",
+                    owner="kernel.integration_bus",
+                    version="v0.4",
+                    payload={
+                        "source": source,
+                        "target": target,
+                        "event_type": event_type,
+                        "description": description[:300],
+                    },
+                    mutability=Mutability.IMMUTABLE,
+                )
+            except Exception as exc:
+                logger.debug("Truth registration on bus event failed: %s", exc)
+
+        apply_method_patch(
+            self,
+            "_log_event",
+            log_with_truth,
+            patch_id="integration_bus._log_event",
+            phase="v04_bus",
+        )
+        self._v04_connections.append("bus_to_truth_registry")
+
+    def _wire_v04_entropy_observe(self, stab) -> None:
+        """Recompute entropy after truth graph mutations (read-only)."""
+        from kernel.wiring import apply_method_patch
+
+        graph = stab.truth_registry.graph
+        original_register = graph.register_node
+
+        def register_with_entropy(node):
+            result = original_register(node)
+            if result.valid:
+                report = stab.entropy_controller.compute(
+                    stab.truth_graph,
+                    bus_connections=self._v04_connections,
+                )
+                self.emit_typed(
+                    "entropy_score_computed",
+                    {
+                        "score": report.score,
+                        "classification": report.classification.value,
+                        "metric_count": len(report.snapshot.metrics),
+                    },
+                    source="kernel.entropy.controller",
+                    target="kernel.integration_bus",
+                )
+            return result
+
+        apply_method_patch(
+            graph,
+            "register_node",
+            register_with_entropy,
+            patch_id="truth_graph.register_node",
+            phase="v04_bus",
+        )
+        self._v04_connections.append("truth_to_entropy")
+
+    def _wire_v04_isolation_audit(self, stab) -> None:
+        """Log governance gate checks to execution audit (adapter only)."""
+        gate = self.kernel.governance.mandatory_gate
+        if gate is None:
+            return
+
+        original_check = gate.check
+
+        def check_with_isolation_audit(*args, **kwargs):
+            from kernel.isolation.execution_context import ExecutionContext, Permission
+
+            ctx = ExecutionContext.create(
+                caller=kwargs.get("agent_id", "governance.mandatory_gate"),
+                scope="governance.gate",
+                permissions={Permission.READ, Permission.GOVERNANCE},
+                allowed_resources={"governance.mandatory_gate"},
+                write_targets=set(),
+            )
+            stab.execution_scope.enter(ctx)
+            stab.execution_audit.log_enter(ctx)
+            try:
+                result = original_check(*args, **kwargs)
+            finally:
+                stab.execution_audit.log_exit(ctx)
+                stab.execution_scope.exit(ctx.context_id)
+
+            self.emit_typed(
+                "execution_context_entered",
+                {
+                    "context_id": ctx.context_id,
+                    "caller": ctx.caller,
+                    "scope": ctx.scope,
+                },
+                source="kernel.isolation.scope",
+                target="kernel.isolation.audit",
+            )
+            return result
+
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            gate,
+            "check",
+            check_with_isolation_audit,
+            patch_id="mandatory_gate.check",
+            phase="v04_bus",
+        )
+        self._v04_connections.append("governance_to_isolation")
+
+    def _wire_v04_isolation_to_entropy(self, stab) -> None:
+        """Feed write denials into mutation tracker."""
+        original_check_write = stab.state_guard.check_write
+
+        def check_write_with_tracking(context, target):
+            allowed = original_check_write(context, target)
+            if not allowed:
+                stab.mutation_tracker.observe_attempt(
+                    target=target,
+                    caller=context.caller,
+                    scope=context.scope,
+                    allowed=False,
+                    reason="state_guard_denied",
+                )
+                self.emit_typed(
+                    "execution_write_denied",
+                    {
+                        "target": target,
+                        "caller": context.caller,
+                        "reason": "state_guard_denied",
+                    },
+                    source="kernel.isolation.state_guard",
+                    target="kernel.entropy.mutation_tracker",
+                )
+            return allowed
+
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            stab.state_guard,
+            "check_write",
+            check_write_with_tracking,
+            patch_id="state_guard.check_write",
+            phase="v04_bus",
+        )
+        self._v04_connections.append("isolation_to_entropy")
+
+    def _wire_v04_entropy_to_somatic(self, stab) -> None:
+        """Emit somatic pressure when entropy is unstable (observable only)."""
+        original_compute = stab.entropy_controller.compute
+
+        def compute_with_somatic(*args, **kwargs):
+            report = original_compute(*args, **kwargs)
+            from kernel.entropy.entropy_controller import EntropyClassification
+
+            if (
+                report.classification == EntropyClassification.UNSTABLE
+                and hasattr(self.kernel.somatic.bus, "emit_pressure")
+            ):
+                self.kernel.somatic.bus.emit_pressure(
+                    source="kernel.entropy.controller",
+                    description=(
+                        f"Entropy unstable: score={report.score:.2f} "
+                        f"({report.classification.value})"
+                    ),
+                    value=report.score * 100.0,
+                    threshold=70.0,
+                )
+                self._log_event(
+                    "kernel.entropy.controller",
+                    "somatic.bus",
+                    "entropy_pressure_signal",
+                    f"score={report.score:.2f}",
+                )
+            return report
+
+        from kernel.wiring import apply_method_patch
+
+        apply_method_patch(
+            stab.entropy_controller,
+            "compute",
+            compute_with_somatic,
+            patch_id="entropy_controller.compute",
+            phase="v04_bus",
+        )
+        self._v04_connections.append("entropy_to_somatic")
+
+    def _register_v04_baseline_truth(self, stab) -> None:
+        """Register baseline truth nodes for core subsystems."""
+        from kernel import __version__ as kernel_version
+
+        stab.truth_registry.register_system_state(
+            node_id="kernel_baseline",
+            owner="kernel",
+            version=kernel_version,
+            payload={"wired": self._wired, "bus_events": len(self.event_log)},
+        )
+        stab.truth_registry.register_governance(
+            node_id="audit_baseline",
+            owner="governance.audit_log",
+            version="v0.4",
+            payload={"source": "kernel.integration_bus.wire_v04"},
+        )
+        self._v04_connections.append("baseline_truth_registered")
+
+    # ── v0.4.3 Callback authority (non-breaking wrappers) ────────────────
+
+    def register_guarded_callback(
+        self,
+        name: str,
+        fn: Any,
+        *,
+        source: str,
+        allowed_writes: frozenset[str] | None = None,
+        max_duration_seconds: float = 30.0,
+    ) -> Any:
+        """
+        Wrap a callback with CallbackGuard before registering on scheduler/somatic.
+
+        Does not replace existing hooks — callers opt in explicitly.
+        """
+        try:
+            from kernel.isolation.callback_scope import ContextInheritance
+            from kernel.isolation.guarded_callback import GuardedCallback
+
+            trace = getattr(self, "_authority_trace", None)
+            guarded = getattr(self, "_guarded_callback", None)
+            if guarded is None:
+                guarded = GuardedCallback(authority_trace=trace)
+                self._guarded_callback = guarded
+
+            high_risk_sources = frozenset({
+                "governance",
+                "memory",
+                "truth",
+                "telemetry",
+                "replay",
+                "integration",
+            })
+            inheritance = ContextInheritance.INHERIT
+            if any(hr in (source or name).lower() for hr in high_risk_sources):
+                inheritance = ContextInheritance.ISOLATE
+
+            return guarded.register(
+                name,
+                fn,
+                source=source or name,
+                allowed_writes=allowed_writes,
+                max_duration_seconds=max_duration_seconds,
+                inheritance=inheritance,
+            )
+        except ImportError:
+            return fn
 
     # ── Internal helpers ─────────────────────────────────────────────────
 

@@ -1,7 +1,9 @@
 """
-Cognitive Entropy Controller — Prevents uncontrolled system complexity growth.
+Cognitive Entropy Controller — runtime dimension scoring (legacy).
 
-No subsystem may grow without bound. All growth must be measurable and capped.
+**SSOT (v0.4.2+):** `kernel.entropy.EntropyController` is the canonical entropy
+layer for truth/patch/coupling observability. This package remains for context
+compression, damping, and load regulation — not kernel stabilization metrics.
 
 Components:
   entropy_scorer.py       — Composite entropy scoring across all system dimensions
@@ -10,6 +12,8 @@ Components:
   decay_enforcer.py       — Scheduled enforcement of memory decay, TTL sweeps, rotation
   compression_triggers.py — Entropy-aware context compression recommendations
 """
+
+from kernel.entropy import EntropyController as KernelEntropyController
 
 from runtime.entropy_controller.entropy_scorer import (
     EntropyScorer,
@@ -45,6 +49,7 @@ from runtime.entropy_controller.compression_triggers import (
 )
 
 __all__ = [
+    "KernelEntropyController",
     "EntropyScorer",
     "EntropyScore",
     "DimensionScore",

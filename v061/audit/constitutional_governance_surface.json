@@ -1,0 +1,58 @@
+{
+  "version": "0.6.1",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.0-alpha GOVERNED COGNITIVE RUNTIME",
+  "constitutional_surfaces": [
+    {
+      "path": "governance/constitution/constitution.py",
+      "role": "frozen_constitution_loader",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/constitutional_guard.py",
+      "role": "pre_arbitration_constitutional_evaluator",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/guardian_supremacy.py",
+      "role": "guardian_supremacy_rule",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/epistemic_limit.py",
+      "role": "epistemic_boundary_rule",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/replay_boundary.py",
+      "role": "replay_read_only_boundary",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/forecast_boundary.py",
+      "role": "forecast_uncertainty_boundary",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/constitution/self_modification_guard.py",
+      "role": "runtime_mutation_block",
+      "status": "new_v061"
+    },
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "constitutional_wire_before_arbitration",
+      "status": "updated_v061"
+    },
+    {
+      "path": "attention/explainability/constitutional_reasoning.py",
+      "role": "constitutional_explainability",
+      "status": "new_v061"
+    },
+    {
+      "path": "observability/v061/constitutional_stability_score.py",
+      "role": "constitutional_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v061"
+    }
+  ]
+}

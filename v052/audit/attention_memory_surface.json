@@ -1,0 +1,87 @@
+{
+  "version": "0.5.2",
+  "audit_date": "2026-05-19",
+  "base": "v0.5.1-alpha RUNTIME-ATTENTIVE",
+  "consolidation_surfaces": [
+    {
+      "path": "attention/consolidation/attention_memory.py",
+      "role": "consolidated_memory_record",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/consolidation/attention_trace.py",
+      "role": "bounded_attention_trace",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/consolidation/salience_history.py",
+      "role": "ring_buffer_salience",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/consolidation/precursor_memory.py",
+      "role": "precursor_pattern_store",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/consolidation/attention_memory_store.py",
+      "role": "bounded_memory_store",
+      "max_entries": 500,
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/somatic/somatic_episode.py",
+      "role": "attention_layer_episode",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/somatic/somatic_episode_store.py",
+      "role": "bounded_episode_index",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/runtime/consolidated_attention_activation.py",
+      "role": "kernel_consolidation_wire",
+      "status": "new_v052"
+    },
+    {
+      "path": "attention/runtime/runtime_attention_memory_bridge.py",
+      "role": "trace_to_kernel_bridge",
+      "status": "new_v052"
+    },
+    {
+      "path": "observability/v052/attention_memory_stability_score.py",
+      "role": "v052_gate_score",
+      "gate_threshold": 0.90,
+      "status": "new_v052"
+    },
+    {
+      "path": "memory/somatic/sensor_episode_store.py",
+      "role": "persistent_somatic_episodes",
+      "status": "preserved_read_only_compat"
+    },
+    {
+      "path": "attention/kernel/attention_kernel.py",
+      "role": "v050_primary_orchestrator",
+      "status": "preserved_primary"
+    }
+  ],
+  "bounded_cognition_guards": [
+    "attention_memory_store_max_entries",
+    "salience_history_ring_cap",
+    "reinforcement_ceiling",
+    "anomaly_decay_half_life",
+    "no_ml_reinforcement_loops",
+    "benign_pattern_cap"
+  ],
+  "preserved_subsystems": [
+    "TruthGraph",
+    "EntropyController",
+    "IsolationKernel",
+    "PatchRegistry",
+    "RealityReplay",
+    "Guardian policy doctrine",
+    "v050_attention_kernel",
+    "v051_runtime_attention"
+  ]
+}

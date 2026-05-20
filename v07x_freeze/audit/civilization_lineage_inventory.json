@@ -1,0 +1,426 @@
+{
+  "base": "v0.7.7-alpha BOUNDED CIVILIZATION AGENCY GOVERNANCE",
+  "freeze_date": "2026-05-20",
+  "layers": {
+    "v070": {
+      "gate": {
+        "path": "docs/releases/v070_cognitive_civilization_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/civilization",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v070",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v070",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v070_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v070/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v070/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "cognitive_civilization_stability_score.py",
+        "diplomacy_boundary_metrics.py",
+        "federation_stability_metrics.py",
+        "non_interference_metrics.py",
+        "provenance_exchange_metrics.py",
+        "sovereignty_alignment_metrics.py",
+        "treaty_integrity_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_civilization_stability_score.py",
+        "test_cognitive_diplomacy.py",
+        "test_constitutional_interop.py",
+        "test_explainability_civilization.py",
+        "test_governor_civilization_wiring.py",
+        "test_non_interference_sandbox.py",
+        "test_observability_v070.py",
+        "test_provenance_interop.py",
+        "test_treaty_federation.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v071": {
+      "gate": {
+        "path": "docs/releases/v071_cognitive_reality_alignment_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/reality",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v071",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v071",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v071_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v071/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v071/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "bounded_consensus_metrics.py",
+        "cognitive_reality_alignment_score.py",
+        "contamination_guard_metrics.py",
+        "divergence_containment_metrics.py",
+        "reality_integrity_metrics.py",
+        "replay_alignment_metrics.py",
+        "truth_boundary_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_consensus_layer.py",
+        "test_divergence_consensus.py",
+        "test_explainability_reality.py",
+        "test_governor_reality_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v071.py",
+        "test_provenance_replay.py",
+        "test_reality_alignment_core.py",
+        "test_reality_alignment_score.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v072": {
+      "gate": {
+        "path": "docs/releases/v072_cognitive_temporal_continuity_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/temporal",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v072",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v072",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v072_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v072/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v072/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "cognitive_temporal_continuity_score.py",
+        "continuity_integrity_metrics.py",
+        "epoch_boundary_metrics.py",
+        "fragmentation_containment_metrics.py",
+        "lineage_integrity_metrics.py",
+        "memory_decay_metrics.py",
+        "temporal_provenance_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_memory_layer.py",
+        "test_explainability_temporal.py",
+        "test_fragmentation_conflict.py",
+        "test_governor_temporal_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v072.py",
+        "test_provenance_lineage.py",
+        "test_temporal_continuity_core.py",
+        "test_temporal_continuity_score.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v073": {
+      "gate": {
+        "path": "docs/releases/v073_cognitive_meaning_continuity_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/meaning",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v073",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v073",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v073_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v073/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v073/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "cognitive_meaning_continuity_score.py",
+        "drift_containment_metrics.py",
+        "lineage_integrity_metrics.py",
+        "meaning_decay_metrics.py",
+        "meaning_integrity_metrics.py",
+        "ontology_boundary_metrics.py",
+        "semantic_provenance_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_ontology_layer.py",
+        "test_drift_fragmentation.py",
+        "test_explainability_semantic.py",
+        "test_governor_semantic_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v073.py",
+        "test_provenance_lineage.py",
+        "test_semantic_continuity_core.py",
+        "test_semantic_continuity_score.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v074": {
+      "gate": {
+        "path": "docs/releases/v074_cognitive_value_continuity_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/value",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v074",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v074",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v074_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v074/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v074/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "cognitive_value_continuity_score.py",
+        "ethical_drift_containment_metrics.py",
+        "normative_boundary_metrics.py",
+        "normative_integrity_metrics.py",
+        "normative_provenance_metrics.py",
+        "value_decay_metrics.py",
+        "value_lineage_integrity_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_normative_layer.py",
+        "test_drift_fragmentation.py",
+        "test_explainability_value.py",
+        "test_governor_value_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v074.py",
+        "test_provenance_lineage.py",
+        "test_value_continuity_core.py",
+        "test_value_continuity_score.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v075": {
+      "gate": {
+        "path": "docs/releases/v075_cognitive_intent_continuity_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/intent",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v075",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v075",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v075_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v075/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v075/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "cognitive_intent_continuity_score.py",
+        "intent_decay_metrics.py",
+        "intent_lineage_integrity_metrics.py",
+        "intent_provenance_metrics.py",
+        "motivational_boundary_metrics.py",
+        "motivational_drift_containment_metrics.py",
+        "motivational_integrity_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_objective_layer.py",
+        "test_drift_fragmentation.py",
+        "test_explainability_intent.py",
+        "test_governor_intent_wiring.py",
+        "test_integrity_guards.py",
+        "test_intent_continuity_core.py",
+        "test_intent_continuity_score.py",
+        "test_observability_v075.py",
+        "test_provenance_lineage.py"
+      ],
+      "governance_module_count": 19
+    },
+    "v076": {
+      "gate": {
+        "path": "docs/releases/v076_cognitive_purpose_boundary_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/purpose",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v076",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v076",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v076_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v076/reports",
+        "exists": true
+      },
+      "v076/audit": {
+        "path": "v076/audit",
+        "exists": true
+      },
+      "audit": {
+        "path": "v076/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "autonomous_purpose_containment_metrics.py",
+        "cognitive_purpose_boundary_score.py",
+        "optimization_decay_metrics.py",
+        "purpose_boundary_metrics.py",
+        "purpose_integrity_metrics.py",
+        "purpose_lineage_integrity_metrics.py",
+        "purpose_provenance_metrics.py"
+      ],
+      "test_modules": [
+        "test_audit.py",
+        "test_bounded_objective_layer.py",
+        "test_explainability_purpose.py",
+        "test_governor_purpose_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v076.py",
+        "test_provenance_lineage.py",
+        "test_purpose_boundary_core.py",
+        "test_purpose_boundary_score.py",
+        "test_recursion_teleology.py"
+      ],
+      "governance_module_count": 20
+    },
+    "v077": {
+      "gate": {
+        "path": "docs/releases/v077_cognitive_agency_boundary_gate.md",
+        "exists": true
+      },
+      "gov": {
+        "path": "governance/agency",
+        "exists": true
+      },
+      "obs": {
+        "path": "observability/v077",
+        "exists": true
+      },
+      "tests": {
+        "path": "tests/v077",
+        "exists": true
+      },
+      "runtime": {
+        "path": "v077_runtime",
+        "exists": true
+      },
+      "reports": {
+        "path": "v077/reports",
+        "exists": true
+      },
+      "audit": {
+        "path": "v077/audit",
+        "exists": true
+      },
+      "observability_modules": [
+        "agency_boundary_metrics.py",
+        "agency_lineage_integrity_metrics.py",
+        "agency_provenance_metrics.py",
+        "autonomous_agency_containment_metrics.py",
+        "cognition_decay_metrics.py",
+        "cognition_integrity_metrics.py",
+        "cognitive_agency_boundary_score.py"
+      ],
+      "test_modules": [
+        "test_agency_boundary_core.py",
+        "test_agency_boundary_score.py",
+        "test_audit.py",
+        "test_bounded_cognition_layer.py",
+        "test_explainability_agency.py",
+        "test_governor_agency_wiring.py",
+        "test_integrity_guards.py",
+        "test_observability_v077.py",
+        "test_provenance_lineage.py",
+        "test_recursion_selfhood.py"
+      ],
+      "governance_module_count": 20
+    }
+  }
+}

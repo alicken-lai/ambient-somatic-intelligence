@@ -1,0 +1,33 @@
+{
+  "version": "0.7.7",
+  "audit_date": "2026-05-20",
+  "base": "v0.7.6-alpha BOUNDED CIVILIZATION PURPOSE GOVERNANCE",
+  "purpose_boundary_score_baseline": 0.947,
+  "agency_runtimes": [
+    {"runtime_id": "ambient", "role": "local_agency_boundary", "guardian_supremacy": true},
+    {"runtime_id": "hermes", "role": "orchestration_client", "guardian_supremacy": true},
+    {"runtime_id": "foreign", "role": "advisory_peer_agency", "trust_tier": "observational"}
+  ],
+  "agency_channels": ["advisory", "observational", "read_only", "agency_labeled", "retention_bounded"],
+  "forbidden_patterns": [
+    "autonomous_agents",
+    "recursive_self_direction",
+    "self_originating_agency",
+    "synthetic_selfhood",
+    "civilization_scale_autonomous_actors",
+    "autonomous_self_preservation",
+    "weaken_guardian",
+    "hidden_agency_override",
+    "centralized_agency_authority",
+    "universal_agency_sync",
+    "immutable_civilization_agency"
+  ],
+  "agency_modules": [
+    "governance/agency/agency_boundary_core.py",
+    "governance/agency/agency_boundary_observability.py",
+    "governance/agency/bounded_cognition_containment.py"
+  ],
+  "kernel_agency_policy": "read_compare_only_no_agency_rewrite",
+  "observability_gate": "observability/v077/cognitive_agency_boundary_score.py",
+  "agency_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

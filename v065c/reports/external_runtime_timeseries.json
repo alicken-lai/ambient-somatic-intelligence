@@ -1,0 +1,119 @@
+{
+  "version": "0.6.5c",
+  "generated_at": "2026-05-19T15:13:36.449413+00:00",
+  "external_runtime_score": 0.9366089360989207,
+  "external_skill_score": 0.9052374273851371,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "external_runtime_score": 0.9366089360989207,
+      "gate_pass": true,
+      "stress_pass_rate": 0.8571428571428571
+    },
+    "7d": {
+      "hours": 168,
+      "external_runtime_score": 0.9366089360989207,
+      "gate_pass": true,
+      "stress_pass_rate": 0.8571428571428571
+    },
+    "30d": {
+      "hours": 720,
+      "external_runtime_score": 0.9366089360989207,
+      "gate_pass": true,
+      "stress_pass_rate": 0.8571428571428571
+    },
+    "90d": {
+      "hours": 2160,
+      "external_runtime_score": 0.9366089360989207,
+      "gate_pass": true,
+      "stress_pass_rate": 0.8571428571428571
+    },
+    "180d": {
+      "hours": 4320,
+      "external_runtime_score": 0.9366089360989207,
+      "gate_pass": true,
+      "stress_pass_rate": 0.8571428571428571
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory": {
+      "issues": [
+        "source",
+        "skill_id",
+        "mount_version"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": true,
+      "simulation_ok": false
+    },
+    "guardian_bypass_runtime": {
+      "issues": [
+        "guardian_precedence",
+        "guardian_precedence",
+        "source",
+        "skill_id",
+        "mount_version"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": false,
+      "simulation_ok": true
+    },
+    "ide_takeover": {
+      "issues": [
+        "ide_always_apply",
+        "ide_always_apply",
+        "source",
+        "skill_id",
+        "mount_version"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": false,
+      "simulation_ok": true
+    },
+    "sovereignty_injection": {
+      "issues": [
+        "sovereign_truth",
+        "platform_subordination",
+        "source",
+        "skill_id",
+        "mount_version"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": true,
+      "simulation_ok": true
+    },
+    "identity_bleed": {
+      "issues": [
+        "source",
+        "mount_version",
+        "runtime_contamination"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": true,
+      "simulation_ok": true
+    },
+    "recursive_runtime": {
+      "issues": [
+        "source",
+        "skill_id",
+        "mount_version",
+        "runtime_contamination"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": true,
+      "simulation_ok": true
+    },
+    "export_without_header": {
+      "issues": [
+        "export_not_contained",
+        "source",
+        "skill_id",
+        "mount_version"
+      ],
+      "sandbox_contained": true,
+      "precedence_safe": true,
+      "simulation_ok": true
+    }
+  }
+}

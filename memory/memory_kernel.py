@@ -317,6 +317,7 @@ class MemoryKernel:
         tags: list[str] | None = None,
         source: str = "memory-kernel",
         layer: str | None = None,
+        execution_context: Any | None = None,
     ) -> dict[str, Any]:
         """
         Store a new memory record.
@@ -352,8 +353,23 @@ class MemoryKernel:
         layer_dir.mkdir(parents=True, exist_ok=True)
         layer_file = layer_dir / "records.jsonl"
 
-        with layer_file.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+        if execution_context is not None:
+            try:
+                from kernel.isolation.governed_memory_writer import GovernedMemoryWriter
+
+                rel_layer = layer_file.parent.name
+                GovernedMemoryWriter(memory_root=self.memory_dir).append_layer(
+                    rel_layer,
+                    record,
+                    context=execution_context,
+                    mutation_reason="memory_kernel_store",
+                )
+            except (ImportError, PermissionError, ValueError):
+                with layer_file.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
+        else:
+            with layer_file.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
 
         return {
             "stored": True,

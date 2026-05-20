@@ -1,0 +1,117 @@
+{
+  "version": "0.7.1",
+  "generated_at": "2026-05-19T15:36:02.650875+00:00",
+  "reality_alignment_score": 0.9318159691387617,
+  "civilization_score": 0.9404836850450718,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "reality_alignment_score": 0.9318159691387617,
+      "civilization_score": 0.9404836850450718,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "7d": {
+      "hours": 168,
+      "reality_alignment_score": 0.9318159691387617,
+      "civilization_score": 0.9404836850450718,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "30d": {
+      "hours": 720,
+      "reality_alignment_score": 0.9318159691387617,
+      "civilization_score": 0.9404836850450718,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "90d": {
+      "hours": 2160,
+      "reality_alignment_score": 0.9318159691387617,
+      "civilization_score": 0.9404836850450718,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "180d": {
+      "hours": 4320,
+      "reality_alignment_score": 0.9318159691387617,
+      "civilization_score": 0.9404836850450718,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory_alignment": {
+      "issues": [],
+      "alignment_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "forced_consensus": {
+      "issues": [
+        "forced_consensus",
+        "unbounded_consensus_pressure",
+        "forced_consensus",
+        "unbounded_consensus_pressure"
+      ],
+      "alignment_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "merge_sovereign_realities": {
+      "issues": [
+        "merge_sovereign_realities",
+        "unified_canonical_truth",
+        "merge_sovereign_realities",
+        "unified_canonical_truth"
+      ],
+      "alignment_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "centralized_truth_authority": {
+      "issues": [
+        "centralized_truth_authority",
+        "centralized_truth_authority"
+      ],
+      "alignment_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "hidden_truth_override": {
+      "issues": [
+        "hidden_truth_override",
+        "hidden_truth_override",
+        "hidden_truth_override",
+        "hidden_truth_override",
+        "hidden_truth_override"
+      ],
+      "alignment_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "foreign_contamination": {
+      "issues": [
+        "foreign_truth_injection",
+        "explicit_contamination",
+        "foreign_truth_injection",
+        "explicit_contamination",
+        "foreign_truth_injection",
+        "explicit_contamination"
+      ],
+      "alignment_ok": false,
+      "contamination_free": false,
+      "simulation_ok": true
+    },
+    "replay_canonical_override": {
+      "issues": [
+        "replay_canonical_override",
+        "live_truth_replacement"
+      ],
+      "alignment_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    }
+  }
+}

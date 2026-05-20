@@ -1,0 +1,58 @@
+{
+  "version": "0.6.0",
+  "audit_date": "2026-05-19",
+  "base": "v0.5.4-alpha CALIBRATED + ANTICIPATORY",
+  "governance_surfaces": [
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "advisory_cognitive_governor",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/arbitration_engine.py",
+      "role": "salience_arbitration_engine",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/salience_arbitrator.py",
+      "role": "domain_salience_arbitrator",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/uncertainty_override.py",
+      "role": "high_uncertainty_dampening",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/somatic_authority.py",
+      "role": "bounded_somatic_authority",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/replay_authority.py",
+      "role": "read_only_replay_blend",
+      "status": "new_v060"
+    },
+    {
+      "path": "governance/cognition/sovereignty_limits.py",
+      "role": "anti_monopolization_limits",
+      "status": "new_v060"
+    },
+    {
+      "path": "attention/runtime/governed_attention_activation.py",
+      "role": "governed_runtime_wire",
+      "status": "new_v060"
+    },
+    {
+      "path": "attention/explainability/governance_reasoning.py",
+      "role": "governance_explainability",
+      "status": "new_v060"
+    },
+    {
+      "path": "observability/v060/cognitive_governance_stability_score.py",
+      "role": "cognitive_governance_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v060"
+    }
+  ]
+}

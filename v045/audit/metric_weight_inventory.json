@@ -1,0 +1,34 @@
+{
+  "stability_dimension_weights": {
+    "truth_consistency": 0.22,
+    "patch_pressure": 0.18,
+    "mutation_pressure": 0.14,
+    "orphan_pressure": 0.12,
+    "circular_coupling": 0.14,
+    "stale_state": 0.12,
+    "runtime_reproducibility": 0.08,
+    "sum": 1.0
+  },
+  "gate_threshold": 0.85,
+  "semantics_alignment_threshold": 0.95,
+  "pressure_metric_subsets": {
+    "truth_consistency": [
+      "truth_duplicate_nodes",
+      "truth_checksum_divergence",
+      "truth_conflict_pressure"
+    ],
+    "patch_pressure": [
+      "patch_leakage",
+      "patch_unwire_failure"
+    ],
+    "mutation_pressure": [
+      "mutation_rate",
+      "mutation_hook_pressure",
+      "mutation_denial_rate"
+    ],
+    "orphan_pressure": ["orphan_pressure"],
+    "circular_coupling": ["circular_coupling"],
+    "stale_state": ["stale_state_critical", "stale_state_pressure"]
+  },
+  "normalization": "pressure = max(metrics); dimension = clamp01(1 - pressure)"
+}

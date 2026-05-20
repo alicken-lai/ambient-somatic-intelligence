@@ -1,0 +1,33 @@
+{
+  "version": "0.6.5c",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.5B-alpha GOVERNED EXTERNAL COGNITION MOUNTING",
+  "external_skill_score_baseline": 0.905,
+  "mounted_skills": [
+    {
+      "skill_id": "karpathy_guidelines",
+      "mount_path": "hermes/skills/external/karpathy_guidelines/",
+      "runtime_scope": "advisory",
+      "soak_enabled": true
+    }
+  ],
+  "runtime_governance_modules": [
+    "governance/external/runtime/external_runtime_sandbox.py",
+    "governance/external/runtime/doctrine_runtime_scope.py",
+    "governance/external/runtime/runtime_precedence_guard.py",
+    "governance/external/runtime/precedence_validator.py",
+    "governance/external/runtime/sovereignty_detector.py",
+    "governance/external/runtime/authority_conflict_guard.py",
+    "governance/external/runtime/ide_runtime_boundary.py",
+    "governance/external/runtime/cursor_runtime_guard.py",
+    "governance/external/runtime/export_containment.py",
+    "governance/external/runtime/provenance_runtime_guard.py",
+    "governance/external/runtime/external_identity_boundary.py",
+    "governance/external/runtime/runtime_provenance_validator.py",
+    "governance/external/runtime/runtime_contamination_guard.py",
+    "governance/external/runtime/drift_accumulation_detector.py",
+    "governance/external/runtime/doctrine_persistence_decay.py"
+  ],
+  "observability_gate": "observability/v065c/external_runtime_governance_score.py",
+  "soak_horizons_hours": [24, 168, 720, 2160, 4320]
+}

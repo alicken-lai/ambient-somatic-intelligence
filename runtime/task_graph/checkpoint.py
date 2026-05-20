@@ -90,6 +90,7 @@ class CheckpointManager:
         graph: TaskGraph,
         stage: int,
         metadata: dict[str, Any] | None = None,
+        execution_context: Any | None = None,
     ) -> Checkpoint:
         """Save a checkpoint of the current graph state."""
         graph_dir = self._graph_dir(graph.id)
@@ -105,16 +106,35 @@ class CheckpointManager:
         )
 
         cp_path = graph_dir / f"stage_{stage:03d}.json"
-        cp_path.write_text(
-            json.dumps(cp.to_dict(), indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-
         latest_path = graph_dir / "latest.json"
-        latest_path.write_text(
-            json.dumps(cp.to_dict(), indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+        payload = json.dumps(cp.to_dict(), indent=2, ensure_ascii=False) + "\n"
+        cp_rel = cp_path.relative_to(AMBIENT_ROOT)
+        latest_rel = latest_path.relative_to(AMBIENT_ROOT)
+
+        if execution_context is not None:
+            try:
+                from kernel.isolation.guarded_file_writer import GuardedFileWriter
+                from kernel.isolation.write_target import WriteTarget
+
+                writer = GuardedFileWriter()
+                writer.write_text(
+                    cp_rel,
+                    payload,
+                    target=WriteTarget.STATE,
+                    context=execution_context,
+                )
+                writer.write_text(
+                    latest_rel,
+                    payload,
+                    target=WriteTarget.STATE,
+                    context=execution_context,
+                )
+                return cp
+            except (ImportError, PermissionError, ValueError):
+                pass
+
+        cp_path.write_text(payload, encoding="utf-8")
+        latest_path.write_text(payload, encoding="utf-8")
 
         return cp
 

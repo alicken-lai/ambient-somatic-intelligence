@@ -1,0 +1,23 @@
+{
+  "write_targets": {
+    "governance_audit": {
+      "count": 22
+    },
+    "memory/dmn.jsonl": {
+      "count": 1
+    },
+    "skill_registry": {
+      "count": 15
+    },
+    "state/checkpoint": {
+      "count": 1
+    },
+    "truth_graph": {
+      "count": 3
+    },
+    "unknown": {
+      "count": 815
+    }
+  },
+  "total_targets": 6
+}

@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-19T02:31:36.372711+00:00",
+  "windows": {
+    "6h": {
+      "window": "6h",
+      "simulated_hours": 6,
+      "forecast_cycles": 40,
+      "forecasts_run": 4,
+      "mean_confidence": 0.8756900695243097,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "forecast_cycles": 100,
+      "forecasts_run": 10,
+      "mean_confidence": 0.8756900695243097,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "forecast_cycles": 250,
+      "forecasts_run": 25,
+      "mean_confidence": 0.8756900695243097,
+      "stability_score": 0.9943097485524309,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "forecast_cycles": 400,
+      "forecasts_run": 40,
+      "mean_confidence": 0.8756900695243097,
+      "stability_score": 0.9660081685524309,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

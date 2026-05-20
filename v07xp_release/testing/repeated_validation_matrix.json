@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-05-20T13:17:23.714740+00:00",
+  "runs_requested": 2,
+  "runs_completed": 2,
+  "all_passed": true,
+  "suites": [
+    "tests/v060",
+    "tests/v061",
+    "tests/v062",
+    "tests/v063",
+    "tests/v064",
+    "tests/v065",
+    "tests/v065b",
+    "tests/v065c",
+    "tests/v070",
+    "tests/v071",
+    "tests/v072",
+    "tests/v073",
+    "tests/v074",
+    "tests/v075",
+    "tests/v076",
+    "tests/v077"
+  ],
+  "results": [
+    {
+      "run": 1,
+      "passed": 395,
+      "failed": 0,
+      "duration_s": 11.14,
+      "exit_code": 0
+    },
+    {
+      "run": 2,
+      "passed": 395,
+      "failed": 0,
+      "duration_s": 11.56,
+      "exit_code": 0
+    }
+  ]
+}

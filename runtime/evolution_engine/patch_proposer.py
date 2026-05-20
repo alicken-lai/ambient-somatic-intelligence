@@ -18,6 +18,11 @@ Each patch proposal includes:
 
 from __future__ import annotations
 
+try:
+    from governance.audit_log import GovernanceAuditLog
+except ImportError:  # pragma: no cover
+    GovernanceAuditLog = None  # type: ignore[misc, assignment]
+
 import logging
 import time
 import uuid
@@ -291,6 +296,19 @@ class PatchProposer:
 
     def _propose_governance_tuning(self, drift_report: dict[str, Any]) -> PatchProposal:
         """Generate a governance tuning proposal."""
+        if GovernanceAuditLog is not None:
+            try:
+                from governance.policy_engine import RiskLevel
+
+                GovernanceAuditLog().record_decision(
+                    action="patch_proposer:governance_tuning",
+                    risk=RiskLevel.ALLOW,
+                    reason="evolution_engine proposal trace",
+                    agent_id="patch_proposer",
+                    metadata={"drift": drift_report},
+                )
+            except Exception:
+                pass
         return PatchProposal(
             title="Tune governance gate thresholds",
             description=f"Governance bottleneck detected: {drift_report.get('evidence', 'N/A')}",

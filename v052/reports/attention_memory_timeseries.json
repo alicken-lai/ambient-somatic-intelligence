@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-05-19T02:21:35.472274+00:00",
+  "windows": {
+    "1d": {
+      "window": "1d",
+      "simulated_days": 1,
+      "consolidation_cycles": 40,
+      "consolidations": 6,
+      "memory_count": 46,
+      "mean_pressure": 0.127075,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_days": 7,
+      "consolidation_cycles": 120,
+      "consolidations": 18,
+      "memory_count": 138,
+      "mean_pressure": 0.2359125,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_days": 30,
+      "consolidation_cycles": 300,
+      "consolidations": 43,
+      "memory_count": 343,
+      "mean_pressure": 0.44441250000000004,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_days": 90,
+      "consolidation_cycles": 500,
+      "consolidations": 72,
+      "memory_count": 572,
+      "mean_pressure": 0.5246607142857143,
+      "stability_score": 0.9923858635714284,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

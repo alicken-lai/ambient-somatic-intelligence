@@ -1,0 +1,48 @@
+{
+  "version": "0.7.2",
+  "audit_date": "2026-05-19",
+  "base": "v0.7.1-alpha BOUNDED SHARED REALITY GOVERNANCE",
+  "reality_alignment_score_baseline": 0.932,
+  "epoch_runtimes": [
+    {
+      "runtime_id": "ambient",
+      "role": "local_epoch_continuity",
+      "guardian_supremacy": true
+    },
+    {
+      "runtime_id": "hermes",
+      "role": "orchestration_client",
+      "guardian_supremacy": true
+    },
+    {
+      "runtime_id": "foreign",
+      "role": "advisory_peer_epoch",
+      "trust_tier": "observational"
+    }
+  ],
+  "continuity_channels": [
+    "advisory",
+    "observational",
+    "read_only",
+    "epoch_labeled",
+    "retention_bounded"
+  ],
+  "forbidden_patterns": [
+    "immortal_cognition",
+    "permanent_federation_memory",
+    "centralized_historical_authority",
+    "forced_continuity_sync",
+    "autonomous_historical_rewriting",
+    "recursive_continuity_repair",
+    "weaken_guardian",
+    "false_continuity_inheritance"
+  ],
+  "temporal_modules": [
+    "governance/temporal/temporal_continuity.py",
+    "governance/temporal/temporal_continuity_observability.py",
+    "governance/temporal/bounded_civilization_memory.py"
+  ],
+  "kernel_continuity_policy": "read_compare_only_no_historical_rewrite",
+  "observability_gate": "observability/v072/cognitive_temporal_continuity_score.py",
+  "continuity_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

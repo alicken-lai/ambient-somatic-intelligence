@@ -1,0 +1,11 @@
+{
+  "release_id": "v0.7.x-civilization-freeze",
+  "branch": "ken-dev",
+  "commit_strategy": "single",
+  "message": "feat: freeze v0.7 civilization governance lineage",
+  "lineage_integrity_v2": 0.954016,
+  "pytest_runs": 2,
+  "pytest_total_passed": 790,
+  "must_commit_path_count": 128,
+  "runtime_excluded_count": 7
+}

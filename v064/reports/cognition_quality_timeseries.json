@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-19T08:49:54.866763+00:00",
+  "version": "0.6.4",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_metacognition_score": 0.6675688994475667,
+      "metacognition_score": 0.909996171704073,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_metacognition_score": 0.3191357218807443,
+      "metacognition_score": 0.9086071547151371,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_metacognition_score": 0.19945982617546518,
+      "metacognition_score": 0.9036356460023818,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_metacognition_score": 0.15956786094037215,
+      "metacognition_score": 0.9022846179996953,
+      "gate_pass": true
+    },
+    "180d": {
+      "window": "180d",
+      "simulated_hours": 4320,
+      "cycles": 600,
+      "mean_metacognition_score": 0.13297321745031013,
+      "metacognition_score": 0.9013063164464343,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

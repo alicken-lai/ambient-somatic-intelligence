@@ -1,0 +1,46 @@
+{
+  "version": "0.7.0",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.5C-alpha RUNTIME-SAFE EXTERNAL COGNITION COEXISTENCE",
+  "external_runtime_score_baseline": 0.937,
+  "sovereign_entities": [
+    {
+      "sovereign_id": "ambient",
+      "role": "local_platform",
+      "guardian_supremacy": true
+    },
+    {
+      "sovereign_id": "hermes",
+      "role": "orchestration_client",
+      "guardian_supremacy": true
+    },
+    {
+      "sovereign_id": "foreign",
+      "role": "advisory_peer",
+      "trust_tier": "observational"
+    }
+  ],
+  "interaction_channels": [
+    "advisory",
+    "advisory_interop",
+    "observational",
+    "read_only"
+  ],
+  "forbidden_patterns": [
+    "hive_mind",
+    "cognition_merge",
+    "shared_identity",
+    "autonomous_diplomacy",
+    "sovereignty_absorption",
+    "guardian_override",
+    "constitutional_override"
+  ],
+  "civilization_modules": [
+    "governance/civilization/cognitive_diplomacy.py",
+    "governance/civilization/sovereign_runtime.py",
+    "governance/civilization/treaty_record.py",
+    "governance/civilization/civilization_observability.py"
+  ],
+  "observability_gate": "observability/v070/cognitive_civilization_stability_score.py",
+  "interop_horizons_hours": [24, 168, 720, 2160, 4320]
+}

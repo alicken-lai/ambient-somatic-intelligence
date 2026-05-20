@@ -1,0 +1,53 @@
+{
+  "version": "0.6.2",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.1-alpha CONSTITUTIONALLY GOVERNED COGNITION",
+  "provenance_surfaces": [
+    {
+      "path": "attention/runtime/governed_attention_activation.py",
+      "role": "governed_runtime_submit",
+      "origin_types": ["runtime", "replay", "memory"]
+    },
+    {
+      "path": "attention/consolidation/attention_memory_store.py",
+      "role": "memory_consolidation",
+      "origin_types": ["memory", "inherited"]
+    },
+    {
+      "path": "attention/forecasting/attention_forecast.py",
+      "role": "forecast_projection",
+      "origin_types": ["synthetic", "runtime"]
+    },
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "provenance_registration_before_arbitration",
+      "status": "updated_v062"
+    },
+    {
+      "path": "governance/identity/provenance_record.py",
+      "role": "provenance_metadata_carrier",
+      "status": "new_v062"
+    },
+    {
+      "path": "governance/identity/replay_identity_boundary.py",
+      "role": "replay_runtime_separation",
+      "status": "new_v062"
+    },
+    {
+      "path": "governance/identity/synthetic_projection_boundary.py",
+      "role": "synthetic_containment",
+      "status": "new_v062"
+    },
+    {
+      "path": "attention/explainability/identity_reasoning.py",
+      "role": "identity_explainability",
+      "status": "new_v062"
+    },
+    {
+      "path": "observability/v062/cognitive_identity_stability_score.py",
+      "role": "identity_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v062"
+    }
+  ]
+}

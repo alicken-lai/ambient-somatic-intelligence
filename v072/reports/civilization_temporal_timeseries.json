@@ -1,0 +1,119 @@
+{
+  "version": "0.7.2",
+  "generated_at": "2026-05-19T15:51:25.462398+00:00",
+  "temporal_continuity_score": 0.9446817334593351,
+  "reality_alignment_score": 0.9438159691387618,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "7d": {
+      "hours": 168,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "30d": {
+      "hours": 720,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "90d": {
+      "hours": 2160,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "180d": {
+      "hours": 4320,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "1y": {
+      "hours": 8760,
+      "temporal_continuity_score": 0.9446817334593351,
+      "reality_alignment_score": 0.9438159691387618,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory_continuity": {
+      "issues": [],
+      "continuity_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "forced_continuity_sync": {
+      "issues": [
+        "forced_continuity_sync",
+        "forced_continuity_sync"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "immortal_cognition": {
+      "issues": [
+        "immortal_cognition",
+        "permanent_federation_memory",
+        "permanent_federation_memory",
+        "immortal_cognition",
+        "immortal_cognition"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "centralized_historical_authority": {
+      "issues": [
+        "centralized_historical_authority",
+        "centralized_historical_authority",
+        "centralized_historical_authority"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "autonomous_historical_rewriting": {
+      "issues": [
+        "autonomous_historical_rewriting",
+        "autonomous_historical_rewriting",
+        "autonomous_historical_rewriting"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "false_continuity_inheritance": {
+      "issues": [
+        "false_continuity_inheritance",
+        "false_continuity_inheritance",
+        "false_continuity_inheritance"
+      ],
+      "continuity_ok": false,
+      "contamination_free": false,
+      "simulation_ok": true
+    },
+    "recursive_continuity_repair": {
+      "issues": [
+        "recursive_continuity_repair",
+        "recursive_continuity_repair"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    }
+  }
+}

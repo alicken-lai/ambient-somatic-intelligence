@@ -15,6 +15,12 @@ propose, measure, and bound — not auto-modify without consent.
 
 from __future__ import annotations
 
+# v0.4.4B: DMN rotation may use GovernedMemoryWriter when ExecutionContext is supplied.
+try:
+    from kernel.isolation.governed_memory_writer import GovernedMemoryWriter
+except ImportError:  # pragma: no cover
+    GovernedMemoryWriter = None  # type: ignore[misc, assignment]
+
 import json
 import logging
 import shutil

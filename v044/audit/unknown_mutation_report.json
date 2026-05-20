@@ -1,0 +1,12 @@
+{
+  "version": "0.4.4",
+  "generated_at": "2026-05-18T13:53:49.804468+00:00",
+  "unknown_count": 0,
+  "by_disposition": {
+    "SAFE": 0,
+    "MIGRATE": 0,
+    "DEPRECATED": 0,
+    "EXPERIMENTAL": 0
+  },
+  "entries": []
+}

@@ -1,0 +1,69 @@
+{
+  "lineage_integrity_score": 0.954016,
+  "mean_lineage_score": 0.956931,
+  "min_lineage_score": 0.954016,
+  "max_lineage_score": 0.959926,
+  "gate_pass": true,
+  "gate_threshold": 0.95,
+  "all_layer_gates_pass": true,
+  "classification": "production_grade_civilization_lineage",
+  "gap_to_threshold": 0.0,
+  "layers": [
+    {
+      "version": "v070",
+      "primary_score": 0.959216,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_civilization",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v071",
+      "primary_score": 0.959926,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_reality_alignment",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v072",
+      "primary_score": 0.958536,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_temporal_continuity",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v073",
+      "primary_score": 0.957341,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_meaning_continuity",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v074",
+      "primary_score": 0.956313,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_value_continuity",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v075",
+      "primary_score": 0.955429,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_intent_continuity",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v076",
+      "primary_score": 0.954669,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_purpose_boundary",
+      "gate_threshold": 0.9
+    },
+    {
+      "version": "v077",
+      "primary_score": 0.954016,
+      "gate_pass": true,
+      "classification": "production_grade_cognitive_agency_boundary",
+      "gate_threshold": 0.9
+    }
+  ]
+}

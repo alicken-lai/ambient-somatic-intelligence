@@ -1,0 +1,31 @@
+{
+  "version": "0.7.4",
+  "audit_date": "2026-05-20",
+  "base": "v0.7.3-alpha BOUNDED CIVILIZATION SEMANTIC CONTINUITY",
+  "semantic_continuity_score_baseline": 0.945,
+  "value_runtimes": [
+    {"runtime_id": "ambient", "role": "local_normative_continuity", "guardian_supremacy": true},
+    {"runtime_id": "hermes", "role": "orchestration_client", "guardian_supremacy": true},
+    {"runtime_id": "foreign", "role": "advisory_peer_value", "trust_tier": "observational"}
+  ],
+  "normative_channels": ["advisory", "observational", "read_only", "value_labeled", "retention_bounded"],
+  "forbidden_patterns": [
+    "universal_morality",
+    "immutable_ethics",
+    "centralized_value_authority",
+    "forced_ethical_sync",
+    "autonomous_moral_evolution",
+    "recursive_value_correction",
+    "weaken_guardian",
+    "hidden_value_override",
+    "truthgraph_sovereign_override"
+  ],
+  "value_modules": [
+    "governance/value/value_continuity.py",
+    "governance/value/value_continuity_observability.py",
+    "governance/value/bounded_normative_evolution.py"
+  ],
+  "kernel_value_policy": "read_compare_only_no_normative_rewrite",
+  "observability_gate": "observability/v074/cognitive_value_continuity_score.py",
+  "value_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

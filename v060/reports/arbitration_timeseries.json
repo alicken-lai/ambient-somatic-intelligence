@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-05-19T02:49:32.261106+00:00",
+  "version": "0.6.0",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_arbitration_fairness": 0.832,
+      "governance_score": 0.9657772236076475,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_arbitration_fairness": 0.832944,
+      "governance_score": 0.9616027195424641,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_arbitration_fairness": 0.8331425,
+      "governance_score": 0.9504998402192641,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_arbitration_fairness": 0.8324290909090909,
+      "governance_score": 0.9475878150992642,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

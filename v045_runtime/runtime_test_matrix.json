@@ -1,0 +1,64 @@
+{
+  "version": "v045_runtime_1.0",
+  "simulation_policy": {
+    "mode": "accelerated",
+    "tick_minutes": 5,
+    "note": "Each daemon_tick / entropy_sample represents 5 simulated minutes unless live soak."
+  },
+  "windows": {
+    "1h": {
+      "simulated_minutes": 60,
+      "entropy_samples": 12,
+      "wire_unwire_cycles": 20,
+      "parallel_contexts": 4,
+      "authority_trace_emissions": 200,
+      "daemon_ticks": 12,
+      "truthgraph_ticks": 12,
+      "replay_rounds": 3,
+      "failure_injections": 7
+    },
+    "6h": {
+      "simulated_minutes": 360,
+      "entropy_samples": 72,
+      "wire_unwire_cycles": 60,
+      "parallel_contexts": 8,
+      "authority_trace_emissions": 1200,
+      "daemon_ticks": 72,
+      "truthgraph_ticks": 72,
+      "replay_rounds": 6,
+      "failure_injections": 7
+    },
+    "24h": {
+      "simulated_minutes": 1440,
+      "entropy_samples": 288,
+      "wire_unwire_cycles": 120,
+      "parallel_contexts": 12,
+      "authority_trace_emissions": 4800,
+      "daemon_ticks": 288,
+      "truthgraph_ticks": 288,
+      "replay_rounds": 12,
+      "failure_injections": 7
+    },
+    "72h": {
+      "simulated_minutes": 4320,
+      "entropy_samples": 864,
+      "wire_unwire_cycles": 240,
+      "parallel_contexts": 16,
+      "authority_trace_emissions": 14400,
+      "daemon_ticks": 864,
+      "truthgraph_ticks": 864,
+      "replay_rounds": 24,
+      "failure_injections": 7
+    }
+  },
+  "gate_window": "72h",
+  "live_soak_recommendation": {
+    "minimum_hours": 72,
+    "daemon_interval_minutes": 5,
+    "requires": [
+      "continuous dmn_tick_status ok",
+      "telemetry/maturation daily_reports without continuity gaps",
+      "no manual state repair during soak"
+    ]
+  }
+}

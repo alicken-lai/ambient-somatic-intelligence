@@ -1,0 +1,84 @@
+{
+  "audit_version": "0.4.2",
+  "generated_at": "2026-05-18T12:00:00+00:00",
+  "canonical_ssot": "kernel.entropy.EntropyController",
+  "implementations": [
+    {
+      "path": "kernel/entropy/",
+      "owner": "kernel.v04_stabilization",
+      "usage": "EntropyController.compute() via V04Stabilization, integration_bus health patch",
+      "imports": [
+        "kernel.v04_stabilization",
+        "kernel.integration_bus",
+        "integration.v04_wiring",
+        "integration.v04_kernel_adapter",
+        "tests.test_kernel.test_v04_stabilization"
+      ],
+      "runtime_reachability": "reachable_from_kernel_boot",
+      "overlap_score": 0.0,
+      "deprecation_recommendation": "keep_canonical"
+    },
+    {
+      "path": "kernel/entropy/entropy_controller.py",
+      "owner": "kernel.entropy",
+      "usage": "SSOT aggregator — drift, truth, patch, coupling, mutation, orphan, stale",
+      "imports": ["kernel.v04_stabilization", "kernel.integration_bus"],
+      "runtime_reachability": "reachable_from_kernel_boot",
+      "overlap_score": 0.0,
+      "deprecation_recommendation": "keep_canonical"
+    },
+    {
+      "path": "kernel/entropy/drift_detector.py",
+      "owner": "kernel.entropy",
+      "usage": "Truth graph stale/checksum/conflict metrics (legacy path, complemented by truth_entropy_adapter)",
+      "imports": ["kernel.entropy.entropy_controller"],
+      "runtime_reachability": "reachable_from_kernel_boot",
+      "overlap_score": 0.35,
+      "deprecation_recommendation": "retain_delegate_to_truth_adapter"
+    },
+    {
+      "path": "runtime/entropy_controller/",
+      "owner": "runtime.context_economy",
+      "usage": "EntropyScorer dimensions, compression triggers, damping, load regulation",
+      "imports": [
+        "runtime.entropy_controller.compression_triggers",
+        "runtime.performance_hardening.memory_pressure_analyzer"
+      ],
+      "runtime_reachability": "reachable_on_context_assembly",
+      "overlap_score": 0.55,
+      "deprecation_recommendation": "thin_adapter_kernel_adapter_shim"
+    },
+    {
+      "path": "observability/drift_detection/",
+      "owner": "observability",
+      "usage": "Architecture drift scan — consistency, dependency drift, integration integrity",
+      "imports": ["observability.drift_detection"],
+      "runtime_reachability": "on_demand_audit",
+      "overlap_score": 0.25,
+      "deprecation_recommendation": "complement_not_replace_kernel_entropy"
+    },
+    {
+      "path": "architecture/graph_truth_layer/orphan_module_detector.py",
+      "owner": "architecture",
+      "usage": "Static orphan module detection (57 orphans baseline per README)",
+      "imports": ["architecture.graph_truth_layer"],
+      "runtime_reachability": "offline_static_analysis",
+      "overlap_score": 0.40,
+      "deprecation_recommendation": "feed_orphan_pressure_classifier"
+    },
+    {
+      "path": "memory/memory_kernel.py (_compute_entropy)",
+      "owner": "memory",
+      "usage": "Shannon entropy of layer record distribution — unrelated semantic",
+      "imports": ["memory.memory_kernel"],
+      "runtime_reachability": "memory_stats_only",
+      "overlap_score": 0.05,
+      "deprecation_recommendation": "rename_clarify_no_collision"
+    }
+  ],
+  "summary": {
+    "canonical_count": 1,
+    "overlap_hotspots": ["runtime/entropy_controller vs kernel/entropy", "drift_detector vs truth_entropy_adapter"],
+    "recommended_ssot": "kernel/entropy/EntropyController"
+  }
+}

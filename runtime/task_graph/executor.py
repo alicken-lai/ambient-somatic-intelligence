@@ -36,6 +36,17 @@ from runtime.task_graph.scheduler import (
 )
 from runtime.task_graph.checkpoint import CheckpointManager
 
+try:
+    from kernel.isolation.execution_context import ExecutionContext, Permission
+    from kernel.isolation.execution_scope import ExecutionScope, ScopeType
+    from kernel.isolation.rollback_plan import RollbackPlan, RollbackType
+    from kernel.isolation.root_resolver import RootResolver
+    from kernel.isolation.write_target import WriteTarget
+
+    _ISOLATION_AVAILABLE = True
+except ImportError:
+    _ISOLATION_AVAILABLE = False
+
 
 AMBIENT_ROOT = Path(os.environ.get("AMBIENT_OS_ROOT", Path.home() / "ambient-os"))
 
@@ -80,6 +91,10 @@ class TaskExecutor:
         self.enable_guardian = enable_guardian
         self.handlers: dict[str, TaskHandler] = {}
         self.execution_log: list[dict[str, Any]] = []
+        self._execution_scope = ExecutionScope() if _ISOLATION_AVAILABLE else None
+        self._root_resolver = RootResolver() if _ISOLATION_AVAILABLE else None
+        self._task_contexts: dict[str, ExecutionContext] = {}
+        self._current_graph = None
 
     def register(self, handler_name: str, handler: Callable | TaskHandler) -> None:
         """Register a task handler function."""
@@ -131,6 +146,7 @@ class TaskExecutor:
             self.scheduler.on_event(self._checkpoint_on_stage)
             self._checkpoint_listener_registered = True
 
+        task_ctx = self._enter_task_context(graph)
         self._current_graph = graph
         try:
             result = await self.scheduler.execute(graph, self.handlers)
@@ -147,6 +163,48 @@ class TaskExecutor:
             return result
         finally:
             self._current_graph = None
+            self._exit_task_context(graph, task_ctx)
+
+    def _enter_task_context(self, graph: TaskGraph) -> ExecutionContext | None:
+        if not _ISOLATION_AVAILABLE or self._execution_scope is None:
+            return None
+        ctx = ExecutionContext.create(
+            caller_id=f"task-graph:{graph.id}",
+            caller_type="task",
+            scope=ScopeType.GOVERNED_WRITE.value,
+            permissions={Permission.READ, Permission.WRITE, Permission.EXECUTE},
+            allowed_write_targets={
+                WriteTarget.STATE.value,
+                WriteTarget.TELEMETRY.value,
+            },
+            rollback_plan=RollbackPlan(rollback_type=RollbackType.SNAPSHOT),
+            metadata={"graph_id": graph.id, "graph_name": graph.name},
+        )
+        self._task_contexts[graph.id] = ctx
+        self._execution_scope.enter(ctx)
+        if self._root_resolver is not None:
+            self._root_resolver.bind_context(ctx)
+        return ctx
+
+    def _exit_task_context(
+        self,
+        graph: TaskGraph,
+        ctx: ExecutionContext | None,
+    ) -> None:
+        if ctx is None or self._execution_scope is None:
+            return
+        self._execution_scope.exit(ctx.context_id)
+        self._task_contexts.pop(graph.id, None)
+
+    @property
+    def current_execution_context(self) -> ExecutionContext | None:
+        if self._execution_scope is None:
+            return None
+        return self._execution_scope.current()
+
+    def current_graph(self) -> TaskGraph | None:
+        """Task-local graph accessor (no global mutable exposure)."""
+        return self._current_graph
 
     def run_sync(self, graph: TaskGraph) -> ExecutionResult:
         """Synchronous wrapper for run()."""

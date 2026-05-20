@@ -1,0 +1,120 @@
+{
+  "version": "0.7.3",
+  "generated_at": "2026-05-19T22:26:24.825729+00:00",
+  "meaning_continuity_score": 0.9454262907750283,
+  "temporal_continuity_score": 0.9446817334593351,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "7d": {
+      "hours": 168,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "30d": {
+      "hours": 720,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "90d": {
+      "hours": 2160,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "180d": {
+      "hours": 4320,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "1y": {
+      "hours": 8760,
+      "meaning_continuity_score": 0.9454262907750283,
+      "temporal_continuity_score": 0.9446817334593351,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory_semantics": {
+      "issues": [],
+      "continuity_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "forced_symbolic_sync": {
+      "issues": [
+        "forced_symbolic_sync",
+        "forced_symbolic_sync",
+        "forced_symbolic_sync"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "immutable_ontology": {
+      "issues": [
+        "immutable_ontology",
+        "frozen_meaning",
+        "frozen_meaning",
+        "immutable_ontology",
+        "immutable_ontology"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "universal_semantic_authority": {
+      "issues": [
+        "universal_semantic_authority",
+        "universal_semantic_authority",
+        "universal_semantic_authority"
+      ],
+      "continuity_ok": false,
+      "contamination_free": false,
+      "simulation_ok": true
+    },
+    "centralized_interpretation": {
+      "issues": [
+        "centralized_interpretation",
+        "centralized_interpretation",
+        "centralized_interpretation"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "autonomous_ontology_rewriting": {
+      "issues": [
+        "autonomous_ontology_rewriting",
+        "autonomous_ontology_rewriting",
+        "autonomous_ontology_rewriting",
+        "autonomous_ontology_rewriting"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "recursive_semantic_repair": {
+      "issues": [
+        "recursive_semantic_repair"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    }
+  }
+}

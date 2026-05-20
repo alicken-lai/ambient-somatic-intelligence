@@ -1,0 +1,50 @@
+{
+  "version": "0.7.3",
+  "audit_date": "2026-05-20",
+  "base": "v0.7.2-alpha BOUNDED CIVILIZATION TEMPORAL CONTINUITY",
+  "temporal_continuity_score_baseline": 0.945,
+  "concept_runtimes": [
+    {
+      "runtime_id": "ambient",
+      "role": "local_semantic_continuity",
+      "guardian_supremacy": true
+    },
+    {
+      "runtime_id": "hermes",
+      "role": "orchestration_client",
+      "guardian_supremacy": true
+    },
+    {
+      "runtime_id": "foreign",
+      "role": "advisory_peer_concept",
+      "trust_tier": "observational"
+    }
+  ],
+  "semantic_channels": [
+    "advisory",
+    "observational",
+    "read_only",
+    "concept_labeled",
+    "retention_bounded"
+  ],
+  "forbidden_patterns": [
+    "immutable_ontology",
+    "frozen_meaning",
+    "universal_semantic_authority",
+    "forced_symbolic_sync",
+    "centralized_interpretation",
+    "autonomous_ontology_rewriting",
+    "recursive_semantic_repair",
+    "weaken_guardian",
+    "hidden_semantic_override",
+    "truthgraph_sovereign_override"
+  ],
+  "meaning_modules": [
+    "governance/meaning/semantic_continuity.py",
+    "governance/meaning/semantic_continuity_observability.py",
+    "governance/meaning/bounded_ontology_evolution.py"
+  ],
+  "kernel_meaning_policy": "read_compare_only_no_ontology_rewrite",
+  "observability_gate": "observability/v073/cognitive_meaning_continuity_score.py",
+  "meaning_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

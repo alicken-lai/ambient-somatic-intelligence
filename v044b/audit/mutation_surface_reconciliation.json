@@ -1,0 +1,32 @@
+{
+  "version": "0.4.4b",
+  "generated_at": "2026-05-18T21:14:29.776313+00:00",
+  "v043_total_scanned_mutations": 857,
+  "v043_catalogued_detail_rows": 500,
+  "v044_catalogued_paths": 500,
+  "live_rescan_unique_paths": 279,
+  "metadata_gap_857_vs_500": 357,
+  "gap_explanation": "857 is v043 audit metadata (total_scanned_mutations); only 500 detail rows exist in execution_authority_audit.json. The 357 gap is not missing inventory rows — it is unscanned-to-detail rollup (broader heuristic count vs path-level catalog). Live rescan finds 279 unique mutation sites.",
+  "reconciled_accounted_paths": 500,
+  "accounting_verdict": "PASS_honest",
+  "comparisons": {
+    "catalogued_not_in_live_scan": 488,
+    "live_scan_not_in_catalogue": 267,
+    "v043_detail_not_in_v044": 0
+  },
+  "pattern_breakdown_live": {
+    "append": 34,
+    "open_write": 92,
+    "registry": 73,
+    "shutil": 6,
+    "callback": 69,
+    "setattr": 3,
+    "singleton": 2
+  },
+  "pattern_breakdown_catalogued": {
+    "append": 486,
+    "open_write": 6,
+    "write_text": 4,
+    "shutil": 4
+  }
+}

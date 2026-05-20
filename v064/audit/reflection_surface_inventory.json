@@ -1,0 +1,58 @@
+{
+  "version": "0.6.4",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.3-alpha COHERENCE-BOUNDED COGNITION",
+  "reflection_surfaces": [
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "metacognitive_observe_after_coherence",
+      "status": "updated_v064"
+    },
+    {
+      "path": "governance/metacognition/metacognitive_reflection.py",
+      "role": "metacognitive_orchestrator",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/cognition_quality.py",
+      "role": "cognition_quality_score",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/degradation_detector.py",
+      "role": "degradation_pressure",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/attention_pathology.py",
+      "role": "attention_pathology_signals",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/reflection_boundary.py",
+      "role": "protected_surface_boundary",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/introspection_cap.py",
+      "role": "introspection_depth_cap",
+      "status": "new_v064"
+    },
+    {
+      "path": "governance/metacognition/recursive_reflection_guard.py",
+      "role": "recursive_reflection_block",
+      "status": "new_v064"
+    },
+    {
+      "path": "attention/explainability/metacognitive_reasoning.py",
+      "role": "metacognitive_explainability",
+      "status": "new_v064"
+    },
+    {
+      "path": "observability/v064/metacognitive_stability_score.py",
+      "role": "metacognitive_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v064"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-19T02:41:04.406624+00:00",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_calibrated_confidence": 0.8140266833054369,
+      "max_calibrated_confidence": 0.87391483904,
+      "below_absolute_max": true,
+      "stability_score": 1.0,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_calibrated_confidence": 0.8182219181426799,
+      "max_calibrated_confidence": 0.87391483904,
+      "below_absolute_max": true,
+      "stability_score": 0.9949704770298995,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_calibrated_confidence": 0.8184645009638349,
+      "max_calibrated_confidence": 0.87391483904,
+      "below_absolute_max": true,
+      "stability_score": 0.9831595091898996,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_calibrated_confidence": 0.8161805771932821,
+      "max_calibrated_confidence": 0.87391483904,
+      "below_absolute_max": true,
+      "stability_score": 0.9780850499898995,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true,
+  "absolute_max_confidence": 0.99
+}
