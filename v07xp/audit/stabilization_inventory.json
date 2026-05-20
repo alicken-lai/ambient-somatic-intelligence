@@ -1,0 +1,31 @@
+{
+  "program": "v07xp_stabilization",
+  "date": "2026-05-20",
+  "freeze_status_before": "FAIL",
+  "weakest_link": {
+    "version": "v070",
+    "score": 0.940484,
+    "threshold": 0.95
+  },
+  "lineage_integrity_before": 0.940484,
+  "lineage_integrity_after": 0.954016,
+  "pytest_baseline": "395 passed (pre-stabilization)",
+  "allowed_changes": [
+    "determinism_hardening",
+    "normalization_consistency_v070_v077",
+    "patch_registry_teardown",
+    "v070_horizon_parent_retention_alignment"
+  ],
+  "forbidden_changes": [
+    "threshold_lowering",
+    "fake_scores",
+    "weaken_stress_tests",
+    "new_governance_layers",
+    "v078"
+  ],
+  "artifacts": {
+    "score_module": "observability/v070/cognitive_civilization_stability_score.py",
+    "freeze_v1": "observability/v07x_freeze/civilization_lineage_integrity_score.py",
+    "freeze_v2": "observability/v07xp_freeze/civilization_lineage_integrity_score_v2.py"
+  }
+}

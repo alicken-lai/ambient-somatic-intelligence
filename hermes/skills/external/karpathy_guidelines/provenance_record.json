@@ -1,0 +1,21 @@
+{
+  "record_version": "1.0.0",
+  "skill_id": "karpathy_guidelines",
+  "source_url": "https://github.com/multica-ai/andrej-karpathy-skills",
+  "source_commit": "main",
+  "mirrored_at": "2026-05-19",
+  "mirror_agent": "hermes-external-skill-mount-v065b",
+  "integrity": {
+    "algorithm": "sha256",
+    "content_field": "SKILL.md"
+  },
+  "governance": {
+    "status_pipeline": ["IMPORTED", "FILTERED", "COMPATIBLE", "RESTRICTED", "BLOCKED"],
+    "constitutional_supremacy": true,
+    "guardian_required_for_side_effects": true
+  },
+  "audit_refs": [
+    "v065b/audit/external_skill_inventory.json",
+    "v065b/audit/doctrine_conflict_report.md"
+  ]
+}

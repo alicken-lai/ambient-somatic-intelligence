@@ -1,0 +1,57 @@
+{
+  "version": "0.5.0",
+  "audit_date": "2026-05-19",
+  "base": "v0.4.5-alpha OPERATIONALLY STABLE",
+  "surfaces": [
+    {
+      "path": "attention/salience_engine.py",
+      "role": "legacy_9_factor_salience",
+      "status": "preserved_backward_compat"
+    },
+    {
+      "path": "attention/priority_allocator.py",
+      "role": "legacy_budget_allocation",
+      "status": "preserved_backward_compat"
+    },
+    {
+      "path": "attention/attention_state.py",
+      "role": "legacy_AttentionSignal_AttentionSnapshot",
+      "status": "preserved_backward_compat"
+    },
+    {
+      "path": "attention/kernel/",
+      "role": "v050_attention_kernel",
+      "status": "new_primary"
+    },
+    {
+      "path": "attention/core/",
+      "role": "v050_10_dimension_model",
+      "status": "new"
+    },
+    {
+      "path": "somatic/attention_manager.py",
+      "role": "somatic_subsystem",
+      "status": "integrated_via_adapter"
+    },
+    {
+      "path": "observability/v05/",
+      "role": "attention_observability_gate",
+      "status": "new"
+    },
+    {
+      "path": "replay/reports/salience_competition_report.json",
+      "role": "replay_fairness_telemetry",
+      "status": "aligned_not_replaced"
+    }
+  ],
+  "implicit_attention_risks": [
+    "unbounded_queue_without_competition",
+    "opaque_salience_without_explainability",
+    "memory_flood_without_activation_cap"
+  ],
+  "mitigations": [
+    "attention/competition/salience_competition.py",
+    "attention/explainability/explain_attention.py",
+    "attention/competition/attention_budget.py"
+  ]
+}

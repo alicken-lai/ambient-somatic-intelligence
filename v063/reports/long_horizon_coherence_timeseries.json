@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-19T08:26:56.533164+00:00",
+  "version": "0.6.3",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_coherence_score": 0.8322563,
+      "coherence_score": 0.9249952146300913,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_coherence_score": 0.78189361892,
+      "coherence_score": 0.9227540604135647,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_coherence_score": 0.7560987849499999,
+      "coherence_score": 0.9166950942948604,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_coherence_score": 0.7478801134599999,
+      "coherence_score": 0.9150312874691839,
+      "gate_pass": true
+    },
+    "180d": {
+      "window": "180d",
+      "simulated_hours": 4320,
+      "cycles": 600,
+      "mean_coherence_score": 0.7422689353833333,
+      "coherence_score": 0.9137834323499261,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

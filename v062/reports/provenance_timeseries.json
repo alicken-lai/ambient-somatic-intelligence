@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-05-19T08:12:47.478746+00:00",
+  "version": "0.6.2",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_provenance_integrity": 1.0,
+      "identity_score": 0.9687440182876141,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_provenance_integrity": 1.0,
+      "identity_score": 0.9649811523342359,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_provenance_integrity": 1.0,
+      "identity_score": 0.9568157996503358,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_provenance_integrity": 1.0,
+      "identity_score": 0.9543662629710397,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

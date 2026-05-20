@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-05-19T02:12:24.940265+00:00",
+  "windows": {
+    "1h": {
+      "window": "1h",
+      "simulated_minutes": 60,
+      "telemetry_samples": 30,
+      "accepted_submissions": 30,
+      "mean_pressure": 0.0,
+      "max_pressure": 0.0,
+      "stability_score": 1.0,
+      "gate_pass": true,
+      "pressure_tail": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "6h": {
+      "window": "6h",
+      "simulated_minutes": 360,
+      "telemetry_samples": 90,
+      "accepted_submissions": 90,
+      "mean_pressure": 0.0,
+      "max_pressure": 0.0,
+      "stability_score": 1.0,
+      "gate_pass": true,
+      "pressure_tail": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "24h": {
+      "window": "24h",
+      "simulated_minutes": 1440,
+      "telemetry_samples": 200,
+      "accepted_submissions": 200,
+      "mean_pressure": 0.0,
+      "max_pressure": 0.0,
+      "stability_score": 1.0,
+      "gate_pass": true,
+      "pressure_tail": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "72h": {
+      "window": "72h",
+      "simulated_minutes": 4320,
+      "telemetry_samples": 400,
+      "accepted_submissions": 400,
+      "mean_pressure": 0.0,
+      "max_pressure": 0.0,
+      "stability_score": 1.0,
+      "gate_pass": true,
+      "pressure_tail": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "overall_gate_pass": true
+}

@@ -128,6 +128,7 @@ class PatchRegistry:
         for patch_id in reversed(list(self._active_order)):
             if self.restore(patch_id):
                 restored += 1
+        self.clear_inactive()
         return restored
 
     def clear_inactive(self) -> None:

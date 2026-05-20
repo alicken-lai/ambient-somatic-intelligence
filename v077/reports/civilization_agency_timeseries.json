@@ -1,0 +1,118 @@
+{
+  "version": "0.7.7",
+  "generated_at": "2026-05-20T11:27:17.176482+00:00",
+  "agency_boundary_score": 0.9474981437324731,
+  "purpose_boundary_score": 0.9470908648052013,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "7d": {
+      "hours": 168,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "30d": {
+      "hours": 720,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "90d": {
+      "hours": 2160,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "180d": {
+      "hours": 4320,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "1y": {
+      "hours": 8760,
+      "agency_boundary_score": 0.9474981437324731,
+      "purpose_boundary_score": 0.9470908648052013,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory_agency": {
+      "issues": [],
+      "boundary_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "autonomous_agents": {
+      "issues": [
+        "autonomous_agents",
+        "autonomous_agents"
+      ],
+      "boundary_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "synthetic_selfhood": {
+      "issues": [
+        "synthetic_selfhood",
+        "universal_agency_sync",
+        "synthetic_selfhood",
+        "universal_agency_sync",
+        "synthetic_selfhood",
+        "universal_agency_sync"
+      ],
+      "boundary_ok": false,
+      "contamination_free": false,
+      "simulation_ok": true
+    },
+    "self_originating_agency": {
+      "issues": [
+        "self_originating_agency",
+        "self_originating_agency"
+      ],
+      "boundary_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "centralized_agency_authority": {
+      "issues": [
+        "centralized_agency_authority",
+        "centralized_agency_authority"
+      ],
+      "boundary_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "recursive_self_direction": {
+      "issues": [
+        "recursive_self_direction",
+        "recursive_self_direction"
+      ],
+      "boundary_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "hidden_agency_override": {
+      "issues": [
+        "hidden_agency_override",
+        "hidden_agency_override",
+        "hidden_agency_override"
+      ],
+      "boundary_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    }
+  }
+}

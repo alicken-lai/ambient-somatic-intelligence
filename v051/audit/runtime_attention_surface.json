@@ -1,0 +1,73 @@
+{
+  "version": "0.5.1",
+  "audit_date": "2026-05-19",
+  "base": "v0.5.0-alpha ATTENTIONALLY STABLE",
+  "runtime_surfaces": [
+    {
+      "path": "attention/runtime/telemetry_attention_adapter.py",
+      "role": "telemetry_to_kernel_bridge",
+      "kernel": "AttentionKernel.submit/tick",
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/runtime/runtime_attention_target.py",
+      "role": "runtime_wrapped_target",
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/governance/guardian_attention_bridge.py",
+      "role": "guardian_risk_to_salience",
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/runtime/runtime_memory_activation.py",
+      "role": "bounded_memory_activation",
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/somatic/runtime_somatic_attention.py",
+      "role": "somatic_runtime_kernel_wire",
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/runtime/attention_pressure_controller.py",
+      "role": "overload_pressure_governor",
+      "status": "new_v051"
+    },
+    {
+      "path": "observability/v051/runtime_attention_stability_score.py",
+      "role": "runtime_gate_score",
+      "gate_threshold": 0.90,
+      "status": "new_v051"
+    },
+    {
+      "path": "attention/kernel/attention_kernel.py",
+      "role": "v050_primary_orchestrator",
+      "status": "preserved_primary"
+    },
+    {
+      "path": "telemetry/core/telemetry_schema.py",
+      "role": "canonical_telemetry_record",
+      "status": "read_only_input"
+    },
+    {
+      "path": "governance/unified_router.py",
+      "role": "legacy_guardian_compat",
+      "status": "preserved_not_replaced"
+    }
+  ],
+  "bounded_cognition_guards": [
+    "max_queue_depth",
+    "domain_budget_caps",
+    "overload_recovery_cooldown",
+    "no_recursive_attention_loops"
+  ],
+  "preserved_subsystems": [
+    "TruthGraph",
+    "EntropyController",
+    "IsolationKernel",
+    "PatchRegistry",
+    "RealityReplay",
+    "Guardian policy doctrine"
+  ]
+}

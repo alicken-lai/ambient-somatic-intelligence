@@ -1,0 +1,67 @@
+{
+  "runs_requested": 10,
+  "runs_completed": 10,
+  "all_passed": true,
+  "results": [
+    {
+      "run": 1,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.77s"
+    },
+    {
+      "run": 2,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.96s"
+    },
+    {
+      "run": 3,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.40s"
+    },
+    {
+      "run": 4,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.86s"
+    },
+    {
+      "run": 5,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.11s"
+    },
+    {
+      "run": 6,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.29s"
+    },
+    {
+      "run": 7,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.26s"
+    },
+    {
+      "run": 8,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.34s"
+    },
+    {
+      "run": 9,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 11.61s"
+    },
+    {
+      "run": 10,
+      "exit_code": 0,
+      "passed": true,
+      "tail": "395 passed in 10.96s"
+    }
+  ]
+}

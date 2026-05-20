@@ -1,0 +1,28 @@
+{
+  "version": "0.6.5b",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.5-alpha HOMEOSTATIC COGNITIVE RUNTIME",
+  "external_source": {
+    "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "primary_paths": ["CURSOR.md", "skills/karpathy-guidelines/SKILL.md"],
+    "license": "MIT"
+  },
+  "mounted_skills": [
+    {
+      "skill_id": "karpathy_guidelines",
+      "mount_path": "hermes/skills/external/karpathy_guidelines/",
+      "status_target": "COMPATIBLE",
+      "advisory_only": true
+    }
+  ],
+  "governance_modules": [
+    "governance/external/doctrine_filter.py",
+    "governance/external/constitutional_adapter.py",
+    "governance/external/external_rule_boundary.py",
+    "governance/external/contamination_guard.py",
+    "governance/external/doctrine_drift_detector.py",
+    "governance/external/provenance_boundary.py"
+  ],
+  "registry": "hermes/skills/external/external_skill_registry.py",
+  "observability_gate": "observability/v065b/external_skill_governance_score.py"
+}

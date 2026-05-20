@@ -1,0 +1,48 @@
+{
+  "version": "0.6.5",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.4-alpha META-COGNITIVELY REFLECTIVE COGNITION",
+  "homeostasis_surfaces": [
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "homeostasis_observe_after_metacognition",
+      "status": "updated_v065"
+    },
+    {
+      "path": "governance/metacognition/metacognitive_reflection.py",
+      "role": "stabilize_after_reflection_delegate",
+      "status": "updated_v065"
+    },
+    {
+      "path": "governance/homeostasis/cognitive_homeostasis.py",
+      "role": "homeostasis_orchestrator",
+      "status": "new_v065"
+    },
+    {
+      "path": "governance/homeostasis/attention_stabilizer.py",
+      "role": "attention_stabilization_advisory",
+      "status": "new_v065"
+    },
+    {
+      "path": "governance/homeostasis/salience_damping.py",
+      "role": "salience_damping_advisory",
+      "status": "new_v065"
+    },
+    {
+      "path": "governance/homeostasis/coherence_recovery.py",
+      "role": "coherence_recovery_advisory",
+      "status": "new_v065"
+    },
+    {
+      "path": "attention/explainability/homeostasis_reasoning.py",
+      "role": "homeostasis_explainability",
+      "status": "new_v065"
+    },
+    {
+      "path": "observability/v065/cognitive_homeostasis_stability_score.py",
+      "role": "homeostasis_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v065"
+    }
+  ]
+}

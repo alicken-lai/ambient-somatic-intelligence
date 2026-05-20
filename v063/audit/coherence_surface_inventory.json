@@ -1,0 +1,53 @@
+{
+  "version": "0.6.3",
+  "audit_date": "2026-05-19",
+  "base": "v0.6.2-alpha IDENTITY-BOUNDED COGNITION",
+  "coherence_surfaces": [
+    {
+      "path": "governance/cognition/cognitive_governor.py",
+      "role": "coherence_evaluate_after_governance",
+      "status": "updated_v063"
+    },
+    {
+      "path": "governance/coherence/cognitive_coherence.py",
+      "role": "coherence_orchestrator",
+      "status": "new_v063"
+    },
+    {
+      "path": "governance/coherence/contradiction_detector.py",
+      "role": "contradiction_pressure",
+      "status": "new_v063"
+    },
+    {
+      "path": "governance/coherence/replay_coherence.py",
+      "role": "replay_narrative_bounded",
+      "status": "new_v063"
+    },
+    {
+      "path": "governance/coherence/constitutional_coherence.py",
+      "role": "constitutional_alignment",
+      "status": "new_v063"
+    },
+    {
+      "path": "governance/coherence/identity_drift.py",
+      "role": "signature_drift_bounded",
+      "status": "new_v063"
+    },
+    {
+      "path": "governance/coherence/fragmentation_pressure.py",
+      "role": "fragmentation_pressure",
+      "status": "new_v063"
+    },
+    {
+      "path": "attention/explainability/coherence_reasoning.py",
+      "role": "coherence_explainability",
+      "status": "new_v063"
+    },
+    {
+      "path": "observability/v063/cognitive_coherence_stability_score.py",
+      "role": "coherence_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v063"
+    }
+  ]
+}

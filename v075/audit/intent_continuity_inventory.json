@@ -1,0 +1,31 @@
+{
+  "version": "0.7.5",
+  "audit_date": "2026-05-20",
+  "base": "v0.7.4-alpha BOUNDED CIVILIZATION VALUE CONTINUITY",
+  "value_continuity_score_baseline": 0.946,
+  "intent_runtimes": [
+    {"runtime_id": "ambient", "role": "local_motivational_continuity", "guardian_supremacy": true},
+    {"runtime_id": "hermes", "role": "orchestration_client", "guardian_supremacy": true},
+    {"runtime_id": "foreign", "role": "advisory_peer_intent", "trust_tier": "observational"}
+  ],
+  "motivational_channels": ["advisory", "observational", "read_only", "intent_labeled", "retention_bounded"],
+  "forbidden_patterns": [
+    "immutable_goals",
+    "centralized_intention_authority",
+    "universal_objective_sync",
+    "forced_purpose_convergence",
+    "autonomous_motivational_evolution",
+    "recursive_goal_repair",
+    "weaken_guardian",
+    "hidden_intent_override",
+    "truthgraph_sovereign_override"
+  ],
+  "intent_modules": [
+    "governance/intent/intent_continuity.py",
+    "governance/intent/intent_continuity_observability.py",
+    "governance/intent/bounded_objective_evolution.py"
+  ],
+  "kernel_intent_policy": "read_compare_only_no_motivational_rewrite",
+  "observability_gate": "observability/v075/cognitive_intent_continuity_score.py",
+  "intent_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

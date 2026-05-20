@@ -1,0 +1,81 @@
+{
+  "version": "0.5.3",
+  "audit_date": "2026-05-19",
+  "base": "v0.5.2-alpha ENVIRONMENTALLY ADAPTIVE",
+  "forecasting_surfaces": [
+    {
+      "path": "attention/forecasting/attention_forecast.py",
+      "role": "unified_forecast_orchestrator",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/salience_projection.py",
+      "role": "bounded_salience_projection",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/trajectory_estimator.py",
+      "role": "probabilistic_trajectory",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/precursor_forecast.py",
+      "role": "precursor_lift_forecast",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/replay_trajectory_forecast.py",
+      "role": "replay_based_trajectory",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/salience_pressure_forecast.py",
+      "role": "pressure_projection",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/forecast_uncertainty.py",
+      "role": "uncertainty_bands",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/forecasting/forecast_window.py",
+      "role": "bounded_horizons",
+      "max_horizon_days": 30,
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/somatic/somatic_forecast.py",
+      "role": "somatic_resonance_forecast",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/somatic/environmental_risk_projection.py",
+      "role": "environmental_risk",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/somatic/precursor_resonance_forecast.py",
+      "role": "precursor_somatic_alignment",
+      "status": "new_v053"
+    },
+    {
+      "path": "attention/explainability/forecast_explainer.py",
+      "role": "forecast_rationale",
+      "status": "new_v053"
+    },
+    {
+      "path": "observability/v053/forecast_stability_score.py",
+      "role": "gate_stability_score",
+      "threshold": 0.9,
+      "status": "new_v053"
+    }
+  ],
+  "constraints": [
+    "probabilistic_only",
+    "no_recursive_amplification",
+    "no_rl_agents",
+    "no_deterministic_future_claims",
+    "preserves_v050_v051_v052"
+  ]
+}

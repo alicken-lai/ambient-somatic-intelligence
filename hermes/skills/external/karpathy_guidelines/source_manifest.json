@@ -1,0 +1,14 @@
+{
+  "skill_id": "karpathy_guidelines",
+  "name": "karpathy-guidelines",
+  "source_url": "https://github.com/multica-ai/andrej-karpathy-skills",
+  "source_commit": "main",
+  "source_paths": [
+    "skills/karpathy-guidelines/SKILL.md",
+    "CURSOR.md"
+  ],
+  "license": "MIT",
+  "mirrored_at": "2026-05-19",
+  "advisory_only": true,
+  "hermes_mount": "hermes/skills/external/karpathy_guidelines/"
+}

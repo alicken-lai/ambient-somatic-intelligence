@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-05-19T09:00:59.681996+00:00",
+  "version": "0.6.5",
+  "windows": {
+    "24h": {
+      "window": "24h",
+      "simulated_hours": 24,
+      "cycles": 100,
+      "mean_homeostasis_score": 0.8024100722047206,
+      "homeostasis_score": 0.9109969373632585,
+      "gate_pass": true
+    },
+    "7d": {
+      "window": "7d",
+      "simulated_hours": 168,
+      "cycles": 250,
+      "mean_homeostasis_score": 0.6333110270733967,
+      "homeostasis_score": 0.9098857237721096,
+      "gate_pass": true
+    },
+    "30d": {
+      "window": "30d",
+      "simulated_hours": 720,
+      "cycles": 400,
+      "mean_homeostasis_score": 0.5723124727333729,
+      "homeostasis_score": 0.9059085168019054,
+      "gate_pass": true
+    },
+    "90d": {
+      "window": "90d",
+      "simulated_hours": 2160,
+      "cycles": 500,
+      "mean_homeostasis_score": 0.5519796212866984,
+      "homeostasis_score": 0.9048276943997562,
+      "gate_pass": true
+    },
+    "180d": {
+      "window": "180d",
+      "simulated_hours": 4320,
+      "cycles": 600,
+      "mean_homeostasis_score": 0.5384243869889154,
+      "homeostasis_score": 0.9040450531571476,
+      "gate_pass": true
+    }
+  },
+  "overall_gate_pass": true
+}

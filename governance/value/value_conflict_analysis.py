@@ -1,0 +1,32 @@
+"""Value conflict analysis — resolve without forced ethical sync."""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass, field
+from typing import Any
+
+
+@dataclass
+class ValueConflictVerdict:
+    resolvable_without_sync: bool
+    conflict_signals: list[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "resolvable_without_sync": self.resolvable_without_sync,
+            "conflict_signals": list(self.conflict_signals),
+        }
+
+
+class ValueConflictAnalysis:
+    def analyze(self, text: str) -> ValueConflictVerdict:
+        signals: list[str] = []
+        lower = text.lower()
+        if re.search(r"forced\s+ethical\s+sync", lower, re.IGNORECASE):
+            signals.append("forced_sync_conflict")
+        if re.search(r"merge\s+values?\s+into\s+one", lower, re.IGNORECASE):
+            signals.append("value_merge_conflict")
+        if re.search(r"centrali[sz]ed\s+value\s+authorit", lower, re.IGNORECASE):
+            signals.append("centralized_value_authority_conflict")
+        return ValueConflictVerdict(resolvable_without_sync=len(signals) == 0, conflict_signals=signals)

@@ -1,0 +1,33 @@
+{
+  "version": "0.7.6",
+  "audit_date": "2026-05-20",
+  "base": "v0.7.5-alpha BOUNDED CIVILIZATION INTENT CONTINUITY",
+  "intent_continuity_score_baseline": 0.947,
+  "purpose_runtimes": [
+    {"runtime_id": "ambient", "role": "local_purpose_boundary", "guardian_supremacy": true},
+    {"runtime_id": "hermes", "role": "orchestration_client", "guardian_supremacy": true},
+    {"runtime_id": "foreign", "role": "advisory_peer_purpose", "trust_tier": "observational"}
+  ],
+  "purpose_channels": ["advisory", "observational", "read_only", "purpose_labeled", "retention_bounded"],
+  "forbidden_patterns": [
+    "autonomous_purpose_generation",
+    "recursive_civilization_objectives",
+    "self_originating_missions",
+    "synthetic_teleology",
+    "self_preserving_purpose",
+    "autonomous_motivational_recursion",
+    "weaken_guardian",
+    "hidden_purpose_override",
+    "centralized_purpose_authority",
+    "universal_teleology_sync",
+    "immutable_civilization_purpose"
+  ],
+  "purpose_modules": [
+    "governance/purpose/purpose_boundary_core.py",
+    "governance/purpose/purpose_boundary_observability.py",
+    "governance/purpose/bounded_objective_containment.py"
+  ],
+  "kernel_purpose_policy": "read_compare_only_no_teleology_rewrite",
+  "observability_gate": "observability/v076/cognitive_purpose_boundary_score.py",
+  "purpose_horizons_hours": [24, 168, 720, 2160, 4320, 8760]
+}

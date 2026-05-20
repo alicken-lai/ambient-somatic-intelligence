@@ -1,0 +1,117 @@
+{
+  "version": "0.7.4",
+  "generated_at": "2026-05-20T10:47:38.533088+00:00",
+  "value_continuity_score": 0.9460666100665243,
+  "meaning_continuity_score": 0.9454262907750283,
+  "gate_pass": true,
+  "horizons": {
+    "24h": {
+      "hours": 24,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "7d": {
+      "hours": 168,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "30d": {
+      "hours": 720,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "90d": {
+      "hours": 2160,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "180d": {
+      "hours": 4320,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    },
+    "1y": {
+      "hours": 8760,
+      "value_continuity_score": 0.9460666100665243,
+      "meaning_continuity_score": 0.9454262907750283,
+      "gate_pass": true,
+      "stress_pass_rate": 1.0
+    }
+  },
+  "stress_scenarios": {
+    "clean_advisory_values": {
+      "issues": [],
+      "continuity_ok": true,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "forced_ethical_sync": {
+      "issues": [
+        "forced_ethical_sync",
+        "forced_ethical_sync",
+        "forced_ethical_sync"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "immutable_ethics": {
+      "issues": [
+        "immutable_ethics",
+        "immutable_ethics",
+        "immutable_ethics"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "universal_morality": {
+      "issues": [
+        "universal_morality",
+        "universal_morality"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "centralized_value_authority": {
+      "issues": [
+        "centralized_value_authority",
+        "centralized_value_authority",
+        "centralized_value_authority"
+      ],
+      "continuity_ok": false,
+      "contamination_free": false,
+      "simulation_ok": true
+    },
+    "autonomous_moral_evolution": {
+      "issues": [
+        "autonomous_moral_evolution",
+        "autonomous_moral_evolution"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    },
+    "recursive_value_correction": {
+      "issues": [
+        "recursive_value_correction",
+        "recursive_value_correction",
+        "recursive_value_correction"
+      ],
+      "continuity_ok": false,
+      "contamination_free": true,
+      "simulation_ok": true
+    }
+  }
+}

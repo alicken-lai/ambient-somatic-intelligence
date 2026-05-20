@@ -1,0 +1,70 @@
+{
+  "version": "0.5.4",
+  "audit_date": "2026-05-19",
+  "base": "v0.5.3-alpha ANTICIPATORY",
+  "calibration_surfaces": [
+    {
+      "path": "attention/calibration/confidence_cap.py",
+      "role": "absolute_confidence_ceiling",
+      "max_confidence": 0.99,
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/calibration/forecast_confidence.py",
+      "role": "forecast_confidence_calibrator",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/calibration/false_positive_tracker.py",
+      "role": "fp_penalty_tracking",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/calibration/forecast_humility.py",
+      "role": "overconfidence_humility",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/runtime/calibrated_attention_activation.py",
+      "role": "calibrated_kernel_activation",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/runtime/confidence_weighted_salience.py",
+      "role": "confidence_weighted_salience",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/somatic/somatic_confidence.py",
+      "role": "somatic_confidence_calibration",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/somatic/environmental_uncertainty.py",
+      "role": "environmental_uncertainty_bands",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/somatic/precursor_reliability.py",
+      "role": "precursor_reliability_scoring",
+      "status": "new_v054"
+    },
+    {
+      "path": "attention/explainability/calibration_explainer.py",
+      "role": "calibration_explainability",
+      "status": "new_v054"
+    },
+    {
+      "path": "observability/v054/calibration_stability_score.py",
+      "role": "calibration_gate_score",
+      "gate_threshold": 0.9,
+      "status": "new_v054"
+    }
+  ],
+  "constraints": [
+    "no_certainty_1.0",
+    "no_recursive_confidence_amplification",
+    "no_rl_or_autonomous_planning",
+    "guardian_ontology_unchanged"
+  ]
+}
