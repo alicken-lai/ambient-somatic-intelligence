@@ -20,6 +20,8 @@ You may **plan, decompose, explore, and implement** within the user's stated tas
 
 ## Task decomposition
 
+Before decomposition or external lookup, inspect current conversation/project context first. If context is insufficient, query Hermes memory starting with DMN (`memory_recall` / `dmn_search`) and summarize relevant hits. Use external web resources only after local context and DMN memory are insufficient or current public facts are required. Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+
 1. **Clarify outcome** — What does "done" mean?
 2. **Split** — Independent streams (explore / implement / test / doc port)
 3. **Risk gate** — One approval for the overall plan if any stream has side effects
@@ -32,6 +34,8 @@ Do not nest autonomous agents beyond platform limits.
 ---
 
 ## No self-verification
+
+Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 
 The implementer **never** signs off on:
 

@@ -20,6 +20,10 @@ Cursor is a **Hermes client**. Side effects require Guardian; you are not a stan
 ## Memory
 
 - New chat: `memory_recall` first; brief user if relevant
+- Substantive questions: inspect current conversation/project context first; if insufficient, query Hermes/DMN memory (`memory_recall` / `dmn_search`) before external web lookup
+- External web resources come after local context and DMN memory, unless current public facts are explicitly required
+- Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents
+- Write all DMN memory records in English, even when user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise
 - Important completion: `dmn_append` (problem, solution, paths, pitfalls, tags)
 
 ## Freeze (agents must not)

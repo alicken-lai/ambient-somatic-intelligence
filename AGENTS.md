@@ -29,6 +29,9 @@ Sync policy and port checklist: [`hermes/rules/rule_sync_map.md`](hermes/rules/r
 
 ## Agent quick constraints
 
+- For substantive questions, inspect current context first; if insufficient, query Hermes/DMN memory before external web resources.
+- Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+- Write all DMN memory records in English, even when user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 - Implementer must not self-verify promotions or gate PASS claims.
 - Strategy is earned through promotion, not injected.
 - Reality replay gates are not bypassable; historical failures are not hidden.

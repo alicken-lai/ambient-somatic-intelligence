@@ -93,9 +93,21 @@ def run_loop(interval: int) -> int:
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     with LOCK_FILE.open("w", encoding="utf-8") as lock:
         try:
-            import fcntl
-
-            fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            import sys
+            if sys.platform == "win32":
+                import msvcrt
+                # Windows: 嘗試鎖定 1 byte，若失敗則代表已有執行中的實例
+                lock.write("lock")
+                lock.flush()
+                lock.seek(0)
+                try:
+                    msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 4)
+                except OSError:
+                    write_status({"status": "already_running", "checked_at": utc_now()})
+                    return 0
+            else:
+                import fcntl
+                fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             write_status({"status": "already_running", "checked_at": utc_now()})
             return 0

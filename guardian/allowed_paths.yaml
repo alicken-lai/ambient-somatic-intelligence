@@ -1,3 +1,7 @@
 # Hermes Guardian path allowlist (substring match after slash normalization).
 allowed_paths:
   - video_factory/src/video_factory/cli.py
+  - _collect_v06plus.txt
+  - /_gov_run
+  - _gc_block.txt
+  - _probe.txt

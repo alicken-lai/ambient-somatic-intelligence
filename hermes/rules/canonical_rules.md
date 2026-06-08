@@ -4,7 +4,7 @@
 canonical_version: 1.0.0
 status: single_source_of_truth
 scope: IDE-agnostic agent operating doctrine
-last_updated: 2026-05-18
+last_updated: 2026-06-09
 ```
 
 > **SSOT:** All IDE-specific rule files (`cursor_rules_export.md`, `vscode_copilot_instructions.md`, `codex_agents.md`, `antigravity_rules.md`) are derived views of this document. On conflict, this file wins.
@@ -83,6 +83,9 @@ Before write, modify, delete, send, install, or other side effects:
 |------|--------|
 | Append-only | Episodic, DMN, audit, and telemetry stores are append-only unless a governed repair/promotion path applies. |
 | Recall at session start | Search relevant prior memory before substantive work; brief the user if hits exist. |
+| Context-first cascade | For every substantive question, inspect available conversation/project context first. If context is insufficient for a confident answer, query Hermes memory starting with DMN (`memory_recall` / `dmn_search`) and synthesize relevant prior records before using external web resources. |
+| DMN stays active | Prefer DMN recall for unresolved ambiguity, repeated topics, operator preferences, project history, and prior incidents so append-only memory remains routinely exercised rather than dormant. |
+| DMN language | Write all DMN memory records in English, even when user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise. |
 | Record after material tasks | Log problem, solution, key paths, pitfalls, and tags after important completions. |
 | No silent erasure | Do not delete gap records, incident entries, or failed gate results to improve scores. |
 

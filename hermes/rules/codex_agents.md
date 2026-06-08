@@ -27,11 +27,25 @@ Operate on **Ambient OS** as a governed somatic-intelligence client: safety-firs
 
 | Phase | Action |
 |-------|--------|
-| Start | Recall relevant project memory / docs |
+| Start | Inspect current conversation/project context first; if insufficient, recall Hermes/DMN memory (`memory_recall` / `dmn_search`) before external web lookup |
 | Before side effects | Risk review (Guardian or human) |
 | Implement | Minimal scope; match repo style |
 | Verify | Independent checker — **not** the same agent that implemented |
 | Finish | Log outcome; user-facing summary in 繁體中文 |
+
+---
+
+## Retrieval Order
+
+For every substantive question:
+
+1. Use available context first.
+2. If context is insufficient, query Hermes memory starting with DMN (`memory_recall` / `dmn_search`) and summarize relevant hits.
+3. Use external network resources only after local context and DMN memory are insufficient or current public facts are required.
+
+Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+
+Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 
 ---
 

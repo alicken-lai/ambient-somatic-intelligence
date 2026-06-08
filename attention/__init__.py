@@ -44,6 +44,8 @@ from attention.escalation_router import (
     EscalationDecision,
     EscalationAction,
 )
+from attention.kernel.attention_kernel import AttentionKernel, KernelTickResult
+from attention.kernel.salience_engine import KernelSalienceEngine
 
 __all__ = [
     # attention_state
@@ -71,4 +73,8 @@ __all__ = [
     "EscalationRouter",
     "EscalationDecision",
     "EscalationAction",
+    # kernel (v0.5 layered architecture)
+    "AttentionKernel",
+    "KernelTickResult",
+    "KernelSalienceEngine",
 ]

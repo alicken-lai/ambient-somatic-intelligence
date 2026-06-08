@@ -4,9 +4,10 @@
 from __future__ import annotations
 
 import argparse
-import fcntl
 import hashlib
 import json
+import os
+import sys
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -41,13 +42,30 @@ def append_jsonl(path: Path, record: dict[str, Any]) -> dict[str, Any]:
 
 @contextmanager
 def checksum_lock():
+    """跨平台檔案鎖：Windows 使用 msvcrt，Unix/Linux 使用 fcntl。"""
     LOCK_FILE.parent.mkdir(parents=True, exist_ok=True)
     with LOCK_FILE.open("a", encoding="utf-8") as lock:
-        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
-        try:
-            yield
-        finally:
-            fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+        if sys.platform == "win32":
+            import msvcrt
+            # 移動到檔案開頭，鎖定 1 byte
+            lock.seek(0)
+            try:
+                msvcrt.locking(lock.fileno(), msvcrt.LK_LOCK, 1)
+                try:
+                    yield
+                finally:
+                    lock.seek(0)
+                    msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+            except OSError:
+                # 若鎖定失敗（檔案大小為 0），直接繼續不鎖定
+                yield
+        else:
+            import fcntl as _fcntl
+            _fcntl.flock(lock.fileno(), _fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                _fcntl.flock(lock.fileno(), _fcntl.LOCK_UN)
 
 
 def last_chain_hash(path: Path = CHECKSUM_FILE) -> str:

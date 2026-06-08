@@ -37,6 +37,11 @@ Read-only search and file reads do not require approval.
 
 ## Memory & Audit
 
+- For every substantive question, inspect current conversation/project context first.
+- If context is insufficient, query Hermes memory starting with DMN (`memory_recall` / `dmn_search`) and summarize relevant hits before using external web resources.
+- Use external web resources only after local context and DMN memory are insufficient or current public facts are required.
+- Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+- Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 - Do not delete or rewrite historical audit entries, gap records, or failed gate results.
 - After completing significant tasks, suggest appending a short record to project logs or DMN (if the team uses Hermes).
 

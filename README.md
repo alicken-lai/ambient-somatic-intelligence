@@ -194,6 +194,8 @@ Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 - [x] Governor determinism **PASS** (1000-cycle replay in v07xp gate)
 - [x] Bounded agency governance **PASS** (v077 agency boundary gate)
 - [x] Release commit hygiene **PASS** (`docs/releases/v07xp_release_commit_hygiene_gate.md`)
+- [x] Attention substrate reconstructed in this worktree (`core`, `kernel`, `dynamics`, `competition`, `memory`, `somatic`, `runtime`, `forecasting`, `calibration`, `consolidation`, `governance`, `explainability`); per-layer test suites v050→v077 **green**
+- [x] Full pytest regression **PASS** (1159 tests; cross-locale `utf-8` decode fix in `tests/v044b`)
 
 **Not in scope of this README freeze:** pushing to `main`, enabling new governance layers (v0.7.8+), or claiming unconstrained production deployment without operator gates.
 
@@ -238,7 +240,9 @@ High-signal paths at v0.7.x-P (not exhaustive):
 ambient-os/
 ├── governance/           Policy engine, civilization→agency modules, audit
 ├── observability/        v060–v077 scores, v07x_freeze, v07xp_freeze
-├── attention/            Salience, forecasting, explainability (civilization hooks)
+├── attention/            core, kernel, dynamics, competition, memory, somatic,
+│                         runtime, forecasting, calibration, consolidation,
+│                         governance, explainability (advisory civilization hooks)
 ├── memory/               Layered memory, DMN integration
 ├── somatic/              Signal bus, environment monitor, attention runtime
 ├── runtime/              Task graph, isolation, entropy (pre-v0.7 stabilization)

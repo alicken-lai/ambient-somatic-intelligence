@@ -18,6 +18,11 @@
 
 ## Verification & memory
 
+- For substantive questions, inspect current conversation/project context first.
+- If context is insufficient, query Hermes memory starting with DMN (`memory_recall` / `dmn_search`) before external web lookup.
+- Use external web resources only after local context and DMN memory are insufficient or current public facts are required.
+- Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+- Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 - Never self-approve ontology promotions, skills, or strategic rules you wrote.
 - Do not delete gap records, incidents, or failed gate results.
 - Strategy must follow the promotion chain, not ad-hoc injection.

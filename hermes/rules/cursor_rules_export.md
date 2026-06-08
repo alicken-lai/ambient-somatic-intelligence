@@ -48,6 +48,16 @@ Before write, modify, delete, send, install, or shell side effects:
 
 ---
 
+### Retrieval order
+
+For every substantive question, inspect current conversation/project context first. If context is insufficient, query Hermes memory starting with DMN (**`memory_recall`** / **`dmn_search`**) and summarize relevant hits. Use external web resources only after local context and DMN memory are insufficient or current public facts are required.
+
+Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
+
+Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
+
+---
+
 ## Messaging
 
 1. `guardian_check`

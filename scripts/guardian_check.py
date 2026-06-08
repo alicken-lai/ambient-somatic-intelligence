@@ -35,6 +35,17 @@ def _load_keyword_list(section: str) -> list[str]:
     return keywords
 
 
+def _action_matches_allowed_path(action: str) -> bool:
+    import sys
+
+    scripts_dir = str(ROOT / "scripts")
+    if scripts_dir not in sys.path:
+        sys.path.insert(0, scripts_dir)
+    from guardian_allow_paths import action_matches_allowed_path
+
+    return action_matches_allowed_path(action)
+
+
 def _load_boundary_config() -> dict[str, dict[str, str]]:
     if not BOUNDARY_FILE.exists():
         return {"levels": {}, "routes": {}}
@@ -68,6 +79,12 @@ def route_boundary_level(route_name: str | None) -> str:
 
 
 def classify_action(action: str, route_name: str | None = None) -> dict[str, object]:
+    if _action_matches_allowed_path(action):
+        result = {"risk": "ALLOW", "matched": ["allowed_path"], "action": action}
+        if route_name:
+            result["boundary_level"] = route_boundary_level(route_name)
+        return result
+
     normalized = action.casefold()
     blocked = [keyword for keyword in _load_keyword_list("blocked_keywords") if keyword.casefold() in normalized]
     if blocked:

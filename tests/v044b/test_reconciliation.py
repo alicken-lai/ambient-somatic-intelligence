@@ -16,7 +16,9 @@ def test_reconciliation_artifacts_exist():
 
 
 def test_reconciliation_documents_857_gap():
-    data = json.loads((AUDIT / "mutation_surface_reconciliation.json").read_text())
+    data = json.loads(
+        (AUDIT / "mutation_surface_reconciliation.json").read_text(encoding="utf-8")
+    )
     assert data["v043_total_scanned_mutations"] == 857
     assert data["v044_catalogued_paths"] == 500
     assert data["metadata_gap_857_vs_500"] == 357
