@@ -196,6 +196,7 @@ Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 - [x] Release commit hygiene **PASS** (`docs/releases/v07xp_release_commit_hygiene_gate.md`)
 - [x] Attention substrate reconstructed in this worktree (`core`, `kernel`, `dynamics`, `competition`, `memory`, `somatic`, `runtime`, `forecasting`, `calibration`, `consolidation`, `governance`, `explainability`); per-layer test suites v050→v077 **green**
 - [x] Full pytest regression **PASS** (1159 tests; cross-locale `utf-8` decode fix in `tests/v044b`)
+- [x] Hermes-ASI MCP bridge upgraded to **Hermes Agent v0.16.0** (`v2026.6.5`) with the custom ASI MCP shim preserved; Codex MCP client verified with 17 tools (`memory_recall`, `dmn_search`, `guardian_check`, `system_state_read`, and messaging tools)
 
 **Not in scope of this README freeze:** pushing to `main`, enabling new governance layers (v0.7.8+), or claiming unconstrained production deployment without operator gates.
 
