@@ -1,0 +1,62 @@
+{
+  "review_id": "review:dmn-sidecar:dryrun-superseded-001",
+  "schema_version": "1.0.0",
+  "created_at": "2026-06-13T06:15:00Z",
+  "created_by": "codex-docs",
+  "sidecar_id": "proposal:sidecar:dryrun-superseded-001",
+  "source_file": "memory/dmn.jsonl",
+  "source_line": 900004,
+  "source_hash": "sha256:1fa0c1efe1d6b5599718bf520ac98373ba71fa1f6df4d0058c666ce804b032bb",
+  "review_state": "superseded",
+  "reviewer_roles": [
+    "owner",
+    "technical_reviewer"
+  ],
+  "decisions": [
+    {
+      "decision": "supersede",
+      "decision_reason": "Synthetic older sidecar is superseded by a more precise sidecar with better replay metadata.",
+      "decided_by": "technical_reviewer",
+      "decided_at": "2026-06-13T06:15:00Z",
+      "confidence": 0.78,
+      "conditions": [
+        "retain_old_sidecar_for_audit",
+        "use_successor_for_future_review"
+      ]
+    }
+  ],
+  "approval_gates": {
+    "privacy_gate_passed": true,
+    "retention_gate_passed": true,
+    "replay_gate_passed": false,
+    "lineage_gate_passed": true,
+    "guardian_gate_passed": false,
+    "sync_gate_passed": false,
+    "indexing_gate_passed": false,
+    "replay_not_applicable": false,
+    "lineage_not_applicable": false,
+    "unresolved_conflict_exists": false
+  },
+  "supersession": {
+    "supersedes_sidecar_id": null,
+    "superseded_by_sidecar_id": "proposal:sidecar:dryrun-successor-001",
+    "supersession_reason": "Successor sidecar has more precise replay metadata and review rationale."
+  },
+  "revocation": {
+    "revoked": false,
+    "revocation_reason": "",
+    "revoked_at": null,
+    "revoked_by": null
+  },
+  "audit": {
+    "no_dmn_mutation": true,
+    "proposal_only_until_approved": true,
+    "approved_for_indexing": false,
+    "approved_for_sync": false,
+    "decision_log_ref": "docs/decision_logs/2026-06-13-dmn-sidecar-review-approval-workflow.md",
+    "turbo_vec_paused": true,
+    "production_sync_performed": false,
+    "production_indexing_performed": false,
+    "raw_dmn_content_copied": false
+  }
+}

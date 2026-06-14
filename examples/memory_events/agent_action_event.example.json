@@ -1,0 +1,48 @@
+{
+  "record_id": "mem_v1_labnode_agent_action_9b12d0ef77c1",
+  "schema_version": "1.0.0",
+  "event_type": "agent_action",
+  "timestamp": "2026-06-09T14:15:00+00:00",
+  "source_node": "lab-node-a",
+  "source_system": "codex.schema_validation.synthetic",
+  "source_agent": "codex",
+  "sensor_type": "",
+  "modality": "system_log",
+  "summary": "Synthetic agent action event: Codex validated schema examples without changing production behavior.",
+  "content_ref": "examples/synthetic_agent_logs/phase1c-validation-action.json",
+  "content_hash": "sha256:9b12d0ef77c12d3ac0ef06a7edc553cab47a21ce000000000000000000000004",
+  "confidence": 0.94,
+  "privacy_class": "internal",
+  "retention_policy": "agent-trace-365d",
+  "governance_state": "reviewed",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_agent_001",
+    "source_path": "examples/synthetic_agent_logs/phase1c-validation-action.json",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:15:00+00:00",
+    "checksum": "sha256:9b12d0ef77c12d3ac0ef06a7edc553cab47a21ce000000000000000000000004",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "cause_phase1c_agent_001",
+    "root_event_id": "root_phase1c_examples",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "phase1c",
+    "agent-action",
+    "system-log",
+    "validation"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_labnode_agent_action_9b12d0ef77c1",
+    "derived_from": [
+      "synthetic_validation_action"
+    ],
+    "transformation": "agent_action_summary"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:15:05+00:00"
+}

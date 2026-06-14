@@ -1,0 +1,99 @@
+{
+  "wrapper_id": "wrapper:reviewed:historical-dmn-line-1498",
+  "schema_version": "1.0.0",
+  "wrapper_type": "reviewed",
+  "created_at": "2026-06-10T04:00:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "memory/dmn.jsonl:1498",
+  "source_record_hash": "sha256:eb70036b15eac276578169ef6a2ea09ebf44734a43a61338a002e995a5f834c9",
+  "memory_event": {
+    "record_id": "mem_1.0.0_unknown-node_governance_decision_historical-dmn-line-1498",
+    "schema_version": "1.0.0",
+    "event_type": "governance_decision",
+    "timestamp": "2026-06-09T13:33:40.961279+00:00",
+    "source_node": "unknown-node",
+    "source_system": "dmn",
+    "source_agent": "",
+    "sensor_type": "",
+    "modality": "text",
+    "summary": "Historical DMN record containing the accepted ASI governance and TurboVec meta prompt. Raw content is not copied into this wrapper.",
+    "content_ref": "memory/dmn.jsonl:1498",
+    "content_hash": "sha256:eb70036b15eac276578169ef6a2ea09ebf44734a43a61338a002e995a5f834c9",
+    "confidence": 0.76,
+    "privacy_class": "internal",
+    "retention_policy": "governance-memory-review-required",
+    "governance_state": "reviewed",
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 1498,
+      "timestamp": "2026-06-09T13:33:40.961279+00:00",
+      "checksum": "sha256:eb70036b15eac276578169ef6a2ea09ebf44734a43a61338a002e995a5f834c9",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical DMN record does not carry a per-record replay pointer."
+    },
+    "embedding_ref": null,
+    "tags": [
+      "historical-dmn",
+      "governance",
+      "policy",
+      "phase-1g8"
+    ],
+    "lineage": {
+      "parent_record_ids": [],
+      "root_record_id": "memory/dmn.jsonl:1498",
+      "derived_from": [
+        "memory/dmn.jsonl:1498"
+      ],
+      "transformation": "historical_wrapper_dry_run"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T04:00:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "reviewed",
+    "promotion_reason": "not_available",
+    "promotion_score": null,
+    "decay_reason": "not_available",
+    "importance_score": 0.86,
+    "guardian_review_status": "not_available",
+    "privacy_class": "internal",
+    "retention_policy": "governance-memory-review-required",
+    "requires_review": true,
+    "metadata_basis": "derived from source, tags, timestamp, and content summary",
+    "sync_eligibility": "eligible_governance_only",
+    "sync_eligibility_reason": "Governance/policy memory can be shared as summary plus hash after human review, but replay pointer is missing."
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [],
+    "derived_from": [
+      "memory/dmn.jsonl:1498"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": []
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 1498,
+      "timestamp": "2026-06-09T13:33:40.961279+00:00",
+      "checksum": "sha256:eb70036b15eac276578169ef6a2ea09ebf44734a43a61338a002e995a5f834c9",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical DMN record does not carry a per-record replay pointer."
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-historical-dmn-wrapper-validation.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}

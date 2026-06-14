@@ -1,0 +1,107 @@
+{
+  "wrapper_id": "wrapper:decayed:mem_1.0.0_office-hermes_system_power-decay-b2c3d4e5",
+  "schema_version": "1.0.0",
+  "wrapper_type": "decayed",
+  "created_at": "2026-06-10T02:05:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "dmn_office_power_fluctuation_older_001",
+  "source_record_hash": "sha256:decayedsynthetic001",
+  "memory_event": {
+    "record_id": "mem_1.0.0_office-hermes_system_power-decay-b2c3d4e5",
+    "schema_version": "1.0.0",
+    "event_type": "system",
+    "timestamp": "2026-04-10T09:30:00Z",
+    "source_node": "office-hermes",
+    "source_system": "asi-dmn-governance-dry-run",
+    "source_agent": "codex-docs",
+    "sensor_type": "power",
+    "modality": "power",
+    "summary": "Older synthetic power fluctuation memory is archived for lower active recall priority while preserving replay references.",
+    "content_ref": "synthetic://dmn_governance/decayed_memory",
+    "content_hash": "sha256:decayedsynthetic001",
+    "confidence": 0.61,
+    "privacy_class": "internal",
+    "retention_policy": "archive-after-low-reuse",
+    "governance_state": "archived",
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-decay-001",
+      "source_path": "examples/dmn_governance/decayed_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:05:00Z",
+      "checksum": "sha256:decayedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-office-power-older-001",
+      "root_event_id": "event-office-power-root",
+      "reason": ""
+    },
+    "embedding_ref": null,
+    "tags": [
+      "synthetic",
+      "power",
+      "decay",
+      "archive",
+      "phase-1g6"
+    ],
+    "lineage": {
+      "parent_record_ids": [
+        "dmn_office_power_fluctuation_older_001"
+      ],
+      "root_record_id": "dmn_office_power_fluctuation_older_001",
+      "derived_from": [
+        "synthetic://dmn/power-fluctuation-older"
+      ],
+      "transformation": "decay_archive"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T02:05:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "archived",
+    "promotion_reason": "",
+    "promotion_score": null,
+    "decay_reason": "No successful reuse within the configured operational freshness window; record remains replayable and archived.",
+    "importance_score": 0.28,
+    "guardian_review_status": "not_reviewed",
+    "privacy_class": "internal",
+    "retention_policy": "archive-after-low-reuse",
+    "requires_review": false,
+    "half_life": "30d",
+    "last_reused_at": "2026-04-25T09:30:00Z",
+    "current_importance_score": 0.28,
+    "prior_importance_score": 0.56,
+    "active_recall_priority": "low",
+    "deletion_allowed": false
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [],
+    "derived_from": [
+      "synthetic://dmn/power-fluctuation-older"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": [
+      "dmn_office_power_fluctuation_older_001"
+    ]
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-decay-001",
+      "source_path": "examples/dmn_governance/decayed_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:05:00Z",
+      "checksum": "sha256:decayedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-office-power-older-001",
+      "root_event_id": "event-office-power-root",
+      "reason": ""
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-dmn-governance-contract-schemas.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "record_id": "mem_v1_labnode_governance_decision_6ad781ebaa90",
+  "schema_version": "1.0.0",
+  "event_type": "governance_decision",
+  "timestamp": "2026-06-09T14:25:00+00:00",
+  "source_node": "lab-node-a",
+  "source_system": "governance.decision_log.synthetic",
+  "source_agent": "codex",
+  "sensor_type": "",
+  "modality": "text",
+  "summary": "Synthetic governance decision: future vector adapters must validate examples and compatibility mappings before implementation.",
+  "content_ref": "docs/decision_logs/2026-06-09-schema-validation-compatibility-mapping.md",
+  "content_hash": "sha256:6ad781ebaa9002c30a274b5b8e4db225555c18ed000000000000000000000006",
+  "confidence": 0.97,
+  "privacy_class": "internal",
+  "retention_policy": "governance-unlimited",
+  "governance_state": "reviewed",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_governance_001",
+    "source_path": "docs/decision_logs/2026-06-09-schema-validation-compatibility-mapping.md",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:25:00+00:00",
+    "checksum": "sha256:6ad781ebaa9002c30a274b5b8e4db225555c18ed000000000000000000000006",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "cause_phase1c_governance_001",
+    "root_event_id": "root_phase1c_examples",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "phase1c",
+    "governance",
+    "decision-log",
+    "schema-validation"
+  ],
+  "lineage": {
+    "parent_record_ids": [
+      "mem_v1_labnode_guardian_observation_24fd810aa6c2"
+    ],
+    "root_record_id": "mem_v1_labnode_agent_action_9b12d0ef77c1",
+    "derived_from": [
+      "phase1c_user_request",
+      "guardian_allow_observe_only"
+    ],
+    "transformation": "governance_decision_record"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:25:05+00:00"
+}

@@ -1,0 +1,67 @@
+{
+  "recall_id": "recall_phase1c_governed_001",
+  "timestamp": "2026-06-09T14:35:00+00:00",
+  "query_type": "event",
+  "query_summary": "Recall governance and Guardian examples for schema validation review.",
+  "query_hash": "sha256:18f6a8b4c9d0000000000000000000000000000000000000000000000000002",
+  "initiating_agent": "codex",
+  "source_node": "lab-node-a",
+  "vector_backend": "none",
+  "embedding_model": "none",
+  "candidate_record_ids": [
+    "mem_v1_labnode_guardian_observation_24fd810aa6c2",
+    "mem_v1_labnode_governance_decision_6ad781ebaa90"
+  ],
+  "similarity_scores": [
+    0.88,
+    0.81
+  ],
+  "ranking_method": "lexical_tag_match_with_governance_priority",
+  "filters_applied": [
+    "tags include guardian or governance",
+    "source_node=lab-node-a"
+  ],
+  "privacy_filters_applied": [
+    "exclude_privacy_class=restricted"
+  ],
+  "governance_filters_applied": [
+    "require_guardian_visible=true",
+    "exclude_governance_state=deleted"
+  ],
+  "excluded_records": [
+    {
+      "record_id": "mem_v1_labnode_governance_deleted_demo",
+      "reason": "governance_state deleted is excluded from recall"
+    }
+  ],
+  "provenance": [
+    {
+      "record_id": "mem_v1_labnode_guardian_observation_24fd810aa6c2",
+      "source_path": "examples/memory_events/guardian_observation_event.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:24fd810aa6c2674d312a4ac0292b3319f80e3d91000000000000000000000005",
+      "backend": "lexical",
+      "rank": 1
+    },
+    {
+      "record_id": "mem_v1_labnode_governance_decision_6ad781ebaa90",
+      "source_path": "examples/memory_events/governance_decision_event.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:6ad781ebaa9002c30a274b5b8e4db225555c18ed000000000000000000000006",
+      "backend": "lexical",
+      "rank": 2
+    }
+  ],
+  "confidence": 0.89,
+  "guardian_visible": true,
+  "decision_allowed": false,
+  "action_allowed": false,
+  "replay_reference": {
+    "available": true,
+    "replay_id": "replay_phase1c_governed_recall_001",
+    "source_path": "examples/recall_evidence/governed_recall.example.json",
+    "timestamp": "2026-06-09T14:35:00+00:00",
+    "reason": ""
+  },
+  "no_decision_made": true
+}

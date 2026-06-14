@@ -1,0 +1,48 @@
+{
+  "record_id": "mem_v1_dmn_line2_8f4f07e5d870",
+  "schema_version": "1.0.0",
+  "event_type": "system",
+  "timestamp": "2026-05-11T12:54:11.088554+00:00",
+  "source_node": "unknown-node",
+  "source_system": "bootstrap",
+  "source_agent": "",
+  "sensor_type": "",
+  "modality": "system_log",
+  "summary": "Existing DMN bootstrap record: Night 0 bootstrap initialized.",
+  "content_ref": "memory/dmn.jsonl:2",
+  "content_hash": "sha256:8f4f07e5d8704a9d4f5bce7e295bdb87ee20233e46996166d03d1024774b46a2",
+  "confidence": 0.92,
+  "privacy_class": "internal",
+  "retention_policy": "episodic-30d",
+  "governance_state": "raw",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_dmn_line2_bootstrap",
+    "source_path": "memory/dmn.jsonl",
+    "source_line": 2,
+    "timestamp": "2026-05-11T12:54:11.088554+00:00",
+    "checksum": "sha256:8f4f07e5d8704a9d4f5bce7e295bdb87ee20233e46996166d03d1024774b46a2",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "bootstrap_and_sensing",
+    "causal_event_id": "",
+    "root_event_id": "",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "wrapped-existing-memory",
+    "dmn",
+    "bootstrap",
+    "night0"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_dmn_line2_8f4f07e5d870",
+    "derived_from": [
+      "memory/dmn.jsonl:2"
+    ],
+    "transformation": "dry_run_wrapper_no_source_mutation"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:55:00+00:00"
+}

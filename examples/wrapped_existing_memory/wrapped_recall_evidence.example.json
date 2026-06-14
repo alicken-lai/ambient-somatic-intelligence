@@ -1,0 +1,80 @@
+{
+  "recall_id": "recall_phase1d_wrapped_existing_memory_001",
+  "timestamp": "2026-06-09T14:56:00+00:00",
+  "query_type": "text",
+  "query_summary": "Dry-run recall over wrapped existing DMN records for bootstrap, telemetry, and Phase 1C governance evidence.",
+  "query_hash": "sha256:d839be2a4c2f7c1c87a44a815d83ce3619c24263c00000000000000000000001",
+  "initiating_agent": "codex",
+  "source_node": "unknown-node",
+  "vector_backend": "none",
+  "embedding_model": "none",
+  "candidate_record_ids": [
+    "mem_v1_dmn_line1502_a1a2b3ea07ea",
+    "mem_v1_dmn_line2_8f4f07e5d870",
+    "mem_v1_dmn_line3_4b34244df122"
+  ],
+  "similarity_scores": [
+    0.93,
+    0.76,
+    0.71
+  ],
+  "ranking_method": "dry_run_manual_keyword_ranking_no_vector_backend",
+  "filters_applied": [
+    "sample_size=3",
+    "source=memory/dmn.jsonl",
+    "backend=none"
+  ],
+  "privacy_filters_applied": [
+    "raw telemetry host details omitted from wrapper summary",
+    "restricted records excluded"
+  ],
+  "governance_filters_applied": [
+    "candidate recall only",
+    "require_no_decision_made=true",
+    "no action authorization"
+  ],
+  "excluded_records": [
+    {
+      "record_id": "mem_v1_dmn_unwrapped_sensitive_raw_log_demo",
+      "reason": "dry run excludes records that would require privacy review before wrapping"
+    }
+  ],
+  "provenance": [
+    {
+      "record_id": "mem_v1_dmn_line1502_a1a2b3ea07ea",
+      "source_path": "examples/wrapped_existing_memory/wrapped_dmn_record_003.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:a1a2b3ea07eaea1c0e70278f8816d8144bc37c7ab3215e96d1a52cc77124ed32",
+      "backend": "manual_dry_run",
+      "rank": 1
+    },
+    {
+      "record_id": "mem_v1_dmn_line2_8f4f07e5d870",
+      "source_path": "examples/wrapped_existing_memory/wrapped_dmn_record_001.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:8f4f07e5d8704a9d4f5bce7e295bdb87ee20233e46996166d03d1024774b46a2",
+      "backend": "manual_dry_run",
+      "rank": 2
+    },
+    {
+      "record_id": "mem_v1_dmn_line3_4b34244df122",
+      "source_path": "examples/wrapped_existing_memory/wrapped_dmn_record_002.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:4b34244df1225c9ab7bb62588c00a8f7345796e813c5c0ba0481933db43ddccf",
+      "backend": "manual_dry_run",
+      "rank": 3
+    }
+  ],
+  "confidence": 0.82,
+  "guardian_visible": true,
+  "decision_allowed": false,
+  "action_allowed": false,
+  "replay_reference": {
+    "available": true,
+    "replay_id": "replay_phase1d_wrapped_recall_001",
+    "source_path": "examples/wrapped_existing_memory/wrapped_recall_evidence.example.json",
+    "timestamp": "2026-06-09T14:56:00+00:00",
+    "reason": ""
+  },
+  "no_decision_made": true
+}

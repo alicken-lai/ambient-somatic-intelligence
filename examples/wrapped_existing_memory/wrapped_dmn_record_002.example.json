@@ -1,0 +1,49 @@
+{
+  "record_id": "mem_v1_dmn_line3_4b34244df122",
+  "schema_version": "1.0.0",
+  "event_type": "system",
+  "timestamp": "2026-05-11T13:36:36.587887+00:00",
+  "source_node": "unknown-node",
+  "source_system": "sense_local",
+  "source_agent": "",
+  "sensor_type": "local_telemetry",
+  "modality": "timeseries",
+  "summary": "Existing DMN local telemetry record summarized as CPU, disk, load, memory, process count, and uptime snapshot. Raw host details are not repeated in this wrapper.",
+  "content_ref": "memory/dmn.jsonl:3",
+  "content_hash": "sha256:4b34244df1225c9ab7bb62588c00a8f7345796e813c5c0ba0481933db43ddccf",
+  "confidence": 0.86,
+  "privacy_class": "sensitive",
+  "retention_policy": "sensor-summary-180d",
+  "governance_state": "classified",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_dmn_line3_local_telemetry",
+    "source_path": "memory/dmn.jsonl",
+    "source_line": 3,
+    "timestamp": "2026-05-11T13:36:36.587887+00:00",
+    "checksum": "sha256:4b34244df1225c9ab7bb62588c00a8f7345796e813c5c0ba0481933db43ddccf",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "bootstrap_and_sensing",
+    "causal_event_id": "",
+    "root_event_id": "",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "wrapped-existing-memory",
+    "dmn",
+    "telemetry",
+    "local",
+    "night2"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_dmn_line3_4b34244df122",
+    "derived_from": [
+      "memory/dmn.jsonl:3"
+    ],
+    "transformation": "dry_run_wrapper_no_source_mutation_safe_summary"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:55:05+00:00"
+}

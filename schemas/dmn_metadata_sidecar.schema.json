@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/dmn_metadata_sidecar.schema.json",
+  "title": "ASI DMN Metadata Sidecar Proposal",
+  "type": "object",
+  "required": [
+    "sidecar_id",
+    "schema_version",
+    "created_at",
+    "created_by",
+    "source_file",
+    "source_line",
+    "source_hash",
+    "source_record_id",
+    "proposed_metadata",
+    "confidence",
+    "review",
+    "audit"
+  ],
+  "properties": {
+    "sidecar_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_file": {
+      "type": "string",
+      "const": "memory/dmn.jsonl"
+    },
+    "source_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposed_metadata": {
+      "type": "object",
+      "required": [
+        "source_node",
+        "record_type",
+        "privacy_class",
+        "retention_policy",
+        "governance_state",
+        "replay_pointer_status",
+        "lineage_status",
+        "guardian_review_status",
+        "sync_eligibility",
+        "tags"
+      ],
+      "properties": {
+        "source_node": {
+          "type": "string",
+          "enum": [
+            "unknown_local",
+            "unknown_home",
+            "unknown_office",
+            "unknown_external"
+          ]
+        },
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "governance",
+            "telemetry",
+            "phase_summary",
+            "guardian_observation",
+            "system_observation",
+            "policy",
+            "unknown"
+          ]
+        },
+        "privacy_class": {
+          "type": "string",
+          "enum": [
+            "public",
+            "internal",
+            "sensitive",
+            "restricted",
+            "unknown"
+          ]
+        },
+        "retention_policy": {
+          "type": "string",
+          "enum": [
+            "short",
+            "medium",
+            "long",
+            "permanent",
+            "review_required",
+            "unknown"
+          ]
+        },
+        "governance_state": {
+          "type": "string",
+          "enum": [
+            "raw",
+            "classified",
+            "promoted",
+            "reviewed",
+            "archived",
+            "requires_review",
+            "unknown"
+          ]
+        },
+        "replay_pointer_status": {
+          "type": "string",
+          "enum": [
+            "explicit",
+            "derived",
+            "missing",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "lineage_status": {
+          "type": "string",
+          "enum": [
+            "explicit",
+            "derived",
+            "missing",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "guardian_review_status": {
+          "type": "string",
+          "enum": [
+            "explicit",
+            "derived",
+            "missing",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "sync_eligibility": {
+          "type": "string",
+          "enum": [
+            "eligible_governance_only",
+            "eligible_summary_only",
+            "eligible_evidence_only",
+            "not_eligible_sensitive",
+            "not_eligible_unresolved_conflict",
+            "not_eligible_missing_replay",
+            "requires_human_review",
+            "unknown"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "confidence": {
+      "type": "object",
+      "required": [
+        "overall_confidence",
+        "field_confidence"
+      ],
+      "properties": {
+        "overall_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "field_confidence": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "requires_human_review",
+        "review_reason",
+        "review_priority",
+        "approved"
+      ],
+      "properties": {
+        "requires_human_review": {
+          "type": "boolean"
+        },
+        "review_reason": {
+          "type": "string"
+        },
+        "review_priority": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "approved": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "no_mutation",
+        "proposal_only",
+        "derived_from_audit",
+        "decision_log_ref"
+      ],
+      "properties": {
+        "no_mutation": {
+          "type": "boolean",
+          "const": true
+        },
+        "proposal_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "derived_from_audit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_log_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

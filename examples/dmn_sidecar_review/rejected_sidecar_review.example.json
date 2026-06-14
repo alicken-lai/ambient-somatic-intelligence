@@ -1,0 +1,62 @@
+{
+  "review_id": "review:dmn-sidecar:dryrun-rejected-telemetry-sync-001",
+  "schema_version": "1.0.0",
+  "created_at": "2026-06-13T06:05:00Z",
+  "created_by": "codex-docs",
+  "sidecar_id": "proposal:sidecar:dryrun-telemetry-001",
+  "source_file": "memory/dmn.jsonl",
+  "source_line": 900002,
+  "source_hash": "sha256:53c9c88a1bd341612cafa25018155e4f8dad604ac23099d031436d05d26f386a",
+  "review_state": "rejected",
+  "reviewer_roles": [
+    "owner",
+    "privacy_reviewer",
+    "sync_reviewer"
+  ],
+  "decisions": [
+    {
+      "decision": "reject",
+      "decision_reason": "Synthetic telemetry sidecar is rejected for sync because privacy is sensitive and replay pointer is missing.",
+      "decided_by": "privacy_reviewer",
+      "decided_at": "2026-06-13T06:05:00Z",
+      "confidence": 0.9,
+      "conditions": [
+        "do_not_sync_raw_or_summary_until_privacy_review_reopened"
+      ]
+    }
+  ],
+  "approval_gates": {
+    "privacy_gate_passed": false,
+    "retention_gate_passed": false,
+    "replay_gate_passed": false,
+    "lineage_gate_passed": false,
+    "guardian_gate_passed": false,
+    "sync_gate_passed": false,
+    "indexing_gate_passed": false,
+    "replay_not_applicable": false,
+    "lineage_not_applicable": false,
+    "unresolved_conflict_exists": false
+  },
+  "supersession": {
+    "supersedes_sidecar_id": null,
+    "superseded_by_sidecar_id": null,
+    "supersession_reason": ""
+  },
+  "revocation": {
+    "revoked": false,
+    "revocation_reason": "",
+    "revoked_at": null,
+    "revoked_by": null
+  },
+  "audit": {
+    "no_dmn_mutation": true,
+    "proposal_only_until_approved": true,
+    "approved_for_indexing": false,
+    "approved_for_sync": false,
+    "decision_log_ref": "docs/decision_logs/2026-06-13-dmn-sidecar-review-approval-workflow.md",
+    "turbo_vec_paused": true,
+    "production_sync_performed": false,
+    "production_indexing_performed": false,
+    "raw_dmn_content_copied": false
+  }
+}

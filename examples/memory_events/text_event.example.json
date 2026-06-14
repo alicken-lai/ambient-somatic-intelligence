@@ -1,0 +1,51 @@
+{
+  "record_id": "mem_v1_labnode_text_8f3a2c4e91b0",
+  "schema_version": "1.0.0",
+  "event_type": "text",
+  "timestamp": "2026-06-09T14:00:00+00:00",
+  "source_node": "lab-node-a",
+  "source_system": "docs.review",
+  "source_agent": "codex",
+  "sensor_type": "",
+  "modality": "text",
+  "summary": "Synthetic governance note stating that vector recall must remain candidate evidence only.",
+  "content_ref": "docs/synthetic/phase1c-text-note.md:1",
+  "content_hash": "sha256:8f3a2c4e91b0d85a6c4a9ef018e54d91c187c493f6d16a2cf47a000000000001",
+  "confidence": 0.96,
+  "privacy_class": "internal",
+  "retention_policy": "governance-365d",
+  "governance_state": "classified",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_text_001",
+    "source_path": "docs/synthetic/phase1c-text-note.md",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:00:00+00:00",
+    "checksum": "sha256:8f3a2c4e91b0d85a6c4a9ef018e54d91c187c493f6d16a2cf47a000000000001",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "cause_phase1c_text_001",
+    "root_event_id": "root_phase1c_examples",
+    "reason": ""
+  },
+  "embedding_ref": {
+    "embedding_id": "emb_text_8f3a2c4e91b0",
+    "sidecar_ref": "examples/embedding_sidecars/text_embedding_sidecar.example.json"
+  },
+  "tags": [
+    "phase1c",
+    "text",
+    "governance",
+    "candidate-recall"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_labnode_text_8f3a2c4e91b0",
+    "derived_from": [
+      "synthetic_phase1c_example"
+    ],
+    "transformation": "synthetic_non_sensitive_example"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:00:05+00:00"
+}

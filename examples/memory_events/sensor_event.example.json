@@ -1,0 +1,54 @@
+{
+  "record_id": "mem_v1_labnode_sensor_0a41c9e2b7d3",
+  "schema_version": "1.0.0",
+  "event_type": "sensor",
+  "timestamp": "2026-06-09T14:05:00+00:00",
+  "source_node": "lab-node-a",
+  "source_system": "environmental_sensing.synthetic",
+  "source_agent": "",
+  "sensor_type": "wifi_csi_power_temperature_humidity",
+  "modality": "wifi_csi",
+  "summary": "Synthetic environmental sensing event: WiFi CSI drift coincided with a low-severity power anomaly and temperature humidity change.",
+  "content_ref": "examples/synthetic_sensor_samples/phase1c-environmental-window.json",
+  "content_hash": "sha256:0a41c9e2b7d3a6579132be1f52d8e7335d4cc01ce8ac7120000000000000002",
+  "confidence": 0.82,
+  "privacy_class": "internal",
+  "retention_policy": "sensor-summary-180d",
+  "governance_state": "classified",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_sensor_001",
+    "source_path": "examples/synthetic_sensor_samples/phase1c-environmental-window.json",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:05:00+00:00",
+    "checksum": "sha256:0a41c9e2b7d3a6579132be1f52d8e7335d4cc01ce8ac7120000000000000002",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "cause_phase1c_sensor_001",
+    "root_event_id": "root_phase1c_examples",
+    "reason": ""
+  },
+  "embedding_ref": {
+    "embedding_id": "emb_sensor_0a41c9e2b7d3",
+    "sidecar_ref": "examples/embedding_sidecars/sensor_embedding_sidecar.example.json"
+  },
+  "tags": [
+    "phase1c",
+    "sensor",
+    "wifi-csi",
+    "power",
+    "temperature",
+    "humidity",
+    "environmental"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_labnode_sensor_0a41c9e2b7d3",
+    "derived_from": [
+      "synthetic_environmental_window"
+    ],
+    "transformation": "summarized_sensor_window"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:05:05+00:00"
+}

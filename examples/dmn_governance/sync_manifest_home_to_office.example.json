@@ -1,0 +1,126 @@
+{
+  "manifest_id": "sync-dryrun-home-to-office-2026-06-10-001",
+  "status": "synthetic_non_production",
+  "source_node": "home-hermes",
+  "target_node": "office-hermes",
+  "sync_mode": "dry_run",
+  "created_at": "2026-06-10T02:20:00Z",
+  "created_by": "codex-docs",
+  "no_mutation": true,
+  "purpose": "Demonstrate governed DMN sync filtering without syncing real data.",
+  "allowed_records": [
+    {
+      "record_id": "mem_1.0.0_home-hermes_guardian-observation_wifi-csi-promotion-a1b2c3d4",
+      "privacy_class": "internal",
+      "governance_state": "promoted",
+      "allowed_form": "summary_and_replay_reference",
+      "reason": "Guardian-reviewed synthetic WiFi CSI anomaly summary with replay pointer.",
+      "replay_pointer": {
+        "available": true,
+        "replay_id": "replay-dryrun-promotion-001",
+        "source_path": "examples/dmn_governance/sync_manifest_home_to_office.example.json",
+        "source_line": 1,
+        "timestamp": "2026-06-10T02:20:00Z",
+        "checksum": "sha256:promotedsynthetic001",
+        "manifest_ref": "sync-dryrun-home-to-office-2026-06-10-001",
+        "phase": "1G.7",
+        "causal_event_id": "mem_1.0.0_home-hermes_guardian-observation_wifi-csi-promotion-a1b2c3d4",
+        "root_event_id": "sync-dryrun-home-to-office-2026-06-10-001",
+        "reason": ""
+      }
+    },
+    {
+      "record_id": "mem_1.0.0_home-hermes_text_temp-humidity-consolidation-c3d4e5f6",
+      "privacy_class": "internal",
+      "governance_state": "promoted",
+      "allowed_form": "consolidated_pattern_summary",
+      "reason": "Synthetic consolidated temperature and humidity trend contains no personal or raw private logs.",
+      "replay_pointer": {
+        "available": true,
+        "replay_id": "replay-dryrun-consolidation-001",
+        "source_path": "examples/dmn_governance/sync_manifest_home_to_office.example.json",
+        "source_line": 1,
+        "timestamp": "2026-06-10T02:20:00Z",
+        "checksum": "sha256:consolidatedsynthetic001",
+        "manifest_ref": "sync-dryrun-home-to-office-2026-06-10-001",
+        "phase": "1G.7",
+        "causal_event_id": "mem_1.0.0_home-hermes_text_temp-humidity-consolidation-c3d4e5f6",
+        "root_event_id": "sync-dryrun-home-to-office-2026-06-10-001",
+        "reason": ""
+      }
+    }
+  ],
+  "excluded_records": [
+    {
+      "record_id": "mem_1.0.0_home-hermes_system_power-conflict-a-d4e5f6g7",
+      "privacy_class": "internal",
+      "governance_state": "reviewed",
+      "exclusion_reason": "Unresolved cross-node conflict requires review before sync."
+    },
+    {
+      "record_id": "synthetic_raw_wifi_csi_window_001",
+      "privacy_class": "restricted",
+      "governance_state": "raw",
+      "exclusion_reason": "Raw synthetic window stands in for a restricted raw stream; only summaries may be considered."
+    }
+  ],
+  "exclusion_reasons": [
+    "unresolved_conflict",
+    "raw_or_restricted_payload",
+    "missing_human_review_for_sync"
+  ],
+  "privacy_filters_applied": [
+    "exclude_restricted",
+    "exclude_raw_streams",
+    "summary_only_for_internal_records"
+  ],
+  "governance_filters_applied": [
+    "require_source_node",
+    "require_replay_pointer",
+    "require_governance_state_not_raw",
+    "block_unresolved_conflicts"
+  ],
+  "conflict_candidates": [
+    {
+      "conflict_group_id": "conflict-power-wifi-csi-2026-06-10-001",
+      "record_ids": [
+        "mem_1.0.0_home-hermes_system_power-conflict-a-d4e5f6g7",
+        "mem_1.0.0_office-hermes_system_power-conflict-b-e5f6g7h8"
+      ],
+      "requires_review": true,
+      "auto_resolution_allowed": false
+    }
+  ],
+  "replay_references": [
+    {
+      "record_id": "mem_1.0.0_home-hermes_guardian-observation_wifi-csi-promotion-a1b2c3d4",
+      "replay_id": "replay-dryrun-promotion-001",
+      "checksum": "sha256:promotedsynthetic001"
+    },
+    {
+      "record_id": "mem_1.0.0_home-hermes_text_temp-humidity-consolidation-c3d4e5f6",
+      "replay_id": "replay-dryrun-consolidation-001",
+      "checksum": "sha256:consolidatedsynthetic001"
+    }
+  ],
+  "result": {
+    "would_sync_count": 2,
+    "would_exclude_count": 2,
+    "would_create_conflict_register_entries": 1,
+    "actual_records_mutated": 0
+  },
+  "schema_version": "1.0.0",
+  "sync_scope": "summary_only",
+  "trust_model": {
+    "source_trust_level": "local_operator_controlled_synthetic",
+    "target_trust_level": "local_operator_controlled_synthetic",
+    "human_approval_required": true,
+    "guardian_review_required": true
+  },
+  "audit": {
+    "decision_log_ref": "docs/decision_logs/2026-06-10-dmn-governance-contract-schemas.md",
+    "validation_status": "validated",
+    "actual_records_mutated": 0,
+    "no_real_sync_performed": true
+  }
+}

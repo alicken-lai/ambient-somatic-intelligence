@@ -1,0 +1,52 @@
+{
+  "record_id": "mem_v1_dmn_line1502_a1a2b3ea07ea",
+  "schema_version": "1.0.0",
+  "event_type": "governance_decision",
+  "timestamp": "2026-06-09T13:58:08.404929+00:00",
+  "source_node": "unknown-node",
+  "source_system": "codex_phase_1c_schema_validation_compatibility_mapping_2026-06-09",
+  "source_agent": "codex",
+  "sensor_type": "",
+  "modality": "text",
+  "summary": "Existing DMN governance summary for Phase 1C completion, including validated examples, compatibility mapping, wrapper plan, and readiness estimate.",
+  "content_ref": "memory/dmn.jsonl:1502",
+  "content_hash": "sha256:a1a2b3ea07eaea1c0e70278f8816d8144bc37c7ab3215e96d1a52cc77124ed32",
+  "confidence": 0.95,
+  "privacy_class": "internal",
+  "retention_policy": "governance-365d",
+  "governance_state": "reviewed",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_dmn_line1502_phase1c",
+    "source_path": "memory/dmn.jsonl",
+    "source_line": 1502,
+    "timestamp": "2026-06-09T13:58:08.404929+00:00",
+    "checksum": "sha256:a1a2b3ea07eaea1c0e70278f8816d8144bc37c7ab3215e96d1a52cc77124ed32",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "",
+    "root_event_id": "",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "wrapped-existing-memory",
+    "dmn",
+    "ASI",
+    "Phase-1C",
+    "schema-validation",
+    "compatibility-mapping",
+    "recall-evidence",
+    "wrapper-plan"
+  ],
+  "lineage": {
+    "parent_record_ids": [],
+    "root_record_id": "mem_v1_dmn_line1502_a1a2b3ea07ea",
+    "derived_from": [
+      "memory/dmn.jsonl:1502"
+    ],
+    "transformation": "dry_run_wrapper_no_source_mutation"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:55:10+00:00"
+}

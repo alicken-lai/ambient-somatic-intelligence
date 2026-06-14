@@ -1,0 +1,115 @@
+{
+  "wrapper_id": "wrapper:promoted:mem_1.0.0_home-hermes_guardian-observation_wifi-csi-promotion-a1b2c3d4",
+  "schema_version": "1.0.0",
+  "wrapper_type": "promoted",
+  "created_at": "2026-06-10T02:00:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "work_home_wifi_csi_anomaly_001",
+  "source_record_hash": "sha256:promotedsynthetic001",
+  "memory_event": {
+    "record_id": "mem_1.0.0_home-hermes_guardian-observation_wifi-csi-promotion-a1b2c3d4",
+    "schema_version": "1.0.0",
+    "event_type": "guardian_observation",
+    "timestamp": "2026-06-10T02:00:00Z",
+    "source_node": "home-hermes",
+    "source_system": "asi-dmn-governance-dry-run",
+    "source_agent": "codex-docs",
+    "sensor_type": "wifi_csi",
+    "modality": "wifi_csi",
+    "summary": "Guardian-reviewed WiFi CSI anomaly pattern promoted from working memory to DMN memory after repeated non-sensitive observations.",
+    "content_ref": "synthetic://dmn_governance/promoted_memory",
+    "content_hash": "sha256:promotedsynthetic001",
+    "confidence": 0.84,
+    "privacy_class": "internal",
+    "retention_policy": "governance-reviewed-operational",
+    "governance_state": "promoted",
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-promotion-001",
+      "source_path": "examples/dmn_governance/promoted_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:00:00Z",
+      "checksum": "sha256:promotedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-working-wifi-csi-001",
+      "root_event_id": "event-working-wifi-csi-root",
+      "reason": ""
+    },
+    "embedding_ref": null,
+    "tags": [
+      "synthetic",
+      "wifi-csi",
+      "guardian-observation",
+      "promotion",
+      "phase-1g6"
+    ],
+    "lineage": {
+      "parent_record_ids": [
+        "work_home_wifi_csi_anomaly_001",
+        "work_home_wifi_csi_anomaly_002",
+        "work_home_wifi_csi_anomaly_003"
+      ],
+      "root_record_id": "work_home_wifi_csi_anomaly_001",
+      "derived_from": [
+        "synthetic://working-memory/wifi-csi-window-001",
+        "synthetic://guardian/review-001"
+      ],
+      "transformation": "promotion"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T02:00:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "promoted",
+    "promotion_reason": "Repeated WiFi CSI anomaly pattern was Guardian-reviewed and replay-significant.",
+    "promotion_score": 0.82,
+    "decay_reason": "",
+    "importance_score": 0.82,
+    "guardian_review_status": "reviewed_observe_only",
+    "privacy_class": "internal",
+    "retention_policy": "governance-reviewed-operational",
+    "requires_review": false,
+    "promoted_from": "working_memory",
+    "promotion_criteria": [
+      "repeated_observation",
+      "guardian_reviewed_event",
+      "replay_significance"
+    ],
+    "requires_human_review": false,
+    "decision_authority": "none_candidate_memory_only"
+  },
+  "lineage": {
+    "promoted_from": "working_memory",
+    "consolidated_from": [],
+    "derived_from": [
+      "synthetic://working-memory/wifi-csi-window-001",
+      "synthetic://guardian/review-001"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": [
+      "work_home_wifi_csi_anomaly_001",
+      "work_home_wifi_csi_anomaly_002",
+      "work_home_wifi_csi_anomaly_003"
+    ]
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-promotion-001",
+      "source_path": "examples/dmn_governance/promoted_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:00:00Z",
+      "checksum": "sha256:promotedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-working-wifi-csi-001",
+      "root_event_id": "event-working-wifi-csi-root",
+      "reason": ""
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-dmn-governance-contract-schemas.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}

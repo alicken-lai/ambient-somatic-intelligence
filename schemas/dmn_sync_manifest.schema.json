@@ -1,0 +1,326 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/dmn_sync_manifest.schema.json",
+  "title": "ASI DMN Sync Manifest",
+  "type": "object",
+  "required": [
+    "manifest_id",
+    "schema_version",
+    "created_at",
+    "created_by",
+    "source_node",
+    "target_node",
+    "sync_mode",
+    "sync_scope",
+    "allowed_records",
+    "excluded_records",
+    "conflict_candidates",
+    "privacy_filters_applied",
+    "governance_filters_applied",
+    "replay_references",
+    "trust_model",
+    "audit",
+    "no_mutation"
+  ],
+  "properties": {
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_node": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_node": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sync_mode": {
+      "type": "string",
+      "enum": [
+        "dry_run",
+        "proposal",
+        "approved_transfer",
+        "rejected",
+        "archived"
+      ]
+    },
+    "sync_scope": {
+      "type": "string",
+      "enum": [
+        "summary_only",
+        "evidence_only",
+        "governance_only",
+        "embedding_sidecar_only",
+        "full_record_prohibited"
+      ]
+    },
+    "allowed_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "reason",
+          "privacy_class",
+          "governance_state",
+          "replay_pointer"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "privacy_class": {
+            "type": "string",
+            "enum": [
+              "public",
+              "internal",
+              "sensitive",
+              "restricted"
+            ]
+          },
+          "governance_state": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replay_pointer": {
+            "$ref": "#/$defs/replay_pointer"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "excluded_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "exclusion_reason",
+          "privacy_class",
+          "governance_state"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exclusion_reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "privacy_class": {
+            "type": "string",
+            "enum": [
+              "public",
+              "internal",
+              "sensitive",
+              "restricted"
+            ]
+          },
+          "governance_state": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "conflict_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "conflict_group_id",
+          "record_ids",
+          "requires_review",
+          "auto_resolution_allowed"
+        ],
+        "properties": {
+          "conflict_group_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "record_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "requires_review": {
+            "type": "boolean"
+          },
+          "auto_resolution_allowed": {
+            "type": "boolean",
+            "const": false
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "privacy_filters_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "governance_filters_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "replay_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "replay_id",
+          "checksum"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replay_id": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "trust_model": {
+      "type": "object",
+      "required": [
+        "source_trust_level",
+        "target_trust_level",
+        "human_approval_required",
+        "guardian_review_required"
+      ],
+      "properties": {
+        "source_trust_level": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_trust_level": {
+          "type": "string",
+          "minLength": 1
+        },
+        "human_approval_required": {
+          "type": "boolean"
+        },
+        "guardian_review_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "decision_log_ref",
+        "validation_status",
+        "actual_records_mutated"
+      ],
+      "properties": {
+        "decision_log_ref": {
+          "type": "string"
+        },
+        "validation_status": {
+          "type": "string"
+        },
+        "actual_records_mutated": {
+          "type": "integer",
+          "const": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "no_mutation": {
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "replay_pointer": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "source_line",
+        "timestamp",
+        "checksum",
+        "manifest_ref",
+        "phase",
+        "causal_event_id",
+        "root_event_id",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "causal_event_id": {
+          "type": "string"
+        },
+        "root_event_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/governed_memory_wrapper.schema.json",
+  "title": "ASI Governed Memory Wrapper",
+  "type": "object",
+  "required": [
+    "wrapper_id",
+    "schema_version",
+    "wrapper_type",
+    "created_at",
+    "created_by",
+    "source_record_id",
+    "source_record_hash",
+    "memory_event",
+    "governance_metadata",
+    "lineage",
+    "audit"
+  ],
+  "properties": {
+    "wrapper_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "wrapper_type": {
+      "type": "string",
+      "enum": [
+        "promoted",
+        "decayed",
+        "consolidated",
+        "conflicted",
+        "synced",
+        "archived",
+        "reviewed"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_record_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "memory_event": {
+      "$ref": "memory_event.schema.json"
+    },
+    "governance_metadata": {
+      "type": "object",
+      "required": [
+        "governance_state",
+        "promotion_reason",
+        "promotion_score",
+        "decay_reason",
+        "importance_score",
+        "guardian_review_status",
+        "privacy_class",
+        "retention_policy",
+        "requires_review"
+      ],
+      "properties": {
+        "governance_state": {
+          "type": "string",
+          "enum": [
+            "raw",
+            "classified",
+            "promoted",
+            "recalled",
+            "reviewed",
+            "archived",
+            "deleted"
+          ]
+        },
+        "promotion_reason": {
+          "type": "string"
+        },
+        "promotion_score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "decay_reason": {
+          "type": "string"
+        },
+        "importance_score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "guardian_review_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_class": {
+          "type": "string",
+          "enum": [
+            "public",
+            "internal",
+            "sensitive",
+            "restricted"
+          ]
+        },
+        "retention_policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requires_review": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "promoted_from",
+        "consolidated_from",
+        "derived_from",
+        "synced_from",
+        "conflict_group_id",
+        "parent_record_ids"
+      ],
+      "properties": {
+        "promoted_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "consolidated_from": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "derived_from": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "synced_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "conflict_group_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parent_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "replay_pointer",
+        "decision_log_ref",
+        "validation_status",
+        "no_mutation"
+      ],
+      "properties": {
+        "replay_pointer": {
+          "$ref": "#/$defs/replay_pointer"
+        },
+        "decision_log_ref": {
+          "type": "string"
+        },
+        "validation_status": {
+          "type": "string",
+          "enum": [
+            "not_validated",
+            "validated",
+            "validation_failed",
+            "schema_gap"
+          ]
+        },
+        "no_mutation": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "replay_pointer": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "source_line",
+        "timestamp",
+        "checksum",
+        "manifest_ref",
+        "phase",
+        "causal_event_id",
+        "root_event_id",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "causal_event_id": {
+          "type": "string"
+        },
+        "root_event_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

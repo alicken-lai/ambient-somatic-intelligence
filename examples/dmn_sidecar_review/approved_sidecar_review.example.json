@@ -1,0 +1,63 @@
+{
+  "review_id": "review:dmn-sidecar:dryrun-approved-governance-001",
+  "schema_version": "1.0.0",
+  "created_at": "2026-06-13T06:00:00Z",
+  "created_by": "codex-docs",
+  "sidecar_id": "proposal:sidecar:dryrun-governance-001",
+  "source_file": "memory/dmn.jsonl",
+  "source_line": 900001,
+  "source_hash": "sha256:ef914dee7bd957690e636de7f18bcbddf126941ab01ca2541f4cf7c4234644fb",
+  "review_state": "approved",
+  "reviewer_roles": [
+    "owner",
+    "guardian_reviewer",
+    "technical_reviewer"
+  ],
+  "decisions": [
+    {
+      "decision": "approve",
+      "decision_reason": "Synthetic governance summary sidecar is approved for future indexing proposals only; sync remains blocked due to missing sync review.",
+      "decided_by": "owner",
+      "decided_at": "2026-06-13T06:00:00Z",
+      "confidence": 0.82,
+      "conditions": [
+        "indexing_use_only",
+        "no_cross_node_sync"
+      ]
+    }
+  ],
+  "approval_gates": {
+    "privacy_gate_passed": true,
+    "retention_gate_passed": true,
+    "replay_gate_passed": true,
+    "lineage_gate_passed": true,
+    "guardian_gate_passed": true,
+    "sync_gate_passed": false,
+    "indexing_gate_passed": true,
+    "replay_not_applicable": false,
+    "lineage_not_applicable": false,
+    "unresolved_conflict_exists": false
+  },
+  "supersession": {
+    "supersedes_sidecar_id": null,
+    "superseded_by_sidecar_id": null,
+    "supersession_reason": ""
+  },
+  "revocation": {
+    "revoked": false,
+    "revocation_reason": "",
+    "revoked_at": null,
+    "revoked_by": null
+  },
+  "audit": {
+    "no_dmn_mutation": true,
+    "proposal_only_until_approved": true,
+    "approved_for_indexing": true,
+    "approved_for_sync": false,
+    "decision_log_ref": "docs/decision_logs/2026-06-13-dmn-sidecar-review-approval-workflow.md",
+    "turbo_vec_paused": true,
+    "production_sync_performed": false,
+    "production_indexing_performed": false,
+    "raw_dmn_content_copied": false
+  }
+}

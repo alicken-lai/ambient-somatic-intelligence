@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/embedding_sidecar.schema.json",
+  "title": "ASI Embedding Sidecar Metadata",
+  "type": "object",
+  "required": [
+    "embedding_id",
+    "schema_version",
+    "source_record_id",
+    "source_content_hash",
+    "embedding_model",
+    "embedding_dimension",
+    "embedding_created_at",
+    "vector_backend",
+    "vector_index_ref",
+    "privacy_class",
+    "retention_policy",
+    "source_schema_version",
+    "created_by",
+    "replay_pointer",
+    "metadata"
+  ],
+  "properties": {
+    "embedding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_content_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "embedding_model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "embedding_dimension": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "embedding_created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "vector_backend": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vector_index_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "privacy_class": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "sensitive",
+        "restricted"
+      ]
+    },
+    "retention_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "replay_pointer": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "source_line",
+        "timestamp",
+        "checksum",
+        "manifest_ref",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

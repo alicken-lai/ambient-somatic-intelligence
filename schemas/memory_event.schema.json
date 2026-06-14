@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/memory_event.schema.json",
+  "title": "ASI Memory Event",
+  "type": "object",
+  "required": [
+    "record_id",
+    "schema_version",
+    "event_type",
+    "timestamp",
+    "source_node",
+    "source_system",
+    "source_agent",
+    "sensor_type",
+    "modality",
+    "summary",
+    "content_ref",
+    "content_hash",
+    "confidence",
+    "privacy_class",
+    "retention_policy",
+    "governance_state",
+    "replay_pointer",
+    "embedding_ref",
+    "tags",
+    "lineage",
+    "created_by",
+    "created_at"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "sensor",
+        "somatic",
+        "system",
+        "agent_action",
+        "guardian_observation",
+        "governance_decision",
+        "replay_event"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_node": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_agent": {
+      "type": "string"
+    },
+    "sensor_type": {
+      "type": "string"
+    },
+    "modality": {
+      "type": "string",
+      "enum": [
+        "text",
+        "audio",
+        "image",
+        "video",
+        "timeseries",
+        "wifi_csi",
+        "power",
+        "temperature",
+        "humidity",
+        "vibration",
+        "access_control",
+        "system_log",
+        "agent_trace"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "privacy_class": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "sensitive",
+        "restricted"
+      ]
+    },
+    "retention_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "governance_state": {
+      "type": "string",
+      "enum": [
+        "raw",
+        "classified",
+        "promoted",
+        "recalled",
+        "reviewed",
+        "archived",
+        "deleted"
+      ]
+    },
+    "replay_pointer": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "source_line",
+        "timestamp",
+        "checksum",
+        "manifest_ref",
+        "phase",
+        "causal_event_id",
+        "root_event_id",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "causal_event_id": {
+          "type": "string"
+        },
+        "root_event_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "embedding_ref": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "embedding_id",
+        "sidecar_ref"
+      ],
+      "properties": {
+        "embedding_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sidecar_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "lineage": {
+      "type": "object",
+      "required": [
+        "parent_record_ids",
+        "root_record_id",
+        "derived_from",
+        "transformation"
+      ],
+      "properties": {
+        "parent_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "root_record_id": {
+          "type": "string"
+        },
+        "derived_from": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "transformation": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

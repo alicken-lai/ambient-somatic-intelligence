@@ -1,0 +1,131 @@
+{
+  "wrapper_id": "wrapper:consolidated:mem_1.0.0_home-hermes_text_temp-humidity-consolidation-c3d4e5f6",
+  "schema_version": "1.0.0",
+  "wrapper_type": "consolidated",
+  "created_at": "2026-06-10T02:10:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "sensor_home_temp_humidity_001",
+  "source_record_hash": "sha256:consolidatedsynthetic001",
+  "memory_event": {
+    "record_id": "mem_1.0.0_home-hermes_text_temp-humidity-consolidation-c3d4e5f6",
+    "schema_version": "1.0.0",
+    "event_type": "text",
+    "timestamp": "2026-06-10T02:10:00Z",
+    "source_node": "home-hermes",
+    "source_system": "asi-dmn-governance-dry-run",
+    "source_agent": "codex-docs",
+    "sensor_type": "temperature_humidity",
+    "modality": "temperature",
+    "summary": "Synthetic temperature and humidity trend consolidated from many similar observations into a replayable higher-level experience.",
+    "content_ref": "synthetic://dmn_governance/consolidated_memory",
+    "content_hash": "sha256:consolidatedsynthetic001",
+    "confidence": 0.79,
+    "privacy_class": "internal",
+    "retention_policy": "consolidated-operational-pattern",
+    "governance_state": "promoted",
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-consolidation-001",
+      "source_path": "examples/dmn_governance/consolidated_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:10:00Z",
+      "checksum": "sha256:consolidatedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-home-temp-humidity-consolidation-001",
+      "root_event_id": "event-home-temp-humidity-root",
+      "reason": ""
+    },
+    "embedding_ref": null,
+    "tags": [
+      "synthetic",
+      "temperature",
+      "humidity",
+      "consolidation",
+      "phase-1g6"
+    ],
+    "lineage": {
+      "parent_record_ids": [
+        "sensor_home_temp_humidity_001",
+        "sensor_home_temp_humidity_014",
+        "sensor_home_temp_humidity_041"
+      ],
+      "root_record_id": "sensor_home_temp_humidity_001",
+      "derived_from": [
+        "synthetic://sensor/home/temp-humidity/sample-manifest-001"
+      ],
+      "transformation": "consolidation"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T02:10:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "promoted",
+    "promotion_reason": "",
+    "promotion_score": null,
+    "decay_reason": "",
+    "importance_score": null,
+    "guardian_review_status": "not_reviewed",
+    "privacy_class": "internal",
+    "retention_policy": "consolidated-operational-pattern",
+    "requires_review": false,
+    "consolidated_from": [
+      "sensor_home_temp_humidity_001",
+      "sensor_home_temp_humidity_014",
+      "sensor_home_temp_humidity_041"
+    ],
+    "source_record_count": 128,
+    "pattern_summary": "Temperature drift and humidity rise repeatedly precede lower WiFi CSI stability in the synthetic sample window.",
+    "representative_examples": [
+      {
+        "record_id": "sensor_home_temp_humidity_001",
+        "summary": "Temperature rose 1.8 C while humidity rose 6 percent during a WiFi CSI stability drop."
+      },
+      {
+        "record_id": "sensor_home_temp_humidity_014",
+        "summary": "Humidity trend repeated without a power fluctuation."
+      },
+      {
+        "record_id": "sensor_home_temp_humidity_041",
+        "summary": "Temperature trend repeated during normal power state."
+      }
+    ],
+    "lineage_preservation": "source manifest, representative examples, parent IDs, and replay pointer retained"
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [
+      "sensor_home_temp_humidity_001",
+      "sensor_home_temp_humidity_014",
+      "sensor_home_temp_humidity_041"
+    ],
+    "derived_from": [
+      "synthetic://sensor/home/temp-humidity/sample-manifest-001"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": [
+      "sensor_home_temp_humidity_001",
+      "sensor_home_temp_humidity_014",
+      "sensor_home_temp_humidity_041"
+    ]
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-consolidation-001",
+      "source_path": "examples/dmn_governance/consolidated_memory.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:10:00Z",
+      "checksum": "sha256:consolidatedsynthetic001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-home-temp-humidity-consolidation-001",
+      "root_event_id": "event-home-temp-humidity-root",
+      "reason": ""
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-dmn-governance-contract-schemas.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}
