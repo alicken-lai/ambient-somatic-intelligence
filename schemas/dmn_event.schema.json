@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dmn_event.schema.json",
+  "title": "Hermes-ASI DMN Event",
+  "type": "object",
+  "required": ["event_type", "content", "timestamp"],
+  "additionalProperties": true,
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "SYSTEM_EVENT",
+        "DELIBERATION_EVENT",
+        "VERIFICATION_EVENT",
+        "EVIDENCE_EVENT",
+        "TRUST_EVENT",
+        "REALITY_EVENT",
+        "IDENTITY_EVENT",
+        "GUARDIAN_EVENT",
+        "GOVERNANCE_EVENT",
+        "FAILURE_EVENT",
+        "RECOVERY_EVENT"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string"
+    },
+    "producer_kernel": {
+      "type": "string"
+    },
+    "consumer_kernels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "retention": {
+      "type": "string",
+      "enum": ["ephemeral", "short", "long", "permanent", "review_required"]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "guardian": {
+      "type": "object"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

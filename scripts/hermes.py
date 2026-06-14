@@ -56,6 +56,8 @@ from hermes.identity.reports import (
     generate_life_history_report,
 )
 from hermes.audit import generate_audit_report
+from hermes.graph import generate_graph_health_report
+from hermes.release import generate_release_report
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -197,6 +199,14 @@ def build_parser() -> argparse.ArgumentParser:
     audit_report = sub.add_parser("audit-report", help="Generate Hermes-ASI v0.9 integration audit report.")
     audit_report.add_argument("--output", default="reports/institutional_audit_report.md")
     audit_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    graph_health_report = sub.add_parser("graph-health-report", help="Generate knowledge graph health report.")
+    graph_health_report.add_argument("--output", default="reports/graph_health_report.md")
+    graph_health_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    release_report = sub.add_parser("release-report", help="Generate Hermes-ASI v0.9 RC release report.")
+    release_report.add_argument("--output", default="reports/v09_release_report.md")
+    release_report.add_argument("--json", action="store_true", help="Print only JSON.")
     return parser
 
 
@@ -323,6 +333,10 @@ def main(argv: list[str] | None = None) -> int:
         return knowledge_report_command(generate_life_history_report, args)
     if args.command == "audit-report":
         return knowledge_report_command(generate_audit_report, args)
+    if args.command == "graph-health-report":
+        return knowledge_report_command(generate_graph_health_report, args)
+    if args.command == "release-report":
+        return knowledge_report_command(generate_release_report, args)
     parser.error(f"unknown command: {args.command}")
     return 2
 

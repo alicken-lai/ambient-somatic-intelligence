@@ -1,0 +1,29 @@
+{
+  "path": "C:\\Users\\User\\ambient-somatic-intelligence\\memory\\dmn.jsonl",
+  "total": 1756,
+  "valid": 1753,
+  "invalid": 3,
+  "missing_timestamp": 3,
+  "event_types": {
+    "FAILURE_EVENT": 6,
+    "GOVERNANCE_EVENT": 11,
+    "GUARDIAN_EVENT": 1423,
+    "IDENTITY_EVENT": 23,
+    "REALITY_EVENT": 5,
+    "SYSTEM_EVENT": 288
+  },
+  "errors": [
+    {
+      "line": 1373,
+      "message": "'' should be non-empty"
+    },
+    {
+      "line": 1473,
+      "message": "'' should be non-empty"
+    },
+    {
+      "line": 1475,
+      "message": "'' should be non-empty"
+    }
+  ]
+}
