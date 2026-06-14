@@ -94,6 +94,31 @@ class DeliberationKnowledgeGraph:
             self.add_edge(str(outcome.get("target_id")), "has_validation_outcome", str(outcome.get("outcome_id")))
         return self
 
+    def add_identity_assets(
+        self,
+        *,
+        identity: dict[str, Any],
+        narrative_events: list[dict[str, Any]],
+        continuity: dict[str, Any],
+        life_history: dict[str, Any],
+    ) -> "DeliberationKnowledgeGraph":
+        identity_id = str(identity.get("identity_id", "identity"))
+        self.add_edge("Identity", "contains", identity_id)
+        for value in identity.get("core_values", []):
+            self.add_edge(identity_id, "has_core_value", str(value))
+        for principle in identity.get("core_principles", []):
+            self.add_edge(identity_id, "has_principle", str(principle))
+        for objective in identity.get("long_term_objectives", []):
+            self.add_edge(identity_id, "has_objective", str(objective))
+        for event in narrative_events:
+            event_id = str(event.get("event_id"))
+            self.add_edge("NarrativeEvents", "contains", event_id)
+            self.add_edge(event_id, "supports_identity", identity_id)
+        for stable in continuity.get("stable", []):
+            self.add_edge(identity_id, "continuity_link", str(stable))
+        self.add_edge(identity_id, "has_life_history_events", str(life_history.get("event_count", 0)))
+        return self
+
     def trust_weighted_query(self, source: str, trust_scores: dict[str, float], *, minimum_trust: float = 0.5) -> list[dict[str, str]]:
         return [
             edge

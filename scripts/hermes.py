@@ -50,6 +50,11 @@ from hermes.reality_alignment.reports import (
     generate_fitness_report,
     generate_reality_report,
 )
+from hermes.identity.reports import (
+    generate_continuity_report,
+    generate_identity_report,
+    generate_life_history_report,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -175,6 +180,18 @@ def build_parser() -> argparse.ArgumentParser:
     diversity_report = sub.add_parser("diversity-report", help="Generate knowledge diversity report.")
     diversity_report.add_argument("--output", default="reports/diversity_report.md")
     diversity_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    identity_report = sub.add_parser("identity-report", help="Generate narrative identity report.")
+    identity_report.add_argument("--output", default="reports/identity_report.md")
+    identity_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    continuity_report = sub.add_parser("continuity-report", help="Generate identity continuity report.")
+    continuity_report.add_argument("--output", default="reports/continuity_report.md")
+    continuity_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    life_history_report = sub.add_parser("life-history-report", help="Generate institutional life-history report.")
+    life_history_report.add_argument("--output", default="reports/life_history_report.md")
+    life_history_report.add_argument("--json", action="store_true", help="Print only JSON.")
     return parser
 
 
@@ -293,6 +310,12 @@ def main(argv: list[str] | None = None) -> int:
         return knowledge_report_command(generate_reality_report, args)
     if args.command == "diversity-report":
         return knowledge_report_command(generate_diversity_report, args)
+    if args.command == "identity-report":
+        return knowledge_report_command(generate_identity_report, args)
+    if args.command == "continuity-report":
+        return knowledge_report_command(generate_continuity_report, args)
+    if args.command == "life-history-report":
+        return knowledge_report_command(generate_life_history_report, args)
     parser.error(f"unknown command: {args.command}")
     return 2
 
