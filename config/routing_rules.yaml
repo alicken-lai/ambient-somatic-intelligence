@@ -1,0 +1,108 @@
+routing_rules:
+  general_reasoning:
+    prefer:
+      - copilot
+      - openrouter.claude_sonnet
+      - local_ollama_worker
+    required_capabilities:
+      - general_reasoning
+    max_cost_tier: medium
+
+  codebase_analysis:
+    prefer:
+      - cursor_worker
+      - vscode_worker
+      - codex_cli_worker
+    required_capabilities:
+      - codebase_context
+    allow_local_file_access: true
+    max_cost_tier: medium
+
+  code_edit:
+    prefer:
+      - cursor_worker
+      - codex_cli_worker
+    required_capabilities:
+      - repo_edit
+      - local_file_access
+    allow_local_file_access: true
+    allow_code_modification: true
+    max_cost_tier: medium
+
+  architecture_design:
+    prefer:
+      - copilot
+      - openrouter.claude_opus
+      - openrouter.claude_sonnet
+      - claude_desktop_worker
+    required_capabilities:
+      - architecture_design
+    max_cost_tier: high
+
+  long_context_review:
+    prefer:
+      - claude_desktop_worker
+      - openrouter.claude_opus
+      - openrouter.claude_sonnet
+      - copilot
+    required_capabilities:
+      - long_context
+    max_cost_tier: high
+
+  fast_answer:
+    prefer:
+      - copilot
+      - local_ollama_worker
+      - grok_cli_worker
+      - openrouter.deepseek
+    required_capabilities:
+      - fast_answer
+    max_cost_tier: medium
+
+  cheap_batch:
+    prefer:
+      - local_ollama_worker
+    required_capabilities:
+      - cheap_batch
+    max_cost_tier: low
+
+  creative_generation:
+    prefer:
+      - grok_cli_worker
+      - openrouter.claude_sonnet
+      - copilot
+    required_capabilities:
+      - creative_generation
+    max_cost_tier: medium
+
+  local_file_operation:
+    prefer:
+      - codex_cli_worker
+      - vscode_worker
+      - cursor_worker
+    required_capabilities:
+      - local_file_access
+    allow_cloud: false
+    allow_local_file_access: true
+    max_cost_tier: medium
+
+  test_runner:
+    prefer:
+      - vscode_worker
+      - codex_cli_worker
+    required_capabilities:
+      - test_runner
+    allow_cloud: false
+    allow_local_file_access: true
+    allow_terminal_execution: true
+    max_cost_tier: medium
+
+  memory_sensitive_task:
+    prefer:
+      - local_ollama_worker
+      - codex_cli_worker
+      - claude_desktop_worker
+    required_capabilities:
+      - local_sensitive
+    allow_cloud: false
+    max_cost_tier: high

@@ -1,0 +1,265 @@
+providers:
+  copilot:
+    enabled: true
+    type: cli_or_builtin
+    command: null
+    base_url: http://localhost:8780/v1
+    api_key_env: COPILOT_API_KEY
+    default_model: gpt-5.5
+    available_models:
+      - gpt-5.5
+    capabilities:
+      - reasoning
+      - coding
+      - synthesis
+      - general_reasoning
+      - codebase_analysis
+      - architecture_design
+      - long_context
+      - creative_generation
+      - fast_answer
+    priority: 1
+    cost_tier: medium
+    latency_tier: low
+    context_window: 128000
+    health_check_endpoint: /health
+    fallback_provider: openrouter
+    allow_cloud: true
+    requires_auth: false
+
+  openrouter:
+    enabled: false
+    type: openrouter
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    default_model: anthropic/claude-sonnet-4
+    available_models:
+      - anthropic/claude-opus-4
+      - anthropic/claude-sonnet-4
+      - qwen/qwen3-coder
+      - deepseek/deepseek-chat
+    model_aliases:
+      claude_opus: anthropic/claude-opus-4
+      claude_sonnet: anthropic/claude-sonnet-4
+      qwen_coder: qwen/qwen3-coder
+      deepseek: deepseek/deepseek-chat
+    capabilities:
+      - general_reasoning
+      - architecture_design
+      - long_context
+      - creative_generation
+      - fast_answer
+      - cheap_batch
+    priority: 40
+    cost_tier: medium
+    latency_tier: medium
+    context_window: 200000
+    health_check_endpoint: /models
+    allow_cloud: true
+    requires_auth: true
+
+  cursor_cli:
+    enabled: false
+    type: cli
+    command: cursor
+    health_check:
+      args: ["--version"]
+    priority: 5
+    capabilities:
+      - coding
+      - repo_context
+    cost_tier: medium
+    latency_tier: medium
+    fallback: copilot
+    allow_cloud: false
+    requires_auth: false
+
+  claude_cli:
+    enabled: false
+    type: cli
+    command: claude
+    health_check:
+      args: ["--version"]
+    priority: 4
+    capabilities:
+      - reasoning
+      - coding
+      - critique
+    cost_tier: medium
+    latency_tier: medium
+    fallback: copilot
+    allow_cloud: false
+    requires_auth: false
+
+  gemini_cli:
+    enabled: false
+    type: cli
+    command: gemini
+    health_check:
+      args: ["--version"]
+    priority: 4
+    capabilities:
+      - reasoning
+      - web
+      - coding
+    cost_tier: medium
+    latency_tier: medium
+    fallback: copilot
+    allow_cloud: false
+    requires_auth: false
+
+  grok_cli:
+    enabled: false
+    type: cli
+    command: grok
+    health_check:
+      args: ["--version"]
+    priority: 6
+    capabilities:
+      - reasoning
+      - realtime_context
+    cost_tier: medium
+    latency_tier: medium
+    fallback: copilot
+    allow_cloud: false
+    requires_auth: false
+
+  cursor_worker:
+    enabled: true
+    type: openai-compatible
+    base_url: http://localhost:8781/v1
+    api_key_env: CURSOR_WORKER_API_KEY
+    default_model: cursor/active
+    available_models:
+      - cursor/active
+    capabilities:
+      - repo_edit
+      - codebase_context
+      - refactor
+      - diff_generation
+      - local_file_access
+    priority: 10
+    cost_tier: medium
+    latency_tier: low
+    context_window: 128000
+    health_check_endpoint: /health
+    fallback_provider: vscode_worker
+    allow_cloud: false
+    requires_auth: false
+
+  vscode_worker:
+    enabled: true
+    type: openai-compatible
+    base_url: http://localhost:8782/v1
+    api_key_env: VSCODE_WORKER_API_KEY
+    default_model: vscode/active
+    available_models:
+      - vscode/active
+    capabilities:
+      - filesystem
+      - terminal
+      - test_runner
+      - local_file_access
+      - codebase_context
+    priority: 15
+    cost_tier: medium
+    latency_tier: low
+    context_window: 128000
+    health_check_endpoint: /health
+    fallback_provider: codex_cli_worker
+    allow_cloud: false
+    requires_auth: false
+
+  claude_desktop_worker:
+    enabled: true
+    type: mcp-agent
+    base_url: http://localhost:8783/v1
+    api_key_env: CLAUDE_DESKTOP_WORKER_API_KEY
+    default_model: claude-desktop/active
+    available_models:
+      - claude-desktop/active
+    capabilities:
+      - long_reasoning
+      - long_context
+      - writing
+      - architecture_design
+      - architecture_review
+      - mcp_tools
+      - local_sensitive
+    priority: 25
+    cost_tier: high
+    latency_tier: medium
+    context_window: 200000
+    health_check_endpoint: /health
+    fallback_provider: openrouter
+    allow_cloud: false
+    requires_auth: false
+
+  codex_cli_worker:
+    enabled: true
+    type: local-cli
+    base_url: http://localhost:8784/v1
+    api_key_env: CODEX_CLI_WORKER_API_KEY
+    default_model: codex-cli/active
+    available_models:
+      - codex-cli/active
+    capabilities:
+      - repo_edit
+      - local_file_access
+      - terminal
+      - test_runner
+      - codebase_analysis
+      - codebase_context
+      - local_sensitive
+    priority: 18
+    cost_tier: medium
+    latency_tier: medium
+    context_window: 128000
+    health_check_endpoint: /health
+    fallback_provider: copilot
+    allow_cloud: false
+    requires_auth: false
+
+  grok_cli_worker:
+    enabled: true
+    type: local-cli
+    base_url: http://localhost:8785/v1
+    api_key_env: GROK_CLI_WORKER_API_KEY
+    default_model: grok-cli/active
+    available_models:
+      - grok-cli/active
+    capabilities:
+      - general_reasoning
+      - creative_generation
+      - fast_answer
+    priority: 70
+    cost_tier: medium
+    latency_tier: medium
+    context_window: 128000
+    health_check_endpoint: /health
+    fallback_provider: openrouter
+    allow_cloud: false
+    requires_auth: false
+
+  local_ollama_worker:
+    enabled: true
+    type: openai-compatible
+    base_url: http://localhost:11434/v1
+    api_key_env: OLLAMA_API_KEY
+    default_model: qwen2.5-coder
+    available_models:
+      - qwen2.5-coder
+      - llama3.1
+    capabilities:
+      - cheap_batch
+      - fast_answer
+      - general_reasoning
+      - local_sensitive
+    priority: 30
+    cost_tier: low
+    latency_tier: low
+    context_window: 32768
+    health_check_endpoint: /models
+    fallback_provider: openrouter
+    allow_cloud: false
+    requires_auth: false
