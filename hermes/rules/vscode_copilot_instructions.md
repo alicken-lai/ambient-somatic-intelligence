@@ -55,6 +55,21 @@ Read-only search and file reads do not require approval.
 
 ---
 
+## Hermes Subagents
+
+- Provider is primarily an agent dispatcher: classify intent, choose model/provider/subagent, allocate context, set constraints and verification requirements, then delegate concrete execution and main response drafting to subagents whenever available and proportionate.
+- Provider should not directly run shell commands, edit files, cause external side effects, perform coding/debugging/review/deployment, large research/data整理, or long-form final writing when a suitable subagent route exists.
+- Direct Provider action is acceptable for brief confirmations, clarification, safety blocking, simple no-tool facts, explicit user requests for Provider response, very small tasks, subagent unavailability, or required synchronous control.
+- Subagents perform tool operations, file reads/writes, commands, tests, verification, research, drafts, code, reports, and final text. They return actions taken, tools/files used, artifact path / URL / ID / status code, verification result, and incomplete or blocked portions.
+- Cross-IDE GPT subagent calls must be routed through Hermes-ASI, not direct IDE-to-IDE side channels.
+- Requests should define source IDE, target IDE, `task: "subagent"`, scoped instructions, expected output, memory permissions, timeout, and sync/async mode.
+- Hermes authenticates the caller and target, validates Guardian permissions, routes to an available target GPT, and returns structured output or explicit error codes/messages.
+- Shared DMN / TurboVec / ASI memory access is optional and Guardian-scoped; isolate context when contamination risk exists.
+- Use synchronous calls for quick tasks and asynchronous queued calls for long-running work.
+- Log timeouts, exceptions, retries, fallbacks, and all cross-IDE subagent activity.
+
+---
+
 ## Reality Replay / Freeze (agents must not)
 
 - Bypass reality or operational unlock gates

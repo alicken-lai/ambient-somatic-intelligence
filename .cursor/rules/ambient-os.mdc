@@ -41,6 +41,10 @@ From `main`; no force-push `main`; no `git config`; commit only when user asks.
 
 Decompose → guardian on plan → recall per subtask → Task sub-agents → integrate → `dmn_append`. Parent owns Hermes MCP for sub-agents.
 
+Provider/Subagent default split is defined in [`provider-subagent.mdc`](provider-subagent.mdc): Provider orchestrates; subagents handle execution, tool use, and main response drafting when available and proportionate.
+
+Cross-IDE GPT subagent calls must go through Hermes-ASI routing with source/target IDE, `task: "subagent"`, scoped instructions, expected output, sync/async mode, timeout, and memory permissions. Hermes authenticates, checks Guardian permissions, routes execution, returns output or explicit errors, and logs cross-IDE activity. Shared memory access is optional and Guardian-scoped; isolate context when contamination risk exists.
+
 ## 使用者溝通
 
 **繁體中文**；Guardian 非 ALLOW 用 `[Guardian]` 格式；不可跳過或繞過 `BLOCK`。

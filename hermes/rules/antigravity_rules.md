@@ -33,6 +33,20 @@ Do not nest autonomous agents beyond platform limits.
 
 ---
 
+## Cross-IDE Hermes subagents
+
+Provider is primarily an agent dispatcher: classify intent, choose model/provider/subagent, allocate context, set constraints and verification requirements, then delegate concrete execution and main response drafting to subagents whenever available and proportionate.
+
+Provider should not directly run shell commands, edit files, cause external side effects, perform coding/debugging/review/deployment, large research/data整理, or long-form final writing when a suitable subagent route exists. Direct Provider action is acceptable for brief confirmations, clarification, safety blocking, simple no-tool facts, explicit user requests for Provider response, very small tasks, subagent unavailability, or required synchronous control.
+
+Subagents perform tool operations, file reads/writes, commands, tests, verification, research, drafts, code, reports, and final text. They must return actions taken, tools/files used, artifact path / URL / ID / status code, verification result, and incomplete or blocked portions.
+
+Request GPT subagents in other IDEs only through Hermes-ASI routing. Each request defines source IDE, target IDE, `task: "subagent"`, scoped instructions, expected output, memory permissions, timeout, and sync/async mode.
+
+Hermes authenticates the caller and target, checks Guardian permissions, routes to an available target GPT, and returns structured output or explicit error codes/messages. Shared DMN / TurboVec / ASI memory access is optional and Guardian-scoped; use isolated context when contamination risk exists. Prefer synchronous calls for quick tasks and asynchronous queued calls for long-running tasks. Log timeouts, exceptions, retries, fallbacks, and all cross-IDE subagent activity.
+
+---
+
 ## No self-verification
 
 Write all DMN memory records in English, even when the user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
