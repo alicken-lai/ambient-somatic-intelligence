@@ -1,0 +1,32 @@
+{
+  "health": {
+    "health_score": 81.5,
+    "risk_level": "low",
+    "confidence": {
+      "coverage": 100.0,
+      "trust": 74.73,
+      "freshness": 100.0,
+      "consistency": 100.0,
+      "verification": 100.0,
+      "overall": 93.68
+    }
+  },
+  "confidence": {
+    "coverage": 100.0,
+    "trust": 81.18,
+    "freshness": 100.0,
+    "consistency": 100.0,
+    "verification": 100.0,
+    "overall": 95.3
+  },
+  "inflation": {
+    "inflation_risk": 0.6088,
+    "reason": "Evidence volume may be inflated by repeated or low-diversity sources."
+  },
+  "drift": {
+    "drift_detected": false,
+    "severity": "none",
+    "stale_assets": [],
+    "recommendation": "No drift detected."
+  }
+}

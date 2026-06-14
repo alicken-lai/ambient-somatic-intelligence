@@ -1,0 +1,10 @@
+{
+  "claim_count": 34,
+  "by_type": {
+    "architecture": 1,
+    "fact": 20,
+    "security": 4,
+    "policy": 4,
+    "governance": 5
+  }
+}

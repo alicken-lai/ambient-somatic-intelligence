@@ -1,0 +1,1952 @@
+{
+  "acq-evidence-57f47d0541eee5eb": {
+    "evidence_id": "acq-evidence-57f47d0541eee5eb",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.493352+00:00",
+    "supports_claims": [
+      "claim-c0b35e4953f1b6e9"
+    ]
+  },
+  "acq-evidence-39995274f88181f0": {
+    "evidence_id": "acq-evidence-39995274f88181f0",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.493352+00:00",
+    "supports_claims": [
+      "claim-c0b35e4953f1b6e9"
+    ]
+  },
+  "acq-evidence-5f4500be05fccc0e": {
+    "evidence_id": "acq-evidence-5f4500be05fccc0e",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.493352+00:00",
+    "supports_claims": [
+      "claim-c0b35e4953f1b6e9"
+    ]
+  },
+  "acq-evidence-b8173f3105ee5681": {
+    "evidence_id": "acq-evidence-b8173f3105ee5681",
+    "source_type": "Reports",
+    "source_reference": "reports\\skill_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:18.995081+00:00",
+    "supports_claims": [
+      "claim-c0b35e4953f1b6e9"
+    ]
+  },
+  "acq-evidence-c4cbed808783f401": {
+    "evidence_id": "acq-evidence-c4cbed808783f401",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.496353+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-bcab2bf696425e43": {
+    "evidence_id": "acq-evidence-bcab2bf696425e43",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.496353+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-4b6276b93f1481fa": {
+    "evidence_id": "acq-evidence-4b6276b93f1481fa",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.722116+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-e1fa9521c2024b96": {
+    "evidence_id": "acq-evidence-e1fa9521c2024b96",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:18.997088+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-53dae97aafc93352": {
+    "evidence_id": "acq-evidence-53dae97aafc93352",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.498354+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-0f0291880ec50a8d": {
+    "evidence_id": "acq-evidence-0f0291880ec50a8d",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.498354+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-316e3fc424a90fe3": {
+    "evidence_id": "acq-evidence-316e3fc424a90fe3",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.724124+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-3e0dccda9edc8a9f": {
+    "evidence_id": "acq-evidence-3e0dccda9edc8a9f",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:18.999088+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-93c9ba78289186a4": {
+    "evidence_id": "acq-evidence-93c9ba78289186a4",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.501356+00:00",
+    "supports_claims": [
+      "claim-2b74131d77991024"
+    ]
+  },
+  "acq-evidence-8cde5136853a2cff": {
+    "evidence_id": "acq-evidence-8cde5136853a2cff",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.501356+00:00",
+    "supports_claims": [
+      "claim-2b74131d77991024"
+    ]
+  },
+  "acq-evidence-42e0e52afce9e6b0": {
+    "evidence_id": "acq-evidence-42e0e52afce9e6b0",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.501356+00:00",
+    "supports_claims": [
+      "claim-2b74131d77991024"
+    ]
+  },
+  "acq-evidence-553cb576e890890e": {
+    "evidence_id": "acq-evidence-553cb576e890890e",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.001083+00:00",
+    "supports_claims": [
+      "claim-2b74131d77991024"
+    ]
+  },
+  "acq-evidence-c893e3f85ed12175": {
+    "evidence_id": "acq-evidence-c893e3f85ed12175",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.505359+00:00",
+    "supports_claims": [
+      "claim-c1efc050026ac18b"
+    ]
+  },
+  "acq-evidence-5166a77a746cfddf": {
+    "evidence_id": "acq-evidence-5166a77a746cfddf",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.505359+00:00",
+    "supports_claims": [
+      "claim-c1efc050026ac18b"
+    ]
+  },
+  "acq-evidence-fce48604e42c93c9": {
+    "evidence_id": "acq-evidence-fce48604e42c93c9",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.505359+00:00",
+    "supports_claims": [
+      "claim-c1efc050026ac18b"
+    ]
+  },
+  "acq-evidence-5b52f041569ac98c": {
+    "evidence_id": "acq-evidence-5b52f041569ac98c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.003088+00:00",
+    "supports_claims": [
+      "claim-c1efc050026ac18b"
+    ]
+  },
+  "acq-evidence-a64508ce75cd26d8": {
+    "evidence_id": "acq-evidence-a64508ce75cd26d8",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.509360+00:00",
+    "supports_claims": [
+      "claim-ff0da6d92257abe3"
+    ]
+  },
+  "acq-evidence-2ffe2b4ff72d5a72": {
+    "evidence_id": "acq-evidence-2ffe2b4ff72d5a72",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.509360+00:00",
+    "supports_claims": [
+      "claim-ff0da6d92257abe3"
+    ]
+  },
+  "acq-evidence-7f1f2a4bf96a5b78": {
+    "evidence_id": "acq-evidence-7f1f2a4bf96a5b78",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.509360+00:00",
+    "supports_claims": [
+      "claim-ff0da6d92257abe3"
+    ]
+  },
+  "acq-evidence-f1a2734d11114871": {
+    "evidence_id": "acq-evidence-f1a2734d11114871",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.005095+00:00",
+    "supports_claims": [
+      "claim-ff0da6d92257abe3"
+    ]
+  },
+  "acq-evidence-905c025e51e22c0c": {
+    "evidence_id": "acq-evidence-905c025e51e22c0c",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.513360+00:00",
+    "supports_claims": [
+      "claim-a1d1de409423398f"
+    ]
+  },
+  "acq-evidence-3fcda39db82ce662": {
+    "evidence_id": "acq-evidence-3fcda39db82ce662",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.513360+00:00",
+    "supports_claims": [
+      "claim-a1d1de409423398f"
+    ]
+  },
+  "acq-evidence-37cbd6792d9959f3": {
+    "evidence_id": "acq-evidence-37cbd6792d9959f3",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.513360+00:00",
+    "supports_claims": [
+      "claim-a1d1de409423398f"
+    ]
+  },
+  "acq-evidence-0261c21962b6d0c0": {
+    "evidence_id": "acq-evidence-0261c21962b6d0c0",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.007094+00:00",
+    "supports_claims": [
+      "claim-a1d1de409423398f"
+    ]
+  },
+  "acq-evidence-7976d12540ee5471": {
+    "evidence_id": "acq-evidence-7976d12540ee5471",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.516361+00:00",
+    "supports_claims": [
+      "claim-bb752d695d06ff79"
+    ]
+  },
+  "acq-evidence-dd5d6217c7c6ab42": {
+    "evidence_id": "acq-evidence-dd5d6217c7c6ab42",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.516361+00:00",
+    "supports_claims": [
+      "claim-bb752d695d06ff79"
+    ]
+  },
+  "acq-evidence-6b060795cc531334": {
+    "evidence_id": "acq-evidence-6b060795cc531334",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.516361+00:00",
+    "supports_claims": [
+      "claim-bb752d695d06ff79"
+    ]
+  },
+  "acq-evidence-2e27b5b2bcd404d7": {
+    "evidence_id": "acq-evidence-2e27b5b2bcd404d7",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.009094+00:00",
+    "supports_claims": [
+      "claim-bb752d695d06ff79"
+    ]
+  },
+  "acq-evidence-fd8af3e5ab68da68": {
+    "evidence_id": "acq-evidence-fd8af3e5ab68da68",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.519879+00:00",
+    "supports_claims": [
+      "claim-b707d887e077c1b6"
+    ]
+  },
+  "acq-evidence-e80fd0c6d4a3fe56": {
+    "evidence_id": "acq-evidence-e80fd0c6d4a3fe56",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.519879+00:00",
+    "supports_claims": [
+      "claim-b707d887e077c1b6"
+    ]
+  },
+  "acq-evidence-52473d2fe570c4ab": {
+    "evidence_id": "acq-evidence-52473d2fe570c4ab",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.519879+00:00",
+    "supports_claims": [
+      "claim-b707d887e077c1b6"
+    ]
+  },
+  "acq-evidence-f6c5f85c0e88dbae": {
+    "evidence_id": "acq-evidence-f6c5f85c0e88dbae",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.011102+00:00",
+    "supports_claims": [
+      "claim-b707d887e077c1b6"
+    ]
+  },
+  "acq-evidence-e522788f0de63461": {
+    "evidence_id": "acq-evidence-e522788f0de63461",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.522879+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-ef5557c4b27bab4c": {
+    "evidence_id": "acq-evidence-ef5557c4b27bab4c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.522879+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-fd3f23b924eb2a92": {
+    "evidence_id": "acq-evidence-fd3f23b924eb2a92",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.739676+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-6f94f5695515f386": {
+    "evidence_id": "acq-evidence-6f94f5695515f386",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.013102+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-5ee845a07617768f": {
+    "evidence_id": "acq-evidence-5ee845a07617768f",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.524881+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-6c5be208f3c1ea5b": {
+    "evidence_id": "acq-evidence-6c5be208f3c1ea5b",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.524881+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-99371d7a4ec01810": {
+    "evidence_id": "acq-evidence-99371d7a4ec01810",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:00:31.383931+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-58506f6afacfcb0c": {
+    "evidence_id": "acq-evidence-58506f6afacfcb0c",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.742677+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-cc82286c9f3538f5": {
+    "evidence_id": "acq-evidence-cc82286c9f3538f5",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.527878+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-4776a8df9b1d48b8": {
+    "evidence_id": "acq-evidence-4776a8df9b1d48b8",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.527878+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-ff306bfca85bc0ce": {
+    "evidence_id": "acq-evidence-ff306bfca85bc0ce",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.527878+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-185df7755c2923ce": {
+    "evidence_id": "acq-evidence-185df7755c2923ce",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.744673+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-6c0ed2bce1cd87fb": {
+    "evidence_id": "acq-evidence-6c0ed2bce1cd87fb",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.531887+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-24e3aa5c4955ac0c": {
+    "evidence_id": "acq-evidence-24e3aa5c4955ac0c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.531887+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-b36f1abe490e1353": {
+    "evidence_id": "acq-evidence-b36f1abe490e1353",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.531887+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-3aed141072d57ec6": {
+    "evidence_id": "acq-evidence-3aed141072d57ec6",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.746679+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-0766b33123f95bfa": {
+    "evidence_id": "acq-evidence-0766b33123f95bfa",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.536890+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-385569a6dc7c1d5a": {
+    "evidence_id": "acq-evidence-385569a6dc7c1d5a",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.536890+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-42369089e2fe12df": {
+    "evidence_id": "acq-evidence-42369089e2fe12df",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:00:31.391947+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-70c76f75dc05b233": {
+    "evidence_id": "acq-evidence-70c76f75dc05b233",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.748679+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-6ea6ca4e14aa413c": {
+    "evidence_id": "acq-evidence-6ea6ca4e14aa413c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.538888+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-c2430acb81e1fd44": {
+    "evidence_id": "acq-evidence-c2430acb81e1fd44",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.538888+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-24e9bdb0a10491ee": {
+    "evidence_id": "acq-evidence-24e9bdb0a10491ee",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:00:31.394949+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-3768d2a00efdcc68": {
+    "evidence_id": "acq-evidence-3768d2a00efdcc68",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.752677+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-8c7d8bcf67ad2c44": {
+    "evidence_id": "acq-evidence-8c7d8bcf67ad2c44",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.541888+00:00",
+    "supports_claims": [
+      "claim-f468b4157537d0b4"
+    ]
+  },
+  "acq-evidence-044d438c455a1d71": {
+    "evidence_id": "acq-evidence-044d438c455a1d71",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.541888+00:00",
+    "supports_claims": [
+      "claim-f468b4157537d0b4"
+    ]
+  },
+  "acq-evidence-def0690729737061": {
+    "evidence_id": "acq-evidence-def0690729737061",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.541888+00:00",
+    "supports_claims": [
+      "claim-f468b4157537d0b4"
+    ]
+  },
+  "acq-evidence-8cf0f4a72be3d1eb": {
+    "evidence_id": "acq-evidence-8cf0f4a72be3d1eb",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.026611+00:00",
+    "supports_claims": [
+      "claim-f468b4157537d0b4"
+    ]
+  },
+  "acq-evidence-a6df8bceb27b8d3e": {
+    "evidence_id": "acq-evidence-a6df8bceb27b8d3e",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.544396+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-71b3ff9d97aacb15": {
+    "evidence_id": "acq-evidence-71b3ff9d97aacb15",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.544396+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-6943c4ce9719c6da": {
+    "evidence_id": "acq-evidence-6943c4ce9719c6da",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:00:31.399948+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-6cdaa3a037b98435": {
+    "evidence_id": "acq-evidence-6cdaa3a037b98435",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.756679+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-10b295a971c1e5d7": {
+    "evidence_id": "acq-evidence-10b295a971c1e5d7",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.547406+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-cf542dcd3c381c15": {
+    "evidence_id": "acq-evidence-cf542dcd3c381c15",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.547406+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-3b0fe7db6a60ac7c": {
+    "evidence_id": "acq-evidence-3b0fe7db6a60ac7c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:00:31.401951+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-b22aa31bf5721170": {
+    "evidence_id": "acq-evidence-b22aa31bf5721170",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T13:41:19.758678+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-21c943d52c8c0073": {
+    "evidence_id": "acq-evidence-21c943d52c8c0073",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.549406+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-10019e3ed176bb1f": {
+    "evidence_id": "acq-evidence-10019e3ed176bb1f",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.549406+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-ab8a8ca4206b7244": {
+    "evidence_id": "acq-evidence-ab8a8ca4206b7244",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.549406+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-8cd5f15e5ef2cdeb": {
+    "evidence_id": "acq-evidence-8cd5f15e5ef2cdeb",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.760676+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-6ba5af1524e6e18b": {
+    "evidence_id": "acq-evidence-6ba5af1524e6e18b",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.552405+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-e742a00166b46799": {
+    "evidence_id": "acq-evidence-e742a00166b46799",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.552405+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-09cc4af79b94bfab": {
+    "evidence_id": "acq-evidence-09cc4af79b94bfab",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:00:31.406987+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-81f4da5027641608": {
+    "evidence_id": "acq-evidence-81f4da5027641608",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.762675+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-90d66235c0687182": {
+    "evidence_id": "acq-evidence-90d66235c0687182",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.555406+00:00",
+    "supports_claims": [
+      "claim-34b25dc038540f15"
+    ]
+  },
+  "acq-evidence-e0fcc73bc949f2fa": {
+    "evidence_id": "acq-evidence-e0fcc73bc949f2fa",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.555406+00:00",
+    "supports_claims": [
+      "claim-34b25dc038540f15"
+    ]
+  },
+  "acq-evidence-8e1d062a6a153b76": {
+    "evidence_id": "acq-evidence-8e1d062a6a153b76",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.555406+00:00",
+    "supports_claims": [
+      "claim-34b25dc038540f15"
+    ]
+  },
+  "acq-evidence-b6b4006cdf587a47": {
+    "evidence_id": "acq-evidence-b6b4006cdf587a47",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.037610+00:00",
+    "supports_claims": [
+      "claim-34b25dc038540f15"
+    ]
+  },
+  "acq-evidence-bf29b89a6a482367": {
+    "evidence_id": "acq-evidence-bf29b89a6a482367",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.557405+00:00",
+    "supports_claims": [
+      "claim-129bb1252a8064f1"
+    ]
+  },
+  "acq-evidence-e499e1207c4b14c4": {
+    "evidence_id": "acq-evidence-e499e1207c4b14c4",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.557405+00:00",
+    "supports_claims": [
+      "claim-129bb1252a8064f1"
+    ]
+  },
+  "acq-evidence-6933642f1157bcbd": {
+    "evidence_id": "acq-evidence-6933642f1157bcbd",
+    "source_type": "Playbooks",
+    "source_reference": "reports\\playbook_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.557405+00:00",
+    "supports_claims": [
+      "claim-129bb1252a8064f1"
+    ]
+  },
+  "acq-evidence-10f8683147621308": {
+    "evidence_id": "acq-evidence-10f8683147621308",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.557405+00:00",
+    "supports_claims": [
+      "claim-129bb1252a8064f1"
+    ]
+  },
+  "acq-evidence-fae45feb46642c35": {
+    "evidence_id": "acq-evidence-fae45feb46642c35",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.6667,
+    "timestamp": "2026-06-14T14:01:46.560406+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-2a3d998d7ada4791": {
+    "evidence_id": "acq-evidence-2a3d998d7ada4791",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.560406+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-9929ab92ae132b44": {
+    "evidence_id": "acq-evidence-9929ab92ae132b44",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.3333,
+    "timestamp": "2026-06-14T14:01:46.560406+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-0d04cbcd24968d47": {
+    "evidence_id": "acq-evidence-0d04cbcd24968d47",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.3333,
+    "timestamp": "2026-06-14T13:41:19.769680+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-d60d73be5b25cc1e": {
+    "evidence_id": "acq-evidence-d60d73be5b25cc1e",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.564406+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-a9c1a15a7e10b2e1": {
+    "evidence_id": "acq-evidence-a9c1a15a7e10b2e1",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.564406+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-fc837fb76d1c2d04": {
+    "evidence_id": "acq-evidence-fc837fb76d1c2d04",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.564406+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-8660ebba1f33ad93": {
+    "evidence_id": "acq-evidence-8660ebba1f33ad93",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.772678+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-ea8fc28253f6175d": {
+    "evidence_id": "acq-evidence-ea8fc28253f6175d",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.5714,
+    "timestamp": "2026-06-14T14:01:46.568405+00:00",
+    "supports_claims": [
+      "claim-b8eb2a45f0d6d0f0"
+    ]
+  },
+  "acq-evidence-98d2d9e5e13621a4": {
+    "evidence_id": "acq-evidence-98d2d9e5e13621a4",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.5714,
+    "timestamp": "2026-06-14T14:01:46.568405+00:00",
+    "supports_claims": [
+      "claim-b8eb2a45f0d6d0f0"
+    ]
+  },
+  "acq-evidence-d4f7ef32c91f6957": {
+    "evidence_id": "acq-evidence-d4f7ef32c91f6957",
+    "source_type": "Playbooks",
+    "source_reference": "reports\\playbook_report.md",
+    "confidence": 0.5714,
+    "timestamp": "2026-06-14T14:01:46.568405+00:00",
+    "supports_claims": [
+      "claim-b8eb2a45f0d6d0f0"
+    ]
+  },
+  "acq-evidence-38625d841bb7383c": {
+    "evidence_id": "acq-evidence-38625d841bb7383c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4286,
+    "timestamp": "2026-06-14T14:01:46.568405+00:00",
+    "supports_claims": [
+      "claim-b8eb2a45f0d6d0f0"
+    ]
+  },
+  "acq-evidence-a49e391e7f2b994b": {
+    "evidence_id": "acq-evidence-a49e391e7f2b994b",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.571414+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-403ee77b58c28bed": {
+    "evidence_id": "acq-evidence-403ee77b58c28bed",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.571414+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-e073c0db29f95b5c": {
+    "evidence_id": "acq-evidence-e073c0db29f95b5c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.571414+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-5556f355393d598c": {
+    "evidence_id": "acq-evidence-5556f355393d598c",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.777685+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-23e08c3d02abe37f": {
+    "evidence_id": "acq-evidence-23e08c3d02abe37f",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.047610+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-659ab673826c60af": {
+    "evidence_id": "acq-evidence-659ab673826c60af",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.574415+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-9858525b596162a3": {
+    "evidence_id": "acq-evidence-9858525b596162a3",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.574415+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-a9eeca51fd3aeb3d": {
+    "evidence_id": "acq-evidence-a9eeca51fd3aeb3d",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.574415+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-384c98b36f79e52d": {
+    "evidence_id": "acq-evidence-384c98b36f79e52d",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.780682+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-d6ac8a063008d541": {
+    "evidence_id": "acq-evidence-d6ac8a063008d541",
+    "source_type": "Reports",
+    "source_reference": "reports\\skill_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.050617+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-0b98055ef49c265c": {
+    "evidence_id": "acq-evidence-0b98055ef49c265c",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.576414+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-d4b60c49db9474e2": {
+    "evidence_id": "acq-evidence-d4b60c49db9474e2",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.576414+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-4f550c934e00d269": {
+    "evidence_id": "acq-evidence-4f550c934e00d269",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:00:31.427004+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-3e07b8a862a17651": {
+    "evidence_id": "acq-evidence-3e07b8a862a17651",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_ab_results.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.782682+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-94627872aa7de0bd": {
+    "evidence_id": "acq-evidence-94627872aa7de0bd",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.052612+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-f9b8a0b55c21c2ec": {
+    "evidence_id": "acq-evidence-f9b8a0b55c21c2ec",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.578413+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-66635688f8a27aa7": {
+    "evidence_id": "acq-evidence-66635688f8a27aa7",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.578413+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-380915cf24a9b78e": {
+    "evidence_id": "acq-evidence-380915cf24a9b78e",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.784687+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-31a4a290b9f2d55f": {
+    "evidence_id": "acq-evidence-31a4a290b9f2d55f",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.054610+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-ea9f43ce7787723d": {
+    "evidence_id": "acq-evidence-ea9f43ce7787723d",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.581412+00:00",
+    "supports_claims": [
+      "claim-cfffe1f879744c62"
+    ]
+  },
+  "acq-evidence-37fc591e5922a8cf": {
+    "evidence_id": "acq-evidence-37fc591e5922a8cf",
+    "source_type": "Verification Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.581412+00:00",
+    "supports_claims": [
+      "claim-cfffe1f879744c62"
+    ]
+  },
+  "acq-evidence-c7196555b6051200": {
+    "evidence_id": "acq-evidence-c7196555b6051200",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.581412+00:00",
+    "supports_claims": [
+      "claim-cfffe1f879744c62"
+    ]
+  },
+  "acq-evidence-b913f7373f508998": {
+    "evidence_id": "acq-evidence-b913f7373f508998",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T13:41:19.056617+00:00",
+    "supports_claims": [
+      "claim-cfffe1f879744c62"
+    ]
+  },
+  "acq-evidence-60eaf76ba77c1c11": {
+    "evidence_id": "acq-evidence-60eaf76ba77c1c11",
+    "source_type": "Failure Reports",
+    "source_reference": "reports\\failure_learning_report.md",
+    "confidence": 0.8,
+    "timestamp": "2026-06-14T14:01:46.583415+00:00",
+    "supports_claims": [
+      "claim-9fff80a4445d6699"
+    ]
+  },
+  "acq-evidence-1c69ca897e6da64a": {
+    "evidence_id": "acq-evidence-1c69ca897e6da64a",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.3,
+    "timestamp": "2026-06-14T14:01:46.583415+00:00",
+    "supports_claims": [
+      "claim-9fff80a4445d6699"
+    ]
+  },
+  "acq-evidence-37d9c1ee62b8d032": {
+    "evidence_id": "acq-evidence-37d9c1ee62b8d032",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.3,
+    "timestamp": "2026-06-14T14:01:46.583415+00:00",
+    "supports_claims": [
+      "claim-9fff80a4445d6699"
+    ]
+  },
+  "acq-evidence-32745883eca4fc58": {
+    "evidence_id": "acq-evidence-32745883eca4fc58",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.3,
+    "timestamp": "2026-06-14T13:41:19.058617+00:00",
+    "supports_claims": [
+      "claim-9fff80a4445d6699"
+    ]
+  },
+  "acq-evidence-c99adfc2d0647680": {
+    "evidence_id": "acq-evidence-c99adfc2d0647680",
+    "source_type": "Failure Reports",
+    "source_reference": "reports\\failure_learning_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.585415+00:00",
+    "supports_claims": [
+      "claim-36b105446396eae2"
+    ]
+  },
+  "acq-evidence-311de5c48522e1c0": {
+    "evidence_id": "acq-evidence-311de5c48522e1c0",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.625,
+    "timestamp": "2026-06-14T14:01:46.585415+00:00",
+    "supports_claims": [
+      "claim-36b105446396eae2"
+    ]
+  },
+  "acq-evidence-f5c4534473902a60": {
+    "evidence_id": "acq-evidence-f5c4534473902a60",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.375,
+    "timestamp": "2026-06-14T14:01:46.585415+00:00",
+    "supports_claims": [
+      "claim-36b105446396eae2"
+    ]
+  },
+  "acq-evidence-cba2e1293111a84a": {
+    "evidence_id": "acq-evidence-cba2e1293111a84a",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_report.md",
+    "confidence": 0.25,
+    "timestamp": "2026-06-14T13:41:19.060610+00:00",
+    "supports_claims": [
+      "claim-36b105446396eae2"
+    ]
+  },
+  "acq-evidence-9ce0680a9f308c8c": {
+    "evidence_id": "acq-evidence-9ce0680a9f308c8c",
+    "source_type": "Failure Reports",
+    "source_reference": "reports\\failure_learning_report.md",
+    "confidence": 0.75,
+    "timestamp": "2026-06-14T14:01:46.587929+00:00",
+    "supports_claims": [
+      "claim-5dad51917397ba0a"
+    ]
+  },
+  "acq-evidence-8c9d39317c5726e1": {
+    "evidence_id": "acq-evidence-8c9d39317c5726e1",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.625,
+    "timestamp": "2026-06-14T14:01:46.587929+00:00",
+    "supports_claims": [
+      "claim-5dad51917397ba0a"
+    ]
+  },
+  "acq-evidence-afe573a0050ac58b": {
+    "evidence_id": "acq-evidence-afe573a0050ac58b",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.587929+00:00",
+    "supports_claims": [
+      "claim-5dad51917397ba0a"
+    ]
+  },
+  "acq-evidence-e8c768877e4ec9a1": {
+    "evidence_id": "acq-evidence-e8c768877e4ec9a1",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_strategy_report.json",
+    "confidence": 0.375,
+    "timestamp": "2026-06-14T14:01:46.587929+00:00",
+    "supports_claims": [
+      "claim-5dad51917397ba0a"
+    ]
+  },
+  "acq-evidence-7374aa036657859f": {
+    "evidence_id": "acq-evidence-7374aa036657859f",
+    "source_type": "Failure Reports",
+    "source_reference": "reports\\failure_learning_report.md",
+    "confidence": 0.7778,
+    "timestamp": "2026-06-14T14:01:46.590930+00:00",
+    "supports_claims": [
+      "claim-6cd2e0b466e6b950"
+    ]
+  },
+  "acq-evidence-f40978e531dd1b83": {
+    "evidence_id": "acq-evidence-f40978e531dd1b83",
+    "source_type": "Reports",
+    "source_reference": "reports\\claim_report.md",
+    "confidence": 0.6667,
+    "timestamp": "2026-06-14T14:01:46.590930+00:00",
+    "supports_claims": [
+      "claim-6cd2e0b466e6b950"
+    ]
+  },
+  "acq-evidence-fb10942fded0020c": {
+    "evidence_id": "acq-evidence-fb10942fded0020c",
+    "source_type": "Benchmarks",
+    "source_reference": "tests\\golden_traces\\benchmarks.json",
+    "confidence": 0.5556,
+    "timestamp": "2026-06-14T14:01:46.590930+00:00",
+    "supports_claims": [
+      "claim-6cd2e0b466e6b950"
+    ]
+  },
+  "acq-evidence-8c62275fe52796bb": {
+    "evidence_id": "acq-evidence-8c62275fe52796bb",
+    "source_type": "Reports",
+    "source_reference": "reports\\deliberation_quality_report.md",
+    "confidence": 0.4444,
+    "timestamp": "2026-06-14T14:01:46.590930+00:00",
+    "supports_claims": [
+      "claim-6cd2e0b466e6b950"
+    ]
+  },
+  "acq-evidence-819b6a18127db3a5": {
+    "evidence_id": "acq-evidence-819b6a18127db3a5",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.493352+00:00",
+    "supports_claims": [
+      "claim-c0b35e4953f1b6e9"
+    ]
+  },
+  "acq-evidence-ac0614676c77b3ad": {
+    "evidence_id": "acq-evidence-ac0614676c77b3ad",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.496353+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-9e46335c55e30be2": {
+    "evidence_id": "acq-evidence-9e46335c55e30be2",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.498354+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-4178041342bf1ce9": {
+    "evidence_id": "acq-evidence-4178041342bf1ce9",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.501356+00:00",
+    "supports_claims": [
+      "claim-2b74131d77991024"
+    ]
+  },
+  "acq-evidence-b6ac6573154053b2": {
+    "evidence_id": "acq-evidence-b6ac6573154053b2",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.505359+00:00",
+    "supports_claims": [
+      "claim-c1efc050026ac18b"
+    ]
+  },
+  "acq-evidence-740cab5962e03727": {
+    "evidence_id": "acq-evidence-740cab5962e03727",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.509360+00:00",
+    "supports_claims": [
+      "claim-ff0da6d92257abe3"
+    ]
+  },
+  "acq-evidence-a20ca45815beb552": {
+    "evidence_id": "acq-evidence-a20ca45815beb552",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.513360+00:00",
+    "supports_claims": [
+      "claim-a1d1de409423398f"
+    ]
+  },
+  "acq-evidence-74c60b755827fcee": {
+    "evidence_id": "acq-evidence-74c60b755827fcee",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.516361+00:00",
+    "supports_claims": [
+      "claim-bb752d695d06ff79"
+    ]
+  },
+  "acq-evidence-7944c16c2426434a": {
+    "evidence_id": "acq-evidence-7944c16c2426434a",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.519879+00:00",
+    "supports_claims": [
+      "claim-b707d887e077c1b6"
+    ]
+  },
+  "acq-evidence-a20074721da69b52": {
+    "evidence_id": "acq-evidence-a20074721da69b52",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.522879+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-23b6ece76057511a": {
+    "evidence_id": "acq-evidence-23b6ece76057511a",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.524881+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-d87f389963e68343": {
+    "evidence_id": "acq-evidence-d87f389963e68343",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.527878+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-c543a905e40de5db": {
+    "evidence_id": "acq-evidence-c543a905e40de5db",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.531887+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-c7b4a1f93b7c1da6": {
+    "evidence_id": "acq-evidence-c7b4a1f93b7c1da6",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.536890+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-b51c740dbb04ba6d": {
+    "evidence_id": "acq-evidence-b51c740dbb04ba6d",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.538888+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-131a10d1e375c2b1": {
+    "evidence_id": "acq-evidence-131a10d1e375c2b1",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.541888+00:00",
+    "supports_claims": [
+      "claim-f468b4157537d0b4"
+    ]
+  },
+  "acq-evidence-35928599746ec150": {
+    "evidence_id": "acq-evidence-35928599746ec150",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.544396+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-11b81fe248cd4f0a": {
+    "evidence_id": "acq-evidence-11b81fe248cd4f0a",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.547406+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-afcc1c80370a6825": {
+    "evidence_id": "acq-evidence-afcc1c80370a6825",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.549406+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-353e07d9017a0d95": {
+    "evidence_id": "acq-evidence-353e07d9017a0d95",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.552405+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-7bc43745089cbfe1": {
+    "evidence_id": "acq-evidence-7bc43745089cbfe1",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.555406+00:00",
+    "supports_claims": [
+      "claim-34b25dc038540f15"
+    ]
+  },
+  "acq-evidence-a5574b5c23ae8f67": {
+    "evidence_id": "acq-evidence-a5574b5c23ae8f67",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.3333,
+    "timestamp": "2026-06-14T14:01:46.560406+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-fbc47f0ff4ae2392": {
+    "evidence_id": "acq-evidence-fbc47f0ff4ae2392",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.564406+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-493994f14613e41f": {
+    "evidence_id": "acq-evidence-493994f14613e41f",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.571414+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-97412a3f186679bc": {
+    "evidence_id": "acq-evidence-97412a3f186679bc",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.574415+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-4d5b32951a249174": {
+    "evidence_id": "acq-evidence-4d5b32951a249174",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.576414+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-b9c107458d65fa81": {
+    "evidence_id": "acq-evidence-b9c107458d65fa81",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.578413+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-ee79a177f35a82db": {
+    "evidence_id": "acq-evidence-ee79a177f35a82db",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.581412+00:00",
+    "supports_claims": [
+      "claim-cfffe1f879744c62"
+    ]
+  },
+  "acq-evidence-89758f72cd9e1e6a": {
+    "evidence_id": "acq-evidence-89758f72cd9e1e6a",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.3,
+    "timestamp": "2026-06-14T14:01:46.583415+00:00",
+    "supports_claims": [
+      "claim-9fff80a4445d6699"
+    ]
+  },
+  "acq-evidence-f50912556d31ad53": {
+    "evidence_id": "acq-evidence-f50912556d31ad53",
+    "source_type": "Reports",
+    "source_reference": "reports\\acquisition_report.md",
+    "confidence": 0.25,
+    "timestamp": "2026-06-14T14:01:46.585415+00:00",
+    "supports_claims": [
+      "claim-36b105446396eae2"
+    ]
+  },
+  "acq-evidence-8f3bcdbbd6fce039": {
+    "evidence_id": "acq-evidence-8f3bcdbbd6fce039",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.496353+00:00",
+    "supports_claims": [
+      "claim-cf7e9de9b1d2e37d"
+    ]
+  },
+  "acq-evidence-73f6093d70d1cc77": {
+    "evidence_id": "acq-evidence-73f6093d70d1cc77",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.498354+00:00",
+    "supports_claims": [
+      "claim-1295a14ba52e6a1c"
+    ]
+  },
+  "acq-evidence-e20495b83a24ccb9": {
+    "evidence_id": "acq-evidence-e20495b83a24ccb9",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.522879+00:00",
+    "supports_claims": [
+      "claim-d0b78f147c042126"
+    ]
+  },
+  "acq-evidence-fb77a690460dc95c": {
+    "evidence_id": "acq-evidence-fb77a690460dc95c",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.524881+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-eb2aa46eccb49d01": {
+    "evidence_id": "acq-evidence-eb2aa46eccb49d01",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.527878+00:00",
+    "supports_claims": [
+      "claim-b5c4297933ccd87a"
+    ]
+  },
+  "acq-evidence-736755fe3d4d8b62": {
+    "evidence_id": "acq-evidence-736755fe3d4d8b62",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.531887+00:00",
+    "supports_claims": [
+      "claim-42f747b59eac7cbe"
+    ]
+  },
+  "acq-evidence-225a56b48336a14a": {
+    "evidence_id": "acq-evidence-225a56b48336a14a",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.536890+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-2afb1068f898528e": {
+    "evidence_id": "acq-evidence-2afb1068f898528e",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.538888+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-3b7e51cf19074b1a": {
+    "evidence_id": "acq-evidence-3b7e51cf19074b1a",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.544396+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-1656e3a46896e440": {
+    "evidence_id": "acq-evidence-1656e3a46896e440",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.547406+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-1922307c1a1d3401": {
+    "evidence_id": "acq-evidence-1922307c1a1d3401",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.549406+00:00",
+    "supports_claims": [
+      "claim-89222a69dc521cdc"
+    ]
+  },
+  "acq-evidence-ecf4c8c72a7a09ad": {
+    "evidence_id": "acq-evidence-ecf4c8c72a7a09ad",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.552405+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-f4d11ea245fbeac8": {
+    "evidence_id": "acq-evidence-f4d11ea245fbeac8",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.3333,
+    "timestamp": "2026-06-14T14:01:46.560406+00:00",
+    "supports_claims": [
+      "claim-5fcbcbc288d4baf1"
+    ]
+  },
+  "acq-evidence-8b8dedc81c3e6b18": {
+    "evidence_id": "acq-evidence-8b8dedc81c3e6b18",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.564406+00:00",
+    "supports_claims": [
+      "claim-177ca5b97b4f434d"
+    ]
+  },
+  "acq-evidence-a4d8bcc48191cb33": {
+    "evidence_id": "acq-evidence-a4d8bcc48191cb33",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.571414+00:00",
+    "supports_claims": [
+      "claim-82b0fc222341fb71"
+    ]
+  },
+  "acq-evidence-c4d560e7769f9b79": {
+    "evidence_id": "acq-evidence-c4d560e7769f9b79",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.574415+00:00",
+    "supports_claims": [
+      "claim-fb3687ac6bd337a3"
+    ]
+  },
+  "acq-evidence-721b69958bbd6138": {
+    "evidence_id": "acq-evidence-721b69958bbd6138",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:01:46.576414+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-681d6e1ba7b152dd": {
+    "evidence_id": "acq-evidence-681d6e1ba7b152dd",
+    "source_type": "Reports",
+    "source_reference": "reports\\evidence_quality_report.md",
+    "confidence": 0.4,
+    "timestamp": "2026-06-14T14:00:31.430001+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  },
+  "acq-evidence-08f888ebbe738645": {
+    "evidence_id": "acq-evidence-08f888ebbe738645",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.524881+00:00",
+    "supports_claims": [
+      "claim-00a652a30d9ec1c0"
+    ]
+  },
+  "acq-evidence-f2b3b787e981ed11": {
+    "evidence_id": "acq-evidence-f2b3b787e981ed11",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.536890+00:00",
+    "supports_claims": [
+      "claim-be43749db13a818a"
+    ]
+  },
+  "acq-evidence-36436ca462926db7": {
+    "evidence_id": "acq-evidence-36436ca462926db7",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.538888+00:00",
+    "supports_claims": [
+      "claim-a5562609cc56fd9c"
+    ]
+  },
+  "acq-evidence-55712ccb79a812d4": {
+    "evidence_id": "acq-evidence-55712ccb79a812d4",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.544396+00:00",
+    "supports_claims": [
+      "claim-d095bdd8b5feb68e"
+    ]
+  },
+  "acq-evidence-81b5d516e31cf469": {
+    "evidence_id": "acq-evidence-81b5d516e31cf469",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.5,
+    "timestamp": "2026-06-14T14:01:46.547406+00:00",
+    "supports_claims": [
+      "claim-c62c02a8b1996bd0"
+    ]
+  },
+  "acq-evidence-ade616b18ddc3a8c": {
+    "evidence_id": "acq-evidence-ade616b18ddc3a8c",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.552405+00:00",
+    "supports_claims": [
+      "claim-3cf02b32a5377add"
+    ]
+  },
+  "acq-evidence-8dabcbeacb5bc164": {
+    "evidence_id": "acq-evidence-8dabcbeacb5bc164",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.576414+00:00",
+    "supports_claims": [
+      "claim-e243666d4c9f45be"
+    ]
+  },
+  "acq-evidence-3f73380efb6f54f6": {
+    "evidence_id": "acq-evidence-3f73380efb6f54f6",
+    "source_type": "Reports",
+    "source_reference": "reports\\knowledge_health_report.md",
+    "confidence": 0.6,
+    "timestamp": "2026-06-14T14:01:46.578413+00:00",
+    "supports_claims": [
+      "claim-248d87dfb3f91b86"
+    ]
+  }
+}

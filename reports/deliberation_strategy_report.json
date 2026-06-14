@@ -1,0 +1,53 @@
+{
+  "strategy": "light_adaptive_strategy",
+  "selected_children": [
+    {
+      "name": "GovernanceReviewer",
+      "capabilities": [
+        "governance",
+        "guardian"
+      ],
+      "strengths": [
+        "policy compliance"
+      ],
+      "weaknesses": [
+        "performance tuning"
+      ],
+      "recommended_task_classes": [
+        "provider_policy",
+        "memory_mutation",
+        "state_changing"
+      ]
+    },
+    {
+      "name": "PolicyReviewer",
+      "capabilities": [
+        "policy",
+        "provider_governance"
+      ],
+      "strengths": [
+        "rules interpretation"
+      ],
+      "weaknesses": [
+        "latency tuning"
+      ],
+      "recommended_task_classes": [
+        "provider_policy",
+        "credential_sensitive"
+      ]
+    }
+  ],
+  "expected_roi": 17.3,
+  "verification_depth": "standard",
+  "guardian_involvement": false,
+  "routing_decision": {
+    "recommended_mode": "light",
+    "reason": "Historical score evidence for provider_policy favors light.",
+    "confidence": 0.53,
+    "why_not_single": "single average score 51.55 is below selected light score 68.85.",
+    "why_not_light": "Selected mode.",
+    "why_not_full": "full average score 68.85 is below selected light score 68.85.",
+    "selected_mode": "light"
+  },
+  "reason": "Historical score evidence for provider_policy favors light."
+}

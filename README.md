@@ -202,6 +202,32 @@ Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 
 ---
 
+## 10.1 Hermes-ASI Deliberation Kernels
+
+This worktree also contains the Hermes-ASI deliberation kernel series, an advisory reasoning and evidence layer that sits under the existing Guardian-governed operating doctrine. It does not change Guardian authority, provider permissions, credential rules, or human approval requirements.
+
+Implemented kernels:
+
+- Phase 1: ASI Deliberation Layer with task triage, independent children, judge, verifier, synthesizer, trace persistence, provider discovery, CLI adapter, and `hermes deliberate`.
+- Phase 2: Evaluation and governance hardening with golden traces, scorecards, A/B tests, Guardian/trace/provider safety tests, observability, and `hermes deliberate-report`.
+- Phase 3: Adaptive routing intelligence with ROI, effectiveness memory, dynamic child selection, strategy planning, and `hermes routing-report`, `hermes roi-report`, `hermes strategy-report`.
+- Phase 4: Self-improving deliberation knowledge with skills, playbooks, pattern mining, failure learning, strategy memory, knowledge graph, and `hermes playbook-report`, `hermes skill-report`, `hermes failure-report`.
+- Phase 5: Verification and evidence kernel with claim extraction, evidence objects, claim-evidence graph, contradiction detection, evidence scoring, and `hermes evidence-report`, `hermes claim-report`, `hermes verification-report`, `hermes contradiction-report`.
+- Phase 6: Knowledge and evidence acquisition with source registry, evidence collector/linker, confidence model, knowledge reuse, internal knowledge index, and `hermes acquisition-report`, `hermes evidence-quality-report`, `hermes knowledge-index-report`.
+- Phase 7: Trust and knowledge calibration with trust registry, calibrated confidence, trust-weighted verification, inflation/self-reference/drift detection, knowledge health scoring, and `hermes knowledge-health-report`, `hermes trust-report`, `hermes drift-report`.
+
+Current calibration evidence:
+
+- Raw acquired evidence score: 100.00
+- Calibrated confidence overall: 95.30
+- Knowledge health score: 81.50
+- Inflation risk: 0.6088, caused by repeated or low-diversity evidence sources
+- Drift: none detected
+
+The important shift is from raw evidence volume toward calibrated belief. Acquisition can raise support coverage, but calibration can still reduce health when evidence is repetitive, stale, self-referential, or low-trust.
+
+---
+
 ## 11. Release Lineage
 
 | Epoch | Tag / codename | Summary |

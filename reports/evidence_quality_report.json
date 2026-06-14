@@ -1,0 +1,30 @@
+{
+  "quality": {
+    "score": 100.0,
+    "rating": "A",
+    "confidence": {
+      "confidence": 1.0,
+      "reasoning": [
+        "support_count=170",
+        "source_diversity=5",
+        "avg_source_trust=0.85",
+        "freshness=1.00",
+        "verification_success_history=0.00"
+      ]
+    }
+  },
+  "empty_baseline_rating": {
+    "score": 10.0,
+    "rating": "F",
+    "confidence": {
+      "confidence": 0.1,
+      "reasoning": [
+        "support_count=0",
+        "source_diversity=0",
+        "avg_source_trust=0.00",
+        "freshness=0.00",
+        "verification_success_history=1.00"
+      ]
+    }
+  }
+}
