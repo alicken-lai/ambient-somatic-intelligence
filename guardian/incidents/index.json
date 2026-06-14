@@ -1,15 +1,18 @@
 {
-  "generated_at": "2026-05-11T22:15:25.672052+00:00",
+  "generated_at": "2026-06-13T23:31:53.054888+00:00",
   "incident_count": 2,
   "incidents": [
     {
       "anomalies": [
         {
+          "confidence": null,
+          "confidence_class": "",
           "evidence": "observability/snapshots/telemetry-2026-05-11T133644.338636Z0000.json",
           "recommendation": "Review memory pressure and avoid launching additional heavy local tasks.",
           "rule": "high_memory_usage",
+          "scoring_artifact": null,
           "severity": "warning",
-          "value": 99.61
+          "true_anomaly": null
         }
       ],
       "anomaly_count": 1,
@@ -20,77 +23,31 @@
             "source": "guardian_reflex",
             "timestamp": "2026-05-11T21:49:02.704609+00:00"
           }
-        ],
-        "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json": [
-          {
-            "dmn_line": "27",
-            "source": "guardian_reflex",
-            "timestamp": "2026-05-11T21:49:02.704609+00:00"
-          }
         ]
       },
       "extra_telemetry": "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json",
-      "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+      "incident": "guardian\\incidents\\incident-2026-05-11T214902.702883Z0000.md",
       "policy": "guardian/reflex_policy.yaml",
       "recommendations": [
         "Review memory pressure and avoid launching additional heavy local tasks."
       ],
       "screenshot": "tools/cua/screenshots/grafana-2026-05-11T214900.334186Z0000.png",
       "telemetry_snapshots": [
-        "observability/snapshots/telemetry-2026-05-11T133644.338636Z0000.json",
-        "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json"
+        "observability/snapshots/telemetry-2026-05-11T133644.338636Z0000.json"
       ],
-      "timestamp": "2026-05-11T21:49:02.703942+00:00"
+      "timestamp": "2026-05-11T21:49:02.702891+00:00"
     },
     {
       "anomalies": [
         {
           "confidence": 0.1,
           "confidence_class": "low_confidence_watch",
-          "context": {
-            "baseline": {
-              "delta": -1.7725,
-              "direction": "below_baseline",
-              "mean": 99.4625,
-              "stddev": 0.1413,
-              "z_score": -12.5442
-            },
-            "containers": [
-              {
-                "cpu_percent": "0.05%",
-                "memory_percent": "0.97%",
-                "memory_usage": "77.04MiB / 7.75GiB",
-                "name": "ambient-grafana"
-              },
-              {
-                "cpu_percent": "0.00%",
-                "memory_percent": "0.62%",
-                "memory_usage": "48.9MiB / 7.75GiB",
-                "name": "ambient-prometheus"
-              }
-            ],
-            "docker_vm": {
-              "cpus": 10,
-              "detected": true,
-              "memory_mib": 8192,
-              "memory_percent": 0.2,
-              "pid": 12894,
-              "rss_mb": 32.8
-            },
-            "max_container_memory_percent": 0.97,
-            "swap": {
-              "raw": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)",
-              "used": "0.00M",
-              "used_mb": 0.0
-            }
-          },
           "evidence": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
           "recommendation": "Review memory pressure and avoid launching additional heavy local tasks.",
           "rule": "high_memory_usage",
           "scoring_artifact": true,
           "severity": "warning",
-          "true_anomaly": false,
-          "value": 97.69
+          "true_anomaly": false
         }
       ],
       "anomaly_count": 1,
@@ -111,36 +68,28 @@
             "source": "guardian_reflex",
             "timestamp": "2026-05-11T22:14:37.783131+00:00"
           }
-        ],
-        "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json": [
-          {
-            "dmn_line": "52",
-            "source": "guardian_reflex",
-            "timestamp": "2026-05-11T22:14:37.783131+00:00"
-          }
         ]
       },
       "extra_telemetry": "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json",
-      "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+      "incident": "guardian\\incidents\\incident-2026-05-11T221437.780998Z0000.md",
       "policy": "guardian/reflex_policy.yaml",
       "recommendations": [
         "Review memory pressure and avoid launching additional heavy local tasks."
       ],
       "screenshot": "tools/cua/screenshots/grafana-2026-05-11T221435.484630Z0000.png",
       "telemetry_snapshots": [
-        "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
-        "observability/snapshots/telemetry-2026-05-11T221435.452488Z0000.json"
+        "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json"
       ],
-      "timestamp": "2026-05-11T22:14:37.782126+00:00"
+      "timestamp": "2026-05-11T22:14:37.781007+00:00"
     }
   ],
   "patterns": {
     "confidence_classes": {
       "low_confidence_watch": 1
     },
-    "generated_at": "2026-05-11T22:15:25.671960+00:00",
+    "generated_at": "2026-06-13T23:31:53.054888+00:00",
     "incident_count": 2,
-    "latest_incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+    "latest_incident": "guardian\\incidents\\incident-2026-05-11T221437.780998Z0000.md",
     "latest_severity": "warning",
     "previous_max_severity": "warning",
     "recommendations_only": true,

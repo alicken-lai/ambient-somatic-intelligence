@@ -1,8 +1,8 @@
 {
-  "baseline": "guardian/baselines/telemetry_baseline.json",
+  "baseline": "guardian\\baselines\\telemetry_baseline.json",
   "current": {
-    "health_score": 76.53,
-    "path": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
+    "health_score": 93.51,
+    "path": "observability\\snapshots\\telemetry-2026-06-13T233017.792275Z0000.json",
     "source": "snapshot",
     "subsystems": {
       "cpu_health": {
@@ -12,17 +12,17 @@
           {
             "cpu_usage_percent": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 9.2,
-              "baseline_stddev": 5.4963,
-              "deviation_score": 100.0,
-              "score": 100.0,
-              "value": 4.58,
-              "z_score": 0.0
+              "baseline_mean": 12.638,
+              "baseline_stddev": 15.2063,
+              "deviation_score": 73.53,
+              "score": 73.53,
+              "value": 35.0,
+              "z_score": 1.4706
             }
           }
         ],
-        "raw_score": 100.0,
-        "score": 100.0
+        "raw_score": 73.53,
+        "score": 73.53
       },
       "disk_health": {
         "incident_links": [],
@@ -31,17 +31,17 @@
           {
             "disk_used_percent": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 53.965,
-              "baseline_stddev": 0.3204,
-              "deviation_score": 68.82,
-              "score": 68.82,
-              "value": 54.52,
-              "z_score": 1.7322
+              "baseline_mean": 49.2956,
+              "baseline_stddev": 11.7682,
+              "deviation_score": 100.0,
+              "score": 100.0,
+              "value": 22.37,
+              "z_score": 0.0
             }
           }
         ],
-        "raw_score": 68.82,
-        "score": 68.82
+        "raw_score": 100.0,
+        "score": 100.0
       },
       "load_health": {
         "incident_links": [],
@@ -50,33 +50,33 @@
           {
             "load_average_1m": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 1.68,
-              "baseline_stddev": 0.647,
+              "baseline_mean": 1.2952,
+              "baseline_stddev": 0.5114,
               "deviation_score": 100.0,
               "score": 100.0,
-              "value": 1.39,
+              "value": 0.33,
               "z_score": 0.0
             }
           },
           {
             "load_average_5m": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 1.745,
-              "baseline_stddev": 0.0497,
+              "baseline_mean": 1.3528,
+              "baseline_stddev": 0.4611,
               "deviation_score": 100.0,
               "score": 100.0,
-              "value": 1.5,
+              "value": 0.33,
               "z_score": 0.0
             }
           },
           {
             "load_average_15m": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 1.745,
-              "baseline_stddev": 0.0838,
+              "baseline_mean": 1.3516,
+              "baseline_stddev": 0.4617,
               "deviation_score": 100.0,
               "score": 100.0,
-              "value": 1.5,
+              "value": 0.33,
               "z_score": 0.0
             }
           }
@@ -91,24 +91,30 @@
             "rule": "high_memory_usage",
             "severity": "warning",
             "timestamp": "2026-05-11T21:49:02.703942+00:00"
+          },
+          {
+            "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+            "rule": "high_memory_usage",
+            "severity": "warning",
+            "timestamp": "2026-05-11T22:14:37.782126+00:00"
           }
         ],
-        "incident_penalty": 3.0,
+        "incident_penalty": 6.0,
         "metrics": [
           {
             "memory_used_percent": {
-              "absolute_pressure_score": 46.93,
-              "baseline_mean": 99.4625,
-              "baseline_stddev": 0.1413,
+              "absolute_pressure_score": 100.0,
+              "baseline_mean": 91.2048,
+              "baseline_stddev": 15.434,
               "deviation_score": 100.0,
-              "score": 46.93,
-              "value": 97.69,
+              "score": 100.0,
+              "value": 56.13,
               "z_score": 0.0
             }
           }
         ],
-        "raw_score": 46.93,
-        "score": 43.93
+        "raw_score": 100.0,
+        "score": 94.0
       },
       "process_health": {
         "incident_links": [],
@@ -117,26 +123,26 @@
           {
             "process_count": {
               "absolute_pressure_score": 100.0,
-              "baseline_mean": 632.0,
-              "baseline_stddev": 20.3224,
-              "deviation_score": 69.89,
-              "score": 69.89,
-              "value": 666.0,
-              "z_score": 1.673
+              "baseline_mean": 611.16,
+              "baseline_stddev": 111.5931,
+              "deviation_score": 100.0,
+              "score": 100.0,
+              "value": 366.0,
+              "z_score": 0.0
             }
           }
         ],
-        "raw_score": 69.89,
-        "score": 69.89
+        "raw_score": 100.0,
+        "score": 100.0
       }
     },
-    "timestamp": "2026-05-11T21:57:12.348987+00:00"
+    "timestamp": "2026-06-13T23:30:17.792275+00:00"
   },
-  "generated_at": "2026-05-11T22:02:48.229731+00:00",
+  "generated_at": "2026-06-13T23:31:49.218373+00:00",
   "history": [
     {
-      "health_score": 86.99,
-      "path": "observability/snapshots/telemetry-2026-05-11T133636.561643Z0000.json",
+      "health_score": 83.37,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T133636.561643Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -146,8 +152,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 2.12,
@@ -165,17 +171,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 93.14,
+                "score": 93.14,
                 "value": 53.78,
-                "z_score": 0.0
+                "z_score": 0.3811
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 93.14,
+          "score": 93.14
         },
         "load_health": {
           "incident_links": [],
@@ -184,39 +190,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 98.42,
+                "score": 98.42,
                 "value": 1.34,
-                "z_score": 0.0
+                "z_score": 0.0876
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 85.28,
+                "score": 85.28,
                 "value": 1.73,
-                "z_score": 0.0
+                "z_score": 0.818
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 88.19,
-                "score": 88.19,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 82.52,
+                "score": 82.52,
                 "value": 1.8,
-                "z_score": 0.6563
+                "z_score": 0.9712
               }
             }
           ],
-          "raw_score": 96.06,
-          "score": 96.06
+          "raw_score": 88.74,
+          "score": 88.74
         },
         "memory_health": {
           "incident_links": [
@@ -225,24 +231,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 41.89,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 90.48,
                 "score": 41.89,
                 "value": 99.37,
-                "z_score": 0.0
+                "z_score": 0.529
               }
             }
           ],
           "raw_score": 41.89,
-          "score": 38.89
+          "score": 35.89
         },
         "process_health": {
           "incident_links": [],
@@ -251,24 +263,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 99.06,
+                "score": 99.06,
                 "value": 617.0,
-                "z_score": 0.0
+                "z_score": 0.0523
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 99.06,
+          "score": 99.06
         }
       },
       "timestamp": "2026-05-11T13:36:36.561643+00:00"
     },
     {
-      "health_score": 87.0,
-      "path": "observability/snapshots/telemetry-2026-05-11T133644.326686Z0000.json",
+      "health_score": 83.22,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T133644.326686Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -278,8 +290,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 8.56,
@@ -297,17 +309,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 93.14,
+                "score": 93.14,
                 "value": 53.78,
-                "z_score": 0.0
+                "z_score": 0.3811
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 93.14,
+          "score": 93.14
         },
         "load_health": {
           "incident_links": [],
@@ -316,8 +328,8 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 1.29,
@@ -327,28 +339,28 @@
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 86.06,
+                "score": 86.06,
                 "value": 1.71,
-                "z_score": 0.0
+                "z_score": 0.7747
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 90.33,
-                "score": 90.33,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 82.91,
+                "score": 82.91,
                 "value": 1.79,
-                "z_score": 0.537
+                "z_score": 0.9495
               }
             }
           ],
-          "raw_score": 96.78,
-          "score": 96.78
+          "raw_score": 89.66,
+          "score": 89.66
         },
         "memory_health": {
           "incident_links": [
@@ -357,24 +369,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 41.23,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 83.76,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 90.22,
                 "score": 41.23,
                 "value": 99.59,
-                "z_score": 0.9023
+                "z_score": 0.5433
               }
             }
           ],
           "raw_score": 41.23,
-          "score": 38.23
+          "score": 35.23
         },
         "process_health": {
           "incident_links": [],
@@ -383,24 +401,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 98.09,
+                "score": 98.09,
                 "value": 623.0,
-                "z_score": 0.0
+                "z_score": 0.1061
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 98.09,
+          "score": 98.09
         }
       },
       "timestamp": "2026-05-11T13:36:44.326686+00:00"
     },
     {
-      "health_score": 86.99,
-      "path": "observability/snapshots/telemetry-2026-05-11T133644.338636Z0000.json",
+      "health_score": 83.28,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T133644.338636Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -410,8 +428,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 8.56,
@@ -429,17 +447,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 93.14,
+                "score": 93.14,
                 "value": 53.78,
-                "z_score": 0.0
+                "z_score": 0.3811
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 93.14,
+          "score": 93.14
         },
         "load_health": {
           "incident_links": [],
@@ -448,8 +466,8 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 1.29,
@@ -459,28 +477,28 @@
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 86.06,
+                "score": 86.06,
                 "value": 1.71,
-                "z_score": 0.0
+                "z_score": 0.7747
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 90.33,
-                "score": 90.33,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 82.91,
+                "score": 82.91,
                 "value": 1.79,
-                "z_score": 0.537
+                "z_score": 0.9495
               }
             }
           ],
-          "raw_score": 96.78,
-          "score": 96.78
+          "raw_score": 89.66,
+          "score": 89.66
         },
         "memory_health": {
           "incident_links": [
@@ -489,24 +507,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 41.17,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 81.21,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 90.2,
                 "score": 41.17,
                 "value": 99.61,
-                "z_score": 1.0439
+                "z_score": 0.5446
               }
             }
           ],
           "raw_score": 41.17,
-          "score": 38.17
+          "score": 35.17
         },
         "process_health": {
           "incident_links": [],
@@ -515,24 +539,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 98.41,
+                "score": 98.41,
                 "value": 621.0,
-                "z_score": 0.0
+                "z_score": 0.0882
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 98.41,
+          "score": 98.41
         }
       },
       "timestamp": "2026-05-11T13:36:44.338636+00:00"
     },
     {
-      "health_score": 65.79,
-      "path": "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json",
+      "health_score": 77.25,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T214900.299316Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -542,17 +566,17 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
-                "deviation_score": 72.62,
-                "score": 72.62,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 94.17,
+                "score": 94.17,
                 "value": 17.56,
-                "z_score": 1.521
+                "z_score": 0.3237
               }
             }
           ],
-          "raw_score": 72.62,
-          "score": 72.62
+          "raw_score": 94.17,
+          "score": 94.17
         },
         "disk_health": {
           "incident_links": [],
@@ -561,17 +585,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -580,39 +604,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 68.84,
-                "score": 68.84,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 47.03,
+                "score": 47.03,
                 "value": 2.8,
-                "z_score": 1.7311
+                "z_score": 2.9425
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 69.22,
-                "score": 69.22,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 81.37,
+                "score": 81.37,
                 "value": 1.83,
-                "z_score": 1.7103
+                "z_score": 1.0349
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 90.32,
+                "score": 90.32,
                 "value": 1.6,
-                "z_score": 0.0
+                "z_score": 0.538
               }
             }
           ],
-          "raw_score": 79.35,
-          "score": 79.35
+          "raw_score": 72.91,
+          "score": 72.91
         },
         "memory_health": {
           "incident_links": [
@@ -621,24 +645,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 42.16,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 90.58,
                 "score": 42.16,
                 "value": 99.28,
-                "z_score": 0.0
+                "z_score": 0.5232
               }
             }
           ],
           "raw_score": 42.16,
-          "score": 39.16
+          "score": 36.16
         },
         "process_health": {
           "incident_links": [],
@@ -647,24 +677,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.0,
-                "score": 69.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 90.99,
+                "score": 90.99,
                 "value": 667.0,
-                "z_score": 1.7222
+                "z_score": 0.5004
               }
             }
           ],
-          "raw_score": 69.0,
-          "score": 69.0
+          "raw_score": 90.99,
+          "score": 90.99
         }
       },
       "timestamp": "2026-05-11T21:49:00.299316+00:00"
     },
     {
-      "health_score": 76.07,
-      "path": "observability/snapshots/telemetry-2026-05-11T215707.665266Z0000.json",
+      "health_score": 83.54,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215707.665266Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -674,8 +704,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 2.37,
@@ -693,17 +723,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -712,39 +742,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -753,24 +783,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 46.42,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.24,
                 "score": 46.42,
                 "value": 97.86,
-                "z_score": 0.0
+                "z_score": 0.4312
               }
             }
           ],
           "raw_score": 46.42,
-          "score": 43.42
+          "score": 40.42
         },
         "process_health": {
           "incident_links": [],
@@ -779,24 +815,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 68.11,
-                "score": 68.11,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 90.83,
+                "score": 90.83,
                 "value": 668.0,
-                "z_score": 1.7714
+                "z_score": 0.5094
               }
             }
           ],
-          "raw_score": 68.11,
-          "score": 68.11
+          "raw_score": 90.83,
+          "score": 90.83
         }
       },
       "timestamp": "2026-05-11T21:57:07.665266+00:00"
     },
     {
-      "health_score": 76.37,
-      "path": "observability/snapshots/telemetry-2026-05-11T215707.970869Z0000.json",
+      "health_score": 83.77,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215707.970869Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -806,17 +842,17 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
-                "deviation_score": 98.17,
-                "score": 98.17,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 100.0,
+                "score": 100.0,
                 "value": 9.76,
-                "z_score": 0.1019
+                "z_score": 0.0
               }
             }
           ],
-          "raw_score": 98.17,
-          "score": 98.17
+          "raw_score": 100.0,
+          "score": 100.0
         },
         "disk_health": {
           "incident_links": [],
@@ -825,17 +861,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -844,39 +880,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -885,24 +921,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.11,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.51,
                 "score": 47.11,
                 "value": 97.63,
-                "z_score": 0.0
+                "z_score": 0.4163
               }
             }
           ],
           "raw_score": 47.11,
-          "score": 44.11
+          "score": 41.11
         },
         "process_health": {
           "incident_links": [],
@@ -911,24 +953,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 70.77,
-                "score": 70.77,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.32,
+                "score": 91.32,
                 "value": 665.0,
-                "z_score": 1.6238
+                "z_score": 0.4825
               }
             }
           ],
-          "raw_score": 70.77,
-          "score": 70.77
+          "raw_score": 91.32,
+          "score": 91.32
         }
       },
       "timestamp": "2026-05-11T21:57:07.970869+00:00"
     },
     {
-      "health_score": 76.32,
-      "path": "observability/snapshots/telemetry-2026-05-11T215708.287145Z0000.json",
+      "health_score": 83.79,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215708.287145Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -938,17 +980,17 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
-                "deviation_score": 97.81,
-                "score": 97.81,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 100.0,
+                "score": 100.0,
                 "value": 9.87,
-                "z_score": 0.1219
+                "z_score": 0.0
               }
             }
           ],
-          "raw_score": 97.81,
-          "score": 97.81
+          "raw_score": 100.0,
+          "score": 100.0
         },
         "disk_health": {
           "incident_links": [],
@@ -957,17 +999,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -976,39 +1018,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1017,24 +1059,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.2,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.54,
                 "score": 47.2,
                 "value": 97.6,
-                "z_score": 0.0
+                "z_score": 0.4144
               }
             }
           ],
           "raw_score": 47.2,
-          "score": 44.2
+          "score": 41.2
         },
         "process_health": {
           "incident_links": [],
@@ -1043,24 +1091,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 70.77,
-                "score": 70.77,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.32,
+                "score": 91.32,
                 "value": 665.0,
-                "z_score": 1.6238
+                "z_score": 0.4825
               }
             }
           ],
-          "raw_score": 70.77,
-          "score": 70.77
+          "raw_score": 91.32,
+          "score": 91.32
         }
       },
       "timestamp": "2026-05-11T21:57:08.287145+00:00"
     },
     {
-      "health_score": 76.75,
-      "path": "observability/snapshots/telemetry-2026-05-11T215708.604109Z0000.json",
+      "health_score": 83.78,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215708.604109Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1070,8 +1118,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 6.92,
@@ -1089,17 +1137,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1108,39 +1156,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1149,24 +1197,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.14,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.52,
                 "score": 47.14,
                 "value": 97.62,
-                "z_score": 0.0
+                "z_score": 0.4157
               }
             }
           ],
           "raw_score": 47.14,
-          "score": 44.14
+          "score": 41.14
         },
         "process_health": {
           "incident_links": [],
@@ -1175,24 +1229,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 70.77,
-                "score": 70.77,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.32,
+                "score": 91.32,
                 "value": 665.0,
-                "z_score": 1.6238
+                "z_score": 0.4825
               }
             }
           ],
-          "raw_score": 70.77,
-          "score": 70.77
+          "raw_score": 91.32,
+          "score": 91.32
         }
       },
       "timestamp": "2026-05-11T21:57:08.604109+00:00"
     },
     {
-      "health_score": 76.76,
-      "path": "observability/snapshots/telemetry-2026-05-11T215708.896453Z0000.json",
+      "health_score": 83.79,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215708.896453Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1202,8 +1256,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 5.26,
@@ -1221,17 +1275,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1240,39 +1294,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1281,24 +1335,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.2,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.54,
                 "score": 47.2,
                 "value": 97.6,
-                "z_score": 0.0
+                "z_score": 0.4144
               }
             }
           ],
           "raw_score": 47.2,
-          "score": 44.2
+          "score": 41.2
         },
         "process_health": {
           "incident_links": [],
@@ -1307,24 +1367,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 70.77,
-                "score": 70.77,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.32,
+                "score": 91.32,
                 "value": 665.0,
-                "z_score": 1.6238
+                "z_score": 0.4825
               }
             }
           ],
-          "raw_score": 70.77,
-          "score": 70.77
+          "raw_score": 91.32,
+          "score": 91.32
         }
       },
       "timestamp": "2026-05-11T21:57:08.896453+00:00"
     },
     {
-      "health_score": 76.76,
-      "path": "observability/snapshots/telemetry-2026-05-11T215709.211098Z0000.json",
+      "health_score": 83.79,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215709.211098Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1334,8 +1394,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 4.33,
@@ -1353,17 +1413,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1372,39 +1432,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1413,24 +1473,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.2,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.54,
                 "score": 47.2,
                 "value": 97.6,
-                "z_score": 0.0
+                "z_score": 0.4144
               }
             }
           ],
           "raw_score": 47.2,
-          "score": 44.2
+          "score": 41.2
         },
         "process_health": {
           "incident_links": [],
@@ -1439,24 +1505,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 70.77,
-                "score": 70.77,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.32,
+                "score": 91.32,
                 "value": 665.0,
-                "z_score": 1.6238
+                "z_score": 0.4825
               }
             }
           ],
-          "raw_score": 70.77,
-          "score": 70.77
+          "raw_score": 91.32,
+          "score": 91.32
         }
       },
       "timestamp": "2026-05-11T21:57:09.211098+00:00"
     },
     {
-      "health_score": 76.55,
-      "path": "observability/snapshots/telemetry-2026-05-11T215709.528139Z0000.json",
+      "health_score": 83.73,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215709.528139Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1466,8 +1532,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 6.81,
@@ -1485,17 +1551,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1504,39 +1570,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1545,24 +1611,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.05,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.48,
                 "score": 47.05,
                 "value": 97.65,
-                "z_score": 0.0
+                "z_score": 0.4176
               }
             }
           ],
           "raw_score": 47.05,
-          "score": 44.05
+          "score": 41.05
         },
         "process_health": {
           "incident_links": [],
@@ -1571,24 +1643,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:09.528139+00:00"
     },
     {
-      "health_score": 76.53,
-      "path": "observability/snapshots/telemetry-2026-05-11T215709.846297Z0000.json",
+      "health_score": 83.71,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215709.846297Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1598,8 +1670,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 7.29,
@@ -1617,17 +1689,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1636,39 +1708,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1677,24 +1749,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 46.96,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.45,
                 "score": 46.96,
                 "value": 97.68,
-                "z_score": 0.0
+                "z_score": 0.4195
               }
             }
           ],
           "raw_score": 46.96,
-          "score": 43.96
+          "score": 40.96
         },
         "process_health": {
           "incident_links": [],
@@ -1703,24 +1781,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:09.846297+00:00"
     },
     {
-      "health_score": 76.56,
-      "path": "observability/snapshots/telemetry-2026-05-11T215710.164053Z0000.json",
+      "health_score": 83.73,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215710.164053Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1730,8 +1808,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 5.04,
@@ -1749,17 +1827,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1768,39 +1846,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1809,24 +1887,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.08,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.49,
                 "score": 47.08,
                 "value": 97.64,
-                "z_score": 0.0
+                "z_score": 0.4169
               }
             }
           ],
           "raw_score": 47.08,
-          "score": 44.08
+          "score": 41.08
         },
         "process_health": {
           "incident_links": [],
@@ -1835,24 +1919,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:10.164053+00:00"
     },
     {
-      "health_score": 76.54,
-      "path": "observability/snapshots/telemetry-2026-05-11T215710.481193Z0000.json",
+      "health_score": 83.72,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215710.481193Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1862,8 +1946,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 6.95,
@@ -1881,17 +1965,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -1900,39 +1984,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -1941,24 +2025,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 46.99,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.46,
                 "score": 46.99,
                 "value": 97.67,
-                "z_score": 0.0
+                "z_score": 0.4189
               }
             }
           ],
           "raw_score": 46.99,
-          "score": 43.99
+          "score": 40.99
         },
         "process_health": {
           "incident_links": [],
@@ -1967,24 +2057,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:10.481193+00:00"
     },
     {
-      "health_score": 76.54,
-      "path": "observability/snapshots/telemetry-2026-05-11T215710.788755Z0000.json",
+      "health_score": 83.72,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215710.788755Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -1994,8 +2084,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 4.51,
@@ -2013,17 +2103,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2032,39 +2122,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -2073,24 +2163,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 46.99,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.46,
                 "score": 46.99,
                 "value": 97.67,
-                "z_score": 0.0
+                "z_score": 0.4189
               }
             }
           ],
           "raw_score": 46.99,
-          "score": 43.99
+          "score": 40.99
         },
         "process_health": {
           "incident_links": [],
@@ -2099,24 +2195,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:10.788755+00:00"
     },
     {
-      "health_score": 76.56,
-      "path": "observability/snapshots/telemetry-2026-05-11T215711.092288Z0000.json",
+      "health_score": 83.73,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215711.092288Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -2126,8 +2222,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 3.87,
@@ -2145,17 +2241,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2164,39 +2260,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -2205,24 +2301,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.08,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.49,
                 "score": 47.08,
                 "value": 97.64,
-                "z_score": 0.0
+                "z_score": 0.4169
               }
             }
           ],
           "raw_score": 47.08,
-          "score": 44.08
+          "score": 41.08
         },
         "process_health": {
           "incident_links": [],
@@ -2231,24 +2333,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:11.092288+00:00"
     },
     {
-      "health_score": 76.55,
-      "path": "observability/snapshots/telemetry-2026-05-11T215711.409874Z0000.json",
+      "health_score": 83.72,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215711.409874Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -2258,8 +2360,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 4.57,
@@ -2277,17 +2379,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2296,39 +2398,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 95.61,
+                "score": 95.61,
                 "value": 1.42,
-                "z_score": 0.0
+                "z_score": 0.244
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 93.86,
+                "score": 93.86,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3409
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 93.82,
+                "score": 93.82,
                 "value": 1.51,
-                "z_score": 0.0
+                "z_score": 0.3431
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 94.43,
+          "score": 94.43
         },
         "memory_health": {
           "incident_links": [
@@ -2337,24 +2439,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.02,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.47,
                 "score": 47.02,
                 "value": 97.66,
-                "z_score": 0.0
+                "z_score": 0.4182
               }
             }
           ],
           "raw_score": 47.02,
-          "score": 44.02
+          "score": 41.02
         },
         "process_health": {
           "incident_links": [],
@@ -2363,24 +2471,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:11.409874+00:00"
     },
     {
-      "health_score": 76.55,
-      "path": "observability/snapshots/telemetry-2026-05-11T215711.725760Z0000.json",
+      "health_score": 83.84,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215711.725760Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -2390,8 +2498,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 4.66,
@@ -2409,17 +2517,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2428,39 +2536,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 96.66,
+                "score": 96.66,
                 "value": 1.39,
-                "z_score": 0.0
+                "z_score": 0.1854
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 94.25,
+                "score": 94.25,
                 "value": 1.5,
-                "z_score": 0.0
+                "z_score": 0.3192
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 94.21,
+                "score": 94.21,
                 "value": 1.5,
-                "z_score": 0.0
+                "z_score": 0.3214
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 95.04,
+          "score": 95.04
         },
         "memory_health": {
           "incident_links": [
@@ -2469,24 +2577,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.02,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.47,
                 "score": 47.02,
                 "value": 97.66,
-                "z_score": 0.0
+                "z_score": 0.4182
               }
             }
           ],
           "raw_score": 47.02,
-          "score": 44.02
+          "score": 41.02
         },
         "process_health": {
           "incident_links": [],
@@ -2495,24 +2609,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:11.725760+00:00"
     },
     {
-      "health_score": 76.55,
-      "path": "observability/snapshots/telemetry-2026-05-11T215712.036208Z0000.json",
+      "health_score": 83.84,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215712.036208Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -2522,8 +2636,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 5.92,
@@ -2541,17 +2655,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2560,39 +2674,39 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 96.66,
+                "score": 96.66,
                 "value": 1.39,
-                "z_score": 0.0
+                "z_score": 0.1854
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 94.25,
+                "score": 94.25,
                 "value": 1.5,
-                "z_score": 0.0
+                "z_score": 0.3192
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
-                "deviation_score": 100.0,
-                "score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 94.21,
+                "score": 94.21,
                 "value": 1.5,
-                "z_score": 0.0
+                "z_score": 0.3214
               }
             }
           ],
-          "raw_score": 100.0,
-          "score": 100.0
+          "raw_score": 95.04,
+          "score": 95.04
         },
         "memory_health": {
           "incident_links": [
@@ -2601,24 +2715,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
                 "absolute_pressure_score": 47.02,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
-                "deviation_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.47,
                 "score": 47.02,
                 "value": 97.66,
-                "z_score": 0.0
+                "z_score": 0.4182
               }
             }
           ],
           "raw_score": 47.02,
-          "score": 44.02
+          "score": 41.02
         },
         "process_health": {
           "incident_links": [],
@@ -2627,24 +2747,24 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
                 "value": 666.0,
-                "z_score": 1.673
+                "z_score": 0.4914
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 91.15,
+          "score": 91.15
         }
       },
       "timestamp": "2026-05-11T21:57:12.036208+00:00"
     },
     {
-      "health_score": 76.53,
-      "path": "observability/snapshots/telemetry-2026-05-11T215712.348987Z0000.json",
+      "health_score": 83.83,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T215712.348987Z0000.json",
       "source": "snapshot",
       "subsystems": {
         "cpu_health": {
@@ -2654,8 +2774,8 @@
             {
               "cpu_usage_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 9.2,
-                "baseline_stddev": 5.4963,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
                 "value": 4.58,
@@ -2673,17 +2793,17 @@
             {
               "disk_used_percent": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 53.965,
-                "baseline_stddev": 0.3204,
-                "deviation_score": 68.82,
-                "score": 68.82,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 92.01,
+                "score": 92.01,
                 "value": 54.52,
-                "z_score": 1.7322
+                "z_score": 0.4439
               }
             }
           ],
-          "raw_score": 68.82,
-          "score": 68.82
+          "raw_score": 92.01,
+          "score": 92.01
         },
         "load_health": {
           "incident_links": [],
@@ -2692,33 +2812,309 @@
             {
               "load_average_1m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.68,
-                "baseline_stddev": 0.647,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 96.66,
+                "score": 96.66,
+                "value": 1.39,
+                "z_score": 0.1854
+              }
+            },
+            {
+              "load_average_5m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 94.25,
+                "score": 94.25,
+                "value": 1.5,
+                "z_score": 0.3192
+              }
+            },
+            {
+              "load_average_15m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 94.21,
+                "score": 94.21,
+                "value": 1.5,
+                "z_score": 0.3214
+              }
+            }
+          ],
+          "raw_score": 95.04,
+          "score": 95.04
+        },
+        "memory_health": {
+          "incident_links": [
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
+            }
+          ],
+          "incident_penalty": 6.0,
+          "metrics": [
+            {
+              "memory_used_percent": {
+                "absolute_pressure_score": 46.93,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 92.44,
+                "score": 46.93,
+                "value": 97.69,
+                "z_score": 0.4202
+              }
+            }
+          ],
+          "raw_score": 46.93,
+          "score": 40.93
+        },
+        "process_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "process_count": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 91.15,
+                "score": 91.15,
+                "value": 666.0,
+                "z_score": 0.4914
+              }
+            }
+          ],
+          "raw_score": 91.15,
+          "score": 91.15
+        }
+      },
+      "timestamp": "2026-05-11T21:57:12.348987+00:00"
+    },
+    {
+      "health_score": 84.18,
+      "path": "observability\\snapshots\\telemetry-2026-05-11T221435.452488Z0000.json",
+      "source": "snapshot",
+      "subsystems": {
+        "cpu_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "cpu_usage_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
                 "deviation_score": 100.0,
                 "score": 100.0,
-                "value": 1.39,
+                "value": 5.44,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "disk_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "disk_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 91.49,
+                "score": 91.49,
+                "value": 54.86,
+                "z_score": 0.4728
+              }
+            }
+          ],
+          "raw_score": 91.49,
+          "score": 91.49
+        },
+        "load_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "load_average_1m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 83.99,
+                "score": 83.99,
+                "value": 1.75,
+                "z_score": 0.8893
+              }
+            },
+            {
+              "load_average_5m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 96.99,
+                "score": 96.99,
+                "value": 1.43,
+                "z_score": 0.1674
+              }
+            },
+            {
+              "load_average_15m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 98.11,
+                "score": 98.11,
+                "value": 1.4,
+                "z_score": 0.1048
+              }
+            }
+          ],
+          "raw_score": 93.03,
+          "score": 93.03
+        },
+        "memory_health": {
+          "incident_links": [
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
+            }
+          ],
+          "incident_penalty": 6.0,
+          "metrics": [
+            {
+              "memory_used_percent": {
+                "absolute_pressure_score": 51.37,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 94.16,
+                "score": 51.37,
+                "value": 96.21,
+                "z_score": 0.3243
+              }
+            }
+          ],
+          "raw_score": 51.37,
+          "score": 45.37
+        },
+        "process_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "process_count": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 90.99,
+                "score": 90.99,
+                "value": 667.0,
+                "z_score": 0.5004
+              }
+            }
+          ],
+          "raw_score": 90.99,
+          "score": 90.99
+        }
+      },
+      "timestamp": "2026-05-11T22:14:35.452488+00:00"
+    },
+    {
+      "health_score": 87.59,
+      "path": "observability\\snapshots\\telemetry-2026-06-13T232338.226057Z0000.json",
+      "source": "snapshot",
+      "subsystems": {
+        "cpu_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "cpu_usage_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 43.94,
+                "score": 43.94,
+                "value": 60.0,
+                "z_score": 3.1146
+              }
+            }
+          ],
+          "raw_score": 43.94,
+          "score": 43.94
+        },
+        "disk_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "disk_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 22.31,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "load_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "load_average_1m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.19,
                 "z_score": 0.0
               }
             },
             {
               "load_average_5m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0497,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
                 "deviation_score": 100.0,
                 "score": 100.0,
-                "value": 1.5,
+                "value": 0.19,
                 "z_score": 0.0
               }
             },
             {
               "load_average_15m": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 1.745,
-                "baseline_stddev": 0.0838,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
                 "deviation_score": 100.0,
                 "score": 100.0,
-                "value": 1.5,
+                "value": 0.19,
                 "z_score": 0.0
               }
             }
@@ -2733,24 +3129,30 @@
               "rule": "high_memory_usage",
               "severity": "warning",
               "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
             }
           ],
-          "incident_penalty": 3.0,
+          "incident_penalty": 6.0,
           "metrics": [
             {
               "memory_used_percent": {
-                "absolute_pressure_score": 46.93,
-                "baseline_mean": 99.4625,
-                "baseline_stddev": 0.1413,
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
                 "deviation_score": 100.0,
-                "score": 46.93,
-                "value": 97.69,
+                "score": 100.0,
+                "value": 55.48,
                 "z_score": 0.0
               }
             }
           ],
-          "raw_score": 46.93,
-          "score": 43.93
+          "raw_score": 100.0,
+          "score": 94.0
         },
         "process_health": {
           "incident_links": [],
@@ -2759,29 +3161,440 @@
             {
               "process_count": {
                 "absolute_pressure_score": 100.0,
-                "baseline_mean": 632.0,
-                "baseline_stddev": 20.3224,
-                "deviation_score": 69.89,
-                "score": 69.89,
-                "value": 666.0,
-                "z_score": 1.673
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 349.0,
+                "z_score": 0.0
               }
             }
           ],
-          "raw_score": 69.89,
-          "score": 69.89
+          "raw_score": 100.0,
+          "score": 100.0
         }
       },
-      "timestamp": "2026-05-11T21:57:12.348987+00:00"
+      "timestamp": "2026-06-13T23:23:38.226057+00:00"
+    },
+    {
+      "health_score": 89.48,
+      "path": "observability\\snapshots\\telemetry-2026-06-13T232427.572532Z0000.json",
+      "source": "snapshot",
+      "subsystems": {
+        "cpu_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "cpu_usage_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 53.41,
+                "score": 53.41,
+                "value": 52.0,
+                "z_score": 2.5885
+              }
+            }
+          ],
+          "raw_score": 53.41,
+          "score": 53.41
+        },
+        "disk_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "disk_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 22.33,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "load_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "load_average_1m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.32,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_5m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.32,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_15m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.32,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "memory_health": {
+          "incident_links": [
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
+            }
+          ],
+          "incident_penalty": 6.0,
+          "metrics": [
+            {
+              "memory_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 56.07,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 94.0
+        },
+        "process_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "process_count": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 360.0,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        }
+      },
+      "timestamp": "2026-06-13T23:24:27.572532+00:00"
+    },
+    {
+      "health_score": 93.74,
+      "path": "observability\\snapshots\\telemetry-2026-06-13T232515.991191Z0000.json",
+      "source": "snapshot",
+      "subsystems": {
+        "cpu_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "cpu_usage_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 74.71,
+                "score": 74.71,
+                "value": 34.0,
+                "z_score": 1.4048
+              }
+            }
+          ],
+          "raw_score": 74.71,
+          "score": 74.71
+        },
+        "disk_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "disk_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 22.34,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "load_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "load_average_1m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.44,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_5m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.44,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_15m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.44,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "memory_health": {
+          "incident_links": [
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
+            }
+          ],
+          "incident_penalty": 6.0,
+          "metrics": [
+            {
+              "memory_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 55.85,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 94.0
+        },
+        "process_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "process_count": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 356.0,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        }
+      },
+      "timestamp": "2026-06-13T23:25:15.991191+00:00"
+    },
+    {
+      "health_score": 93.51,
+      "path": "observability\\snapshots\\telemetry-2026-06-13T233017.792275Z0000.json",
+      "source": "snapshot",
+      "subsystems": {
+        "cpu_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "cpu_usage_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 12.638,
+                "baseline_stddev": 15.2063,
+                "deviation_score": 73.53,
+                "score": 73.53,
+                "value": 35.0,
+                "z_score": 1.4706
+              }
+            }
+          ],
+          "raw_score": 73.53,
+          "score": 73.53
+        },
+        "disk_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "disk_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 49.2956,
+                "baseline_stddev": 11.7682,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 22.37,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "load_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "load_average_1m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.2952,
+                "baseline_stddev": 0.5114,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.33,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_5m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3528,
+                "baseline_stddev": 0.4611,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.33,
+                "z_score": 0.0
+              }
+            },
+            {
+              "load_average_15m": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 1.3516,
+                "baseline_stddev": 0.4617,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 0.33,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        },
+        "memory_health": {
+          "incident_links": [
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T214902.702883Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T21:49:02.703942+00:00"
+            },
+            {
+              "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+              "rule": "high_memory_usage",
+              "severity": "warning",
+              "timestamp": "2026-05-11T22:14:37.782126+00:00"
+            }
+          ],
+          "incident_penalty": 6.0,
+          "metrics": [
+            {
+              "memory_used_percent": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 91.2048,
+                "baseline_stddev": 15.434,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 56.13,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 94.0
+        },
+        "process_health": {
+          "incident_links": [],
+          "incident_penalty": 0.0,
+          "metrics": [
+            {
+              "process_count": {
+                "absolute_pressure_score": 100.0,
+                "baseline_mean": 611.16,
+                "baseline_stddev": 111.5931,
+                "deviation_score": 100.0,
+                "score": 100.0,
+                "value": 366.0,
+                "z_score": 0.0
+              }
+            }
+          ],
+          "raw_score": 100.0,
+          "score": 100.0
+        }
+      },
+      "timestamp": "2026-06-13T23:30:17.792275+00:00"
     }
   ],
   "recommendations": [
-    "Keep memory_health linked to incident memory during future reflex checks.",
-    "Observe disk_health; score is below 70.",
-    "Observe memory_health; score is below 70.",
-    "Observe process_health; score is below 70."
+    "Keep memory_health linked to incident memory during future reflex checks."
   ],
   "recommendations_only": true,
-  "telemetry_count": 20,
-  "trend": "stable"
+  "telemetry_count": 25,
+  "trend": "improving"
 }
