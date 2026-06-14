@@ -55,6 +55,7 @@ from hermes.identity.reports import (
     generate_identity_report,
     generate_life_history_report,
 )
+from hermes.audit import generate_audit_report
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -192,6 +193,10 @@ def build_parser() -> argparse.ArgumentParser:
     life_history_report = sub.add_parser("life-history-report", help="Generate institutional life-history report.")
     life_history_report.add_argument("--output", default="reports/life_history_report.md")
     life_history_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    audit_report = sub.add_parser("audit-report", help="Generate Hermes-ASI v0.9 integration audit report.")
+    audit_report.add_argument("--output", default="reports/institutional_audit_report.md")
+    audit_report.add_argument("--json", action="store_true", help="Print only JSON.")
     return parser
 
 
@@ -316,6 +321,8 @@ def main(argv: list[str] | None = None) -> int:
         return knowledge_report_command(generate_continuity_report, args)
     if args.command == "life-history-report":
         return knowledge_report_command(generate_life_history_report, args)
+    if args.command == "audit-report":
+        return knowledge_report_command(generate_audit_report, args)
     parser.error(f"unknown command: {args.command}")
     return 2
 
