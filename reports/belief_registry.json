@@ -1,0 +1,242 @@
+{
+  "belief:dmn": {
+    "belief_id": "belief:dmn",
+    "statement": "source dmn remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "dmn",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:reports": {
+    "belief_id": "belief:reports",
+    "statement": "source reports remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "reports",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:benchmarks": {
+    "belief_id": "belief:benchmarks",
+    "statement": "source benchmarks remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "benchmarks",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:tests": {
+    "belief_id": "belief:tests",
+    "statement": "source tests remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "tests",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:guardian_logs": {
+    "belief_id": "belief:guardian_logs",
+    "statement": "source guardian_logs remains trustworthy for institutional reuse",
+    "confidence": 0.9535,
+    "reality_score": 75.0,
+    "challenge_count": 11,
+    "status": "active",
+    "source_target_id": "guardian_logs",
+    "last_updated": "2026-06-14T14:37:01.546786+00:00"
+  },
+  "belief:provider_reports": {
+    "belief_id": "belief:provider_reports",
+    "statement": "source provider_reports remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "provider_reports",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:playbooks": {
+    "belief_id": "belief:playbooks",
+    "statement": "source playbooks remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "playbooks",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:skills": {
+    "belief_id": "belief:skills",
+    "statement": "source skills remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "skills",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:failure_reports": {
+    "belief_id": "belief:failure_reports",
+    "statement": "source failure_reports remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "failure_reports",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:verification_reports": {
+    "belief_id": "belief:verification_reports",
+    "statement": "source verification_reports remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "verification_reports",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:future_external": {
+    "belief_id": "belief:future_external",
+    "statement": "source future_external remains trustworthy for institutional reuse",
+    "confidence": 0.9534999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "future_external",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:architecture_review": {
+    "belief_id": "belief:architecture_review",
+    "statement": "Playbook Architecture Review Playbook improves task quality",
+    "confidence": 0.65,
+    "reality_score": 55.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "architecture_review",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:provider_policy": {
+    "belief_id": "belief:provider_policy",
+    "statement": "Playbook Provider Policy Playbook improves task quality",
+    "confidence": 0.65,
+    "reality_score": 55.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "provider_policy",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:security_audit": {
+    "belief_id": "belief:security_audit",
+    "statement": "Playbook Security Audit Playbook improves task quality",
+    "confidence": 0.65,
+    "reality_score": 55.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "security_audit",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:implementation_review": {
+    "belief_id": "belief:implementation_review",
+    "statement": "Playbook Implementation Review Playbook improves task quality",
+    "confidence": 0.65,
+    "reality_score": 55.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "implementation_review",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:research_synthesis": {
+    "belief_id": "belief:research_synthesis",
+    "statement": "Playbook Research Synthesis Playbook improves task quality",
+    "confidence": 0.65,
+    "reality_score": 55.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "research_synthesis",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:architecture_deliberation": {
+    "belief_id": "belief:architecture_deliberation",
+    "statement": "Skill Architecture Deliberation Skill remains useful across its task types",
+    "confidence": 1.0,
+    "reality_score": 75.0,
+    "challenge_count": 11,
+    "status": "active",
+    "source_target_id": "architecture_deliberation",
+    "last_updated": "2026-06-14T14:37:01.546786+00:00"
+  },
+  "belief:debugging_deliberation": {
+    "belief_id": "belief:debugging_deliberation",
+    "statement": "Skill Debugging Deliberation Skill remains useful across its task types",
+    "confidence": 1.0,
+    "reality_score": 75.0,
+    "challenge_count": 11,
+    "status": "active",
+    "source_target_id": "debugging_deliberation",
+    "last_updated": "2026-06-14T14:37:01.546786+00:00"
+  },
+  "belief:provider_policy_deliberation": {
+    "belief_id": "belief:provider_policy_deliberation",
+    "statement": "Skill Provider Policy Deliberation Skill remains useful across its task types",
+    "confidence": 1.0,
+    "reality_score": 75.0,
+    "challenge_count": 11,
+    "status": "active",
+    "source_target_id": "provider_policy_deliberation",
+    "last_updated": "2026-06-14T14:37:01.546786+00:00"
+  },
+  "belief:memory_mutation_deliberation": {
+    "belief_id": "belief:memory_mutation_deliberation",
+    "statement": "Skill Memory Mutation Deliberation Skill remains useful across its task types",
+    "confidence": 0.7134999999999999,
+    "reality_score": 69.27,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "memory_mutation_deliberation",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:credential_sensitive_deliberation": {
+    "belief_id": "belief:credential_sensitive_deliberation",
+    "statement": "Skill Credential Sensitive Deliberation Skill remains useful across its task types",
+    "confidence": 0.7051999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "credential_sensitive_deliberation",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:state_changing_deliberation": {
+    "belief_id": "belief:state_changing_deliberation",
+    "statement": "Skill State Changing Deliberation Skill remains useful across its task types",
+    "confidence": 0.7134999999999999,
+    "reality_score": 69.27,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "state_changing_deliberation",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  },
+  "belief:research_analysis_deliberation": {
+    "belief_id": "belief:research_analysis_deliberation",
+    "statement": "Skill Research Analysis Deliberation Skill remains useful across its task types",
+    "confidence": 1.0,
+    "reality_score": 75.0,
+    "challenge_count": 11,
+    "status": "active",
+    "source_target_id": "research_analysis_deliberation",
+    "last_updated": "2026-06-14T14:37:01.546786+00:00"
+  },
+  "belief:implementation_review_deliberation": {
+    "belief_id": "belief:implementation_review_deliberation",
+    "statement": "Skill Implementation Review Deliberation Skill remains useful across its task types",
+    "confidence": 0.7071999999999999,
+    "reality_score": 75.0,
+    "challenge_count": 0,
+    "status": "active",
+    "source_target_id": "implementation_review_deliberation",
+    "last_updated": "2026-06-14T14:37:01.525275+00:00"
+  }
+}

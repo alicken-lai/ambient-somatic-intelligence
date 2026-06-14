@@ -215,6 +215,7 @@ Implemented kernels:
 - Phase 5: Verification and evidence kernel with claim extraction, evidence objects, claim-evidence graph, contradiction detection, evidence scoring, and `hermes evidence-report`, `hermes claim-report`, `hermes verification-report`, `hermes contradiction-report`.
 - Phase 6: Knowledge and evidence acquisition with source registry, evidence collector/linker, confidence model, knowledge reuse, internal knowledge index, and `hermes acquisition-report`, `hermes evidence-quality-report`, `hermes knowledge-index-report`.
 - Phase 7: Trust and knowledge calibration with trust registry, calibrated confidence, trust-weighted verification, inflation/self-reference/drift detection, knowledge health scoring, and `hermes knowledge-health-report`, `hermes trust-report`, `hermes drift-report`.
+- Phase 8: Institutional intelligence and reality alignment with tracked beliefs, reality scoring, fitness scoring, challenge events for high-trust knowledge, diversity measurement, echo-chamber detection, advisory external validation stubs, belief evolution, and `hermes fitness-report`, `hermes reality-report`, `hermes diversity-report`.
 
 Current calibration evidence:
 
@@ -223,8 +224,13 @@ Current calibration evidence:
 - Knowledge health score: 81.50
 - Inflation risk: 0.6088, caused by repeated or low-diversity evidence sources
 - Drift: none detected
+- Reality score: 70.36
+- Diversity score: 44.48
+- Echo risk: 0.80, driven by high confidence, low source diversity, and high self-reference
 
 The important shift is from raw evidence volume toward calibrated belief. Acquisition can raise support coverage, but calibration can still reduce health when evidence is repetitive, stale, self-referential, or low-trust.
+
+Phase 8 adds a second check: trusted knowledge is not allowed to coast. High-trust beliefs, skills, playbooks, and sources are periodically challenged, scored against available observations and outcomes, and kept advisory under Guardian authority. The objective is calibrated contact with reality, not higher self-confidence.
 
 ---
 

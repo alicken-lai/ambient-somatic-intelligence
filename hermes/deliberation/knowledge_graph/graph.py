@@ -69,6 +69,31 @@ class DeliberationKnowledgeGraph:
             self.add_edge("ReliabilityHistory", "contains", str(event))
         return self
 
+    def add_reality_alignment_assets(
+        self,
+        *,
+        beliefs: dict[str, Any],
+        reality_scores: dict[str, dict[str, Any]],
+        fitness_scores: list[dict[str, Any]],
+        challenge_events: list[dict[str, Any]],
+        diversity_metrics: dict[str, Any],
+        validation_outcomes: list[dict[str, Any]] | None = None,
+    ) -> "DeliberationKnowledgeGraph":
+        for belief_id, belief in beliefs.items():
+            target_id = belief.get("source_target_id") or belief_id
+            self.add_edge("Beliefs", "contains", belief_id)
+            self.add_edge(belief_id, "tracks_target", str(target_id))
+        for target_id, score in reality_scores.items():
+            self.add_edge(str(target_id), "has_reality_score", str(score.get("reality_score", 0.0)))
+        for fitness in fitness_scores:
+            self.add_edge(str(fitness.get("target_id")), "has_fitness_score", str(fitness.get("fitness_score", 0.0)))
+        for event in challenge_events:
+            self.add_edge(str(event.get("target_id")), "has_challenge_event", str(event.get("challenge_id")))
+        self.add_edge("DiversityMetrics", "has_diversity_score", str(diversity_metrics.get("diversity_score", 0.0)))
+        for outcome in validation_outcomes or []:
+            self.add_edge(str(outcome.get("target_id")), "has_validation_outcome", str(outcome.get("outcome_id")))
+        return self
+
     def trust_weighted_query(self, source: str, trust_scores: dict[str, float], *, minimum_trust: float = 0.5) -> list[dict[str, str]]:
         return [
             edge

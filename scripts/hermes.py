@@ -45,6 +45,11 @@ from hermes.calibration.reports import (
     generate_knowledge_health_report,
     generate_trust_report,
 )
+from hermes.reality_alignment.reports import (
+    generate_diversity_report,
+    generate_fitness_report,
+    generate_reality_report,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -158,6 +163,18 @@ def build_parser() -> argparse.ArgumentParser:
     drift_report = sub.add_parser("drift-report", help="Generate knowledge drift report.")
     drift_report.add_argument("--output", default="reports/drift_report.md")
     drift_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    fitness_report = sub.add_parser("fitness-report", help="Generate institutional fitness report.")
+    fitness_report.add_argument("--output", default="reports/institutional_fitness_report.md")
+    fitness_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    reality_report = sub.add_parser("reality-report", help="Generate reality alignment report.")
+    reality_report.add_argument("--output", default="reports/reality_alignment_report.md")
+    reality_report.add_argument("--json", action="store_true", help="Print only JSON.")
+
+    diversity_report = sub.add_parser("diversity-report", help="Generate knowledge diversity report.")
+    diversity_report.add_argument("--output", default="reports/diversity_report.md")
+    diversity_report.add_argument("--json", action="store_true", help="Print only JSON.")
     return parser
 
 
@@ -270,6 +287,12 @@ def main(argv: list[str] | None = None) -> int:
         return knowledge_report_command(generate_trust_report, args)
     if args.command == "drift-report":
         return knowledge_report_command(generate_drift_report, args)
+    if args.command == "fitness-report":
+        return knowledge_report_command(generate_fitness_report, args)
+    if args.command == "reality-report":
+        return knowledge_report_command(generate_reality_report, args)
+    if args.command == "diversity-report":
+        return knowledge_report_command(generate_diversity_report, args)
     parser.error(f"unknown command: {args.command}")
     return 2
 

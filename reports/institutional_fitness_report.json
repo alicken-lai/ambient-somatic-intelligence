@@ -1,0 +1,278 @@
+{
+  "fitness": [
+    {
+      "target_id": "dmn",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "benchmarks",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "tests",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "guardian_logs",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "playbooks",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "skills",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "failure_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "verification_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "future_external",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "implementation_review_deliberation",
+      "target_type": "skill",
+      "fitness_score": 91.22,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "credential_sensitive_deliberation",
+      "target_type": "skill",
+      "fitness_score": 91.16,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "architecture_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "debugging_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_policy_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "research_analysis_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "memory_mutation_deliberation",
+      "target_type": "skill",
+      "fitness_score": 46.41,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "state_changing_deliberation",
+      "target_type": "skill",
+      "fitness_score": 46.41,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "architecture_review",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_policy",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "security_audit",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "implementation_review",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "research_synthesis",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    }
+  ],
+  "reality_score": 70.36,
+  "challenges": [
+    {
+      "challenge_id": "challenge:architecture_deliberation",
+      "target_id": "architecture_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.484891+00:00"
+    },
+    {
+      "challenge_id": "challenge:debugging_deliberation",
+      "target_id": "debugging_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.484891+00:00"
+    },
+    {
+      "challenge_id": "challenge:provider_policy_deliberation",
+      "target_id": "provider_policy_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.484891+00:00"
+    },
+    {
+      "challenge_id": "challenge:research_analysis_deliberation",
+      "target_id": "research_analysis_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.484891+00:00"
+    },
+    {
+      "challenge_id": "challenge:guardian_logs",
+      "target_id": "guardian_logs",
+      "target_type": "source",
+      "prior_confidence": 0.953,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.484891+00:00"
+    }
+  ]
+}

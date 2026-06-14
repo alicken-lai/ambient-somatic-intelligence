@@ -1,0 +1,13 @@
+{
+  "diversity": {
+    "diversity_score": 44.48,
+    "internal_ratio": 0.7917,
+    "external_ratio": 0.2083,
+    "source_variety": 27,
+    "source_concentration": 0.2292
+  },
+  "echo": {
+    "echo_risk": 0.8,
+    "reason": "high confidence; low source diversity; high self-reference"
+  }
+}
