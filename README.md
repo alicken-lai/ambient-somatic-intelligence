@@ -287,6 +287,33 @@ ambient-os/
 
 Runtime state (`logs/`, `state/`, live `memory/dmn.jsonl`) is intentionally **excluded** from civilization freeze commits.
 
+### Operational State Commit Policy
+
+Some runtime-adjacent files are still important enough to preserve when they
+change system behavior or continuity:
+
+- `scripts/sense_local.py` and `scripts/memory_pressure_diagnosis.py` are
+  operational telemetry/diagnostic code. Cross-platform fixes here are system
+  behavior changes, not temporary output.
+- `tools/hermes_mcp_shim/` contains the Hermes-ASI MCP bridge shim and example
+  client registration. Changes here affect cross-IDE tool availability and
+  should be reviewed as runtime integration changes.
+- `scripts/dmn_reflection_cycle.py`, `tools/audit_historical_dmn_governance.py`,
+  and `tools/propose_dmn_metadata_sidecars.py` are governance maintenance
+  tools. They must remain non-mutating by default unless an operator-approved
+  workflow explicitly promotes their outputs.
+- Guardian JSON state under `guardian/baselines/`, `guardian/health/`,
+  `guardian/incidents/`, and `guardian/recalibration/` preserves current
+  scoring, incident, and recalibration continuity. Markdown reports and
+  `latest_*` narrative snapshots are usually regenerable evidence surfaces.
+- `tools/mempalace/palace.json` and `tools/mempalace/palace.md` are generated
+  knowledge-index artifacts, but they are useful operational recall surfaces
+  when they summarize the current Guardian/reflection state.
+
+Commit these files separately from freeze lineage changes and keep live logs,
+append-only DMN, and daemon state out of ordinary feature commits unless the
+operator explicitly asks for an operational snapshot.
+
 ---
 
 ## 14. Contribution / Research Notes

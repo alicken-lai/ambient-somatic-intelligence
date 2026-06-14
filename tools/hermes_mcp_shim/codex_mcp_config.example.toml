@@ -1,11 +1,12 @@
-# Example Codex MCP registration for the Hermes shim.
+# Example Codex MCP registration for the Hermes-ASI shim.
+# Use server name "hermes-asi" for consistent cross-IDE identification.
 # Replace placeholder paths for the target machine.
 
-[mcp_servers.hermes]
+[mcp_servers.hermes-asi]
 command = "hermes"
 args = ["mcp", "serve"]
 
-[mcp_servers.hermes.env]
+[mcp_servers.hermes-asi.env]
 HERMES_HOME = "/path/to/hermes-home"
 AMBIENT_OS_ROOT = "/path/to/ambient-os"
 PYTHONPATH = "/path/to/hermes-home/mcp_shim:/path/to/hermes-home/mcp_deps"

@@ -46,18 +46,23 @@ HERMES_HOME=/path/to/hermes-home tools/hermes_mcp_shim/install.sh
 The installer only copies the shim file. It does not write secrets or modify
 client configuration.
 
-## Codex MCP Registration
+## Codex / Grok MCP Registration
 
-Use `codex_mcp_config.example.toml` as a starting point. The key details are:
+Use `codex_mcp_config.example.toml` as a starting point (works for Grok `~/.grok/config.toml`, Codex, etc).
 
-- `command` should invoke the Hermes CLI.
-- `args` should start the MCP server with `mcp serve`.
-- `PYTHONPATH` should include the installed shim directory and any Hermes
-  dependency directory required by the local Hermes runtime.
-- `AMBIENT_OS_ROOT` should point at this repository checkout.
-- `HERMES_HOME` should point at the Hermes runtime home.
+For full Hermes-ASI (messaging + DMN/memory/Guardian/system tools):
 
-The example uses placeholder paths. Replace them for the target machine.
+- Preferred on Windows / explicit: use `python` + the `serve_mcp.py` launcher in mcp_shim (see current .cursor/mcp.json and .grok/config.toml for exact).
+- Alternative: `command = "hermes"`, `args = ["mcp", "serve"]` + set PYTHONPATH to include the mcp_shim (the hermes CLI may delegate to the shim).
+- Always set:
+  - `PYTHONPATH` to the mcp_shim dir (for launcher) or appropriate for hermes.
+  - `HERMES_HOME` to the hermes runtime home.
+  - `AMBIENT_OS_ROOT` to this checkout.
+  - `HERMES_ACCEPT_HOOKS=1` recommended.
+
+Rename the server key to `hermes-asi` (not `hermes`) for cross-IDE consistency with Hermes-ASI naming in rules.
+
+The example uses placeholder paths. Replace them for the target machine. Update other IDE clients (.cursor/mcp.json, Antigravity/Gemini mcp_config.json, etc.) to use name `hermes-asi`.
 
 ## Exposed Ambient OS Tools
 
@@ -121,7 +126,7 @@ Arguments:
 
 ## Verification
 
-After installation, restart the MCP client and list the tools for the `hermes`
+After installation, restart the MCP client and list the tools for the `hermes-asi`
 server. The Ambient OS tool list should include:
 
 ```text
