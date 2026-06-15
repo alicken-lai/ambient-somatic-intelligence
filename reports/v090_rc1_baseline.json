@@ -1,0 +1,169 @@
+{
+  "release_label": "v0.9.0-rc1",
+  "release_status": "conditionally ready as advisory institutional intelligence",
+  "snapshot_date": "2026-06-15",
+  "snapshot_kind": "frozen_baseline",
+  "purpose": "future comparison baseline for v0.9.0-rc1",
+  "source_control": {
+    "commit_hash": "100721804d5f087c0214ef6caf14b75f70b2f73b",
+    "branch": "codex/deliberation-kernels",
+    "commit_date": "2026-06-14T23:02:09+08:00"
+  },
+  "version_anchors": {
+    "canonical_rules_version": "1.0.0",
+    "kernel_version": "0.4.1-alpha"
+  },
+  "health": {
+    "rc_health": 95.78,
+    "release_ready": true,
+    "recommendation": "ready for v0.9.0-rc1",
+    "components": {
+      "test_health": 100.0,
+      "documentation_health": 100.0,
+      "audit_health": 95.38,
+      "graph_health": 97.0,
+      "dmn_health": 99.83,
+      "report_stability": 82.0
+    },
+    "thresholds": {
+      "rc_health_min": 85.0,
+      "dmn_health_min": 80.0,
+      "graph_health_min": 75.0
+    },
+    "all_thresholds_met": true
+  },
+  "institutional_health": {
+    "score": 95.38,
+    "components": {
+      "integration": 100.0,
+      "governance": 95.0,
+      "observability": 100.0,
+      "knowledge_coverage": 90.0,
+      "identity_continuity": 95.0,
+      "auditability": 100.0,
+      "maintainability": 78.0
+    },
+    "strengths": [
+      "Phase 1-9 kernels are present and connected through reports/registries.",
+      "Guardian and advisory-only boundaries are consistently documented.",
+      "Reality alignment and identity continuity are first-class audit surfaces."
+    ],
+    "risks": [
+      "Report generation can refresh lower-layer registries and create timestamp churn.",
+      "DMN event taxonomy is not yet formalized.",
+      "Knowledge graph coverage is implemented but not exported as a dedicated graph health report."
+    ]
+  },
+  "graph_health": {
+    "score": 97.0,
+    "node_count": 46,
+    "edge_count": 47,
+    "coverage": {
+      "node_coverage": 100.0,
+      "edge_coverage": 100.0,
+      "relationship_coverage": 90.0
+    },
+    "isolated_nodes": [],
+    "dangling_references": [],
+    "relationship_diversity": {
+      "contains": 29,
+      "continuity_link": 1,
+      "feeds": 2,
+      "has_challenge_event": 1,
+      "has_core_value": 1,
+      "has_diversity_metric": 1,
+      "has_fitness_score": 1,
+      "has_objective": 1,
+      "has_principle": 1,
+      "has_reality_score": 1,
+      "has_report": 2,
+      "has_trust": 1,
+      "stored_in": 4,
+      "uses_skill": 1
+    },
+    "recommendations": [
+      "Graph coverage is acceptable for v0.9 RC evidence."
+    ]
+  },
+  "dmn_health": {
+    "score": 99.83,
+    "valid_events": 1753,
+    "total_events": 1756,
+    "invalid_events": 3,
+    "invalid_reason": "legacy schema drift retained in audit trail per no-silent-erasure doctrine"
+  },
+  "identity_metrics": {
+    "identity_continuity_score": 95.0,
+    "registry_source": "reports/identity_registry.json",
+    "identity_report": "reports/identity_report.md",
+    "continuity_report": "reports/continuity_report.json",
+    "life_history_report": "reports/life_history_report.json"
+  },
+  "reality_metrics": {
+    "knowledge_coverage_score": 90.0,
+    "reality_alignment_report": "reports/reality_alignment_report.json",
+    "diversity_report": "reports/diversity_report.json",
+    "institutional_fitness_report": "reports/institutional_fitness_report.json",
+    "belief_registry": "reports/belief_registry.json"
+  },
+  "trust_metrics": {
+    "trust_registry": "reports/trust_registry.json",
+    "trust_report": "reports/trust_report.json",
+    "drift_report": "reports/drift_report.json",
+    "knowledge_health_report": "reports/knowledge_health_report.json"
+  },
+  "evidence_metrics": {
+    "evidence_registry": "reports/evidence_registry.json",
+    "evidence_report": "reports/evidence_report.json",
+    "claim_report": "reports/claim_report.json",
+    "verification_report": "reports/verification_report.json",
+    "contradiction_report": "reports/contradiction_report.json",
+    "evidence_quality_report": "reports/evidence_quality_report.json"
+  },
+  "release_artifacts": {
+    "release_notes": "RELEASE_NOTES_v0.9.0-rc1.md",
+    "release_manifest": "RELEASE_MANIFEST_v0.9.0-rc1.md",
+    "architecture_snapshot": "docs/release/ARCHITECTURE_SNAPSHOT.md",
+    "capability_matrix": "docs/release/CAPABILITY_MATRIX.md",
+    "cli_reference": "docs/release/CLI_REFERENCE.md",
+    "report_reference": "docs/release/REPORT_REFERENCE.md",
+    "test_summary": "docs/release/TEST_SUMMARY.md",
+    "governance_lock": "docs/release/GOVERNANCE_LOCK.md",
+    "known_limitations": "docs/release/KNOWN_LIMITATIONS.md",
+    "release_decision": "docs/release/RELEASE_DECISION.md",
+    "rc1_release_report": "reports/v090_rc1_release_report.md",
+    "rc1_completion_report": "reports/v090_rc1_completion_report.md",
+    "readiness_checker": "tools/check_rc1_readiness.py"
+  },
+  "schema_inventory": [
+    "schemas/dmn_event.schema.json",
+    "schemas/memory_event.schema.json",
+    "schemas/recall_evidence.schema.json",
+    "schemas/governed_memory_wrapper.schema.json",
+    "schemas/dmn_metadata_sidecar.schema.json",
+    "schemas/dmn_sidecar_review.schema.json",
+    "schemas/dmn_sync_manifest.schema.json",
+    "schemas/dmn_conflict_register.schema.json",
+    "schemas/embedding_sidecar.schema.json"
+  ],
+  "kernel_inventory": [
+    "Deliberation",
+    "Evaluation and governance",
+    "Adaptive routing intelligence",
+    "Self-improving deliberation knowledge",
+    "Verification and evidence",
+    "Knowledge acquisition",
+    "Trust and knowledge calibration",
+    "Reality alignment",
+    "Narrative identity and continuity",
+    "Institutional audit",
+    "Graph health",
+    "Release health"
+  ],
+  "cli_inventory_count": 29,
+  "known_risks": [
+    "Report snapshot mode is documented but not fully implemented across all generators.",
+    "Legacy DMN records are normalized by validator but not migrated.",
+    "Graph health is derived from release artifacts rather than a persisted graph database."
+  ]
+}
