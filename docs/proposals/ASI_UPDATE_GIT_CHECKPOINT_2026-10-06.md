@@ -63,3 +63,34 @@ Git 設定、不建立 tag，也不打包記憶體、備份、manifest 或執行
 目前 **暫緩 Release**：實際載入／私有遷移／rollback／必要 gate 與真實觀察仍有
 缺口，獨立覆核再次遇用量上限。待既定驗收與相關人類決策成立後，再判斷 tag、
 Release 與正式切換；不以文件提交、測試數量或用量中斷宣告整體完成。
+
+## 同日續記：公開載入已完成限定覆核
+
+上文是首次文件提交時的快照；後續在原角色與設定恢復工作，未更換身分規避
+用量限制。首次文件已以 `4c17d26` 安全推送至原工作分支；未發布 tag／Release。
+
+- owner hash-only 原外層 exit 0 已取回，沒有重跑；獨立26項保存證據核對及
+  37,038現況綁定一致，限定接受0.96。外層總耗時仍UNKNOWN。
+- 另行單次授權的公開 import07d 實際 exit 0，獨立限定接受0.96。
+  920是端點／斷言核對，不是920種測試情境；涵蓋264載入檔、325 read-posthash、
+  3 compiled-bootstrap及130可信任startup現況綁定。DB／migration／gate false。
+  判決SHA256 `3f867c8e699d6e628668a115a8fe2ec5f7ff789b1a2e719b73ab81212acf7d6a`。
+  不是所有37,038未使用依賴的after-hash或歷史startup bytecode／完整OS sandbox。
+- STATE r2 另有單次唯讀37,104端點查驗，實際exit 0及限定接受0.96，沒有
+  Hermes／DLL載入、WMI、SQL、HOME或私有存取。判決SHA256
+  `17863f44c7f3fe194bc4688c3a6e4ed344453d7ccd135b6525d7f5a59158187d`。
+  此觀測不是public STATE import或私有migration接受。
+- STATE後續公開guard與Kanban私有09預檢仍HOLD：bytes路徑在記錄拒絕前
+  TypeError，以及Windows inventory鍵分隔符不一致。皆在執行前發現，沒有
+  target DB操作；另編最小修正，原候選、失敗與固定準則保留，不擴大權限。
+- 舊版乾淨來源有本機既存Git物件路徑，但只有作者唯讀盤點，不是rollback。
+  乾淨來源相容性不代替完整historical dirty-runtime recovery；沒有額外解密。
+
+原用量中斷保留為歷史，不再用它代替目前具體HOLD理由。Release仍暫緩，
+私有遷移、rollback及其他必要gates尚未完成。本續記仍僅公開文件，無程式／
+manifest／記憶／私有產物提交，不提升任何phase gate。
+
+再次續記：原三個代理皆遇用量上限後，主控完成另編候選的本機準備及56項
+公開source-bound修正檢查、6項launcher pure-function檢查。新合約保留原綁定，
+但尚無獨立新預檢與私有GO，不能自行宣布HOLD已解除。私有DB、原備份與
+正式環境仍未操作，Release保持暫緩；未提交候選程式或執行產物。
