@@ -131,3 +131,94 @@ metadata15守衛測試仍為準備草稿，沒有新私有執行授權或成功�
 原三個角色再次回報用量上限，未更換身份、模型或provider。主控保存續接
 文件及append-only稽核，沒有自行認證候選。本次仍只提交去敏感公開進度文件；
 不含本機候選、證據、記憶或私有產物。Release及正式切換繼續暫緩。
+
+## 2026-10-08 續記：新版公開合約產出，應用驗收仍分開
+
+原作者與原獨立覆核角色以原設定恢復；先前用量中斷與所有失敗保留，沒有
+換身份、模型或provider迴避限制。新版公開支持已完成有限覆核：STATE支援
+精確hostname與連線拒絕，但原WMI載入／初始化範圍措辭缺口仍保留；Kanban
+公開守衛支持也不是私有DB或完整隔離證明，不因測試數量宣告整體成功。
+
+STATE r5另編compiler03取得精確範圍預檢與單次授權，實際exit0，產生新合約
+37,187項映射及真實來源SOUL。獨立保存結果覆核完成1,306項斷言，信心0.96，
+僅接受**公開準備產出**。舊37,149映射及固定守恆metadata保留；不是重新讀取
+所有歷史端點，也不是full application、private migration或phase Gate PASS。
+
+作者與覆核各有一個保存證據解析失敗，皆保留：大型檔案identity整數不可經
+JavaScript有限精度數值往返；原stdout換行bytes與正規化文字digest亦須分開。
+另編唯讀檢查確認Python整數內容及產出守恆，沒有重跑compiler、改寫原憑據
+或掩蓋失敗。原準備紀錄與後續actual稽核分開追加，English DMN與journal歷史
+bytes prefix及原blankline不變；不作reality-replay補分。
+
+下一步STATE public02需要新版合約／launcher／probe專屬的獨立預檢與另次
+單次授權。完整新映射預後端點、source-only來源、native載入與有限query、
+HOME／SOUL／ACL、零連線、完整streams及實際final exit仍待該次應用觀測。
+新版child等待600秒只屬候選設定，預後helper各240秒不變，不能撤銷r4原逾時
+與晚到FAIL；原child-final未知與缺失後置證據仍保留。
+
+public16已載入模組來源helper取得設計覆核及另次精確單次公開支持授權。
+本追加準備停點尚未收到其actual結果，不推論API已執行或成功；選定端點的
+新process觀測不能補成舊process或未來私有process的完整DLL／OS來源證明。
+確切執行與新保存結果需另行獨立核對，與STATE application授權完全分開。
+
+兩份DB既有人工範圍不變，Kanban12 baseline差異及STATE新sibling基線未解決。
+沒有新私有遷移、額外解密、備份覆寫、權限修補或正式切換；Release仍暫緩。
+若另核准Git提交／推送，只限去敏化公開文件，不納入候選、manifest、原始
+工具憑據、記憶、SID／ACL細節或私有產物，不發布tag／Release。
+
+## 同日稍後：public16 已返回失敗，原待結果停點保留
+
+上段「actual未收到」保留為當時準備快照。其後public16單次公開支持已返回
+exit1、FAIL_CLOSED，錯誤型別AttributeError，沒有running session。原生依賴
+載入後未取得選定模組路徑觀測；選定API呼叫次數仍UNKNOWN，不能推論為零
+或把一般檔案hash當作載入來源證明。保存欄位顯示來源／檔案identity守恆，
+但尚待完整外層憑據與獨立實際結果覆核，不能由作者自行驗收。
+
+沒有重跑、刪除、權限修補或私有DB操作。本次失敗與先前STATE合約的限定
+準備產出分開記錄；STATE application仍未啟動，Release及正式切換繼續暫緩。
+
+## 再續記：public16 失敗取得限定覆核，另編修正僅準備
+
+其後完整外層憑據已回收，原獨立覆核以917項保存／公開檔案／AST斷言、
+信心0.96核對public16失敗，僅接受失敗證據一致，不接受ABI或選定載入來源。
+常值訊息支持整數回傳的value提取可能不相容，實際site／stack與部分API
+呼叫次數仍UNKNOWN。原程式、試行結果及失敗保留；另編17只核准最小型別
+正規化與pure支持準備，沒有新的native成功或執行授權。
+
+STATE public02亦取得新版獨立static預檢，81項斷言只屬有限唯讀／pure政策
+支持，沒有原生WMI query、完整映射wave或應用執行。後續必須另簽單次GO，
+明列標準套件native初始化與有限query的能力界線，再取得自身完整實際預後
+證據；靜態接受不代替實際接受或私有DB驗收。所有Gate／Release界線不變。
+
+## 同日續接：公開 STATE 匯入已完成，等待實際獨立覆核
+
+原執行者確認額度中斷前只讀取核准文件，尚未啟動；恢復後使用同一份未消耗的
+單次核准，沒有重跑或更換角色。公開隔離匯入的 child 與外層程序皆實際退出0，
+完整等待及輸出憑據已保存。37,187項邏輯 expected mapping 保留；完整掃描的
+前後保存 count／digest／彙總identity，不是逐檔身分歷史。保存來源／ACL／SOUL
+守恆、2組有限 WMI query結果、空白拒絕及零DB連線。這些先列為保存
+產物觀測，仍待原獨立覆核，不能由實作者自行驗收。
+
+流程總耗時未直接量測，維持UNKNOWN；中途目錄存在不等於成功，沒有以wait總和
+補造時間或隱藏先前失敗。歷史逾時、型別與精度問題、有限native／載入來源界線
+繼續保留。尚未執行私有DB遷移或SessionDB factory，後續私有預檢及基線差異須
+另行核對與核准。Gate、正式切換、tag及Release仍暫緩；本續記不授權發布原始憑據。
+
+## 隨後限定覆核完成：公開匯入接受，不解鎖私有範圍
+
+原獨立覆核以831項來源／保存證據／檔案斷言、信心0.96接受新版公開source-only
+匯入；沒有重跑全量掃描、native API、SQL或ACL操作。這不是831個原生場景，也
+不是Gate PASS。較早待覆核段落保留為時間點紀錄；掃描彙總不冒充逐檔歷史。
+私有資料列／schema／鎖／快取／新兄弟基線與factory仍須另行預檢和核准，正式
+切換及Release繼續暫緩。所有失敗、能力限制及原始憑據維持原狀。
+
+## 同日後續：稽核完成，NEW17 失敗仍不放寬必要目標
+
+公開STATE結果已按另次核准追加English記憶與journal，歷史前綴及原blankline保留。
+NEW17精確單次公開支持退出1，FAIL_CLOSED／MISSING_FAIL_CLOSED；獨立125項保存／
+來源／檔案斷言、信心0.96只核對失敗，不接受選定模組來源或ABI。確切失敗target、
+site及部分API次數仍UNKNOWN，不以空白拒絕或extension檔案hash當成功。
+
+另編NEW18只核准有限失敗前追蹤及pure支持準備；必要目標、API與守衛不變，
+沒有重跑17、fallback或optionalization，也沒有新native結果或執行核准。
+私有DB／siblings基線、正式切換與Release仍分開，沒有因新增紀錄而解鎖。
