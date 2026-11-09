@@ -72,7 +72,7 @@ class FreeLLMAPIProviderTests(unittest.TestCase):
         self.assertEqual(self.free.base_url, "http://127.0.0.1:31415/v1")
         self.assertEqual(self.free.default_model, "auto")
         self.assertEqual(self.free.available_models, ["auto"])
-        self.assertEqual(self.free.api_key_env, "OPENAI_API_KEY")
+        self.assertEqual(self.free.api_key_env, "FREELLMAPI_API_KEY")
         self.assertTrue(self.free.requires_auth)
 
     def test_loopback_forwarder_still_cloud_without_privileged_capabilities(self):
@@ -112,7 +112,7 @@ class FreeLLMAPIProviderTests(unittest.TestCase):
 
     def test_synthetic_http_formats_auto_and_auth_without_secret_in_result(self):
         marker = "SYNTHETIC_NOT_A_REAL_CREDENTIAL"
-        with patch.dict(os.environ, {"OPENAI_API_KEY": marker}, clear=True), \
+        with patch.dict(os.environ, {"FREELLMAPI_API_KEY": marker}, clear=True), \
                 patch("urllib.request.urlopen", return_value=_SyntheticHTTP()) as http:
             response = OpenAICompatibleAdapter(self.free).invoke(ProviderRequest("general_reasoning", "public synthetic"))
         request = http.call_args.args[0]

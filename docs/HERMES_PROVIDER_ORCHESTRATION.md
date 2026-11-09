@@ -67,6 +67,16 @@ Provider types currently modeled:
 
 These types identify adapter behavior and governance expectations. They do not imply Hermes can consume a private IDE quota unless that IDE exposes a supported bridge.
 
+### FreeLLMAPI authentication
+
+The local FreeLLMAPI gateway requires its own unified API key. Obtain the
+`freellmapi-...` key from the desktop app's Keys page or tray menu and make it
+available to the Hermes process as `FREELLMAPI_API_KEY`. Upstream provider keys
+are configured inside FreeLLMAPI and are not interchangeable with the gateway
+key. Do not commit either kind of key or include it in logs. A running process
+must be restarted or otherwise receive the updated environment before it can
+use a newly configured key. See the [FreeLLMAPI installation guide](https://github.com/tashfeenahmed/freellmapi/blob/main/docs/en/install/01-install.md).
+
 ## IDE Worker Bridge Contract
 
 Cursor, VS Code, Claude Desktop, Grok App, and Antigravity are not treated as providers by themselves. A worker bridge must expose:

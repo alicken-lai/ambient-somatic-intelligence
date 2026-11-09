@@ -62,7 +62,7 @@ providers:
     enabled: true
     type: openai-compatible
     base_url: http://127.0.0.1:31415/v1
-    api_key_env: OPENAI_API_KEY
+    api_key_env: FREELLMAPI_API_KEY
     default_model: auto
     available_models:
       - auto
