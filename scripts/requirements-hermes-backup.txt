@@ -1,0 +1,4 @@
+# Versions used for the synthetic backup/restore integration on 2026-10-27.
+# Installing dependencies is a separate operation; this file installs nothing.
+cryptography==50.0.1
+PyYAML==6.0.3

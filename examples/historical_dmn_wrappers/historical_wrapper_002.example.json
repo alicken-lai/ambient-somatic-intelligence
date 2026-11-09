@@ -1,0 +1,99 @@
+{
+  "wrapper_id": "wrapper:reviewed:historical-dmn-line-0003",
+  "schema_version": "1.0.0",
+  "wrapper_type": "reviewed",
+  "created_at": "2026-06-10T04:05:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "memory/dmn.jsonl:3",
+  "source_record_hash": "sha256:53c9c88a1bd341612cafa25018155e4f8dad604ac23099d031436d05d26f386a",
+  "memory_event": {
+    "record_id": "mem_1.0.0_unknown-node_system_historical-dmn-line-0003",
+    "schema_version": "1.0.0",
+    "event_type": "system",
+    "timestamp": "2026-05-11T13:36:36.587887+00:00",
+    "source_node": "unknown-node",
+    "source_system": "dmn",
+    "source_agent": "",
+    "sensor_type": "local_telemetry",
+    "modality": "system_log",
+    "summary": "Historical local telemetry observation from sense_local. Raw host and system metrics are not copied into this wrapper.",
+    "content_ref": "memory/dmn.jsonl:3",
+    "content_hash": "sha256:53c9c88a1bd341612cafa25018155e4f8dad604ac23099d031436d05d26f386a",
+    "confidence": 0.63,
+    "privacy_class": "sensitive",
+    "retention_policy": "summary-only-review-before-sync",
+    "governance_state": "reviewed",
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 3,
+      "timestamp": "2026-05-11T13:36:36.587887+00:00",
+      "checksum": "sha256:53c9c88a1bd341612cafa25018155e4f8dad604ac23099d031436d05d26f386a",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical telemetry record has source line and hash but no replay manifest pointer."
+    },
+    "embedding_ref": null,
+    "tags": [
+      "historical-dmn",
+      "telemetry",
+      "system-observation",
+      "phase-1g8"
+    ],
+    "lineage": {
+      "parent_record_ids": [],
+      "root_record_id": "memory/dmn.jsonl:3",
+      "derived_from": [
+        "memory/dmn.jsonl:3"
+      ],
+      "transformation": "historical_wrapper_dry_run"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T04:05:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "reviewed",
+    "promotion_reason": "not_available",
+    "promotion_score": null,
+    "decay_reason": "not_available",
+    "importance_score": 0.42,
+    "guardian_review_status": "not_available",
+    "privacy_class": "sensitive",
+    "retention_policy": "summary-only-review-before-sync",
+    "requires_review": true,
+    "metadata_basis": "privacy class derived from local telemetry and host/system metric content",
+    "sync_eligibility": "not_eligible_sensitive",
+    "sync_eligibility_reason": "Raw telemetry may expose local machine identity or operational state; summary-only sharing requires human review and replay repair."
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [],
+    "derived_from": [
+      "memory/dmn.jsonl:3"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": []
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 3,
+      "timestamp": "2026-05-11T13:36:36.587887+00:00",
+      "checksum": "sha256:53c9c88a1bd341612cafa25018155e4f8dad604ac23099d031436d05d26f386a",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical telemetry record has source line and hash but no replay manifest pointer."
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-historical-dmn-wrapper-validation.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}

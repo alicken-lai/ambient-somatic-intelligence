@@ -1,0 +1,67 @@
+{
+  "recall_id": "recall_phase1f_in_memory_001",
+  "timestamp": "2026-06-09T15:10:00+00:00",
+  "query_type": "text",
+  "query_summary": "Non-production in-memory proof harness recall over wrapped DMN examples.",
+  "query_hash": "sha256:phase1f-in-memory-query",
+  "initiating_agent": "codex",
+  "source_node": "unknown-node",
+  "vector_backend": "in_memory_proof_harness",
+  "embedding_model": "synthetic-in-memory",
+  "candidate_record_ids": [
+    "mem_v1_dmn_line1502_a1a2b3ea07ea",
+    "mem_v1_dmn_line2_8f4f07e5d870"
+  ],
+  "similarity_scores": [
+    0.94,
+    0.73
+  ],
+  "ranking_method": "cosine_similarity_synthetic_embeddings",
+  "filters_applied": [
+    "privacy_class=['internal']",
+    "governance_state=['raw', 'reviewed']",
+    "tags=['wrapped-existing-memory']"
+  ],
+  "privacy_filters_applied": [
+    "privacy_class=['internal']"
+  ],
+  "governance_filters_applied": [
+    "governance_state=['raw', 'reviewed']"
+  ],
+  "excluded_records": [
+    {
+      "record_id": "mem_v1_dmn_line3_4b34244df122",
+      "reason": "privacy_class sensitive excluded by internal-only proof harness filter"
+    }
+  ],
+  "provenance": [
+    {
+      "record_id": "mem_v1_dmn_line1502_a1a2b3ea07ea",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 1502,
+      "content_hash": "sha256:a1a2b3ea07eaea1c0e70278f8816d8144bc37c7ab3215e96d1a52cc77124ed32",
+      "backend": "in_memory_proof_harness",
+      "rank": 1
+    },
+    {
+      "record_id": "mem_v1_dmn_line2_8f4f07e5d870",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 2,
+      "content_hash": "sha256:8f4f07e5d8704a9d4f5bce7e295bdb87ee20233e46996166d03d1024774b46a2",
+      "backend": "in_memory_proof_harness",
+      "rank": 2
+    }
+  ],
+  "confidence": 0.94,
+  "guardian_visible": true,
+  "decision_allowed": false,
+  "action_allowed": false,
+  "replay_reference": {
+    "available": true,
+    "replay_id": "replay_phase1f_in_memory_001",
+    "source_path": "examples/recall_evidence/in_memory_recall_evidence.example.json",
+    "timestamp": "2026-06-09T15:10:00+00:00",
+    "reason": ""
+  },
+  "no_decision_made": true
+}

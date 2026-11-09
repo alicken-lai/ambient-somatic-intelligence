@@ -1,0 +1,50 @@
+{
+  "record_id": "mem_v1_labnode_somatic_1c6f2e9a44d0",
+  "schema_version": "1.0.0",
+  "event_type": "somatic",
+  "timestamp": "2026-06-09T14:10:00+00:00",
+  "source_node": "lab-node-a",
+  "source_system": "somatic.attention.synthetic",
+  "source_agent": "",
+  "sensor_type": "power_anomaly_attention_pressure",
+  "modality": "power",
+  "summary": "Synthetic somatic pressure event from a low-severity power anomaly; recommendation remains observe-only.",
+  "content_ref": "examples/synthetic_somatic/phase1c-power-pressure.json",
+  "content_hash": "sha256:1c6f2e9a44d0e5b0a67bd21f1af3d20636e501a4b9a10000000000000000003",
+  "confidence": 0.78,
+  "privacy_class": "internal",
+  "retention_policy": "somatic-summary-180d",
+  "governance_state": "classified",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_somatic_001",
+    "source_path": "examples/synthetic_somatic/phase1c-power-pressure.json",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:10:00+00:00",
+    "checksum": "sha256:1c6f2e9a44d0e5b0a67bd21f1af3d20636e501a4b9a10000000000000000003",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "phase": "phase_1c_schema_examples",
+    "causal_event_id": "cause_phase1c_somatic_001",
+    "root_event_id": "root_phase1c_examples",
+    "reason": ""
+  },
+  "embedding_ref": null,
+  "tags": [
+    "phase1c",
+    "somatic",
+    "power-anomaly",
+    "observe-only"
+  ],
+  "lineage": {
+    "parent_record_ids": [
+      "mem_v1_labnode_sensor_0a41c9e2b7d3"
+    ],
+    "root_record_id": "mem_v1_labnode_sensor_0a41c9e2b7d3",
+    "derived_from": [
+      "synthetic_environmental_window"
+    ],
+    "transformation": "somatic_pressure_classification"
+  },
+  "created_by": "codex",
+  "created_at": "2026-06-09T14:10:05+00:00"
+}

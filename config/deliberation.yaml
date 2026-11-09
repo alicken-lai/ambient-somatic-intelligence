@@ -1,0 +1,20 @@
+deliberation:
+  default_mode: light
+  max_children: 3
+  timeout_seconds_per_child: 120
+  max_output_chars_per_child: 12000
+  save_trace: true
+  copilot_first: true
+  allow_multi_cli: false
+  require_guardian_for_state_change: true
+
+routing:
+  simple: single
+  uncertain: light
+  architecture: full
+  coding: light
+  debugging: light
+  provider_policy: full
+  memory_mutation: guardian_required
+  credential_sensitive: guardian_required
+  state_changing: guardian_required

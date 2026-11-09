@@ -1,0 +1,99 @@
+{
+  "wrapper_id": "wrapper:reviewed:historical-dmn-line-1507",
+  "schema_version": "1.0.0",
+  "wrapper_type": "reviewed",
+  "created_at": "2026-06-10T04:10:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "memory/dmn.jsonl:1507",
+  "source_record_hash": "sha256:ef914dee7bd957690e636de7f18bcbddf126941ab01ca2541f4cf7c4234644fb",
+  "memory_event": {
+    "record_id": "mem_1.0.0_unknown-node_governance_decision_historical-dmn-line-1507",
+    "schema_version": "1.0.0",
+    "event_type": "governance_decision",
+    "timestamp": "2026-06-09T14:29:27.722420+00:00",
+    "source_node": "unknown-node",
+    "source_system": "dmn",
+    "source_agent": "codex",
+    "sensor_type": "",
+    "modality": "text",
+    "summary": "Historical Phase 1G.5 DMN memory governance review summary with readiness score and TurboVec paused status.",
+    "content_ref": "memory/dmn.jsonl:1507",
+    "content_hash": "sha256:ef914dee7bd957690e636de7f18bcbddf126941ab01ca2541f4cf7c4234644fb",
+    "confidence": 0.81,
+    "privacy_class": "internal",
+    "retention_policy": "governance-summary-retain",
+    "governance_state": "reviewed",
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 1507,
+      "timestamp": "2026-06-09T14:29:27.722420+00:00",
+      "checksum": "sha256:ef914dee7bd957690e636de7f18bcbddf126941ab01ca2541f4cf7c4234644fb",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical DMN summary has no per-record replay manifest pointer."
+    },
+    "embedding_ref": null,
+    "tags": [
+      "historical-dmn",
+      "phase-summary",
+      "dmn-governance",
+      "phase-1g8"
+    ],
+    "lineage": {
+      "parent_record_ids": [],
+      "root_record_id": "memory/dmn.jsonl:1507",
+      "derived_from": [
+        "memory/dmn.jsonl:1507"
+      ],
+      "transformation": "historical_wrapper_dry_run"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T04:10:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "reviewed",
+    "promotion_reason": "not_available",
+    "promotion_score": null,
+    "decay_reason": "not_available",
+    "importance_score": 0.83,
+    "guardian_review_status": "not_available",
+    "privacy_class": "internal",
+    "retention_policy": "governance-summary-retain",
+    "requires_review": true,
+    "metadata_basis": "derived from phase summary source, tags, and content summary",
+    "sync_eligibility": "eligible_summary_only",
+    "sync_eligibility_reason": "Project evolution summary is suitable for summary-only sync after human review, but replay pointer remains missing."
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [],
+    "derived_from": [
+      "memory/dmn.jsonl:1507"
+    ],
+    "synced_from": null,
+    "conflict_group_id": null,
+    "parent_record_ids": []
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": false,
+      "replay_id": "",
+      "source_path": "memory/dmn.jsonl",
+      "source_line": 1507,
+      "timestamp": "2026-06-09T14:29:27.722420+00:00",
+      "checksum": "sha256:ef914dee7bd957690e636de7f18bcbddf126941ab01ca2541f4cf7c4234644fb",
+      "manifest_ref": "",
+      "phase": "1G.8",
+      "causal_event_id": "",
+      "root_event_id": "",
+      "reason": "Historical DMN summary has no per-record replay manifest pointer."
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-historical-dmn-wrapper-validation.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}

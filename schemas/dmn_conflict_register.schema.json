@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/dmn_conflict_register.schema.json",
+  "title": "ASI DMN Conflict Register Entry",
+  "type": "object",
+  "required": [
+    "conflict_id",
+    "schema_version",
+    "created_at",
+    "created_by",
+    "conflict_type",
+    "status",
+    "claims",
+    "affected_record_ids",
+    "source_nodes",
+    "confidence_summary",
+    "requires_review",
+    "review_owner",
+    "resolution",
+    "audit"
+  ],
+  "properties": {
+    "conflict_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conflict_type": {
+      "type": "string",
+      "enum": [
+        "observation_conflict",
+        "interpretation_conflict",
+        "source_conflict",
+        "time_conflict",
+        "governance_conflict",
+        "sync_conflict"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "under_review",
+        "resolved",
+        "archived"
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "record_id",
+          "source_node",
+          "claim_summary",
+          "confidence",
+          "evidence_ref",
+          "replay_pointer"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_node": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replay_pointer": {
+            "$ref": "#/$defs/replay_pointer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "affected_record_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "source_nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "confidence_summary": {
+      "type": "object",
+      "required": [
+        "min_confidence",
+        "max_confidence",
+        "confidence_gap",
+        "summary"
+      ],
+      "properties": {
+        "min_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "max_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence_gap": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "requires_review": {
+      "type": "boolean"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "resolution": {
+      "type": "object",
+      "required": [
+        "resolution_status",
+        "resolution_method",
+        "resolved_claim_id",
+        "resolution_reason",
+        "resolved_at",
+        "resolved_by"
+      ],
+      "properties": {
+        "resolution_status": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "coexisting",
+            "resolved",
+            "superseded",
+            "tombstoned"
+          ]
+        },
+        "resolution_method": {
+          "type": "string"
+        },
+        "resolved_claim_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolution_reason": {
+          "type": "string"
+        },
+        "resolved_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolved_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "decision_log_ref",
+        "validation_status",
+        "no_mutation"
+      ],
+      "properties": {
+        "decision_log_ref": {
+          "type": "string"
+        },
+        "validation_status": {
+          "type": "string"
+        },
+        "no_mutation": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "replay_pointer": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "source_line",
+        "timestamp",
+        "checksum",
+        "manifest_ref",
+        "phase",
+        "causal_event_id",
+        "root_event_id",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "checksum": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "causal_event_id": {
+          "type": "string"
+        },
+        "root_event_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -78,6 +78,22 @@ Enable when: user asks for parallel work, 3+ modules, or independent subtasks.
 
 Sub-agents do not call Hermes MCP directly; parent handles memory.
 
+### Provider / Subagent division
+
+Provider is primarily responsible for intent classification, model/provider/subagent selection, scheduling strategy, context allocation, constraints, verification requirements, and integration of verifiable subagent results. Concrete execution and main text generation should be delegated to subagents whenever available and proportionate.
+
+Provider should not directly run shell commands, edit files, cause external side effects, perform coding/debugging/review/deployment, do large research/data整理, or write long final responses when a suitable subagent route exists. Provider may directly handle brief confirmations, clarifications, safety blocking notes, simple no-tool facts, explicit user requests for Provider response, very small tasks, subagent unavailability, or required synchronous control.
+
+Subagents execute tools, read/write files, run commands, test, verify, research, gather data, draft code/reports/final text, and return structured evidence: actions taken, tools/files used, artifact paths / URLs / IDs / status codes, verification results, and blocked or incomplete items.
+
+Delegation does not bypass Guardian, permissions, memory doctrine, or audit logging. Stop on `BLOCK` or unresolved `REVIEW_REQUIRED`; never route around policy or fabricate tool results.
+
+### Cross-IDE Hermes subagents
+
+MCP clients may request GPT subagents in other IDEs only through Hermes-ASI routing. Requests must include source IDE, target IDE, `task: "subagent"`, scoped instructions, expected output, memory permissions, and timeout/sync mode.
+
+Hermes must authenticate source and target, check Guardian permissions, route to an available target GPT, and return either structured output or explicit error codes/messages. Shared DMN / TurboVec / ASI memory access is optional and Guardian-scoped; isolated IDE context is preferred when contamination risk exists. Use synchronous calls for quick work and asynchronous queued calls for long-running work. Log timeouts, exceptions, retries, fallback decisions, and all cross-IDE activity.
+
 ---
 
 ## Freeze / Ontology (summary)
