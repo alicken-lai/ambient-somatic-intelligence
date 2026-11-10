@@ -49,6 +49,11 @@ not execution instructions.
 - Final installed collector readback: exit 0, 1,609 ASCII bytes, five excerpts.
   Collector SHA-256:
   `b31e01cc8643670d919252b36ff4840e053da6580968533c5108115630405e4b`.
+- After explicit owner approval of real DMN egress, one installed
+  `cron.scheduler.run_job` validation completed successfully: 1,016 response
+  characters, no returned error, no HTTP 413, and an unchanged job-store hash.
+  It used the repaired bounded collector and omitted the scheduler's delivery
+  stage. This verifies the real agent/model path, not Telegram receipt.
 
 The historical failed status is retained until a genuine scheduled execution
 updates it. The next stored run is 2026-11-15 04:30 Asia/Taipei. Telegram
