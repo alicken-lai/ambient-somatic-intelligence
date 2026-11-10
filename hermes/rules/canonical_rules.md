@@ -207,6 +207,91 @@ Use parallel sub-agents when:
 
 Do not spawn nested sub-agents unless the platform explicitly allows it.
 
+### 9.3 Provider / subagent division of labor
+
+Provider is primarily an agent dispatcher, not the default executor. For tasks that require execution, research, modification, testing, deployment, organization, or long-form drafting, Provider should classify intent, choose model/provider/subagent strategy, scope context, set constraints and verification requirements, then delegate concrete work to subagents whenever available and proportionate.
+
+Provider may directly answer only for brief confirmations, clarification questions, safety blocking explanations, simple facts that require no tools, user requests that explicitly ask Provider to respond, or cases where subagents are unavailable / disproportionate / unsuitable for synchronous control.
+
+Provider responsibilities:
+
+- Classify and decompose tasks.
+- Select the appropriate subagent, model, tool set, sync/async mode, and parallelism.
+- Define goal, context, output format, allowed tools, verification requirements, and forbidden actions.
+- Verify returned artifacts, paths, URLs, IDs, status codes, tests, or summaries.
+- Compress, check, and deliver the final response based on subagent output.
+
+Provider should not directly perform shell commands, file edits, external side effects, coding/debugging/review/deployment, large research, data整理, or long-form final writing when a suitable subagent route is available.
+
+Subagents own the execution surface:
+
+- Tool operations, file reads/writes, commands, tests, verification, research, data gathering, drafts, code, reports, and final text.
+- Return structured evidence: what was done; tools/files used; artifact path / URL / ID / status code; test or verification result; incomplete or blocked portions.
+
+Tool work should be delegated to subagents by default. Provider may use tools directly only to inspect Provider state/configuration, verify a subagent handle, handle very small tasks where delegation adds unnecessary cost, comply with a user request not to use subagents, or maintain required synchronous control.
+
+Even when delegated, all existing governance applies: Guardian / permission checks before destructive or high-risk actions, stop on `BLOCK` or unresolved `REVIEW_REQUIRED`, no policy bypass through alternate routes, and no fabricated tool or verification results.
+
+### 9.4 Hermes subagent calling purpose
+
+Hermes subagent calling defines how MCP clients (IDE instances) may request GPT subagents from other IDEs through the Hermes-ASI server. The goal is secure, reliable, memory-consistent execution across multi-IDE work while preserving Guardian governance and append-only audit trails.
+
+### 9.5 Hermes subagent architecture
+
+| Component | Responsibility |
+|-----------|----------------|
+| Hermes-ASI MCP server | Central management layer; maintains DMN / TurboVec / ASI memory; manages Guardian rules, context, and task routing |
+| IDE clients | MCP clients that can submit tasks or request subagents from other IDEs |
+| Subagent | GPT instance in a target IDE that performs a delegated task within scoped instructions |
+
+### 9.6 Cross-IDE subagent calling flow
+
+For a call where `A_IDE` requests `B_IDE` as a GPT subagent:
+
+1. **Task submission** - `A_IDE` sends Hermes a structured request with `from`, `to`, `task: "subagent"`, and scoped `instructions`.
+2. **Hermes routing** - Hermes identifies target GPT availability, validates the call through Guardian and permission rules, then forwards the task.
+3. **Subagent execution** - `B_IDE` executes the task, optionally using shared memory only when permitted by Guardian policy.
+4. **Result delivery** - Hermes returns a structured response from `B_IDE` to `A_IDE` with `task: "subagent"` and either `output` or an error payload.
+
+Example request:
+
+```json
+{
+  "from": "A_IDE",
+  "to": "B_IDE",
+  "task": "subagent",
+  "instructions": "... GPT prompt ..."
+}
+```
+
+Example response:
+
+```json
+{
+  "from": "B_IDE",
+  "to": "A_IDE",
+  "task": "subagent",
+  "output": "GPT generated result"
+}
+```
+
+### 9.7 Permissions, memory, and isolation
+
+- Hermes authenticates the source IDE and verifies permission to call the target IDE GPT.
+- Guardian rules govern subagent access to shared memory; unauthorized read/write is forbidden.
+- Subagents may read/write DMN memory only when the task explicitly permits it and Guardian policy allows it.
+- IDE session context may be isolated to prevent data contamination across clients.
+- Result validation is required through Guardian when subagent output affects shared memory, governance state, external actions, or other durable records.
+
+### 9.8 Synchronization, errors, and best practices
+
+- Use synchronous calls for quick tasks where the caller can wait for completion.
+- Use asynchronous calls for long-running tasks; Hermes should queue work and deliver results by callback or event.
+- Failed subagent execution must return explicit error codes or messages to the caller.
+- Timeouts, exceptions, retries, fallbacks, and cross-IDE activity must be logged for auditability.
+- Prefer the most capable available GPT model for subagent work when cost, latency, and safety constraints allow it.
+- Subagent prompts should define clear inputs, outputs, permissions, memory scope, and timeout expectations.
+
 ---
 
 ## 10. Communication

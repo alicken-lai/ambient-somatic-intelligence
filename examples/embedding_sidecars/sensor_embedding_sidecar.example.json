@@ -1,0 +1,35 @@
+{
+  "embedding_id": "emb_sensor_0a41c9e2b7d3",
+  "schema_version": "1.0.0",
+  "source_record_id": "mem_v1_labnode_sensor_0a41c9e2b7d3",
+  "source_content_hash": "sha256:0a41c9e2b7d3a6579132be1f52d8e7335d4cc01ce8ac7120000000000000002",
+  "embedding_model": "example-timeseries-summary-embedding-v1",
+  "embedding_dimension": 512,
+  "embedding_created_at": "2026-06-09T14:45:00+00:00",
+  "vector_backend": "example_vector_backend",
+  "vector_index_ref": "example-index://phase1c/sensor/emb_sensor_0a41c9e2b7d3",
+  "privacy_class": "internal",
+  "retention_policy": "sensor-summary-180d",
+  "source_schema_version": "1.0.0",
+  "created_by": "codex",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_sensor_embedding_001",
+    "source_path": "examples/embedding_sidecars/sensor_embedding_sidecar.example.json",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:45:00+00:00",
+    "checksum": "sha256:0a41c9e2b7d3a6579132be1f52d8e7335d4cc01ce8ac7120000000000000002",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "reason": ""
+  },
+  "metadata": {
+    "contains_vector_payload": false,
+    "example_only": true,
+    "source_modalities": [
+      "wifi_csi",
+      "power",
+      "temperature",
+      "humidity"
+    ]
+  }
+}

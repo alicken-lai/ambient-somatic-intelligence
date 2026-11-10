@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/recall_evidence.schema.json",
+  "title": "ASI Recall Evidence Packet",
+  "type": "object",
+  "required": [
+    "recall_id",
+    "timestamp",
+    "query_type",
+    "query_summary",
+    "query_hash",
+    "initiating_agent",
+    "source_node",
+    "vector_backend",
+    "embedding_model",
+    "candidate_record_ids",
+    "similarity_scores",
+    "ranking_method",
+    "filters_applied",
+    "privacy_filters_applied",
+    "governance_filters_applied",
+    "excluded_records",
+    "provenance",
+    "confidence",
+    "guardian_visible",
+    "decision_allowed",
+    "action_allowed",
+    "replay_reference",
+    "no_decision_made"
+  ],
+  "properties": {
+    "recall_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "query_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "sensor",
+        "event",
+        "record_id",
+        "replay",
+        "system",
+        "agent"
+      ]
+    },
+    "query_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "initiating_agent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_node": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vector_backend": {
+      "type": "string",
+      "minLength": 1,
+      "default": "none"
+    },
+    "embedding_model": {
+      "type": "string",
+      "minLength": 1,
+      "default": "none"
+    },
+    "candidate_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "similarity_scores": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "ranking_method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "filters_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy_filters_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "governance_filters_applied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "excluded_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "reason"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "source_path",
+          "source_line",
+          "content_hash",
+          "backend",
+          "rank"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_path": {
+            "type": "string"
+          },
+          "source_line": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "backend": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "guardian_visible": {
+      "type": "boolean",
+      "const": true,
+      "default": true
+    },
+    "decision_allowed": {
+      "type": "boolean",
+      "const": false,
+      "default": false
+    },
+    "action_allowed": {
+      "type": "boolean",
+      "const": false,
+      "default": false
+    },
+    "replay_reference": {
+      "type": "object",
+      "required": [
+        "available",
+        "replay_id",
+        "source_path",
+        "timestamp",
+        "reason"
+      ],
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "replay_id": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "no_decision_made": {
+      "type": "boolean",
+      "const": true,
+      "default": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "candidate_record_ids": {
+            "type": "array"
+          },
+          "similarity_scores": {
+            "type": "array"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "similarity_scores": {
+            "minItems": 0
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

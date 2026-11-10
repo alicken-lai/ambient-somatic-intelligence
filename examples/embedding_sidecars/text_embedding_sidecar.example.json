@@ -1,0 +1,30 @@
+{
+  "embedding_id": "emb_text_8f3a2c4e91b0",
+  "schema_version": "1.0.0",
+  "source_record_id": "mem_v1_labnode_text_8f3a2c4e91b0",
+  "source_content_hash": "sha256:8f3a2c4e91b0d85a6c4a9ef018e54d91c187c493f6d16a2cf47a000000000001",
+  "embedding_model": "example-embedding-model-v1",
+  "embedding_dimension": 768,
+  "embedding_created_at": "2026-06-09T14:40:00+00:00",
+  "vector_backend": "example_vector_backend",
+  "vector_index_ref": "example-index://phase1c/text/emb_text_8f3a2c4e91b0",
+  "privacy_class": "internal",
+  "retention_policy": "governance-365d",
+  "source_schema_version": "1.0.0",
+  "created_by": "codex",
+  "replay_pointer": {
+    "available": true,
+    "replay_id": "replay_phase1c_text_embedding_001",
+    "source_path": "examples/embedding_sidecars/text_embedding_sidecar.example.json",
+    "source_line": 1,
+    "timestamp": "2026-06-09T14:40:00+00:00",
+    "checksum": "sha256:8f3a2c4e91b0d85a6c4a9ef018e54d91c187c493f6d16a2cf47a000000000001",
+    "manifest_ref": "replay/data_catalog/replay_manifest.json",
+    "reason": ""
+  },
+  "metadata": {
+    "contains_vector_payload": false,
+    "example_only": true,
+    "backend_neutral": true
+  }
+}

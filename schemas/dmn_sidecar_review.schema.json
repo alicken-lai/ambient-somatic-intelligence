@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ambient-somatic-intelligence.local/schemas/dmn_sidecar_review.schema.json",
+  "title": "ASI DMN Sidecar Review Record",
+  "type": "object",
+  "required": [
+    "review_id",
+    "schema_version",
+    "created_at",
+    "created_by",
+    "sidecar_id",
+    "source_file",
+    "source_line",
+    "source_hash",
+    "review_state",
+    "reviewer_roles",
+    "decisions",
+    "approval_gates",
+    "supersession",
+    "revocation",
+    "audit"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sidecar_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_file": {
+      "type": "string",
+      "const": "memory/dmn.jsonl"
+    },
+    "source_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_state": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "under_review",
+        "approved",
+        "rejected",
+        "requires_revision",
+        "superseded",
+        "revoked",
+        "archived"
+      ]
+    },
+    "reviewer_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "owner",
+          "guardian_reviewer",
+          "privacy_reviewer",
+          "sync_reviewer",
+          "technical_reviewer"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "decision",
+          "decision_reason",
+          "decided_by",
+          "decided_at",
+          "confidence",
+          "conditions"
+        ],
+        "properties": {
+          "decision": {
+            "type": "string",
+            "enum": [
+              "approve",
+              "reject",
+              "require_revision",
+              "supersede",
+              "revoke",
+              "archive",
+              "observe"
+            ]
+          },
+          "decision_reason": {
+            "type": "string"
+          },
+          "decided_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decided_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "approval_gates": {
+      "type": "object",
+      "required": [
+        "privacy_gate_passed",
+        "retention_gate_passed",
+        "replay_gate_passed",
+        "lineage_gate_passed",
+        "guardian_gate_passed",
+        "sync_gate_passed",
+        "indexing_gate_passed"
+      ],
+      "properties": {
+        "privacy_gate_passed": {
+          "type": "boolean"
+        },
+        "retention_gate_passed": {
+          "type": "boolean"
+        },
+        "replay_gate_passed": {
+          "type": "boolean"
+        },
+        "lineage_gate_passed": {
+          "type": "boolean"
+        },
+        "guardian_gate_passed": {
+          "type": "boolean"
+        },
+        "sync_gate_passed": {
+          "type": "boolean"
+        },
+        "indexing_gate_passed": {
+          "type": "boolean"
+        },
+        "replay_not_applicable": {
+          "type": "boolean"
+        },
+        "lineage_not_applicable": {
+          "type": "boolean"
+        },
+        "unresolved_conflict_exists": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "supersession": {
+      "type": "object",
+      "required": [
+        "supersedes_sidecar_id",
+        "superseded_by_sidecar_id",
+        "supersession_reason"
+      ],
+      "properties": {
+        "supersedes_sidecar_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "superseded_by_sidecar_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supersession_reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "revocation": {
+      "type": "object",
+      "required": [
+        "revoked",
+        "revocation_reason",
+        "revoked_at",
+        "revoked_by"
+      ],
+      "properties": {
+        "revoked": {
+          "type": "boolean"
+        },
+        "revocation_reason": {
+          "type": "string"
+        },
+        "revoked_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revoked_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "no_dmn_mutation",
+        "proposal_only_until_approved",
+        "approved_for_indexing",
+        "approved_for_sync",
+        "decision_log_ref",
+        "turbo_vec_paused",
+        "production_sync_performed",
+        "production_indexing_performed",
+        "raw_dmn_content_copied"
+      ],
+      "properties": {
+        "no_dmn_mutation": {
+          "type": "boolean",
+          "const": true
+        },
+        "proposal_only_until_approved": {
+          "type": "boolean",
+          "const": true
+        },
+        "approved_for_indexing": {
+          "type": "boolean"
+        },
+        "approved_for_sync": {
+          "type": "boolean"
+        },
+        "decision_log_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "turbo_vec_paused": {
+          "type": "boolean",
+          "const": true
+        },
+        "production_sync_performed": {
+          "type": "boolean",
+          "const": false
+        },
+        "production_indexing_performed": {
+          "type": "boolean",
+          "const": false
+        },
+        "raw_dmn_content_copied": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

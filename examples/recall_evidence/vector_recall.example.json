@@ -1,0 +1,68 @@
+{
+  "recall_id": "recall_phase1c_vector_candidate_001",
+  "timestamp": "2026-06-09T14:30:00+00:00",
+  "query_type": "text",
+  "query_summary": "Find prior synthetic memory records related to WiFi CSI environmental anomaly review.",
+  "query_hash": "sha256:7a1f3c9d5b4e8e2c000000000000000000000000000000000000000000000001",
+  "initiating_agent": "codex",
+  "source_node": "lab-node-a",
+  "vector_backend": "example_vector_backend",
+  "embedding_model": "example-embedding-model-v1",
+  "candidate_record_ids": [
+    "mem_v1_labnode_sensor_0a41c9e2b7d3",
+    "mem_v1_labnode_somatic_1c6f2e9a44d0"
+  ],
+  "similarity_scores": [
+    0.91,
+    0.84
+  ],
+  "ranking_method": "candidate_vector_similarity_then_governed_filtering",
+  "filters_applied": [
+    "top_k=5",
+    "schema_version=1.0.0"
+  ],
+  "privacy_filters_applied": [
+    "exclude_privacy_class=restricted",
+    "allow_internal_for_local_review"
+  ],
+  "governance_filters_applied": [
+    "exclude_governance_state=deleted",
+    "require_no_decision_made=true"
+  ],
+  "excluded_records": [
+    {
+      "record_id": "mem_v1_labnode_sensor_restricted_demo",
+      "reason": "privacy_class restricted is not eligible for this recall example"
+    }
+  ],
+  "provenance": [
+    {
+      "record_id": "mem_v1_labnode_sensor_0a41c9e2b7d3",
+      "source_path": "examples/memory_events/sensor_event.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:0a41c9e2b7d3a6579132be1f52d8e7335d4cc01ce8ac7120000000000000002",
+      "backend": "example_vector_backend",
+      "rank": 1
+    },
+    {
+      "record_id": "mem_v1_labnode_somatic_1c6f2e9a44d0",
+      "source_path": "examples/memory_events/somatic_event.example.json",
+      "source_line": 1,
+      "content_hash": "sha256:1c6f2e9a44d0e5b0a67bd21f1af3d20636e501a4b9a10000000000000000003",
+      "backend": "example_vector_backend",
+      "rank": 2
+    }
+  ],
+  "confidence": 0.86,
+  "guardian_visible": true,
+  "decision_allowed": false,
+  "action_allowed": false,
+  "replay_reference": {
+    "available": true,
+    "replay_id": "replay_phase1c_vector_recall_001",
+    "source_path": "examples/recall_evidence/vector_recall.example.json",
+    "timestamp": "2026-06-09T14:30:00+00:00",
+    "reason": ""
+  },
+  "no_decision_made": true
+}

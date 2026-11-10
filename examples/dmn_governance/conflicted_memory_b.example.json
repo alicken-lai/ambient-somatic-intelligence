@@ -1,0 +1,107 @@
+{
+  "wrapper_id": "wrapper:conflicted:mem_1.0.0_office-hermes_system_power-conflict-b-e5f6g7h8",
+  "schema_version": "1.0.0",
+  "wrapper_type": "conflicted",
+  "created_at": "2026-06-10T02:16:00Z",
+  "created_by": "codex-docs",
+  "source_record_id": "sensor_office_power_011",
+  "source_record_hash": "sha256:conflictedsyntheticB001",
+  "memory_event": {
+    "record_id": "mem_1.0.0_office-hermes_system_power-conflict-b-e5f6g7h8",
+    "schema_version": "1.0.0",
+    "event_type": "system",
+    "timestamp": "2026-06-10T02:16:00Z",
+    "source_node": "office-hermes",
+    "source_system": "asi-dmn-governance-dry-run",
+    "source_agent": "codex-docs",
+    "sensor_type": "power",
+    "modality": "power",
+    "summary": "Office Hermes synthetic record claims no power fluctuation was present for the same comparison window.",
+    "content_ref": "synthetic://dmn_governance/conflicted_memory_b",
+    "content_hash": "sha256:conflictedsyntheticB001",
+    "confidence": 0.69,
+    "privacy_class": "internal",
+    "retention_policy": "conflict-review-required",
+    "governance_state": "reviewed",
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-conflict-b-001",
+      "source_path": "examples/dmn_governance/conflicted_memory_b.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:16:00Z",
+      "checksum": "sha256:conflictedsyntheticB001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-office-power-conflict-b",
+      "root_event_id": "event-power-conflict-root",
+      "reason": ""
+    },
+    "embedding_ref": null,
+    "tags": [
+      "synthetic",
+      "power",
+      "wifi-csi",
+      "conflict",
+      "phase-1g6"
+    ],
+    "lineage": {
+      "parent_record_ids": [
+        "sensor_office_power_011"
+      ],
+      "root_record_id": "event-power-conflict-root",
+      "derived_from": [
+        "synthetic://office-hermes/power-window-011"
+      ],
+      "transformation": "conflict_candidate"
+    },
+    "created_by": "codex-docs",
+    "created_at": "2026-06-10T02:16:00Z"
+  },
+  "governance_metadata": {
+    "governance_state": "reviewed",
+    "promotion_reason": "",
+    "promotion_score": null,
+    "decay_reason": "",
+    "importance_score": null,
+    "guardian_review_status": "not_reviewed",
+    "privacy_class": "internal",
+    "retention_policy": "conflict-review-required",
+    "requires_review": true,
+    "conflict_group_id": "conflict-power-wifi-csi-2026-06-10-001",
+    "conflict_type": "source_conflict",
+    "competing_claim": "No power fluctuation occurred during the compared WiFi CSI anomaly window.",
+    "confidence": 0.69,
+    "source_node": "office-hermes",
+    "auto_resolution_allowed": false
+  },
+  "lineage": {
+    "promoted_from": null,
+    "consolidated_from": [],
+    "derived_from": [
+      "synthetic://office-hermes/power-window-011"
+    ],
+    "synced_from": null,
+    "conflict_group_id": "conflict-power-wifi-csi-2026-06-10-001",
+    "parent_record_ids": [
+      "sensor_office_power_011"
+    ]
+  },
+  "audit": {
+    "replay_pointer": {
+      "available": true,
+      "replay_id": "replay-dryrun-conflict-b-001",
+      "source_path": "examples/dmn_governance/conflicted_memory_b.example.json",
+      "source_line": 1,
+      "timestamp": "2026-06-10T02:16:00Z",
+      "checksum": "sha256:conflictedsyntheticB001",
+      "manifest_ref": "synthetic://replay_manifest/dmn_governance_examples",
+      "phase": "1G.6",
+      "causal_event_id": "event-office-power-conflict-b",
+      "root_event_id": "event-power-conflict-root",
+      "reason": ""
+    },
+    "decision_log_ref": "docs/decision_logs/2026-06-10-dmn-governance-contract-schemas.md",
+    "validation_status": "validated",
+    "no_mutation": true
+  }
+}
