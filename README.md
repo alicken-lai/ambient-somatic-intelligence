@@ -181,17 +181,21 @@ Additional safeguards (constitution summary):
 ## 10. Current Status
 
 Two states coexist and must not be conflated: the **frozen governance lineage**
-(all gates passed, historically closed) and the **advisory product baseline**
-(tagged, evidence-complete, but not yet released under the formal G2–G6 gate
-sequence).
+and the **product baseline**.
 
 ```
 Governance lineage: v0.7.x-P
 Status: PRODUCTION-GRADE CIVILIZATION GOVERNANCE LINEAGE
 Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 
-Product baseline:   v0.9.0-rc1  (tag pushed, advisory only)
-Formal release:     NOT DECLARED — G2–G6 open (§10.2)
+Product baseline:   v0.9.0-rc1
+Status: TAGGED AND PUBLISHED (2026-06-15)
+Formal verification: RELEASE_DECISION.md APPROVED_FOR_TAGGING
+Readiness check: tools/check_rc1_readiness.py READY: true (at commit bffe847)
+
+Environment migration: G0–G6 preservation/restore/migration gates
+Status: OPEN (applies to operator environment upgrade, not product release)
+Context: docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md
 ```
 
 **Verified for the `v0.7.x-P` lineage below (documentation-aligned; see gate artifacts).** Items in this checklist describe the frozen governance lineage only; they are not claims about the `v0.9.0-rc1` product baseline.
