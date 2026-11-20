@@ -4,6 +4,8 @@
 
 **Release line:** `v0.7.x-P` — production-grade civilization governance lineage (officially frozen)
 
+**Product baseline:** `v0.9.0-rc1` — Hermes-ASI Institutional Intelligence Release Candidate (advisory; see §10.2)
+
 Repository: [github.com/alicken-lai/ambient-somatic-intelligence](https://github.com/alicken-lai/ambient-somatic-intelligence)
 
 ---
@@ -178,13 +180,21 @@ Additional safeguards (constitution summary):
 
 ## 10. Current Status
 
+Two states coexist and must not be conflated: the **frozen governance lineage**
+(all gates passed, historically closed) and the **advisory product baseline**
+(tagged, evidence-complete, but not yet released under the formal G2–G6 gate
+sequence).
+
 ```
-Ambient OS v0.7.x-P
+Governance lineage: v0.7.x-P
 Status: PRODUCTION-GRADE CIVILIZATION GOVERNANCE LINEAGE
 Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
+
+Product baseline:   v0.9.0-rc1  (tag pushed, advisory only)
+Formal release:     NOT DECLARED — G2–G6 open (§10.2)
 ```
 
-**Verified (documentation-aligned; see gate artifacts):**
+**Verified for the `v0.7.x-P` lineage below (documentation-aligned; see gate artifacts).** Items in this checklist describe the frozen governance lineage only; they are not claims about the `v0.9.0-rc1` product baseline.
 
 - [x] v070 → v077 civilization lineage frozen in release commit
 - [x] v07xp stabilization program **PASS** (CivilizationLineageIntegrityScoreV2 ≥ 0.95)
@@ -239,6 +249,46 @@ Phase 9 adds institutional self-understanding without creating a persona. Hermes
 
 ---
 
+## 10.2 v0.9.0-rc1 Product Baseline
+
+`v0.9.0-rc1` is tagged and published (`d4183d8`, tag `v0.9.0-rc1`) as an
+**advisory** institutional-intelligence baseline. It is **not** a formal
+release: the G2–G6 preservation/restore, migration, rollback and 24-hour soak
+gates remain open, and the elevated ACL-ownership condition blocking G2 is
+still unresolved.
+
+Scored at the release cut (`RELEASE_MANIFEST_v0.9.0-rc1.md`):
+
+| Metric | Value | Threshold | Result |
+|--------|------:|----------:|--------|
+| RC Health | 95.78 | ≥ 85.0 | PASS |
+| Institutional Health | 95.38 | — | PASS |
+| Graph Health | 97.00 | ≥ 75.0 | PASS |
+| DMN Health | 99.83 | ≥ 80.0 | PASS |
+
+Scope at that cut: 12 deliberation kernels, 29 CLI commands, 9 frozen schemas,
+14 release artifacts.
+
+These are a **dated evidence record**, not current health. Operational scores
+are recomputed from telemetry and must not be read off this table; at the time
+of writing the rebuilt snapshot sits near 66 with a degrading trend, driven by
+memory pressure and host load.
+
+Accepted limitations: [`docs/release/KNOWN_LIMITATIONS.md`](docs/release/KNOWN_LIMITATIONS.md).
+Decision record: [`docs/release/RELEASE_DECISION.md`](docs/release/RELEASE_DECISION.md).
+Open gate sequence and retained failures:
+[`docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md`](docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md).
+
+### Engineering defect corrected after rc1
+
+`guardian/health/health_scores.json` grew without bound because the entire
+telemetry history was serialized on every rebuild — 366 MiB / ~12.2M lines,
+past GitHub's 100 MB per-file limit. The snapshot now retains a fixed
+`HISTORY_LIMIT` window in `scripts/health_score.py`, covered by
+`tests/test_health_score_history_bound.py`.
+
+---
+
 ## 11. Release Lineage
 
 | Epoch | Tag / codename | Summary |
@@ -251,8 +301,9 @@ Phase 9 adds institutional self-understanding without creating a persona. Hermes
 | **v07x** | Civilization freeze audit | Weakest-link integrity scoring |
 | **v07xp** | Stabilization program | Production-grade lineage hardening |
 | **v07xp_release** | Commit hygiene | Clean `e3430983` civilization freeze commit |
+| **v0.9.0-rc1** | Institutional intelligence | Advisory product baseline; tagged, formal G2–G6 gates open |
 
-Earlier README text describing “v0.3.1-alpha stabilized cognitive runtime” as the **current** product line is superseded by **v0.7.x-P** positioning above.
+Earlier README text describing “v0.3.1-alpha stabilized cognitive runtime” as the **current** product line is superseded. The frozen governance lineage is **v0.7.x-P**; the current advisory product baseline is **v0.9.0-rc1**, which inherits the lineage and does not modify it.
 
 ---
 
