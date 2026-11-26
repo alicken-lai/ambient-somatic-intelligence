@@ -2,13 +2,32 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import re
 from typing import Any
+from uuid import uuid4
 
 from hermes.orchestration.audit import AuditSink, NoopAuditSink, timestamp_now
 from hermes.orchestration.adapters import ProviderAdapter, adapter_for
+from hermes.orchestration.capabilities import (
+    KNOWN_CAPABILITIES,
+    MATERIAL_ACTION_CAPABILITIES,
+    TOOL_EXPOSURE_CAPABILITIES,
+    validate_capabilities,
+)
 from hermes.orchestration.config_loader import split_provider_ref
+from hermes.orchestration.envelopes import (
+    ActualChange,
+    EnvelopeValidationError,
+    ExternalAuthorizationBinding,
+    ProposedActionEnvelope,
+    RecordedError,
+    ResourceCost,
+    ResultEvidenceEnvelope,
+    TrajectoryEvent,
+    output_digest,
+    utc_now,
+)
 from hermes.orchestration.guardian import (
     DANGEROUS_CAPABILITIES,
     FailClosedGuardian,
@@ -19,34 +38,11 @@ from hermes.orchestration.guardian import (
 )
 from hermes.orchestration.health import ProviderHealthChecker
 from hermes.orchestration.models import COST_TIERS, HermesResponse, ProviderConfig, ProviderRequest, RoutingRule
+from hermes.orchestration.replay import ReplayLedger, ReplayReservation
 
 
-TOOL_EXPOSURE_CAPABILITIES = {
-    "terminal",
-    "filesystem",
-    "local_file_access",
-    "repo_edit",
-    "mcp_tools",
-    "test_runner",
-    "local_sensitive",
-}
-
-KNOWN_TOOL_CAPABILITIES = {
-    *TOOL_EXPOSURE_CAPABILITIES,
-    "codebase_context",
-    "general_reasoning",
-    "codebase_analysis",
-    "architecture_design",
-    "long_context",
-    "creative_generation",
-    "fast_answer",
-    "cheap_batch",
-    "refactor",
-    "diff_generation",
-    "long_reasoning",
-    "writing",
-    "architecture_review",
-}
+# Compatibility exports; the registry in capabilities.py is the only truth.
+KNOWN_TOOL_CAPABILITIES = KNOWN_CAPABILITIES
 
 
 @dataclass(frozen=True)
@@ -67,6 +63,7 @@ class RoutingEngine:
         health_checker: ProviderHealthChecker | None = None,
         guardian_checker: GuardianChecker | None = None,
         audit_sink: AuditSink | None = None,
+        replay_ledger: ReplayLedger | None = None,
     ):
         self.providers = providers
         self.routing_rules = routing_rules
@@ -74,6 +71,7 @@ class RoutingEngine:
         self.health_checker = health_checker or ProviderHealthChecker()
         self.guardian_checker = guardian_checker
         self.audit_sink = audit_sink or NoopAuditSink()
+        self.replay_ledger = replay_ledger or ReplayLedger()
 
     def select(self, request: ProviderRequest) -> tuple[Candidate | None, list[str]]:
         """Return the best eligible candidate and decision logs."""
@@ -210,14 +208,6 @@ class RoutingEngine:
             return response
         for index, candidate in enumerate(self.candidates(request)):
             provider = self.providers[candidate.provider_id]
-            ok, reason = self._eligible(provider, request)
-            if not ok:
-                logs.append(f"skip {provider.provider_id}: {reason}")
-                attempts.append({"provider": provider.provider_id, "status": "skipped", "reason": reason})
-                locked = self._locked_fallback_error(request, candidate, index, attempts, logs, health_checked, dry_run)
-                if locked:
-                    return locked
-                continue
             model_ok, selected_model, model_reason = self._model_for(provider, candidate.model)
             if not model_ok:
                 attempts.append({"provider": provider.provider_id, "status": "skipped", "reason": model_reason})
@@ -227,12 +217,45 @@ class RoutingEngine:
                     return locked
                 continue
 
-            guardian_result = self._guardian_result(request, provider, dry_run=dry_run)
-            guardian_error = self._guardian_error(request, provider, guardian_result, dry_run=dry_run)
+            try:
+                governed_request = self._governed_request(request, provider)
+            except (EnvelopeValidationError, ValueError) as exc:
+                return self._governance_error_response(
+                    request=request,
+                    provider=provider,
+                    model=selected_model,
+                    guardian_result=GuardianResult(
+                        GuardianDecision.NOT_CHECKED,
+                        "invalid proposed action envelope",
+                    ),
+                    category="invalid_action_envelope",
+                    message=str(exc),
+                    attempts=attempts,
+                    logs=logs,
+                    health_checked=health_checked,
+                    dry_run=dry_run,
+                )
+
+            ok, reason = self._eligible(provider, governed_request)
+            if not ok:
+                logs.append(f"skip {provider.provider_id}: {reason}")
+                attempts.append({"provider": provider.provider_id, "status": "skipped", "reason": reason})
+                locked = self._locked_fallback_error(request, candidate, index, attempts, logs, health_checked, dry_run)
+                if locked:
+                    return locked
+                continue
+
+            guardian_result = self._guardian_result(governed_request, provider, dry_run=dry_run)
+            guardian_error = self._guardian_error(
+                governed_request,
+                provider,
+                guardian_result,
+                dry_run=dry_run,
+            )
             if guardian_error:
                 status, error_category = guardian_error
                 audit = self._audit_event(
-                    request=request,
+                    request=governed_request,
                     provider=provider.provider_id,
                     model=selected_model,
                     status=status,
@@ -266,7 +289,7 @@ class RoutingEngine:
                     attempts.append({"provider": provider.provider_id, "status": "unhealthy", "reason": health_reason})
                     logs.append(f"skip {provider.provider_id}: health_check failed ({health_reason})")
                     locked = self._locked_fallback_error(
-                        request,
+                        governed_request,
                         candidate,
                         index,
                         attempts,
@@ -280,7 +303,7 @@ class RoutingEngine:
 
             if dry_run:
                 audit = self._audit_event(
-                    request=request,
+                    request=governed_request,
                     provider=provider.provider_id,
                     model=selected_model,
                     status="success",
@@ -321,19 +344,104 @@ class RoutingEngine:
                     health_checked=health_checked,
                 )
 
-            response = self.adapters[provider.provider_id].invoke(request, selected_model)
+            try:
+                governed_request, authorization = self._bind_external_authorization(
+                    governed_request,
+                    provider,
+                    guardian_result,
+                )
+            except EnvelopeValidationError as exc:
+                return self._governance_error_response(
+                    request=governed_request,
+                    provider=provider,
+                    model=selected_model,
+                    guardian_result=guardian_result,
+                    category="invalid_external_authorization",
+                    message=str(exc),
+                    attempts=attempts,
+                    logs=logs,
+                    health_checked=health_checked,
+                    dry_run=False,
+                )
+
+            proposal = governed_request.proposed_action
+            if proposal is None:
+                raise RuntimeError("governed request lost its proposed action")
+            trajectory = list(proposal.trajectory)
+            created = self._trajectory_event(
+                proposal,
+                "proposal_created",
+                actor_id="hermes:routing-engine",
+            )
+            trajectory.append(created)
+            self.replay_ledger.append(created)
+            if authorization is not None:
+                authorized = self._trajectory_event(
+                    proposal,
+                    "authorization_bound",
+                    actor_id=authorization.issuer_id,
+                    authorization_version=authorization.authorization_version,
+                )
+                trajectory.append(authorized)
+                self.replay_ledger.append(authorized)
+                reservation = self.replay_ledger.reserve(proposal)
+                if reservation.state != "new":
+                    return self._replay_response(
+                        request=governed_request,
+                        provider=provider,
+                        model=selected_model,
+                        guardian_result=guardian_result,
+                        reservation=reservation,
+                        attempts=attempts,
+                        logs=logs,
+                        health_checked=health_checked,
+                    )
+
+            pending = self._trajectory_event(
+                proposal,
+                "invocation_pending",
+                actor_id="hermes:routing-engine",
+                authorization_version=(authorization.authorization_version if authorization else None),
+            )
+            trajectory.append(pending)
+            self.replay_ledger.append(pending)
+            started_at = pending.occurred_at
+            try:
+                response = self.adapters[provider.provider_id].invoke(governed_request, selected_model)
+            except Exception as exc:
+                response = HermesResponse(
+                    provider=provider.provider_id,
+                    model=selected_model,
+                    status="error",
+                    content="",
+                    logs=[f"provider adapter raised {type(exc).__name__}"],
+                    error={"category": "adapter_exception", "message": str(exc)},
+                )
             response.logs = [*logs, *response.logs]
-            if response.status == "success":
-                if attempts:
-                    response.status = "fallback"
-                    response.fallback = {
-                        "attempts": attempts,
-                        "fallback_provider_used": provider.provider_id,
-                    }
+            invocation_succeeded = response.status == "success"
+            if invocation_succeeded and attempts:
+                response.status = "fallback"
+                response.fallback = {
+                    "attempts": attempts,
+                    "fallback_provider_used": provider.provider_id,
+                }
+            evidence = self._result_evidence(
+                request=governed_request,
+                response=response,
+                provider=provider,
+                model=selected_model,
+                binding=authorization,
+                started_at=started_at,
+                trajectory=trajectory,
+            )
+            response.result_evidence = evidence.to_dict()
+            if authorization is not None:
+                self.replay_ledger.complete(proposal.idempotency_key, evidence)
+            if invocation_succeeded:
                 response.dry_run = False
                 response.health_checked = True
                 response.audit = self._audit_event(
-                    request=request,
+                    request=governed_request,
                     provider=provider.provider_id,
                     model=selected_model,
                     status=response.status,
@@ -342,6 +450,33 @@ class RoutingEngine:
                     guardian_result=guardian_result,
                     dry_run=False,
                 )
+                response.audit["result_evidence"] = response.result_evidence
+                self._emit_audit(response.audit)
+                return response
+
+            if proposal.is_material:
+                original_error = response.error
+                response.provider = "none"
+                response.model = None
+                response.status = "error"
+                response.logs.append("material action failed; fallback/retry blocked to prevent duplicate side effects")
+                response.error = {
+                    "category": "material_action_fallback_blocked",
+                    "message": "material action result was not successful; automatic fallback is prohibited",
+                    "cause": original_error,
+                }
+                response.audit = self._audit_event(
+                    request=governed_request,
+                    provider=provider.provider_id,
+                    model=selected_model,
+                    status="error",
+                    attempts=attempts,
+                    health_checked=health_checked,
+                    guardian_result=guardian_result,
+                    dry_run=False,
+                    error_category="material_action_fallback_blocked",
+                )
+                response.audit["result_evidence"] = response.result_evidence
                 self._emit_audit(response.audit)
                 return response
 
@@ -353,7 +488,15 @@ class RoutingEngine:
                 }
             )
             logs.append(f"provider {provider.provider_id} failed; trying fallback")
-            locked = self._locked_fallback_error(request, candidate, index, attempts, logs, health_checked, dry_run)
+            locked = self._locked_fallback_error(
+                governed_request,
+                candidate,
+                index,
+                attempts,
+                logs,
+                health_checked,
+                dry_run,
+            )
             if locked:
                 return locked
 
@@ -419,6 +562,276 @@ class RoutingEngine:
             return False, "code modification tool exposure disallowed by policy"
         return True, "eligible"
 
+    def _governed_request(self, request: ProviderRequest, provider: ProviderConfig) -> ProviderRequest:
+        declared_required = self._declared_capabilities(request)
+        proposal = request.proposed_action
+        if proposal is None:
+            raw_evidence = request.metadata.get("evidence_refs", ())
+            if isinstance(raw_evidence, str):
+                raw_evidence = [raw_evidence]
+            if not isinstance(raw_evidence, (list, tuple)):
+                raise EnvelopeValidationError("metadata evidence_refs must be a string or list")
+            claimed_ref = request.metadata.get("authorization_ref")
+            proposal = ProposedActionEnvelope(
+                proposal_id=f"proposal:{request.request_id}",
+                request_id=request.request_id,
+                intent=f"legacy-request:{request.task_type}",
+                requested_scope=tuple(sorted(declared_required)) or (request.task_type,),
+                target=str(request.metadata.get("target") or f"provider:{provider.provider_id}"),
+                tool=str(request.metadata.get("tool") or "provider.invoke"),
+                data_class=str(
+                    request.metadata.get("data_class")
+                    or ("local_sensitive" if "local_sensitive" in declared_required else "operational")
+                ),
+                side_effect_class=self._side_effect_class(declared_required),
+                reversibility=str(request.metadata.get("reversibility") or "unknown"),
+                expected_result=str(request.metadata.get("expected_result") or "provider-neutral response"),
+                evidence_refs=tuple(str(item) for item in raw_evidence),
+                authorization_ref=str(claimed_ref) if claimed_ref is not None else None,
+                idempotency_key=str(request.metadata.get("idempotency_key") or request.request_id),
+            )
+        if proposal.request_id != request.request_id:
+            raise EnvelopeValidationError("proposal request_id does not match ProviderRequest")
+        proposal_scope = set(validate_capabilities(proposal.requested_scope))
+        required = declared_required.union(proposal_scope)
+        for field in ("tool", "target"):
+            legacy_value = request.metadata.get(field)
+            if legacy_value is not None and legacy_value != getattr(proposal, field):
+                raise EnvelopeValidationError(f"metadata {field} conflicts with proposed action")
+        missing_scope = declared_required.difference(proposal_scope)
+        if missing_scope:
+            raise EnvelopeValidationError(
+                "proposal requested_scope omits required capabilities: " + ", ".join(sorted(missing_scope))
+            )
+        material_scope = required.intersection(MATERIAL_ACTION_CAPABILITIES)
+        if material_scope and not proposal.is_material:
+            raise EnvelopeValidationError("material capability was misclassified as non-material")
+        if proposal.is_material and not material_scope:
+            raise EnvelopeValidationError("material side effect has no material capability in requested_scope")
+        return replace(request, proposed_action=proposal)
+
+    @staticmethod
+    def _side_effect_class(required: set[str]) -> str:
+        if {"terminal", "test_runner"}.intersection(required):
+            return "terminal_execution"
+        if "repo_edit" in required:
+            return "local_write"
+        if "mcp_tools" in required:
+            return "external_write"
+        if required.intersection(MATERIAL_ACTION_CAPABILITIES):
+            return "mixed_material"
+        return "none"
+
+    def _bind_external_authorization(
+        self,
+        request: ProviderRequest,
+        provider: ProviderConfig,
+        guardian_result: GuardianResult,
+    ) -> tuple[ProviderRequest, ExternalAuthorizationBinding | None]:
+        proposal = request.proposed_action
+        if proposal is None or not proposal.is_material:
+            return request, None
+        material_scope = self._dangerous_capabilities(request, provider)
+        binding = ExternalAuthorizationBinding(
+            authorization_ref=guardian_result.authorization_ref or "",
+            authorization_version=guardian_result.authorization_version or "",
+            issuer_id=guardian_result.issuer_id or "",
+            scope_digest_sha256=guardian_result.authorization_scope_digest or "",
+            decision=_decision_value(guardian_result.decision),
+        )
+        bound = binding.bind(
+            proposal,
+            provider_id=provider.provider_id,
+            capabilities=material_scope,
+        )
+        return replace(request, proposed_action=bound), binding
+
+    @staticmethod
+    def _trajectory_event(
+        proposal: ProposedActionEnvelope,
+        event_type: str,
+        *,
+        actor_id: str,
+        authorization_version: str | None = None,
+        pending_tool_calls: tuple[str, ...] = (),
+    ) -> TrajectoryEvent:
+        return TrajectoryEvent(
+            event_id=f"event:{uuid4()}",
+            event_type=event_type,
+            proposal_id=proposal.proposal_id,
+            actor_id=actor_id,
+            occurred_at=utc_now(),
+            authorization_version=authorization_version,
+            pending_tool_calls=pending_tool_calls,
+        )
+
+    def _result_evidence(
+        self,
+        *,
+        request: ProviderRequest,
+        response: HermesResponse,
+        provider: ProviderConfig,
+        model: str | None,
+        binding: ExternalAuthorizationBinding | None,
+        started_at: str,
+        trajectory: list[TrajectoryEvent],
+    ) -> ResultEvidenceEnvelope:
+        proposal = request.proposed_action
+        if proposal is None:
+            raise RuntimeError("governed request is missing proposed_action")
+        pending = tuple(
+            str(call.get("id") or call.get("name") or f"tool-call:{index}")
+            for index, call in enumerate(response.tool_calls)
+        )
+        completed = self._trajectory_event(
+            proposal,
+            "invocation_completed" if response.status in {"success", "fallback"} else "invocation_failed",
+            actor_id=f"provider:{provider.provider_id}",
+            authorization_version=binding.authorization_version if binding else None,
+            pending_tool_calls=pending,
+        )
+        trajectory.append(completed)
+        self.replay_ledger.append(completed)
+        cancelled = tuple(
+            call_id
+            for event in trajectory
+            if event.event_type == "tool_cancelled" and event.cancellation_effective is True
+            for call_id in event.pending_tool_calls
+        )
+        usage = response.usage if isinstance(response.usage, dict) else {}
+        raw_tokens = usage.get("total_tokens") or 0
+        tokens = raw_tokens if isinstance(raw_tokens, int) and not isinstance(raw_tokens, bool) and raw_tokens > 0 else 0
+        elapsed = response.latency_ms if isinstance(response.latency_ms, int) and response.latency_ms > 0 else 0
+        observed_change = ()
+        if response.status in {"success", "fallback"} and proposal.target.strip() and proposal.tool.strip():
+            observed_change = (
+                ActualChange(kind="tool_proposal", target=proposal.target, summary=proposal.tool),
+            )
+        recorded_error = None
+        raw_error = response.error if isinstance(response.error, dict) else None
+        if raw_error is not None:
+            category = raw_error.get("category")
+            message = raw_error.get("message")
+            if isinstance(category, str) and category.strip():
+                recorded_error = RecordedError(
+                    category=category,
+                    message=message if isinstance(message, str) else "",
+                )
+        return ResultEvidenceEnvelope(
+            result_id=f"result:{uuid4()}",
+            proposal_id=proposal.proposal_id,
+            request_id=request.request_id,
+            provider=provider.provider_id,
+            model=model,
+            status=response.status,
+            idempotency_key=proposal.idempotency_key,
+            action_digest_sha256=proposal.action_digest(),
+            output_digest_sha256=output_digest(response.content, response.status),
+            authorization_ref=proposal.authorization_ref,
+            authorization_version=binding.authorization_version if binding else None,
+            started_at=started_at,
+            completed_at=completed.occurred_at,
+            evidence_refs=proposal.evidence_refs,
+            trajectory=tuple(trajectory),
+            pending_tool_calls=pending,
+            cancelled_tool_calls=cancelled,
+            actual_changes=observed_change,
+            recorded_error=recorded_error,
+            cost=ResourceCost(tokens=tokens, time_ms=elapsed, api_calls=1),
+            replay_pointer=proposal.action_digest(),
+        )
+
+    def _governance_error_response(
+        self,
+        *,
+        request: ProviderRequest,
+        provider: ProviderConfig,
+        model: str | None,
+        guardian_result: GuardianResult,
+        category: str,
+        message: str,
+        attempts: list[dict[str, Any]],
+        logs: list[str],
+        health_checked: bool,
+        dry_run: bool,
+    ) -> HermesResponse:
+        audit = self._audit_event(
+            request=request,
+            provider=provider.provider_id,
+            model=model,
+            status="error",
+            attempts=attempts,
+            health_checked=health_checked,
+            guardian_result=guardian_result,
+            dry_run=dry_run,
+            error_category=category,
+        )
+        response = HermesResponse(
+            provider="none",
+            model=None,
+            status="error",
+            content=message,
+            logs=[*logs, message],
+            fallback={"attempts": attempts} if attempts else None,
+            error={"category": category, "message": message},
+            audit=audit,
+            dry_run=dry_run,
+            health_checked=health_checked,
+        )
+        self._emit_audit(audit)
+        return response
+
+    def _replay_response(
+        self,
+        *,
+        request: ProviderRequest,
+        provider: ProviderConfig,
+        model: str | None,
+        guardian_result: GuardianResult,
+        reservation: ReplayReservation,
+        attempts: list[dict[str, Any]],
+        logs: list[str],
+        health_checked: bool,
+    ) -> HermesResponse:
+        if reservation.state == "completed" and reservation.prior_result is not None:
+            evidence = reservation.prior_result.to_dict()
+            audit = self._audit_event(
+                request=request,
+                provider=provider.provider_id,
+                model=model,
+                status="idempotent_replay",
+                attempts=attempts,
+                health_checked=health_checked,
+                guardian_result=guardian_result,
+                dry_run=False,
+            )
+            audit["result_evidence"] = evidence
+            self._emit_audit(audit)
+            return HermesResponse(
+                provider=provider.provider_id,
+                model=model,
+                status="idempotent_replay",
+                content="",
+                logs=[*logs, "idempotency replay returned prior result evidence without reinvocation"],
+                audit=audit,
+                dry_run=False,
+                health_checked=health_checked,
+                result_evidence=evidence,
+            )
+        category = "idempotency_conflict" if reservation.state == "conflict" else "idempotency_in_progress"
+        return self._governance_error_response(
+            request=request,
+            provider=provider,
+            model=model,
+            guardian_result=guardian_result,
+            category=category,
+            message=f"material action rejected: {reservation.state} idempotency key",
+            attempts=attempts,
+            logs=logs,
+            health_checked=health_checked,
+            dry_run=False,
+        )
+
     def _effective_policy(self, request: ProviderRequest) -> dict[str, Any]:
         rule = self.routing_rules.get(request.task_type)
         return request.policy.with_rule_defaults(rule).to_dict()
@@ -459,6 +872,10 @@ class RoutingEngine:
             "fallback_attempts": attempts,
             "invocation_status": status,
         }
+        if request.proposed_action is not None:
+            event["proposed_action"] = request.proposed_action.to_dict()
+        if guardian_result.authorization_version is not None:
+            event["authorization_version"] = guardian_result.authorization_version
         if error_category:
             event["error_category"] = error_category
         return event
@@ -516,12 +933,49 @@ class RoutingEngine:
         return "invalid_model_reference", reason
 
     def _requested_capabilities(self, request: ProviderRequest) -> set[str]:
-        rule = self.routing_rules.get(request.task_type)
-        required = set(request.required_capabilities)
-        if rule:
-            required.update(rule.required_capabilities)
-        required.update(self._tool_capabilities(request.tools))
+        required = self._declared_capabilities(request)
+        if request.proposed_action is not None:
+            required.update(validate_capabilities(request.proposed_action.requested_scope))
         return required
+
+    def _declared_capabilities(self, request: ProviderRequest) -> set[str]:
+        rule = self.routing_rules.get(request.task_type)
+        required = set(validate_capabilities(request.required_capabilities))
+        if rule:
+            required.update(validate_capabilities(rule.required_capabilities))
+        required.update(self._tool_capabilities(request.tools))
+        # An envelope cannot suppress another authority-bearing surface. Only
+        # structural tool/target fields enter classification, never intent/prompt.
+        required.update(self._legacy_metadata_capabilities(request))
+        if request.proposed_action is not None:
+            required.update(classify_tools([{
+                "name": request.proposed_action.tool,
+                "metadata": {"target": request.proposed_action.target},
+            }]))
+        if request.proposed_action is None:
+            if not required and request.task_type in KNOWN_CAPABILITIES:
+                required.add(request.task_type)
+        return required
+
+    @staticmethod
+    def _legacy_metadata_capabilities(request: ProviderRequest) -> set[str]:
+        """Classify explicit legacy tool metadata without inspecting prompt text."""
+
+        tool = request.metadata.get("tool")
+        target = request.metadata.get("target")
+        capabilities = request.metadata.get("capabilities")
+        if tool is None and target is None and capabilities is None:
+            return set()
+        for field, value in (("tool", tool), ("target", target)):
+            if value is not None and (not isinstance(value, str) or not value.strip()):
+                raise ValueError(f"metadata {field} must be a non-empty string")
+        manifest: dict[str, Any] = {
+            "name": str(tool or "provider.invoke"),
+            "metadata": {"target": str(target or "")},
+        }
+        if capabilities is not None:
+            manifest["capabilities"] = capabilities
+        return classify_tools([manifest])
 
     @staticmethod
     def _model_for(provider: ProviderConfig, model_alias: str | None) -> tuple[bool, str | None, str]:
@@ -539,6 +993,8 @@ class RoutingEngine:
 
     def _capability_error(self, request: ProviderRequest) -> tuple[str, str] | None:
         try:
+            for provider in self.providers.values():
+                validate_capabilities(provider.capabilities)
             self._requested_capabilities(request)
         except ValueError as exc:
             return "invalid_tool_capability", str(exc)

@@ -9,6 +9,7 @@ import urllib.parse
 
 import yaml
 
+from hermes.orchestration.capabilities import validate_capabilities
 from hermes.orchestration.models import COST_TIERS, LATENCY_TIERS, ProviderConfig, RoutingRule
 
 
@@ -66,6 +67,11 @@ def load_provider_registry(path: str | Path) -> dict[str, ProviderConfig]:
                 allowed_hosts=raw.get("allowed_hosts", []),
             )
 
+        capabilities = list(raw.get("capabilities", []))
+        try:
+            validate_capabilities(capabilities)
+        except ValueError as exc:
+            raise ConfigError(f"provider {provider_id!r}: {exc}") from exc
         providers[provider_id] = ProviderConfig(
             provider_id=provider_id,
             enabled=enabled,
@@ -74,7 +80,7 @@ def load_provider_registry(path: str | Path) -> dict[str, ProviderConfig]:
             api_key_env=raw.get("api_key_env"),
             default_model=raw.get("default_model"),
             available_models=list(raw.get("available_models", [])),
-            capabilities=list(raw.get("capabilities", [])),
+            capabilities=capabilities,
             priority=int(raw.get("priority", 100)),
             cost_tier=cost_tier,
             latency_tier=latency_tier,
@@ -104,10 +110,15 @@ def load_routing_rules(path: str | Path) -> dict[str, RoutingRule]:
         max_cost_tier = raw.get("max_cost_tier")
         if max_cost_tier is not None and max_cost_tier not in COST_TIERS:
             raise ConfigError(f"routing rule {task_type!r} has invalid max_cost_tier")
+        required_capabilities = list(raw.get("required_capabilities", []))
+        try:
+            validate_capabilities(required_capabilities)
+        except ValueError as exc:
+            raise ConfigError(f"routing rule {task_type!r}: {exc}") from exc
         rules[task_type] = RoutingRule(
             task_type=task_type,
             prefer=list(raw.get("prefer", [])),
-            required_capabilities=list(raw.get("required_capabilities", [])),
+            required_capabilities=required_capabilities,
             fallback_order=list(raw.get("fallback_order", [])),
             max_cost_tier=max_cost_tier,
             allow_cloud=_optional_strict_bool(raw.get("allow_cloud"), f"routing rule {task_type!r} allow_cloud"),

@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Any
+from uuid import uuid4
+
+from hermes.orchestration.envelopes import ProposedActionEnvelope
 
 
 COST_TIERS = {"low": 1, "medium": 2, "high": 3}
@@ -114,6 +117,8 @@ class ProviderRequest:
     tools: list[dict[str, Any]] | None = None
     stream: bool = False
     metadata: dict[str, Any] = field(default_factory=dict)
+    request_id: str = field(default_factory=lambda: f"request:{uuid4()}")
+    proposed_action: ProposedActionEnvelope | None = None
 
     def chat_messages(self) -> list[dict[str, str]]:
         if self.messages:
@@ -140,6 +145,7 @@ class HermesResponse:
     audit: dict[str, Any] | None = None
     dry_run: bool | None = None
     health_checked: bool | None = None
+    result_evidence: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -158,4 +164,5 @@ class HermesResponse:
             "audit": self.audit,
             "dry_run": self.dry_run,
             "health_checked": self.health_checked,
+            "result_evidence": self.result_evidence,
         }
