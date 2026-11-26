@@ -405,3 +405,32 @@ Bug reports and design discussion: use GitHub Issues on this repository. Large a
 ## 15. License
 
 Apache-2.0 — see [LICENSE](LICENSE).
+
+---
+
+## 16. Product boundary on 2026-11-20
+
+The current product boundary is the governance substrate in
+`docs/SDD_ASI_GOVERNANCE_SUBSTRATE_2026-11-20.md`: somatic sensing, DMN memory,
+Guardian authorization, provenance, and a replaceable model adapter. It does
+not claim AGI, autonomy, or unconstrained production.
+
+Current execution status, reconciled in
+`docs/release/P8_DOCUMENTATION_RECONCILIATION_2026-11-20.md`:
+
+- P4 appeal remains `READY_FOR_INDEPENDENT_VERIFICATION`. The retained independent result is FAIL. This README does not reissue that verdict.
+- P7 has an in-process sandbox metrics report only. `pilot_acceptance` is `not_claimed`. No live Astra call is part of this boundary.
+- P1/G2–G6 stay deferred under option A. The product narrative is not waiting on a Hermes cutover.
+- P5 reuses the existing measured-or-unknown evidence gate. P6 historical scores stay `NOT_PROMOTED`. Neither is an independent PASS.
+- P8 here is documentation reconciliation only. `P8_RELEASE_TAG` is `NOT_REQUESTED`. The 2026-06-15 rc1 decision record is unchanged.
+
+## 17. v0.9.1 MVP on 2026-11-26
+
+Section 16 stays as the 2026-11-20 boundary note. The MVP record is
+`docs/release/KNOWN_LIMITATIONS.md` section 15 and the 2026-11-26 addendum in
+`docs/release/P8_DOCUMENTATION_RECONCILIATION_2026-11-20.md`.
+
+- P1 is MVP_DEFERRED_DOCUMENTED and still ships with Hermes v0.16.0. This section does not claim v0.21.2.
+- P2 is MVP_DEFERRED_DOCUMENTED. P6 is MVP_DEFERRED and historical scores stay `NOT_PROMOTED`.
+- P7 canary acceptance is `mvp_operator_reviewed` with review label `OPERATOR_SELF_REVIEW`. That is not an independent pass.
+- This section does not claim AGI, autonomy, production deployment, or third-party verification.

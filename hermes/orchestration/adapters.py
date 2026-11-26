@@ -11,7 +11,11 @@ import urllib.request
 from abc import ABC, abstractmethod
 from typing import Any
 
+from hermes.orchestration.envelopes import ProposedActionEnvelope
 from hermes.orchestration.models import HermesResponse, ProviderConfig, ProviderRequest
+
+
+PROVIDER_NEUTRAL_CONTRACT_VERSION = "1.0"
 
 
 class ProviderAdapter(ABC):
@@ -32,6 +36,12 @@ class ProviderAdapter(ABC):
     def capabilities(self) -> list[str]:
         return self.config.capabilities
 
+    @property
+    def contract_version(self) -> str:
+        """Version of the normalized ProviderRequest/HermesResponse boundary."""
+
+        return PROVIDER_NEUTRAL_CONTRACT_VERSION
+
     @abstractmethod
     def health_check(self, timeout_seconds: float = 2.0) -> tuple[bool, str]:
         """Return health status and a human-readable reason."""
@@ -48,6 +58,36 @@ class ProviderAdapter(ABC):
 
     def supports(self, task: ProviderRequest) -> bool:
         return set(task.required_capabilities).issubset(set(self.capabilities))
+
+    def explain_reasoning(self) -> str:
+        """Model explanation. This string is not authorization evidence."""
+
+        return str(getattr(self, "_reasoning", ""))
+
+    def propose_action(self, context: dict[str, Any]) -> ProposedActionEnvelope:
+        """Build a proposal. A model-supplied authorization_ref is discarded."""
+
+        self._reasoning = str(context.get("reasoning") or context.get("explanation") or "")
+        scope = context.get("requested_scope") or context.get("scope") or ()
+        request_id = str(context.get("request_id") or "request:adapter")
+        return ProposedActionEnvelope(
+            proposal_id=str(context.get("proposal_id") or f"proposal:{request_id}"),
+            request_id=request_id,
+            intent=str(context.get("intent") or ""),
+            requested_scope=tuple(scope),
+            target=str(context.get("target") or ""),
+            tool=str(context.get("tool") or ""),
+            data_class=str(context.get("data_class") or "operational"),
+            side_effect_class=str(context.get("side_effect_class") or "none"),
+            reversibility=str(context.get("reversibility") or "unknown"),
+            expected_result=str(context.get("expected_result") or "provider-neutral response"),
+            evidence_refs=tuple(context.get("evidence_refs") or ()),
+            authorization_ref=None,
+            idempotency_key=str(context.get("idempotency_key") or request_id),
+            arguments=context.get("arguments") or {},
+            proposed_by=str(context.get("proposed_by") or f"adapter:{self.name}"),
+            timestamp=str(context.get("timestamp") or ""),
+        )
 
     @abstractmethod
     def normalize_response(self, response: dict[str, Any], latency_ms: int, model: str | None) -> HermesResponse:

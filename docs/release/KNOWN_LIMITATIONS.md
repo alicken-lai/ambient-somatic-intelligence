@@ -185,3 +185,31 @@ Tracked in `docs/release/TECH_DEBT_PRIORITY.md`. Two horizons:
 - Packaging via `pyproject.toml` and a formal install path.
 - Persistent graph storage.
 - Provider fallback-chain test coverage.
+
+## 14. Addendum (2026-11-20)
+
+This addendum does not rewrite the rc1 limitations above. It records the
+substrate increment described by
+`docs/release/P8_DOCUMENTATION_RECONCILIATION_2026-11-20.md`.
+
+- P4 has no new independent verdict. The retained FAIL and the pending appeal still stand.
+- P7 sandbox metrics do not include live Astra or human interruption latency. Sandbox cost is now inside the result envelope for the exercised call. `pilot_acceptance` remains `not_claimed`.
+- Replay in the orchestration ledger is process-local.
+- Direct `ProviderAdapter.invoke` remains a documented internal boundary.
+- P5 stays on the existing measured-or-unknown gate. P6 historical debt stays `NOT_PROMOTED`. Neither item is closed as an independent PASS.
+- P1/G2–G6 remain deferred. This addendum does not claim a Hermes upgrade or a new release tag.
+- Nothing in this addendum claims AGI, autonomy, or unconstrained production.
+
+## 15. Addendum (2026-11-26) v0.9.1 MVP
+
+This addendum does not rewrite the rc1 limitations or the 2026-11-20 addendum.
+It records the v0.9.1 MVP governance substrate.
+
+- P0 and P3 stay at the SDD matrix status DONE. The P3 independent verification file remains FAIL.
+- P1 is MVP_DEFERRED_DOCUMENTED. G2–G6 were not executed. v0.9.1 ships with Hermes v0.16.0. This addendum does not claim an upgrade to v0.21.2.
+- P2 is MVP_DEFERRED_DOCUMENTED. Bridge compatibility still depends on P1 and on Guardian policy, and that cutover was not executed.
+- P4 result evidence now records a structured error for a failed invocation. The retained independent verification FAIL is unchanged. The boundary tests live in `tests/test_p4_authorization_boundary.py` because the user chose that filename.
+- P5 remains the existing measured-or-unknown gate. Unmeasured evidence stays UNKNOWN.
+- P6 is MVP_DEFERRED. Historical scores stay NOT_PROMOTED. Thresholds were not lowered.
+- P7 canary acceptance is `mvp_operator_reviewed` with review label `OPERATOR_SELF_REVIEW`. That is not an independent pass. The Claude rehearsal used the local adapter and is not a live Claude API.
+- P8 documents these limits. It does not claim AGI, autonomy, production deployment, or third-party verification.

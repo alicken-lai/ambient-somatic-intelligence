@@ -10,7 +10,14 @@ import re
 from typing import Any, Protocol
 
 
-BENIGN_SECRET_MARKER_KEYS = {"prompt_tokens", "completion_tokens", "total_tokens"}
+BENIGN_SECRET_MARKER_KEYS = {
+    "prompt_tokens",
+    "completion_tokens",
+    "total_tokens",
+    # These are schema-validated opaque governance references, not credentials.
+    "authorization_ref",
+    "authorization_version",
+}
 SECRET_MARKERS = ("secret", "token", "api_key", "apikey", "authorization", "credential", "password")
 SECRET_VALUE_PATTERNS = (
     re.compile(r"Bearer\s+[A-Za-z0-9._~+/=-]+", re.IGNORECASE),
