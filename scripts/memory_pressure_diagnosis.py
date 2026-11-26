@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import platform
 import re
 import subprocess
 from datetime import datetime, timezone
@@ -28,7 +29,15 @@ def utc_now() -> str:
 
 
 def run(command: list[str]) -> dict[str, Any]:
-    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+    try:
+        completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+    except FileNotFoundError as exc:
+        return {
+            "command": command,
+            "returncode": 127,
+            "stdout": "",
+            "stderr": str(exc),
+        }
     return {
         "command": command,
         "returncode": completed.returncode,
@@ -80,6 +89,63 @@ def parse_ps(stdout: str) -> list[dict[str, Any]]:
     return sorted(rows, key=lambda item: item["rss_kb"], reverse=True)
 
 
+def windows_total_memory_kb() -> int | None:
+    result = run([
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "(Get-CimInstance Win32_OperatingSystem).TotalVisibleMemorySize",
+    ])
+    if result["returncode"] != 0:
+        return None
+    try:
+        return int(result["stdout"].strip())
+    except ValueError:
+        return None
+
+
+def windows_processes() -> list[dict[str, Any]]:
+    total_kb = windows_total_memory_kb()
+    command = (
+        "Get-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 50 "
+        "@{Name='pid';Expression={$_.Id}},"
+        "@{Name='rss_kb';Expression={[int]($_.WorkingSet64 / 1KB)}},"
+        "@{Name='name';Expression={$_.ProcessName}},"
+        "@{Name='path';Expression={$_.Path}} | ConvertTo-Json -Depth 3"
+    )
+    result = run(["powershell", "-NoProfile", "-Command", command])
+    if result["returncode"] != 0 or not result["stdout"].strip():
+        return []
+    try:
+        raw = json.loads(result["stdout"])
+    except json.JSONDecodeError:
+        return []
+    items = raw if isinstance(raw, list) else [raw]
+    rows: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        rss_kb = int(item.get("rss_kb") or 0)
+        path = item.get("path")
+        name = str(item.get("name") or "unknown")
+        memory_percent = round((rss_kb / total_kb) * 100, 3) if total_kb else 0.0
+        rows.append({
+            "pid": int(item.get("pid") or 0),
+            "rss_kb": rss_kb,
+            "rss_mb": round(rss_kb / 1024, 1),
+            "memory_percent": memory_percent,
+            "command": str(path or name),
+        })
+    return sorted(rows, key=lambda item: item["rss_kb"], reverse=True)
+
+
+def process_table() -> list[dict[str, Any]]:
+    if platform.system().lower() == "windows":
+        return windows_processes()
+    ps_result = run(["ps", "-axo", "pid,rss,%mem,args"])
+    return parse_ps(ps_result["stdout"])
+
+
 def docker_vm_reservation(processes: list[dict[str, Any]]) -> dict[str, Any]:
     for process in processes:
         command = process["command"]
@@ -125,18 +191,23 @@ def parse_swap(stdout: str) -> dict[str, Any]:
     }
 
 
+def swap_status() -> dict[str, Any]:
+    if platform.system().lower() == "windows":
+        return {"raw": "windows: swap/pagefile not sampled", "total": "unknown", "used": "unknown"}
+    sysctl_result = run(["sysctl", "hw.memsize", "vm.swapusage"])
+    return parse_swap(sysctl_result["stdout"])
+
+
 def diagnose() -> dict[str, Any]:
     snapshot = latest_snapshot()
     memory = snapshot["memory_usage"]
     baseline = load_json(BASELINE_JSON)["metrics"]["memory_used_percent"]["baseline"]
     health = load_json(HEALTH_JSON)["current"]["subsystems"]["memory_health"]
 
-    ps_result = run(["ps", "-axo", "pid,rss,%mem,args"])
-    processes = parse_ps(ps_result["stdout"])
+    processes = process_table()
     docker_vm = docker_vm_reservation(processes)
     docker_stats = docker_container_stats()
-    sysctl_result = run(["sysctl", "hw.memsize", "vm.swapusage"])
-    swap = parse_swap(sysctl_result["stdout"])
+    swap = swap_status()
 
     value = float(memory["used_percent"])
     baseline_mean = float(baseline["mean"])

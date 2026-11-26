@@ -1,0 +1,179 @@
+{
+  "trust_records": [
+    {
+      "trust_id": "trust-source-guardian_logs",
+      "entity_type": "source",
+      "entity_id": "guardian_logs",
+      "trust_score": 1.0,
+      "reasoning": [
+        "baseline source type trust for Guardian Logs"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-tests",
+      "entity_type": "source",
+      "entity_id": "tests",
+      "trust_score": 0.95,
+      "reasoning": [
+        "baseline source type trust for Tests"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-verification_reports",
+      "entity_type": "source",
+      "entity_id": "verification_reports",
+      "trust_score": 0.9,
+      "reasoning": [
+        "baseline source type trust for Verification Reports"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-benchmarks",
+      "entity_type": "source",
+      "entity_id": "benchmarks",
+      "trust_score": 0.85,
+      "reasoning": [
+        "baseline source type trust for Benchmarks"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-reports",
+      "entity_type": "source",
+      "entity_id": "reports",
+      "trust_score": 0.82,
+      "reasoning": [
+        "baseline source type trust for Reports"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-failure_reports",
+      "entity_type": "source",
+      "entity_id": "failure_reports",
+      "trust_score": 0.8,
+      "reasoning": [
+        "baseline source type trust for Failure Reports"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-dmn",
+      "entity_type": "source",
+      "entity_id": "dmn",
+      "trust_score": 0.75,
+      "reasoning": [
+        "baseline source type trust for DMN"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-playbooks",
+      "entity_type": "source",
+      "entity_id": "playbooks",
+      "trust_score": 0.75,
+      "reasoning": [
+        "baseline source type trust for Playbooks"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-provider_reports",
+      "entity_type": "source",
+      "entity_id": "provider_reports",
+      "trust_score": 0.7,
+      "reasoning": [
+        "baseline source type trust for Provider Reports"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-skills",
+      "entity_type": "source",
+      "entity_id": "skills",
+      "trust_score": 0.7,
+      "reasoning": [
+        "baseline source type trust for Skills"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    },
+    {
+      "trust_id": "trust-source-future_external",
+      "entity_type": "source",
+      "entity_id": "future_external",
+      "trust_score": 0.0,
+      "reasoning": [
+        "baseline source type trust for Future external sources"
+      ],
+      "last_updated": "2026-06-14T14:01:40.252424+00:00"
+    }
+  ],
+  "evolutions": [
+    {
+      "trust_score": 1.0,
+      "delta": 0.0,
+      "event": "unchanged"
+    },
+    {
+      "trust_score": 0.96,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.91,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.86,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.83,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.81,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.76,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.76,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.71,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.71,
+      "delta": 0.01,
+      "event": "promotion"
+    },
+    {
+      "trust_score": 0.01,
+      "delta": 0.01,
+      "event": "promotion"
+    }
+  ],
+  "confidence": {
+    "coverage": 100.0,
+    "trust": 81.18,
+    "freshness": 100.0,
+    "consistency": 100.0,
+    "verification": 100.0,
+    "overall": 95.3
+  }
+}

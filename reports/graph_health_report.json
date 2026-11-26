@@ -1,0 +1,31 @@
+{
+  "graph_health": 97.0,
+  "coverage": {
+    "node_coverage": 100.0,
+    "edge_coverage": 100.0,
+    "relationship_coverage": 90.0
+  },
+  "node_count": 46,
+  "edge_count": 47,
+  "isolated_nodes": [],
+  "dangling_references": [],
+  "relationship_diversity": {
+    "contains": 29,
+    "continuity_link": 1,
+    "feeds": 2,
+    "has_challenge_event": 1,
+    "has_core_value": 1,
+    "has_diversity_metric": 1,
+    "has_fitness_score": 1,
+    "has_objective": 1,
+    "has_principle": 1,
+    "has_reality_score": 1,
+    "has_report": 2,
+    "has_trust": 1,
+    "stored_in": 4,
+    "uses_skill": 1
+  },
+  "recommendations": [
+    "Graph coverage is acceptable for v0.9 RC evidence."
+  ]
+}

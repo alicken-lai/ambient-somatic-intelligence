@@ -4,8 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import ctypes
 import json
 import os
+import platform
+import shutil
 import subprocess
 import sys
 import time
@@ -29,6 +32,16 @@ def _run(command: list[str]) -> str:
 
 
 def _cpu_usage_percent() -> float:
+    if sys.platform == "win32":
+        output = _run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "(Get-CimInstance Win32_Processor | Measure-Object -Property LoadPercentage -Average).Average",
+            ]
+        )
+        return round(float(output or 0), 2)
     output = _run(["ps", "-A", "-o", "%cpu="])
     total_process_cpu = sum(float(line.strip()) for line in output.splitlines() if line.strip())
     cpu_count = os.cpu_count() or 1
@@ -36,6 +49,27 @@ def _cpu_usage_percent() -> float:
 
 
 def _memory_usage() -> dict[str, int | float]:
+    if sys.platform == "win32":
+        output = _run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$os=Get-CimInstance Win32_OperatingSystem; "
+                "[pscustomobject]@{Total=$os.TotalVisibleMemorySize;Free=$os.FreePhysicalMemory} "
+                "| ConvertTo-Json -Compress",
+            ]
+        )
+        data = json.loads(output)
+        total_bytes = int(data["Total"]) * 1024
+        free_bytes = int(data["Free"]) * 1024
+        used_bytes = max(0, total_bytes - free_bytes)
+        return {
+            "total_bytes": total_bytes,
+            "used_bytes": used_bytes,
+            "free_bytes": free_bytes,
+            "used_percent": round((used_bytes / total_bytes) * 100, 2) if total_bytes else 0.0,
+        }
     output = _run(["vm_stat"])
     page_size = 4096
     pages: dict[str, int] = {}
@@ -65,12 +99,15 @@ def _memory_usage() -> dict[str, int | float]:
 
 
 def _disk_usage(path: str = "/") -> dict[str, int | float | str]:
-    usage = os.statvfs(path)
-    total = usage.f_blocks * usage.f_frsize
-    free = usage.f_bavail * usage.f_frsize
+    target = Path(path)
+    if sys.platform == "win32" and path == "/":
+        target = ROOT.anchor or "C:\\"
+    usage = shutil.disk_usage(target)
+    total = usage.total
+    free = usage.free
     used = total - free
     return {
-        "path": path,
+        "path": str(target),
         "total_bytes": total,
         "used_bytes": used,
         "free_bytes": free,
@@ -79,20 +116,33 @@ def _disk_usage(path: str = "/") -> dict[str, int | float | str]:
 
 
 def _uptime_seconds() -> int:
+    if sys.platform == "win32":
+        ctypes.windll.kernel32.GetTickCount64.restype = ctypes.c_ulonglong
+        return int(ctypes.windll.kernel32.GetTickCount64() / 1000)
     boot_time = int(_run(["sysctl", "-n", "kern.boottime"]).split("sec = ", 1)[1].split(",", 1)[0])
     return int(time.time()) - boot_time
 
 
 def _process_count() -> int:
+    if sys.platform == "win32":
+        output = _run(["powershell", "-NoProfile", "-Command", "(Get-Process).Count"])
+        return int(output)
     output = _run(["ps", "-axo", "pid="])
     return len([line for line in output.splitlines() if line.strip()])
 
 
+def _load_average() -> tuple[float, float, float]:
+    if hasattr(os, "getloadavg"):
+        return os.getloadavg()
+    cpu_fraction = _cpu_usage_percent() / 100.0
+    return (cpu_fraction, cpu_fraction, cpu_fraction)
+
+
 def collect_snapshot() -> dict[str, Any]:
-    load_average = os.getloadavg()
+    load_average = _load_average()
     snapshot = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "host": os.uname().nodename,
+        "host": platform.node(),
         "cpu_usage_percent": _cpu_usage_percent(),
         "memory_usage": _memory_usage(),
         "disk_usage": _disk_usage("/"),

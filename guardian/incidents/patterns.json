@@ -2,9 +2,9 @@
   "confidence_classes": {
     "low_confidence_watch": 1
   },
-  "generated_at": "2026-05-11T22:15:25.671960+00:00",
+  "generated_at": "2026-06-13T23:31:53.054888+00:00",
   "incident_count": 2,
-  "latest_incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+  "latest_incident": "guardian\\incidents\\incident-2026-05-11T221437.780998Z0000.md",
   "latest_severity": "warning",
   "previous_max_severity": "warning",
   "recommendations_only": true,

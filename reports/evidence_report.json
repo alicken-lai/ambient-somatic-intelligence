@@ -1,0 +1,54 @@
+{
+  "evidence_score": 40.0,
+  "claim_count": 34,
+  "unsupported_count": 34,
+  "playbook_ratings": [
+    {
+      "playbook_id": "architecture_review",
+      "claim_count": 6,
+      "verified_claims": 0,
+      "unsupported_claims": 6,
+      "contradictions": 0,
+      "evidence_score": 40.0,
+      "evidence_quality_rating": "C"
+    },
+    {
+      "playbook_id": "provider_policy",
+      "claim_count": 6,
+      "verified_claims": 0,
+      "unsupported_claims": 6,
+      "contradictions": 0,
+      "evidence_score": 40.0,
+      "evidence_quality_rating": "C"
+    },
+    {
+      "playbook_id": "security_audit",
+      "claim_count": 8,
+      "verified_claims": 0,
+      "unsupported_claims": 8,
+      "contradictions": 0,
+      "evidence_score": 40.0,
+      "evidence_quality_rating": "C"
+    },
+    {
+      "playbook_id": "implementation_review",
+      "claim_count": 5,
+      "verified_claims": 0,
+      "unsupported_claims": 5,
+      "contradictions": 0,
+      "evidence_score": 40.0,
+      "evidence_quality_rating": "C"
+    },
+    {
+      "playbook_id": "research_synthesis",
+      "claim_count": 6,
+      "verified_claims": 0,
+      "unsupported_claims": 6,
+      "contradictions": 0,
+      "evidence_score": 40.0,
+      "evidence_quality_rating": "C"
+    }
+  ],
+  "acquired_evidence_score": 100.0,
+  "score_delta": 60.0
+}

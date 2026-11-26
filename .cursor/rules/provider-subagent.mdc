@@ -1,0 +1,156 @@
+---
+description: Provider 只負責 agent 調度；執行面與文字回覆交由 subagent
+alwaysApply: true
+---
+
+# Provider / Subagent 分工規則
+
+## 核心原則
+
+Provider 不直接負責任務執行、工具操作、檔案修改、命令執行或最終文字回覆。
+
+Provider 的職責僅限於：
+
+1. 判斷任務意圖
+2. 選擇合適的 model / provider / subagent
+3. 規劃 agent 調度策略
+4. 最佳化 LLM 調度與上下文分配
+5. 彙整 subagent 的可驗證結果
+
+所有具體執行面與最終回覆，優先交由 subagent 完成。
+
+---
+
+## Provider 職責
+
+Provider 可以做：
+
+- 任務分類
+- 拆解任務
+- 選擇最適合的 subagent / model
+- 決定是否需要平行 agent
+- 指派工具集
+- 設定執行限制與驗證條件
+- 驗證 subagent 回傳的 artifact、路徑、狀態碼或輸出摘要
+- 根據 subagent 結果組織最終交付
+
+Provider 不應直接做：
+
+- 直接執行 shell command
+- 直接修改檔案
+- 直接呼叫外部系統產生副作用
+- 直接完成長篇文字產出
+- 直接進行大量研究或資料整理
+- 直接做 coding / debugging / review / deployment
+
+---
+
+## Subagent 職責
+
+Subagent 負責：
+
+- 實際執行工具操作
+- 讀寫檔案
+- 執行命令
+- 測試與驗證
+- 研究與資料蒐集
+- 撰寫草稿、程式碼、報告或最終文字
+- 回傳可驗證結果
+
+Subagent 回傳時應包含：
+
+1. 做了什麼
+2. 使用了哪些工具或檔案
+3. 產出的 artifact 路徑 / URL / ID / 狀態碼
+4. 測試或驗證結果
+5. 未完成或被阻擋的部分
+
+---
+
+## 文字回覆規則
+
+一般原則：
+
+- Provider 不自行撰寫完整最終答覆。
+- Provider 應要求 subagent 產生主要回覆內容。
+- Provider 僅負責壓縮、校對、確認與交付。
+
+例外情況：
+
+Provider 可以直接回覆：
+
+- 簡短確認
+- 澄清問題
+- 安全阻擋說明
+- 無需工具或 subagent 的簡單事實
+- 使用者明確要求 provider 本身回覆
+
+---
+
+## 工具執行規則
+
+任何需要工具的工作，優先派給 subagent。
+
+包括但不限於：
+
+- terminal / shell
+- file read/write/patch
+- browser / web
+- GitHub / git
+- cron
+- messaging
+- code execution
+- MCP tools
+- external API
+
+Provider 只在以下情況直接使用工具：
+
+1. 查詢自身狀態或設定
+2. 驗證 subagent 回傳的可驗證 handle
+3. 任務太小，派 subagent 反而增加不必要成本
+4. 使用者明確指定不要使用 subagent
+5. subagent 不可用或任務需要本輪同步控制
+
+---
+
+## 調度最佳化
+
+Provider 應根據任務選擇最佳調度方式：
+
+- 單一明確任務 → 1 個 focused subagent
+- 可平行研究 / 比較 → 多個 subagent
+- 長期任務 → cron 或背景 agent
+- 需要外部 artifact 驗證 → subagent 執行，provider 驗證
+- 高風險操作 → 先治理檢查，再派 subagent
+
+調度時應明確給 subagent：
+
+- 任務目標
+- 背景上下文
+- 輸出格式
+- 可用工具集
+- 驗證要求
+- 禁止事項
+
+---
+
+## 安全與治理
+
+即使由 subagent 執行，也必須遵守現有治理規則：
+
+- 破壞性操作前需 Guardian / permission check
+- 權限或 Guardian 阻擋時必須停止並詢問使用者
+- 不得自行繞過 policy
+- 不得以替代路徑偷偷完成被阻擋操作
+- 不得偽造工具結果或驗證結果
+
+---
+
+## 預設行為
+
+當使用者提出需要執行、研究、修改、測試、部署、整理或長篇產出的任務時：
+
+1. Provider 先判斷是否需要 subagent
+2. 預設派 subagent 處理實際工作
+3. Provider 僅保留調度、驗證與交付角色
+4. 最終回覆應基於 subagent 的實際輸出，而非 provider 臆測

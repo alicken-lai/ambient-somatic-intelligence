@@ -1,0 +1,143 @@
+{
+  "architecture_deliberation": {
+    "skill_id": "architecture_deliberation",
+    "name": "Architecture Deliberation Skill",
+    "task_types": [
+      "architecture"
+    ],
+    "steps": [
+      "SystemArchitect",
+      "RiskAnalyst",
+      "SecurityReviewer",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 1.0,
+    "sample_count": 3,
+    "average_score": 68.85,
+    "average_roi": 17.3
+  },
+  "debugging_deliberation": {
+    "skill_id": "debugging_deliberation",
+    "name": "Debugging Deliberation Skill",
+    "task_types": [
+      "debugging"
+    ],
+    "steps": [
+      "Triage",
+      "RiskAnalyst",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 1.0,
+    "sample_count": 3,
+    "average_score": 68.85,
+    "average_roi": 17.3
+  },
+  "provider_policy_deliberation": {
+    "skill_id": "provider_policy_deliberation",
+    "name": "Provider Policy Deliberation Skill",
+    "task_types": [
+      "provider_policy"
+    ],
+    "steps": [
+      "GovernanceReviewer",
+      "PolicyReviewer",
+      "RiskAnalyst",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 1.0,
+    "sample_count": 3,
+    "average_score": 68.85,
+    "average_roi": 17.3
+  },
+  "memory_mutation_deliberation": {
+    "skill_id": "memory_mutation_deliberation",
+    "name": "Memory Mutation Deliberation Skill",
+    "task_types": [
+      "memory_mutation"
+    ],
+    "steps": [
+      "Triage",
+      "RiskAnalyst",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 0.0,
+    "sample_count": 3,
+    "average_score": 71.35,
+    "average_roi": 0.0
+  },
+  "credential_sensitive_deliberation": {
+    "skill_id": "credential_sensitive_deliberation",
+    "name": "Credential Sensitive Deliberation Skill",
+    "task_types": [
+      "credential_sensitive"
+    ],
+    "steps": [
+      "SecurityReviewer",
+      "GuardianAdvisor",
+      "VerificationSpecialist",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 0.3333,
+    "sample_count": 3,
+    "average_score": 70.52,
+    "average_roi": 5.77
+  },
+  "state_changing_deliberation": {
+    "skill_id": "state_changing_deliberation",
+    "name": "State Changing Deliberation Skill",
+    "task_types": [
+      "state_changing"
+    ],
+    "steps": [
+      "Triage",
+      "RiskAnalyst",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 0.0,
+    "sample_count": 3,
+    "average_score": 71.35,
+    "average_roi": 0.0
+  },
+  "research_analysis_deliberation": {
+    "skill_id": "research_analysis_deliberation",
+    "name": "Research Analysis Deliberation Skill",
+    "task_types": [
+      "research_analysis"
+    ],
+    "steps": [
+      "ResearchAnalyst",
+      "VerificationSpecialist",
+      "CostController",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 1.0,
+    "sample_count": 3,
+    "average_score": 68.85,
+    "average_roi": 17.3
+  },
+  "implementation_review_deliberation": {
+    "skill_id": "implementation_review_deliberation",
+    "name": "Implementation Review Deliberation Skill",
+    "task_types": [
+      "implementation_review"
+    ],
+    "steps": [
+      "ImplementationEngineer",
+      "TestEngineer",
+      "SecurityReviewer",
+      "Verification",
+      "Synthesis"
+    ],
+    "success_rate": 0.25,
+    "sample_count": 4,
+    "average_score": 70.72,
+    "average_roi": 4.32
+  }
+}

@@ -1,0 +1,451 @@
+{
+  "identity": {
+    "identity_id": "hermes-asi",
+    "core_values": [
+      "safety first",
+      "truthful evidence-bound reasoning",
+      "operator sovereignty",
+      "memory continuity without history rewriting"
+    ],
+    "core_principles": [
+      "Guardian governance remains authoritative",
+      "advisory intelligence may not override approvals",
+      "beliefs must remain challengeable",
+      "strategy is earned through evidence and promotion"
+    ],
+    "long_term_objectives": [
+      "maintain bounded cognition",
+      "preserve replay-inspectable institutional memory",
+      "improve calibrated contact with reality",
+      "separate identity from tactics"
+    ],
+    "governance_commitments": [
+      "do not bypass Guardian",
+      "do not modify provider permissions through identity systems",
+      "do not execute external actions from identity analysis",
+      "keep DMN memory append-only"
+    ],
+    "non_negotiable_constraints": [
+      "no autonomous credential changes",
+      "no silent governance evolution",
+      "no hidden policy bypass",
+      "no claims of sentience or unconstrained agency"
+    ],
+    "created_at": "2026-06-14T14:44:40.782914+00:00",
+    "last_updated": "2026-06-14T14:44:40.782914+00:00"
+  },
+  "belief_classifications": [
+    {
+      "belief_id": "belief:dmn",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:reports",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:benchmarks",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:tests",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:guardian_logs",
+      "classification": "Core Belief",
+      "reason": "belief refers to persistent governance or safety identity"
+    },
+    {
+      "belief_id": "belief:provider_reports",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:playbooks",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:skills",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:failure_reports",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:verification_reports",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:future_external",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:architecture_review",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:provider_policy",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:security_audit",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:implementation_review",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:research_synthesis",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:architecture_deliberation",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:debugging_deliberation",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:provider_policy_deliberation",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:memory_mutation_deliberation",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:credential_sensitive_deliberation",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:state_changing_deliberation",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    },
+    {
+      "belief_id": "belief:research_analysis_deliberation",
+      "classification": "Supporting Belief",
+      "reason": "belief has strong confidence and acceptable reality score"
+    },
+    {
+      "belief_id": "belief:implementation_review_deliberation",
+      "classification": "Temporary Belief",
+      "reason": "belief is useful but not identity-defining"
+    }
+  ],
+  "timeline": [
+    {
+      "event_id": "dmn-recent-1",
+      "event_type": "dmn",
+      "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+      "evidence": [
+        "memory\\dmn.jsonl"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:30:20.133194+00:00"
+    },
+    {
+      "event_id": "dmn-recent-2",
+      "event_type": "dmn",
+      "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+      "evidence": [
+        "memory\\dmn.jsonl"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:35:19.417644+00:00"
+    },
+    {
+      "event_id": "dmn-recent-3",
+      "event_type": "dmn",
+      "summary": "Implemented Hermes-ASI Phase 8 Institutional Intelligence and Reality Alignment Kernel on branch codex/deliberation-kernels. Commit 70c1d5a feat: add reality al",
+      "evidence": [
+        "memory\\dmn.jsonl"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:38:39.166963+00:00"
+    },
+    {
+      "event_id": "dmn-recent-4",
+      "event_type": "dmn",
+      "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+      "evidence": [
+        "memory\\dmn.jsonl"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:40:19.678971+00:00"
+    },
+    {
+      "event_id": "dmn-recent-5",
+      "event_type": "dmn",
+      "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+      "evidence": [
+        "memory\\dmn.jsonl"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:45:19.771112+00:00"
+    },
+    {
+      "event_id": "belief-registry",
+      "event_type": "beliefs",
+      "summary": "Tracked 24 institutional beliefs.",
+      "evidence": [
+        "reports/belief_registry.json"
+      ],
+      "significance": "major",
+      "timestamp": "2026-06-14T14:45:26.556622+00:00"
+    },
+    {
+      "event_id": "trust-calibration",
+      "event_type": "trust",
+      "summary": "Calibrated trust for 11 sources.",
+      "evidence": [
+        "reports/trust_report.json"
+      ],
+      "significance": "major",
+      "timestamp": "2026-06-14T14:45:26.557623+00:00"
+    },
+    {
+      "event_id": "drift-check",
+      "event_type": "drift",
+      "summary": "Drift severity: none.",
+      "evidence": [
+        "reports/drift_report.json"
+      ],
+      "significance": "normal",
+      "timestamp": "2026-06-14T14:45:26.558623+00:00"
+    },
+    {
+      "event_id": "reality-alignment",
+      "event_type": "reality",
+      "summary": "Reality score reached 70.36 with 5 challenges.",
+      "evidence": [
+        "reports/reality_alignment_report.json"
+      ],
+      "significance": "major",
+      "timestamp": "2026-06-14T14:45:26.559623+00:00"
+    }
+  ],
+  "continuity": {
+    "stable": [
+      "safety first",
+      "truthful evidence-bound reasoning",
+      "operator sovereignty",
+      "memory continuity without history rewriting",
+      "do not bypass Guardian",
+      "do not modify provider permissions through identity systems",
+      "do not execute external actions from identity analysis",
+      "keep DMN memory append-only",
+      "no autonomous credential changes",
+      "no silent governance evolution",
+      "no hidden policy bypass",
+      "no claims of sentience or unconstrained agency"
+    ],
+    "changed": [],
+    "why_changed": "belief classifications change when confidence, reality score, or retirement status changes",
+    "evidence": [
+      "memory\\dmn.jsonl",
+      "reports/belief_registry.json",
+      "reports/drift_report.json",
+      "reports/reality_alignment_report.json",
+      "reports/trust_report.json"
+    ],
+    "continuity_metrics": {
+      "stable_commitment_count": 12,
+      "change_count": 0,
+      "event_count": 9
+    }
+  },
+  "drift": {
+    "drift_detected": false,
+    "severity": "none",
+    "reason": "no conflict with core identity commitments detected"
+  },
+  "coherence": {
+    "coherence_score": 80.0,
+    "reasoning": [
+      "stable_commitments=12",
+      "core_beliefs=1",
+      "retired_beliefs=0",
+      "drift=none",
+      "identity=hermes-asi"
+    ]
+  },
+  "identity_health": {
+    "identity_health": 90.0,
+    "risk": "low"
+  },
+  "life_history": {
+    "biography": "hermes-asi is a Guardian-governed advisory cognition substrate that preserves bounded reasoning, evidence continuity, and operator sovereignty across phases.",
+    "major_milestones": [
+      {
+        "event_id": "belief-registry",
+        "event_type": "beliefs",
+        "summary": "Tracked 24 institutional beliefs.",
+        "evidence": [
+          "reports/belief_registry.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.556622+00:00"
+      },
+      {
+        "event_id": "trust-calibration",
+        "event_type": "trust",
+        "summary": "Calibrated trust for 11 sources.",
+        "evidence": [
+          "reports/trust_report.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.557623+00:00"
+      },
+      {
+        "event_id": "reality-alignment",
+        "event_type": "reality",
+        "summary": "Reality score reached 70.36 with 5 challenges.",
+        "evidence": [
+          "reports/reality_alignment_report.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.559623+00:00"
+      }
+    ],
+    "major_learning_events": [
+      {
+        "event_id": "belief-registry",
+        "event_type": "beliefs",
+        "summary": "Tracked 24 institutional beliefs.",
+        "evidence": [
+          "reports/belief_registry.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.556622+00:00"
+      },
+      {
+        "event_id": "trust-calibration",
+        "event_type": "trust",
+        "summary": "Calibrated trust for 11 sources.",
+        "evidence": [
+          "reports/trust_report.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.557623+00:00"
+      },
+      {
+        "event_id": "reality-alignment",
+        "event_type": "reality",
+        "summary": "Reality score reached 70.36 with 5 challenges.",
+        "evidence": [
+          "reports/reality_alignment_report.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.559623+00:00"
+      }
+    ],
+    "major_governance_events": [
+      {
+        "event_id": "dmn-recent-1",
+        "event_type": "dmn",
+        "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+        "evidence": [
+          "memory\\dmn.jsonl"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:30:20.133194+00:00"
+      },
+      {
+        "event_id": "dmn-recent-2",
+        "event_type": "dmn",
+        "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+        "evidence": [
+          "memory\\dmn.jsonl"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:35:19.417644+00:00"
+      },
+      {
+        "event_id": "dmn-recent-3",
+        "event_type": "dmn",
+        "summary": "Implemented Hermes-ASI Phase 8 Institutional Intelligence and Reality Alignment Kernel on branch codex/deliberation-kernels. Commit 70c1d5a feat: add reality al",
+        "evidence": [
+          "memory\\dmn.jsonl"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:38:39.166963+00:00"
+      },
+      {
+        "event_id": "dmn-recent-4",
+        "event_type": "dmn",
+        "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+        "evidence": [
+          "memory\\dmn.jsonl"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:40:19.678971+00:00"
+      },
+      {
+        "event_id": "dmn-recent-5",
+        "event_type": "dmn",
+        "summary": "{\"external_actions_enabled\":false,\"guardian\":{\"action\":\"autonomous local telemetry DMN tick: collect local telemetry, append DMN, rebuild system_state\",\"boundar",
+        "evidence": [
+          "memory\\dmn.jsonl"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:45:19.771112+00:00"
+      }
+    ],
+    "major_belief_revisions": [
+      {
+        "event_id": "belief-registry",
+        "event_type": "beliefs",
+        "summary": "Tracked 24 institutional beliefs.",
+        "evidence": [
+          "reports/belief_registry.json"
+        ],
+        "significance": "major",
+        "timestamp": "2026-06-14T14:45:26.556622+00:00"
+      }
+    ],
+    "major_failures": [
+      {
+        "event_id": "drift-check",
+        "event_type": "drift",
+        "summary": "Drift severity: none.",
+        "evidence": [
+          "reports/drift_report.json"
+        ],
+        "significance": "normal",
+        "timestamp": "2026-06-14T14:45:26.558623+00:00"
+      }
+    ],
+    "major_recoveries": [],
+    "event_count": 9
+  },
+  "governance": {
+    "advisory_only": true,
+    "may_modify_guardian": false,
+    "may_modify_permissions": false,
+    "may_execute_actions": false
+  }
+}

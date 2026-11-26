@@ -16,6 +16,48 @@ from hermes.orchestration import ProviderRequest, RoutePolicy, RoutingEngine, lo
 from hermes.orchestration.audit import JsonlAuditSink
 from hermes.orchestration.config_loader import validate_route_consistency
 from hermes.orchestration.health import ProviderHealthChecker
+from hermes.deliberation import run_deliberation
+from hermes.deliberation.evaluation.ab_test import run_ab_suite
+from hermes.deliberation.evaluation.golden_traces import load_golden_traces
+from hermes.deliberation.evaluation.knowledge_reports import (
+    generate_failure_report,
+    generate_playbook_report,
+    generate_skill_report,
+)
+from hermes.deliberation.evaluation.learning_report import generate_learning_report
+from hermes.deliberation.evaluation.report import generate_quality_report
+from hermes.deliberation.memory import DeliberationEffectivenessMemory
+from hermes.deliberation.roi import ROICalculator
+from hermes.deliberation.strategy_engine import DeliberationStrategyEngine
+from hermes.verification.reports import (
+    generate_claim_report,
+    generate_contradiction_report,
+    generate_evidence_report,
+    generate_verification_report,
+)
+from hermes.acquisition.reports import (
+    generate_acquisition_report,
+    generate_evidence_quality_report,
+    generate_knowledge_index_report,
+)
+from hermes.calibration.reports import (
+    generate_drift_report,
+    generate_knowledge_health_report,
+    generate_trust_report,
+)
+from hermes.reality_alignment.reports import (
+    generate_diversity_report,
+    generate_fitness_report,
+    generate_reality_report,
+)
+from hermes.identity.reports import (
+    generate_continuity_report,
+    generate_identity_report,
+    generate_life_history_report,
+)
+from hermes.audit import generate_audit_report
+from hermes.graph import generate_graph_health_report
+from hermes.release import generate_release_report
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -252,100 +294,54 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "strategy-report":
         return strategy_report_command(args)
     if args.command == "playbook-report":
-        from hermes.deliberation.evaluation.knowledge_reports import generate_playbook_report
-
         return knowledge_report_command(generate_playbook_report, args)
     if args.command == "skill-report":
-        from hermes.deliberation.evaluation.knowledge_reports import generate_skill_report
-
         return knowledge_report_command(generate_skill_report, args)
     if args.command == "failure-report":
-        from hermes.deliberation.evaluation.knowledge_reports import generate_failure_report
-
         return knowledge_report_command(generate_failure_report, args)
     if args.command == "evidence-report":
-        from hermes.verification.reports import generate_evidence_report
-
         return knowledge_report_command(generate_evidence_report, args)
     if args.command == "claim-report":
-        from hermes.verification.reports import generate_claim_report
-
         return knowledge_report_command(generate_claim_report, args)
     if args.command == "verification-report":
-        from hermes.verification.reports import generate_verification_report
-
         return knowledge_report_command(generate_verification_report, args)
     if args.command == "contradiction-report":
-        from hermes.verification.reports import generate_contradiction_report
-
         return knowledge_report_command(generate_contradiction_report, args)
     if args.command == "acquisition-report":
-        from hermes.acquisition.reports import generate_acquisition_report
-
         return knowledge_report_command(generate_acquisition_report, args)
     if args.command == "evidence-quality-report":
-        from hermes.acquisition.reports import generate_evidence_quality_report
-
         return knowledge_report_command(generate_evidence_quality_report, args)
     if args.command == "knowledge-index-report":
-        from hermes.acquisition.reports import generate_knowledge_index_report
-
         return knowledge_report_command(generate_knowledge_index_report, args)
     if args.command == "knowledge-health-report":
-        from hermes.calibration.reports import generate_knowledge_health_report
-
         return knowledge_report_command(generate_knowledge_health_report, args)
     if args.command == "trust-report":
-        from hermes.calibration.reports import generate_trust_report
-
         return knowledge_report_command(generate_trust_report, args)
     if args.command == "drift-report":
-        from hermes.calibration.reports import generate_drift_report
-
         return knowledge_report_command(generate_drift_report, args)
     if args.command == "fitness-report":
-        from hermes.reality_alignment.reports import generate_fitness_report
-
         return knowledge_report_command(generate_fitness_report, args)
     if args.command == "reality-report":
-        from hermes.reality_alignment.reports import generate_reality_report
-
         return knowledge_report_command(generate_reality_report, args)
     if args.command == "diversity-report":
-        from hermes.reality_alignment.reports import generate_diversity_report
-
         return knowledge_report_command(generate_diversity_report, args)
     if args.command == "identity-report":
-        from hermes.identity.reports import generate_identity_report
-
         return knowledge_report_command(generate_identity_report, args)
     if args.command == "continuity-report":
-        from hermes.identity.reports import generate_continuity_report
-
         return knowledge_report_command(generate_continuity_report, args)
     if args.command == "life-history-report":
-        from hermes.identity.reports import generate_life_history_report
-
         return knowledge_report_command(generate_life_history_report, args)
     if args.command == "audit-report":
-        from hermes.audit import generate_audit_report
-
         return knowledge_report_command(generate_audit_report, args)
     if args.command == "graph-health-report":
-        from hermes.graph import generate_graph_health_report
-
         return knowledge_report_command(generate_graph_health_report, args)
     if args.command == "release-report":
-        from hermes.release import generate_release_report
-
         return knowledge_report_command(generate_release_report, args)
     parser.error(f"unknown command: {args.command}")
     return 2
 
 
 def deliberate_command(args: argparse.Namespace) -> int:
-    from hermes.deliberation import run_deliberation
-
     context = {
         "dry_run": args.dry_run,
         "no_save_trace": args.no_save_trace,
@@ -370,8 +366,6 @@ def deliberate_command(args: argparse.Namespace) -> int:
 
 
 def deliberate_report_command(args: argparse.Namespace) -> int:
-    from hermes.deliberation.evaluation.report import generate_quality_report
-
     payload = generate_quality_report(benchmark_path=args.benchmarks, output_path=args.output)
     if args.json:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
@@ -382,8 +376,6 @@ def deliberate_report_command(args: argparse.Namespace) -> int:
 
 
 def routing_report_command(args: argparse.Namespace) -> int:
-    from hermes.deliberation.evaluation.learning_report import generate_learning_report
-
     payload = generate_learning_report(benchmark_path=args.benchmarks, output_path=args.output)
     if args.json:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
@@ -394,11 +386,6 @@ def routing_report_command(args: argparse.Namespace) -> int:
 
 
 def roi_report_command(args: argparse.Namespace) -> int:
-    from hermes.deliberation.evaluation.ab_test import run_ab_suite
-    from hermes.deliberation.evaluation.golden_traces import load_golden_traces
-    from hermes.deliberation.memory import DeliberationEffectivenessMemory
-    from hermes.deliberation.roi import ROICalculator
-
     traces = load_golden_traces(args.benchmarks)
     results = run_ab_suite(traces)
     records = DeliberationEffectivenessMemory().update_from_ab_results(results)
@@ -427,9 +414,6 @@ def roi_report_command(args: argparse.Namespace) -> int:
 
 
 def strategy_report_command(args: argparse.Namespace) -> int:
-    from hermes.deliberation.memory import DeliberationEffectivenessMemory
-    from hermes.deliberation.strategy_engine import DeliberationStrategyEngine
-
     historical = DeliberationEffectivenessMemory().get(args.task_class)
     payload = DeliberationStrategyEngine().plan(
         task=args.task,

@@ -1,0 +1,22 @@
+{
+  "institutional_health": 95.38,
+  "components": {
+    "integration": 100.0,
+    "governance": 95.0,
+    "observability": 100.0,
+    "knowledge_coverage": 90.0,
+    "identity_continuity": 95.0,
+    "auditability": 100.0,
+    "maintainability": 78.0
+  },
+  "strengths": [
+    "Phase 1-9 kernels are present and connected through reports/registries.",
+    "Guardian and advisory-only boundaries are consistently documented.",
+    "Reality alignment and identity continuity are first-class audit surfaces."
+  ],
+  "risks": [
+    "Report generation can refresh lower-layer registries and create timestamp churn.",
+    "DMN event taxonomy is not yet formalized.",
+    "Knowledge graph coverage is implemented but not exported as a dedicated graph health report."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "verified": 0,
+  "unsupported": 34,
+  "contradicted": 0,
+  "confidence": 0.4,
+  "metrics": {
+    "claim_support_coverage": 0.0,
+    "verification_coverage": 1.0,
+    "contradiction_rate": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "evidence_freshness": 0.0
+  }
+}

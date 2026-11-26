@@ -1,0 +1,222 @@
+{
+  "roi_records": [
+    {
+      "task_type": "architecture",
+      "mode": "light",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.173,
+      "overall_roi": 5.7955
+    },
+    {
+      "task_type": "architecture",
+      "mode": "full",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.173,
+      "overall_roi": 4.3466
+    },
+    {
+      "task_type": "debugging",
+      "mode": "light",
+      "quality_gain": 15.9,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.159,
+      "overall_roi": 5.3265
+    },
+    {
+      "task_type": "debugging",
+      "mode": "full",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.173,
+      "overall_roi": 4.3466
+    },
+    {
+      "task_type": "provider_policy",
+      "mode": "light",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.173,
+      "overall_roi": 5.7955
+    },
+    {
+      "task_type": "provider_policy",
+      "mode": "full",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.173,
+      "overall_roi": 4.3466
+    },
+    {
+      "task_type": "memory_mutation",
+      "mode": "light",
+      "quality_gain": 0.0,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.0,
+      "overall_roi": 0.0
+    },
+    {
+      "task_type": "memory_mutation",
+      "mode": "full",
+      "quality_gain": 0.0,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.0,
+      "overall_roi": 0.0
+    },
+    {
+      "task_type": "credential_sensitive",
+      "mode": "light",
+      "quality_gain": 5.07,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.0507,
+      "overall_roi": 1.6984
+    },
+    {
+      "task_type": "credential_sensitive",
+      "mode": "full",
+      "quality_gain": 5.77,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.0577,
+      "overall_roi": 1.4497
+    },
+    {
+      "task_type": "state_changing",
+      "mode": "light",
+      "quality_gain": 0.0,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.0,
+      "overall_roi": 0.0
+    },
+    {
+      "task_type": "state_changing",
+      "mode": "full",
+      "quality_gain": 0.0,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.0,
+      "overall_roi": 0.0
+    },
+    {
+      "task_type": "research_analysis",
+      "mode": "light",
+      "quality_gain": 15.2,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.152,
+      "overall_roi": 5.092
+    },
+    {
+      "task_type": "research_analysis",
+      "mode": "full",
+      "quality_gain": 17.3,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.173,
+      "overall_roi": 4.3466
+    },
+    {
+      "task_type": "implementation_review",
+      "mode": "light",
+      "quality_gain": 3.8,
+      "latency_cost": 1.0,
+      "resource_cost": 2.0,
+      "verification_gain": 0.038,
+      "overall_roi": 1.273
+    },
+    {
+      "task_type": "implementation_review",
+      "mode": "full",
+      "quality_gain": 4.32,
+      "latency_cost": 1.0,
+      "resource_cost": 3.0,
+      "verification_gain": 0.0432,
+      "overall_roi": 1.0854
+    }
+  ],
+  "effectiveness": {
+    "architecture": {
+      "task_class": "architecture",
+      "sample_count": 3,
+      "best_mode": "light",
+      "avg_single_score": 51.55,
+      "avg_light_score": 68.85,
+      "avg_full_score": 68.85,
+      "avg_roi": 17.3
+    },
+    "debugging": {
+      "task_class": "debugging",
+      "sample_count": 3,
+      "best_mode": "full",
+      "avg_single_score": 51.55,
+      "avg_light_score": 67.45,
+      "avg_full_score": 68.85,
+      "avg_roi": 16.6
+    },
+    "provider_policy": {
+      "task_class": "provider_policy",
+      "sample_count": 3,
+      "best_mode": "light",
+      "avg_single_score": 51.55,
+      "avg_light_score": 68.85,
+      "avg_full_score": 68.85,
+      "avg_roi": 17.3
+    },
+    "memory_mutation": {
+      "task_class": "memory_mutation",
+      "sample_count": 3,
+      "best_mode": "single",
+      "avg_single_score": 71.35,
+      "avg_light_score": 71.35,
+      "avg_full_score": 71.35,
+      "avg_roi": 0.0
+    },
+    "credential_sensitive": {
+      "task_class": "credential_sensitive",
+      "sample_count": 3,
+      "best_mode": "full",
+      "avg_single_score": 64.75,
+      "avg_light_score": 69.82,
+      "avg_full_score": 70.52,
+      "avg_roi": 5.42
+    },
+    "state_changing": {
+      "task_class": "state_changing",
+      "sample_count": 3,
+      "best_mode": "single",
+      "avg_single_score": 71.35,
+      "avg_light_score": 71.35,
+      "avg_full_score": 71.35,
+      "avg_roi": 0.0
+    },
+    "research_analysis": {
+      "task_class": "research_analysis",
+      "sample_count": 3,
+      "best_mode": "full",
+      "avg_single_score": 51.55,
+      "avg_light_score": 66.75,
+      "avg_full_score": 68.85,
+      "avg_roi": 16.25
+    },
+    "implementation_review": {
+      "task_class": "implementation_review",
+      "sample_count": 4,
+      "best_mode": "full",
+      "avg_single_score": 66.4,
+      "avg_light_score": 70.2,
+      "avg_full_score": 70.72,
+      "avg_roi": 4.06
+    }
+  }
+}

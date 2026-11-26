@@ -1,0 +1,13 @@
+{
+  "indexed_items": 47,
+  "source_coverage": {
+    "DMN": 1,
+    "Reports": 38,
+    "Benchmarks": 1,
+    "Guardian Logs": 2,
+    "Playbooks": 1,
+    "Skills": 1,
+    "Failure Reports": 1,
+    "Verification Reports": 2
+  }
+}

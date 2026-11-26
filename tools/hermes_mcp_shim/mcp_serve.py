@@ -19,7 +19,7 @@ Usage:
 MCP client config (e.g. claude_desktop_config.json):
     {
         "mcpServers": {
-            "hermes": {
+            "hermes-asi": {
                 "command": "hermes",
                 "args": ["mcp", "serve"]
             }

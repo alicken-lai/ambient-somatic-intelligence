@@ -22,6 +22,10 @@ HEALTH_DIR = ROOT / "guardian" / "health"
 HEALTH_JSON = HEALTH_DIR / "health_scores.json"
 HEALTH_REPORT = HEALTH_DIR / "health_report.md"
 
+# Telemetry grows without bound; keep the serialized history window fixed so the
+# tracked snapshot stays reviewable instead of inflating with every snapshot scan.
+HISTORY_LIMIT = 200
+
 SUBSYSTEMS = {
     "cpu_health": ["cpu_usage_percent"],
     "memory_health": ["memory_used_percent"],
@@ -174,6 +178,8 @@ def recommendations(current: dict[str, Any], trend: str) -> list[str]:
 
 def write_report(result: dict[str, Any]) -> None:
     HEALTH_DIR.mkdir(parents=True, exist_ok=True)
+    history = result.get("history") or []
+    result["history"] = history[-HISTORY_LIMIT:]
     HEALTH_JSON.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     current = result["current"]
     lines = [

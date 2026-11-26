@@ -1,0 +1,74 @@
+{
+  "architecture": {
+    "task_class": "architecture",
+    "sample_count": 3,
+    "best_mode": "light",
+    "avg_single_score": 51.55,
+    "avg_light_score": 68.85,
+    "avg_full_score": 68.85,
+    "avg_roi": 17.3
+  },
+  "debugging": {
+    "task_class": "debugging",
+    "sample_count": 3,
+    "best_mode": "full",
+    "avg_single_score": 51.55,
+    "avg_light_score": 67.45,
+    "avg_full_score": 68.85,
+    "avg_roi": 16.6
+  },
+  "provider_policy": {
+    "task_class": "provider_policy",
+    "sample_count": 3,
+    "best_mode": "light",
+    "avg_single_score": 51.55,
+    "avg_light_score": 68.85,
+    "avg_full_score": 68.85,
+    "avg_roi": 17.3
+  },
+  "memory_mutation": {
+    "task_class": "memory_mutation",
+    "sample_count": 3,
+    "best_mode": "single",
+    "avg_single_score": 71.35,
+    "avg_light_score": 71.35,
+    "avg_full_score": 71.35,
+    "avg_roi": 0.0
+  },
+  "credential_sensitive": {
+    "task_class": "credential_sensitive",
+    "sample_count": 3,
+    "best_mode": "full",
+    "avg_single_score": 64.75,
+    "avg_light_score": 69.82,
+    "avg_full_score": 70.52,
+    "avg_roi": 5.42
+  },
+  "state_changing": {
+    "task_class": "state_changing",
+    "sample_count": 3,
+    "best_mode": "single",
+    "avg_single_score": 71.35,
+    "avg_light_score": 71.35,
+    "avg_full_score": 71.35,
+    "avg_roi": 0.0
+  },
+  "research_analysis": {
+    "task_class": "research_analysis",
+    "sample_count": 3,
+    "best_mode": "full",
+    "avg_single_score": 51.55,
+    "avg_light_score": 66.75,
+    "avg_full_score": 68.85,
+    "avg_roi": 16.25
+  },
+  "implementation_review": {
+    "task_class": "implementation_review",
+    "sample_count": 4,
+    "best_mode": "full",
+    "avg_single_score": 66.4,
+    "avg_light_score": 70.2,
+    "avg_full_score": 70.72,
+    "avg_roi": 4.06
+  }
+}

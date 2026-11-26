@@ -14,7 +14,7 @@
 
 Full portable agent doctrine lives at **[`hermes/rules/canonical_rules.md`](hermes/rules/canonical_rules.md)** (`canonical_version: 1.0.0`).
 
-That document covers: Hermes/Guardian flow, memory doctrine, ontology promotion, independent verification, P1 reality-replay freeze (including BOOTSTRAP_GAP), telemetry discipline, git safety, multi-agent orchestration, and 繁體中文 user communication.
+That document covers: Hermes/Guardian flow, memory doctrine, ontology promotion, independent verification, P1 reality-replay freeze (including BOOTSTRAP_GAP), telemetry discipline, git safety, multi-agent orchestration, cross-IDE Hermes subagent calling, and 繁體中文 user communication.
 
 ## IDE-specific views
 
@@ -33,6 +33,8 @@ Sync policy and port checklist: [`hermes/rules/rule_sync_map.md`](hermes/rules/r
 - Keep DMN memory active for repeated topics, operator preferences, project history, unresolved ambiguity, and prior incidents.
 - Write all DMN memory records in English, even when user-facing conversation is Chinese, to avoid encoding corruption and mixed-script recall noise.
 - Implementer must not self-verify promotions or gate PASS claims.
+- Provider only orchestrates by default; concrete execution, tool use, file edits, commands, tests, research, and main response drafting should be delegated to subagents when available and proportionate.
+- Cross-IDE GPT subagent calls must route through Hermes-ASI with Guardian-scoped permissions, explicit memory scope, structured output/errors, and audit logging.
 - Strategy is earned through promotion, not injected.
 - Reality replay gates are not bypassable; historical failures are not hidden.
 - Commit only when the user asks; no force-push to `main`; no `git config` changes.

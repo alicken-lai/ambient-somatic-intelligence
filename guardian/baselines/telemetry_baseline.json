@@ -1,148 +1,148 @@
 {
-  "current_path": "observability/snapshots/telemetry-2026-05-11T214900.299316Z0000.json",
+  "current_path": "observability\\snapshots\\telemetry-2026-06-13T233017.792275Z0000.json",
   "current_source": "snapshot",
-  "current_timestamp": "2026-05-11T21:49:00.299316+00:00",
-  "generated_at": "2026-05-11T21:55:23.009180+00:00",
+  "current_timestamp": "2026-06-13T23:30:17.792275+00:00",
+  "generated_at": "2026-06-13T23:31:47.745934+00:00",
   "metrics": {
     "cpu_usage_percent": {
       "baseline": {
-        "count": 4,
-        "max": 17.56,
-        "mean": 9.2,
+        "count": 25,
+        "max": 60.0,
+        "mean": 12.638,
         "min": 2.12,
-        "stddev": 5.4963
+        "stddev": 15.2063
       },
-      "current": 17.56,
+      "current": 35.0,
       "deviation": {
-        "current": 17.56,
-        "delta_from_mean": 8.36,
+        "current": 35.0,
+        "delta_from_mean": 22.362,
         "severity": "elevated",
-        "z_score": 1.521
+        "z_score": 1.4706
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 17.56,
-        "mean": 11.56,
-        "min": 8.56,
-        "stddev": 4.2426
+        "max": 52.0,
+        "mean": 40.3333,
+        "min": 34.0,
+        "stddev": 8.2597
       },
       "rolling_window": 3
     },
     "disk_used_percent": {
       "baseline": {
-        "count": 4,
-        "max": 54.52,
-        "mean": 53.965,
-        "min": 53.78,
-        "stddev": 0.3204
+        "count": 25,
+        "max": 54.86,
+        "mean": 49.2956,
+        "min": 22.31,
+        "stddev": 11.7682
       },
-      "current": 54.52,
+      "current": 22.37,
       "deviation": {
-        "current": 54.52,
-        "delta_from_mean": 0.555,
-        "severity": "elevated",
-        "z_score": 1.7322
+        "current": 22.37,
+        "delta_from_mean": -26.9256,
+        "severity": "warning",
+        "z_score": -2.288
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 54.52,
-        "mean": 54.0267,
-        "min": 53.78,
-        "stddev": 0.3488
+        "max": 22.37,
+        "mean": 22.3467,
+        "min": 22.33,
+        "stddev": 0.017
       },
       "rolling_window": 3
     },
     "load_average_15m": {
       "baseline": {
-        "count": 4,
+        "count": 25,
         "max": 1.8,
-        "mean": 1.745,
-        "min": 1.6,
-        "stddev": 0.0838
+        "mean": 1.3516,
+        "min": 0.19,
+        "stddev": 0.4617
       },
-      "current": 1.6,
+      "current": 0.33,
       "deviation": {
-        "current": 1.6,
-        "delta_from_mean": -0.145,
-        "severity": "elevated",
-        "z_score": -1.7303
+        "current": 0.33,
+        "delta_from_mean": -1.0216,
+        "severity": "warning",
+        "z_score": -2.2127
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 1.79,
-        "mean": 1.7267,
-        "min": 1.6,
-        "stddev": 0.0896
+        "max": 0.44,
+        "mean": 0.3633,
+        "min": 0.32,
+        "stddev": 0.0544
       },
       "rolling_window": 3
     },
     "load_average_1m": {
       "baseline": {
-        "count": 4,
+        "count": 25,
         "max": 2.8,
-        "mean": 1.68,
-        "min": 1.29,
-        "stddev": 0.647
+        "mean": 1.2952,
+        "min": 0.19,
+        "stddev": 0.5114
       },
-      "current": 2.8,
+      "current": 0.33,
       "deviation": {
-        "current": 2.8,
-        "delta_from_mean": 1.12,
+        "current": 0.33,
+        "delta_from_mean": -0.9652,
         "severity": "elevated",
-        "z_score": 1.7311
+        "z_score": -1.8874
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 2.8,
-        "mean": 1.7933,
-        "min": 1.29,
-        "stddev": 0.7118
+        "max": 0.44,
+        "mean": 0.3633,
+        "min": 0.32,
+        "stddev": 0.0544
       },
       "rolling_window": 3
     },
     "load_average_5m": {
       "baseline": {
-        "count": 4,
+        "count": 25,
         "max": 1.83,
-        "mean": 1.745,
-        "min": 1.71,
-        "stddev": 0.0497
+        "mean": 1.3528,
+        "min": 0.19,
+        "stddev": 0.4611
       },
-      "current": 1.83,
+      "current": 0.33,
       "deviation": {
-        "current": 1.83,
-        "delta_from_mean": 0.085,
-        "severity": "elevated",
-        "z_score": 1.7103
+        "current": 0.33,
+        "delta_from_mean": -1.0228,
+        "severity": "warning",
+        "z_score": -2.2182
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 1.83,
-        "mean": 1.75,
-        "min": 1.71,
-        "stddev": 0.0566
+        "max": 0.44,
+        "mean": 0.3633,
+        "min": 0.32,
+        "stddev": 0.0544
       },
       "rolling_window": 3
     },
     "memory_used_percent": {
       "baseline": {
-        "count": 4,
+        "count": 25,
         "max": 99.61,
-        "mean": 99.4625,
-        "min": 99.28,
-        "stddev": 0.1413
+        "mean": 91.2048,
+        "min": 55.48,
+        "stddev": 15.434
       },
-      "current": 99.28,
+      "current": 56.13,
       "deviation": {
-        "current": 99.28,
-        "delta_from_mean": -0.1825,
-        "severity": "elevated",
-        "z_score": -1.2916
+        "current": 56.13,
+        "delta_from_mean": -35.0748,
+        "severity": "warning",
+        "z_score": -2.2726
       },
       "incident_links": [
         {
@@ -151,47 +151,58 @@
           "rule": "high_memory_usage",
           "severity": "warning",
           "timestamp": "2026-05-11T21:49:02.703942+00:00"
+        },
+        {
+          "incident": "guardian/incidents/incident-2026-05-11T221437.780998Z0000.md",
+          "recommendation": "Review memory pressure and avoid launching additional heavy local tasks.",
+          "rule": "high_memory_usage",
+          "severity": "warning",
+          "timestamp": "2026-05-11T22:14:37.782126+00:00"
         }
       ],
       "rolling": {
         "count": 3,
-        "max": 99.61,
-        "mean": 99.4933,
-        "min": 99.28,
-        "stddev": 0.1511
+        "max": 56.13,
+        "mean": 56.0167,
+        "min": 55.85,
+        "stddev": 0.1204
       },
       "rolling_window": 3
     },
     "process_count": {
       "baseline": {
-        "count": 4,
-        "max": 667.0,
-        "mean": 632.0,
-        "min": 617.0,
-        "stddev": 20.3224
+        "count": 25,
+        "max": 668.0,
+        "mean": 611.16,
+        "min": 349.0,
+        "stddev": 111.5931
       },
-      "current": 667.0,
+      "current": 366.0,
       "deviation": {
-        "current": 667.0,
-        "delta_from_mean": 35.0,
-        "severity": "elevated",
-        "z_score": 1.7222
+        "current": 366.0,
+        "delta_from_mean": -245.16,
+        "severity": "warning",
+        "z_score": -2.1969
       },
       "incident_links": [],
       "rolling": {
         "count": 3,
-        "max": 667.0,
-        "mean": 637.0,
-        "min": 621.0,
-        "stddev": 21.2289
+        "max": 366.0,
+        "mean": 360.6667,
+        "min": 356.0,
+        "stddev": 4.1096
       },
       "rolling_window": 3
     }
   },
-  "overall_deviation_severity": "elevated",
+  "overall_deviation_severity": "warning",
   "recommendations": [
-    "Continue observing memory_used_percent; it is linked to prior incident memory."
+    "Review disk_used_percent; current value deviates from learned local baseline.",
+    "Review load_average_15m; current value deviates from learned local baseline.",
+    "Review load_average_5m; current value deviates from learned local baseline.",
+    "Review memory_used_percent; current value deviates from learned local baseline.",
+    "Review process_count; current value deviates from learned local baseline."
   ],
   "recommendations_only": true,
-  "telemetry_count": 4
+  "telemetry_count": 25
 }

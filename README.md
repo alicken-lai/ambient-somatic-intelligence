@@ -4,6 +4,8 @@
 
 **Release line:** `v0.7.x-P` — production-grade civilization governance lineage (officially frozen)
 
+**Product baseline:** `v0.9.0-rc1` — Hermes-ASI Institutional Intelligence Release Candidate (advisory; see §10.2)
+
 Repository: [github.com/alicken-lai/ambient-somatic-intelligence](https://github.com/alicken-lai/ambient-somatic-intelligence)
 
 ---
@@ -178,13 +180,25 @@ Additional safeguards (constitution summary):
 
 ## 10. Current Status
 
+Two states coexist and must not be conflated: the **frozen governance lineage**
+and the **product baseline**.
+
 ```
-Ambient OS v0.7.x-P
+Governance lineage: v0.7.x-P
 Status: PRODUCTION-GRADE CIVILIZATION GOVERNANCE LINEAGE
 Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
+
+Product baseline:   v0.9.0-rc1
+Status: TAGGED AND PUBLISHED (2026-06-15)
+Formal verification: RELEASE_DECISION.md APPROVED_FOR_TAGGING
+Readiness check: tools/check_rc1_readiness.py READY: true (at commit bffe847)
+
+Environment migration: G0–G6 preservation/restore/migration gates
+Status: OPEN (applies to operator environment upgrade, not product release)
+Context: docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md
 ```
 
-**Verified (documentation-aligned; see gate artifacts):**
+**Verified for the `v0.7.x-P` lineage below (documentation-aligned; see gate artifacts).** Items in this checklist describe the frozen governance lineage only; they are not claims about the `v0.9.0-rc1` product baseline.
 
 - [x] v070 → v077 civilization lineage frozen in release commit
 - [x] v07xp stabilization program **PASS** (CivilizationLineageIntegrityScoreV2 ≥ 0.95)
@@ -202,6 +216,83 @@ Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 
 ---
 
+## 10.1 Hermes-ASI Deliberation Kernels
+
+This worktree also contains the Hermes-ASI deliberation kernel series, an advisory reasoning and evidence layer that sits under the existing Guardian-governed operating doctrine. It does not change Guardian authority, provider permissions, credential rules, or human approval requirements.
+
+Implemented kernels:
+
+- Phase 1: ASI Deliberation Layer with task triage, independent children, judge, verifier, synthesizer, trace persistence, provider discovery, CLI adapter, and `hermes deliberate`.
+- Phase 2: Evaluation and governance hardening with golden traces, scorecards, A/B tests, Guardian/trace/provider safety tests, observability, and `hermes deliberate-report`.
+- Phase 3: Adaptive routing intelligence with ROI, effectiveness memory, dynamic child selection, strategy planning, and `hermes routing-report`, `hermes roi-report`, `hermes strategy-report`.
+- Phase 4: Self-improving deliberation knowledge with skills, playbooks, pattern mining, failure learning, strategy memory, knowledge graph, and `hermes playbook-report`, `hermes skill-report`, `hermes failure-report`.
+- Phase 5: Verification and evidence kernel with claim extraction, evidence objects, claim-evidence graph, contradiction detection, evidence scoring, and `hermes evidence-report`, `hermes claim-report`, `hermes verification-report`, `hermes contradiction-report`.
+- Phase 6: Knowledge and evidence acquisition with source registry, evidence collector/linker, confidence model, knowledge reuse, internal knowledge index, and `hermes acquisition-report`, `hermes evidence-quality-report`, `hermes knowledge-index-report`.
+- Phase 7: Trust and knowledge calibration with trust registry, calibrated confidence, trust-weighted verification, inflation/self-reference/drift detection, knowledge health scoring, and `hermes knowledge-health-report`, `hermes trust-report`, `hermes drift-report`.
+- Phase 8: Institutional intelligence and reality alignment with tracked beliefs, reality scoring, fitness scoring, challenge events for high-trust knowledge, diversity measurement, echo-chamber detection, advisory external validation stubs, belief evolution, and `hermes fitness-report`, `hermes reality-report`, `hermes diversity-report`.
+- Phase 9: Narrative identity and continuity with first-class identity registry, belief classification, narrative timeline, continuity analysis, identity drift detection, coherence scoring, justified identity evolution, life-history generation, identity health scoring, and `hermes identity-report`, `hermes continuity-report`, `hermes life-history-report`.
+
+Current calibration evidence:
+
+- Raw acquired evidence score: 100.00
+- Calibrated confidence overall: 95.30
+- Knowledge health score: 81.50
+- Inflation risk: 0.6088, caused by repeated or low-diversity evidence sources
+- Drift: none detected
+- Reality score: 70.36
+- Diversity score: 44.48
+- Echo risk: 0.80, driven by high confidence, low source diversity, and high self-reference
+- Identity health: generated as an advisory continuity score in Phase 9
+- Narrative coherence: generated as a first-class identity continuity metric
+
+The important shift is from raw evidence volume toward calibrated belief. Acquisition can raise support coverage, but calibration can still reduce health when evidence is repetitive, stale, self-referential, or low-trust.
+
+Phase 8 adds a second check: trusted knowledge is not allowed to coast. High-trust beliefs, skills, playbooks, and sources are periodically challenged, scored against available observations and outcomes, and kept advisory under Guardian authority. The objective is calibrated contact with reality, not higher self-confidence.
+
+Phase 9 adds institutional self-understanding without creating a persona. Hermes can describe what remained stable, what changed, why it changed, what evidence justified the change, and what it refuses to become. Identity analysis is descriptive and advisory only; it cannot modify Guardian, governance, provider permissions, credentials, or approval requirements.
+
+---
+
+## 10.2 v0.9.0-rc1 Product Baseline
+
+`v0.9.0-rc1` is tagged and published (`d4183d8`, tag `v0.9.0-rc1`) as an
+**advisory** institutional-intelligence baseline. It is **not** a formal
+release: the G2–G6 preservation/restore, migration, rollback and 24-hour soak
+gates remain open, and the elevated ACL-ownership condition blocking G2 is
+still unresolved.
+
+Scored at the release cut (`RELEASE_MANIFEST_v0.9.0-rc1.md`):
+
+| Metric | Value | Threshold | Result |
+|--------|------:|----------:|--------|
+| RC Health | 95.78 | ≥ 85.0 | PASS |
+| Institutional Health | 95.38 | — | PASS |
+| Graph Health | 97.00 | ≥ 75.0 | PASS |
+| DMN Health | 99.83 | ≥ 80.0 | PASS |
+
+Scope at that cut: 12 deliberation kernels, 29 CLI commands, 9 frozen schemas,
+14 release artifacts.
+
+These are a **dated evidence record**, not current health. Operational scores
+are recomputed from telemetry and must not be read off this table; at the time
+of writing the rebuilt snapshot sits near 66 with a degrading trend, driven by
+memory pressure and host load.
+
+Accepted limitations: [`docs/release/KNOWN_LIMITATIONS.md`](docs/release/KNOWN_LIMITATIONS.md).
+Decision record: [`docs/release/RELEASE_DECISION.md`](docs/release/RELEASE_DECISION.md).
+Open gate sequence and retained failures:
+[`docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md`](docs/proposals/ASI_G2_ACL_BLOCKER_RESOLUTION_2026-11-10.md).
+
+### Engineering defect corrected after rc1
+
+`guardian/health/health_scores.json` grew without bound because the entire
+telemetry history was serialized on every rebuild — 366 MiB / ~12.2M lines,
+past GitHub's 100 MB per-file limit. The snapshot now retains a fixed
+`HISTORY_LIMIT` window in `scripts/health_score.py`, covered by
+`tests/test_health_score_history_bound.py`.
+
+---
+
 ## 11. Release Lineage
 
 | Epoch | Tag / codename | Summary |
@@ -214,8 +305,9 @@ Freeze: OFFICIALLY FROZEN (civilization lineage commit on ken-dev)
 | **v07x** | Civilization freeze audit | Weakest-link integrity scoring |
 | **v07xp** | Stabilization program | Production-grade lineage hardening |
 | **v07xp_release** | Commit hygiene | Clean `e3430983` civilization freeze commit |
+| **v0.9.0-rc1** | Institutional intelligence | Advisory product baseline; tagged, formal G2–G6 gates open |
 
-Earlier README text describing “v0.3.1-alpha stabilized cognitive runtime” as the **current** product line is superseded by **v0.7.x-P** positioning above.
+Earlier README text describing “v0.3.1-alpha stabilized cognitive runtime” as the **current** product line is superseded. The frozen governance lineage is **v0.7.x-P**; the current advisory product baseline is **v0.9.0-rc1**, which inherits the lineage and does not modify it.
 
 ---
 
@@ -261,6 +353,33 @@ ambient-os/
 
 Runtime state (`logs/`, `state/`, live `memory/dmn.jsonl`) is intentionally **excluded** from civilization freeze commits.
 
+### Operational State Commit Policy
+
+Some runtime-adjacent files are still important enough to preserve when they
+change system behavior or continuity:
+
+- `scripts/sense_local.py` and `scripts/memory_pressure_diagnosis.py` are
+  operational telemetry/diagnostic code. Cross-platform fixes here are system
+  behavior changes, not temporary output.
+- `tools/hermes_mcp_shim/` contains the Hermes-ASI MCP bridge shim and example
+  client registration. Changes here affect cross-IDE tool availability and
+  should be reviewed as runtime integration changes.
+- `scripts/dmn_reflection_cycle.py`, `tools/audit_historical_dmn_governance.py`,
+  and `tools/propose_dmn_metadata_sidecars.py` are governance maintenance
+  tools. They must remain non-mutating by default unless an operator-approved
+  workflow explicitly promotes their outputs.
+- Guardian JSON state under `guardian/baselines/`, `guardian/health/`,
+  `guardian/incidents/`, and `guardian/recalibration/` preserves current
+  scoring, incident, and recalibration continuity. Markdown reports and
+  `latest_*` narrative snapshots are usually regenerable evidence surfaces.
+- `tools/mempalace/palace.json` and `tools/mempalace/palace.md` are generated
+  knowledge-index artifacts, but they are useful operational recall surfaces
+  when they summarize the current Guardian/reflection state.
+
+Commit these files separately from freeze lineage changes and keep live logs,
+append-only DMN, and daemon state out of ordinary feature commits unless the
+operator explicitly asks for an operational snapshot.
+
 ---
 
 ## 14. Contribution / Research Notes
@@ -286,3 +405,32 @@ Bug reports and design discussion: use GitHub Issues on this repository. Large a
 ## 15. License
 
 Apache-2.0 — see [LICENSE](LICENSE).
+
+---
+
+## 16. Product boundary on 2026-11-20
+
+The current product boundary is the governance substrate in
+`docs/SDD_ASI_GOVERNANCE_SUBSTRATE_2026-11-20.md`: somatic sensing, DMN memory,
+Guardian authorization, provenance, and a replaceable model adapter. It does
+not claim AGI, autonomy, or unconstrained production.
+
+Current execution status, reconciled in
+`docs/release/P8_DOCUMENTATION_RECONCILIATION_2026-11-20.md`:
+
+- P4 appeal remains `READY_FOR_INDEPENDENT_VERIFICATION`. The retained independent result is FAIL. This README does not reissue that verdict.
+- P7 has an in-process sandbox metrics report only. `pilot_acceptance` is `not_claimed`. No live Astra call is part of this boundary.
+- P1/G2–G6 stay deferred under option A. The product narrative is not waiting on a Hermes cutover.
+- P5 reuses the existing measured-or-unknown evidence gate. P6 historical scores stay `NOT_PROMOTED`. Neither is an independent PASS.
+- P8 here is documentation reconciliation only. `P8_RELEASE_TAG` is `NOT_REQUESTED`. The 2026-06-15 rc1 decision record is unchanged.
+
+## 17. v0.9.1 MVP on 2026-11-26
+
+Section 16 stays as the 2026-11-20 boundary note. The MVP record is
+`docs/release/KNOWN_LIMITATIONS.md` section 15 and the 2026-11-26 addendum in
+`docs/release/P8_DOCUMENTATION_RECONCILIATION_2026-11-20.md`.
+
+- P1 is MVP_DEFERRED_DOCUMENTED and still ships with Hermes v0.16.0. This section does not claim v0.21.2.
+- P2 is MVP_DEFERRED_DOCUMENTED. P6 is MVP_DEFERRED and historical scores stay `NOT_PROMOTED`.
+- P7 canary acceptance is `mvp_operator_reviewed` with review label `OPERATOR_SELF_REVIEW`. That is not an independent pass.
+- This section does not claim AGI, autonomy, production deployment, or third-party verification.

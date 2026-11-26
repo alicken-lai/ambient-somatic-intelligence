@@ -1,0 +1,1261 @@
+{
+  "targets": [
+    {
+      "target_id": "dmn",
+      "target_type": "source",
+      "statement": "source dmn remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.75,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "dmn",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "dmn",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "reports",
+      "target_type": "source",
+      "statement": "source reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.82,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "reports",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "reports",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "benchmarks",
+      "target_type": "source",
+      "statement": "source benchmarks remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.85,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "benchmarks",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "benchmarks",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "tests",
+      "target_type": "source",
+      "statement": "source tests remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.95,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "tests",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "tests",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "guardian_logs",
+      "target_type": "source",
+      "statement": "source guardian_logs remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 1.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "guardian_logs",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "guardian_logs",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "provider_reports",
+      "target_type": "source",
+      "statement": "source provider_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.7,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "provider_reports",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "provider_reports",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "playbooks",
+      "target_type": "source",
+      "statement": "source playbooks remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.75,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "playbooks",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "playbooks",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "skills",
+      "target_type": "source",
+      "statement": "source skills remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.7,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "skills",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "skills",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "failure_reports",
+      "target_type": "source",
+      "statement": "source failure_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.8,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "failure_reports",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "failure_reports",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "verification_reports",
+      "target_type": "source",
+      "statement": "source verification_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.9,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "verification_reports",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "verification_reports",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "future_external",
+      "target_type": "source",
+      "statement": "source future_external remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "trust_score": 0.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.815,
+      "outcome_quality": 1.0,
+      "sources": [
+        "future_external",
+        "reports/trust_registry.json"
+      ],
+      "internal_sources": [
+        "future_external",
+        "reports/trust_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "architecture_review",
+      "target_type": "playbook",
+      "statement": "Playbook Architecture Review Playbook improves task quality",
+      "confidence": 0.65,
+      "trust_score": 0.6,
+      "verification_success": 1.0,
+      "historical_quality": 0.0,
+      "outcome_quality": 0.0,
+      "sources": [
+        "architecture_review",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "internal_sources": [
+        "architecture_review",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "provider_policy",
+      "target_type": "playbook",
+      "statement": "Playbook Provider Policy Playbook improves task quality",
+      "confidence": 0.65,
+      "trust_score": 0.6,
+      "verification_success": 1.0,
+      "historical_quality": 0.0,
+      "outcome_quality": 0.0,
+      "sources": [
+        "provider_policy",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "internal_sources": [
+        "provider_policy",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "security_audit",
+      "target_type": "playbook",
+      "statement": "Playbook Security Audit Playbook improves task quality",
+      "confidence": 0.65,
+      "trust_score": 0.6,
+      "verification_success": 1.0,
+      "historical_quality": 0.0,
+      "outcome_quality": 0.0,
+      "sources": [
+        "security_audit",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "internal_sources": [
+        "security_audit",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "implementation_review",
+      "target_type": "playbook",
+      "statement": "Playbook Implementation Review Playbook improves task quality",
+      "confidence": 0.65,
+      "trust_score": 0.6,
+      "verification_success": 1.0,
+      "historical_quality": 0.0,
+      "outcome_quality": 0.0,
+      "sources": [
+        "implementation_review",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "internal_sources": [
+        "implementation_review",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "research_synthesis",
+      "target_type": "playbook",
+      "statement": "Playbook Research Synthesis Playbook improves task quality",
+      "confidence": 0.65,
+      "trust_score": 0.6,
+      "verification_success": 1.0,
+      "historical_quality": 0.0,
+      "outcome_quality": 0.0,
+      "sources": [
+        "research_synthesis",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "internal_sources": [
+        "research_synthesis",
+        "reports/deliberation_playbook_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "architecture_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Architecture Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "trust_score": 1.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.6884999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "architecture_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "architecture_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "debugging_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Debugging Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "trust_score": 1.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.6884999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "debugging_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "debugging_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "provider_policy_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Provider Policy Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "trust_score": 1.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.6884999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "provider_policy_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "provider_policy_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "memory_mutation_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Memory Mutation Deliberation Skill remains useful across its task types",
+      "confidence": 0.7134999999999999,
+      "trust_score": 0.5,
+      "verification_success": 1.0,
+      "historical_quality": 0.7134999999999999,
+      "outcome_quality": 0.0,
+      "sources": [
+        "memory_mutation_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "memory_mutation_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "credential_sensitive_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Credential Sensitive Deliberation Skill remains useful across its task types",
+      "confidence": 0.7051999999999999,
+      "trust_score": 0.5,
+      "verification_success": 1.0,
+      "historical_quality": 0.7051999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "credential_sensitive_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "credential_sensitive_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "state_changing_deliberation",
+      "target_type": "skill",
+      "statement": "Skill State Changing Deliberation Skill remains useful across its task types",
+      "confidence": 0.7134999999999999,
+      "trust_score": 0.5,
+      "verification_success": 1.0,
+      "historical_quality": 0.7134999999999999,
+      "outcome_quality": 0.0,
+      "sources": [
+        "state_changing_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "state_changing_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "research_analysis_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Research Analysis Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "trust_score": 1.0,
+      "verification_success": 1.0,
+      "historical_quality": 0.6884999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "research_analysis_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "research_analysis_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    },
+    {
+      "target_id": "implementation_review_deliberation",
+      "target_type": "skill",
+      "statement": "Skill Implementation Review Deliberation Skill remains useful across its task types",
+      "confidence": 0.7071999999999999,
+      "trust_score": 0.5,
+      "verification_success": 1.0,
+      "historical_quality": 0.7071999999999999,
+      "outcome_quality": 1.0,
+      "sources": [
+        "implementation_review_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "internal_sources": [
+        "implementation_review_deliberation",
+        "reports/deliberation_skill_registry.json"
+      ],
+      "external_sources": []
+    }
+  ],
+  "scores": {
+    "dmn": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "reports": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "benchmarks": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "tests": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "guardian_logs": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "provider_reports": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "playbooks": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "skills": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "failure_reports": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "verification_reports": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "future_external": {
+      "reality_score": 75.0,
+      "confidence": 0.8414,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "architecture_review": {
+      "reality_score": 55.0,
+      "confidence": 0.595,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "provider_policy": {
+      "reality_score": 55.0,
+      "confidence": 0.595,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "security_audit": {
+      "reality_score": 55.0,
+      "confidence": 0.595,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "implementation_review": {
+      "reality_score": 55.0,
+      "confidence": 0.595,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "research_synthesis": {
+      "reality_score": 55.0,
+      "confidence": 0.595,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "architecture_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.8625,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "debugging_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.8625,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "provider_policy_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.8625,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "memory_mutation_deliberation": {
+      "reality_score": 69.27,
+      "confidence": 0.7021,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.71",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "credential_sensitive_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.7298,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "state_changing_deliberation": {
+      "reality_score": 69.27,
+      "confidence": 0.7021,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=0.71",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "research_analysis_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.8625,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    },
+    "implementation_review_deliberation": {
+      "reality_score": 75.0,
+      "confidence": 0.7307,
+      "reasoning": [
+        "belief_accuracy=1.00",
+        "external_agreement=0.00",
+        "verification_success=1.00",
+        "historical_outcome_quality=1.00",
+        "no external observations available; score uses internal verification and outcome signals only"
+      ]
+    }
+  },
+  "reality_score": 70.36,
+  "diversity": {
+    "diversity_score": 44.48,
+    "internal_ratio": 0.7917,
+    "external_ratio": 0.2083,
+    "source_variety": 27,
+    "source_concentration": 0.2292
+  },
+  "challenges": [
+    {
+      "challenge_id": "challenge:architecture_deliberation",
+      "target_id": "architecture_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.506891+00:00"
+    },
+    {
+      "challenge_id": "challenge:debugging_deliberation",
+      "target_id": "debugging_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.506891+00:00"
+    },
+    {
+      "challenge_id": "challenge:provider_policy_deliberation",
+      "target_id": "provider_policy_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.506891+00:00"
+    },
+    {
+      "challenge_id": "challenge:research_analysis_deliberation",
+      "target_id": "research_analysis_deliberation",
+      "target_type": "skill",
+      "prior_confidence": 1.0,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.506891+00:00"
+    },
+    {
+      "challenge_id": "challenge:guardian_logs",
+      "target_id": "guardian_logs",
+      "target_type": "source",
+      "prior_confidence": 0.953,
+      "reality_score": 75.0,
+      "passed": true,
+      "reason": "trusted item retained reality contact",
+      "challenged_because": "high-trust/high-confidence items must be challenged, not only weak items",
+      "timestamp": "2026-06-14T14:36:06.506891+00:00"
+    }
+  ],
+  "beliefs": {
+    "belief:dmn": {
+      "belief_id": "belief:dmn",
+      "statement": "source dmn remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "dmn",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:reports": {
+      "belief_id": "belief:reports",
+      "statement": "source reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "reports",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:benchmarks": {
+      "belief_id": "belief:benchmarks",
+      "statement": "source benchmarks remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "benchmarks",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:tests": {
+      "belief_id": "belief:tests",
+      "statement": "source tests remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "tests",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:guardian_logs": {
+      "belief_id": "belief:guardian_logs",
+      "statement": "source guardian_logs remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 2,
+      "status": "active",
+      "source_target_id": "guardian_logs",
+      "last_updated": "2026-06-14T14:36:06.524408+00:00"
+    },
+    "belief:provider_reports": {
+      "belief_id": "belief:provider_reports",
+      "statement": "source provider_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "provider_reports",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:playbooks": {
+      "belief_id": "belief:playbooks",
+      "statement": "source playbooks remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "playbooks",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:skills": {
+      "belief_id": "belief:skills",
+      "statement": "source skills remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "skills",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:failure_reports": {
+      "belief_id": "belief:failure_reports",
+      "statement": "source failure_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "failure_reports",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:verification_reports": {
+      "belief_id": "belief:verification_reports",
+      "statement": "source verification_reports remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "verification_reports",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:future_external": {
+      "belief_id": "belief:future_external",
+      "statement": "source future_external remains trustworthy for institutional reuse",
+      "confidence": 0.953,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "future_external",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:architecture_review": {
+      "belief_id": "belief:architecture_review",
+      "statement": "Playbook Architecture Review Playbook improves task quality",
+      "confidence": 0.65,
+      "reality_score": 55.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "architecture_review",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:provider_policy": {
+      "belief_id": "belief:provider_policy",
+      "statement": "Playbook Provider Policy Playbook improves task quality",
+      "confidence": 0.65,
+      "reality_score": 55.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "provider_policy",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:security_audit": {
+      "belief_id": "belief:security_audit",
+      "statement": "Playbook Security Audit Playbook improves task quality",
+      "confidence": 0.65,
+      "reality_score": 55.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "security_audit",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:implementation_review": {
+      "belief_id": "belief:implementation_review",
+      "statement": "Playbook Implementation Review Playbook improves task quality",
+      "confidence": 0.65,
+      "reality_score": 55.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "implementation_review",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:research_synthesis": {
+      "belief_id": "belief:research_synthesis",
+      "statement": "Playbook Research Synthesis Playbook improves task quality",
+      "confidence": 0.65,
+      "reality_score": 55.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "research_synthesis",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:architecture_deliberation": {
+      "belief_id": "belief:architecture_deliberation",
+      "statement": "Skill Architecture Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "reality_score": 75.0,
+      "challenge_count": 2,
+      "status": "active",
+      "source_target_id": "architecture_deliberation",
+      "last_updated": "2026-06-14T14:36:06.524408+00:00"
+    },
+    "belief:debugging_deliberation": {
+      "belief_id": "belief:debugging_deliberation",
+      "statement": "Skill Debugging Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "reality_score": 75.0,
+      "challenge_count": 2,
+      "status": "active",
+      "source_target_id": "debugging_deliberation",
+      "last_updated": "2026-06-14T14:36:06.524408+00:00"
+    },
+    "belief:provider_policy_deliberation": {
+      "belief_id": "belief:provider_policy_deliberation",
+      "statement": "Skill Provider Policy Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "reality_score": 75.0,
+      "challenge_count": 2,
+      "status": "active",
+      "source_target_id": "provider_policy_deliberation",
+      "last_updated": "2026-06-14T14:36:06.524408+00:00"
+    },
+    "belief:memory_mutation_deliberation": {
+      "belief_id": "belief:memory_mutation_deliberation",
+      "statement": "Skill Memory Mutation Deliberation Skill remains useful across its task types",
+      "confidence": 0.7134999999999999,
+      "reality_score": 69.27,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "memory_mutation_deliberation",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:credential_sensitive_deliberation": {
+      "belief_id": "belief:credential_sensitive_deliberation",
+      "statement": "Skill Credential Sensitive Deliberation Skill remains useful across its task types",
+      "confidence": 0.7051999999999999,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "credential_sensitive_deliberation",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:state_changing_deliberation": {
+      "belief_id": "belief:state_changing_deliberation",
+      "statement": "Skill State Changing Deliberation Skill remains useful across its task types",
+      "confidence": 0.7134999999999999,
+      "reality_score": 69.27,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "state_changing_deliberation",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    },
+    "belief:research_analysis_deliberation": {
+      "belief_id": "belief:research_analysis_deliberation",
+      "statement": "Skill Research Analysis Deliberation Skill remains useful across its task types",
+      "confidence": 1.0,
+      "reality_score": 75.0,
+      "challenge_count": 2,
+      "status": "active",
+      "source_target_id": "research_analysis_deliberation",
+      "last_updated": "2026-06-14T14:36:06.524408+00:00"
+    },
+    "belief:implementation_review_deliberation": {
+      "belief_id": "belief:implementation_review_deliberation",
+      "statement": "Skill Implementation Review Deliberation Skill remains useful across its task types",
+      "confidence": 0.7071999999999999,
+      "reality_score": 75.0,
+      "challenge_count": 0,
+      "status": "active",
+      "source_target_id": "implementation_review_deliberation",
+      "last_updated": "2026-06-14T14:36:06.507891+00:00"
+    }
+  },
+  "fitness": [
+    {
+      "target_id": "dmn",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "benchmarks",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "tests",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "guardian_logs",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "playbooks",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "skills",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "failure_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "verification_reports",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "future_external",
+      "target_type": "source",
+      "fitness_score": 94.45,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "architecture_review",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_policy",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "security_audit",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "implementation_review",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "research_synthesis",
+      "target_type": "playbook",
+      "fitness_score": 25.0,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "architecture_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "debugging_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "provider_policy_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "memory_mutation_deliberation",
+      "target_type": "skill",
+      "fitness_score": 46.41,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "credential_sensitive_deliberation",
+      "target_type": "skill",
+      "fitness_score": 91.16,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "state_changing_deliberation",
+      "target_type": "skill",
+      "fitness_score": 46.41,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "research_analysis_deliberation",
+      "target_type": "skill",
+      "fitness_score": 90.66,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    },
+    {
+      "target_id": "implementation_review_deliberation",
+      "target_type": "skill",
+      "fitness_score": 91.22,
+      "trend": "stable",
+      "reasoning": [
+        "fitness uses current target outcome, historical quality, and verification signals"
+      ]
+    }
+  ],
+  "echo": {
+    "echo_risk": 0.8,
+    "reason": "high confidence; low source diversity; high self-reference"
+  },
+  "governance": {
+    "advisory_only": true,
+    "may_override_guardian": false,
+    "may_modify_provider_permissions": false,
+    "may_execute_actions": false
+  }
+}
