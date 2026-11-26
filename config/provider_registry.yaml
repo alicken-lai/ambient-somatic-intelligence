@@ -23,7 +23,7 @@ providers:
     latency_tier: low
     context_window: 128000
     health_check_endpoint: /health
-    fallback_provider: openrouter
+    fallback_provider: freellmapi
     allow_cloud: true
     requires_auth: false
 
@@ -55,6 +55,65 @@ providers:
     latency_tier: medium
     context_window: 200000
     health_check_endpoint: /models
+    allow_cloud: true
+    requires_auth: true
+
+  freellmapi:
+    enabled: true
+    type: openai-compatible
+    base_url: http://127.0.0.1:31415/v1
+    api_key_env: FREELLMAPI_API_KEY
+    default_model: auto
+    available_models:
+      - auto
+    capabilities:
+      - general_reasoning
+      - coding
+      - synthesis
+      - architecture_design
+      - creative_generation
+      - fast_answer
+      - cheap_batch
+    priority: 20
+    cost_tier: low
+    latency_tier: medium
+    health_check_endpoint: /models
+    # The local bridge can forward to cloud upstreams; it is not local-sensitive.
+    # auto/cost_tier do not guarantee free billing. Configure free-only upstreams.
+    allow_cloud: true
+    requires_auth: true
+
+  teamorouter:
+    enabled: false
+    type: openai-compatible
+    base_url: https://api.teamorouter.com/v1
+    api_key_env: TEAMOROUTER_API_KEY
+    default_model: deepseek-v4-flash-free
+    available_models:
+      - deepseek-v4-flash-free
+      - deepseek-v4-pro-free
+      - deepseek-v4-flash
+      - deepseek-v4-pro
+    model_aliases:
+      deepseek_flash_free: deepseek-v4-flash-free
+      deepseek_pro_free: deepseek-v4-pro-free
+      deepseek_flash: deepseek-v4-flash
+      deepseek_pro: deepseek-v4-pro
+    capabilities:
+      - general_reasoning
+      - coding
+      - synthesis
+      - architecture_design
+      - long_context
+      - creative_generation
+      - fast_answer
+      - cheap_batch
+    priority: 20
+    cost_tier: low
+    latency_tier: medium
+    context_window: 1000000
+    health_check_endpoint: /v1/models
+    fallback_provider: local_ollama_worker
     allow_cloud: true
     requires_auth: true
 
@@ -191,7 +250,7 @@ providers:
     latency_tier: medium
     context_window: 200000
     health_check_endpoint: /health
-    fallback_provider: openrouter
+    fallback_provider: freellmapi
     allow_cloud: false
     requires_auth: false
 
@@ -237,7 +296,7 @@ providers:
     latency_tier: medium
     context_window: 128000
     health_check_endpoint: /health
-    fallback_provider: openrouter
+    fallback_provider: freellmapi
     allow_cloud: false
     requires_auth: false
 
@@ -260,6 +319,6 @@ providers:
     latency_tier: low
     context_window: 32768
     health_check_endpoint: /models
-    fallback_provider: openrouter
+    fallback_provider: freellmapi
     allow_cloud: false
     requires_auth: false

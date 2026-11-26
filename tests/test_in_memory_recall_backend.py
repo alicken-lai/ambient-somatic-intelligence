@@ -201,4 +201,3 @@ def test_no_production_behavior_is_modified() -> None:
     caps = InMemoryRecallBackend().capabilities()
     assert caps["production_default"] is False
     assert caps["backend"] == BACKEND_NAME
-

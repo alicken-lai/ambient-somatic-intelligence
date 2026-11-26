@@ -1,8 +1,8 @@
 routing_rules:
   general_reasoning:
     prefer:
+      - freellmapi
       - copilot
-      - openrouter.claude_sonnet
       - local_ollama_worker
     required_capabilities:
       - general_reasoning
@@ -32,8 +32,7 @@ routing_rules:
   architecture_design:
     prefer:
       - copilot
-      - openrouter.claude_opus
-      - openrouter.claude_sonnet
+      - freellmapi
       - claude_desktop_worker
     required_capabilities:
       - architecture_design
@@ -42,8 +41,6 @@ routing_rules:
   long_context_review:
     prefer:
       - claude_desktop_worker
-      - openrouter.claude_opus
-      - openrouter.claude_sonnet
       - copilot
     required_capabilities:
       - long_context
@@ -51,16 +48,17 @@ routing_rules:
 
   fast_answer:
     prefer:
+      - freellmapi
       - copilot
       - local_ollama_worker
       - grok_cli_worker
-      - openrouter.deepseek
     required_capabilities:
       - fast_answer
     max_cost_tier: medium
 
   cheap_batch:
     prefer:
+      - freellmapi
       - local_ollama_worker
     required_capabilities:
       - cheap_batch
@@ -69,7 +67,7 @@ routing_rules:
   creative_generation:
     prefer:
       - grok_cli_worker
-      - openrouter.claude_sonnet
+      - freellmapi
       - copilot
     required_capabilities:
       - creative_generation

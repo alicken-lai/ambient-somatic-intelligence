@@ -201,4 +201,3 @@ def test_backend_neutrality() -> None:
     assert "turbovec" not in source
     assert "ryancodrai" not in source
     assert "turboquant" not in source
-

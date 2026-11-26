@@ -820,4 +820,3 @@ def operational_main(*_args, **_kwargs) -> dict:
         "os_execution_enabled": False,
         "launch_retries": 0,
     }
-

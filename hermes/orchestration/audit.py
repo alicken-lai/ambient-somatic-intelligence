@@ -39,7 +39,8 @@ SECRET_VALUE_PATTERNS = (
         r'(?i)"(token|password|api_key|apikey|authorization)"\s*:\s*"(?:\\"|[^"])*"'
     ),
     re.compile(
-        r"(?i)\b(api_key|apikey|token|password|authorization)\s*[:=]\s*(Bearer\s+)?[^\s,;}]+" 
+        r"(?i)\b(api_key|apikey|token|password|authorization)\s*[:=]\s*"
+        r"(Bearer\s+)?[^\s,;}]+"
     ),
 )
 
